@@ -1213,7 +1213,8 @@ var CONTACTS={
      Події йдуть у dataLayer (Google Tag Manager), у gtag (Google Ads / GA4) і fbq (Meta), якщо вони підключені.
      Щоб підключити: вставити тег GA4/Google Ads або GTM у <head> — події call / telegram / lead з'являться самі. */
   window.dataLayer=window.dataLayer||[];
-  function conv(name,extra){var d={event:'prmax_conv',conv:name};for(var k in (extra||{}))d[k]=extra[k];dataLayer.push(d);try{if(typeof gtag==='function')gtag('event',name,extra||{});if(typeof fbq==='function')fbq('trackCustom','PRMAX_'+name,extra||{});}catch(e){}}
+  var TTQ_EV={call:'Contact',telegram:'ClickButton',lead:'SubmitForm'};
+  function conv(name,extra){var d={event:'prmax_conv',conv:name};for(var k in (extra||{}))d[k]=extra[k];dataLayer.push(d);try{if(typeof gtag==='function')gtag('event',name,extra||{});if(typeof fbq==='function')fbq('trackCustom','PRMAX_'+name,extra||{});if(typeof ttq!=='undefined'&&TTQ_EV[name])ttq.track(TTQ_EV[name],extra||{});}catch(e){}}
   window.prmaxConv=conv;
 
   /* Contacts */
@@ -1410,6 +1411,7 @@ var CONTACTS={
   function leadText(d){return 'Нова заявка — сайт PRMAX\n'+(d.name?"Ім'я: "+d.name+'\n':'')+'Телефон: '+d.phone+'\n'+(d.tg?'Telegram: '+d.tg+'\n':'')+(d.niche?'Ніша: '+d.niche+'\n':'')+(d.city?'Місто: '+d.city+'\n':'')+'Форма: '+d.form+'\nСторінка: '+location.href}
   function sendLead(d){
     conv('lead',{niche:d.niche||'',city:d.city||'',form:d.form});
+    d.page=location.href;d.ua=navigator.userAgent.slice(0,120);
     try{localStorage.setItem('prmax_lead',JSON.stringify(d))}catch(e){}
     var txt=leadText(d),ps=[];
     if(LEAD.endpoint)ps.push(fetch(LEAD.endpoint,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},body:JSON.stringify(d)}));
