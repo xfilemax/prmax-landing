@@ -1,0 +1,1133 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>PR-Max — сайт + реклама Google під ключ за $300</title>
+<meta name="description" content="Односторінковий сайт під вашу послугу і налаштована реклама Google у вашому місті. Під ключ до 7 днів, один платіж $300. Вся Україна та Європа.">
+<meta name="theme-color" content="#08080A">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700;800&family=Onest:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap">
+<style>
+/* Layout: brand black + PR MAX orange; 1200px column; hero = thesis left, live "search → ad → site → call" demo right */
+:root{
+  --bg:#08080A;--bg2:#0E0E11;--card:#131317;--card2:#1A1A20;
+  --line:rgba(255,255,255,.08);--line2:rgba(255,255,255,.15);
+  --fg:#F6F6F7;--muted:#A6A6B0;--dim:#70707A;
+  --o1:#FFB038;--o2:#FF7A00;--o3:#FF4D00;
+  --og:linear-gradient(135deg,#FFB038 0%,#FF7A00 45%,#FF4D00 100%);
+  --green:#2BD46F;
+  --disp:'Jost',system-ui,sans-serif;--body:'Onest',system-ui,-apple-system,'Segoe UI',sans-serif;--num:'Oswald','Arial Narrow',Impact,sans-serif;
+  --ease:cubic-bezier(.2,.75,.2,1);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,video,svg{display:block;max-width:100%}
+[hidden]{display:none!important}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit}
+h1,h2,h3,h4{font-family:var(--disp);font-weight:700;letter-spacing:-.015em;line-height:1.08;margin:0;text-wrap:balance}
+p{margin:0}
+.wrap{max-width:1240px;margin:0 auto;padding-inline:max(20px,env(safe-area-inset-left,0px))}
+.og-text{background:var(--og);-webkit-background-clip:text;background-clip:text;color:transparent}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--disp);font-size:13px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--o1)}
+.eyebrow::before{content:"";width:26px;height:2px;border-radius:2px;background:var(--og)}
+.sec{padding-block:120px;position:relative}
+.sec-head{max-width:760px}
+.sec-head h2{font-size:clamp(32px,4.4vw,58px);margin-top:18px}
+.sec-head p{color:var(--muted);font-size:19px;margin-top:20px;max-width:40em}
+.center{text-align:center;margin-inline:auto}
+.center .eyebrow{justify-content:center}
+.center p{margin-inline:auto}
+.tag-ex{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);border:1px solid var(--line2);border-radius:6px;padding:2px 7px}
+sup{font-size:.55em;color:var(--o1)}
+
+/* Buttons */
+.btn{--mx:0px;--my:0px;position:relative;isolation:isolate;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:19px 30px;border-radius:999px;font-family:var(--disp);font-weight:700;font-size:17px;letter-spacing:.01em;border:1px solid transparent;cursor:pointer;transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s,color .3s,background .3s;white-space:nowrap;transform:translate(var(--mx),var(--my))}
+.btn svg{width:20px;height:20px;flex:0 0 auto;transition:transform .3s var(--ease)}
+.btn:hover svg.arr{transform:translateX(5px)}
+.btn-o{background:var(--og);color:#170800;box-shadow:0 14px 40px -8px rgba(255,106,0,.55),inset 0 1px 0 rgba(255,255,255,.45)}
+.btn-o::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(110deg,transparent 25%,rgba(255,255,255,.55) 50%,transparent 75%);transform:translateX(-130%);animation:sweep 4.5s var(--ease) infinite 1.5s}
+.btn-o:hover{box-shadow:0 20px 60px -8px rgba(255,106,0,.75),inset 0 1px 0 rgba(255,255,255,.45)}
+@keyframes sweep{0%{transform:translateX(-130%)}35%,100%{transform:translateX(130%)}}
+.btn-g{background:rgba(255,255,255,.04);border-color:var(--line2);color:var(--fg);backdrop-filter:blur(10px)}
+.btn-g:hover{border-color:var(--o2);color:var(--o1)}
+.btn-g .play{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:rgba(255,122,0,.16);border:1px solid rgba(255,122,0,.4)}
+.btn-g .play svg{width:12px;height:12px;fill:var(--o1);stroke:none;margin-left:2px}
+:focus-visible{outline:2px solid var(--o1);outline-offset:3px}
+
+/* Reveal */
+html.js .rv{opacity:0;transform:translateY(36px);transition:opacity 1s var(--ease),transform 1s var(--ease);transition-delay:var(--d,0s)}
+html.js .rv.in{opacity:1;transform:none}
+html.js .rv-scale{opacity:0;transform:scale(.94) translateY(30px);transition:opacity 1.1s var(--ease),transform 1.1s var(--ease);transition-delay:var(--d,0s)}
+html.js .rv-scale.in{opacity:1;transform:none}
+
+/* Preloader */
+#pre{position:fixed;inset:0;z-index:100;background:var(--bg);display:grid;place-items:center;transition:opacity .6s var(--ease),visibility .6s}
+#pre.out{opacity:0;visibility:hidden}
+#pre svg{width:120px;height:auto;filter:drop-shadow(0 0 40px rgba(255,106,0,.6))}
+#pre .t1{transform-origin:60% 50%;animation:preA 1s var(--ease) both}
+#pre .t2{transform-origin:20% 80%;animation:preA 1s var(--ease) .15s both}
+@keyframes preA{from{opacity:0;transform:scale(.4) rotate(-20deg)}to{opacity:1;transform:none}}
+
+/* Header */
+.hdr{position:fixed;top:0;left:0;right:0;z-index:50;transition:background .4s,border-color .4s,backdrop-filter .4s;border-bottom:1px solid transparent}
+.hdr.sc{background:rgba(8,8,10,.78);backdrop-filter:blur(16px) saturate(1.4);border-color:var(--line)}
+.hdr .wrap{display:flex;align-items:center;gap:28px;height:84px;transition:height .4s var(--ease)}
+.hdr.sc .wrap{height:70px}
+.logo{display:flex;align-items:center;flex:0 0 auto}
+.logo img{height:54px;width:auto;transition:height .4s var(--ease)}
+.hdr.sc .logo img{height:44px}
+.menu{display:flex;gap:30px;margin-left:auto;font-weight:500;font-size:15px;color:var(--muted)}
+.menu a{position:relative;transition:color .25s}
+.menu a::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;background:var(--og);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
+.menu a:hover{color:var(--fg)}
+.menu a:hover::after{transform:scaleX(1)}
+.hdr-ph{font-family:var(--disp);font-weight:600;font-size:16px;display:flex;align-items:center;gap:8px;white-space:nowrap}
+.hdr-ph svg{width:18px;height:18px;stroke:var(--o1)}
+.hdr .btn{padding:13px 22px;font-size:15px}
+.prog{position:absolute;left:0;bottom:-1px;height:2px;width:100%;background:var(--og);transform:scaleX(0);transform-origin:left}
+@media (max-width:1100px){.menu{display:none}.hdr-ph{margin-left:auto}}
+@media (max-width:640px){.hdr-ph{display:none}.hdr .btn{margin-left:auto;padding:11px 18px;font-size:14px}.logo img,.hdr.sc .logo img{height:42px}.hdr .wrap{height:70px}}
+
+/* Hero */
+.hero{position:relative;min-height:100vh;padding-top:84px;overflow:hidden;isolation:isolate;display:flex;align-items:center}
+.hero-bg{position:absolute;inset:0;z-index:-1;pointer-events:none}
+.hero-bg .grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:64px 64px;-webkit-mask-image:radial-gradient(ellipse 80% 70% at 65% 35%,#000 0%,transparent 72%);mask-image:radial-gradient(ellipse 80% 70% at 65% 35%,#000 0%,transparent 72%)}
+.blob{position:absolute;border-radius:50%;filter:blur(90px);opacity:.55;will-change:transform}
+.blob.b1{width:620px;height:620px;right:-120px;top:-60px;background:radial-gradient(circle,#FF6A00,transparent 65%);animation:drift1 16s ease-in-out infinite}
+.blob.b2{width:480px;height:480px;left:-160px;bottom:-160px;background:radial-gradient(circle,#FF4D00,transparent 65%);opacity:.35;animation:drift2 19s ease-in-out infinite}
+.blob.b3{width:360px;height:360px;left:38%;top:30%;background:radial-gradient(circle,#FFB038,transparent 65%);opacity:.18;animation:drift1 22s ease-in-out infinite reverse}
+@keyframes drift1{0%,100%{transform:translate(0,0)}50%{transform:translate(-80px,60px)}}
+@keyframes drift2{0%,100%{transform:translate(0,0)}50%{transform:translate(90px,-50px)}}
+.hero-bg .spot{position:absolute;inset:0;background:radial-gradient(600px 460px at var(--sx,70%) var(--sy,40%),rgba(255,138,0,.13),transparent 65%)}
+.hero-bg .tri{position:absolute;right:4%;top:50%;width:min(760px,62vw);transform:translateY(-50%);opacity:.07;animation:floatTri 14s ease-in-out infinite}
+@keyframes floatTri{0%,100%{transform:translateY(-50%) rotate(0)}50%{transform:translateY(-53%) rotate(-3deg)}}
+.noise{position:absolute;inset:0;opacity:.06;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.hero .wrap{display:grid;grid-template-columns:1.02fr .98fr;gap:48px;align-items:center;padding-block:36px 80px;width:100%}
+.pill{display:inline-flex;align-items:center;gap:10px;padding:8px 16px 8px 10px;border-radius:999px;background:rgba(255,255,255,.04);border:1px solid var(--line2);font-size:14px;font-weight:500;color:var(--muted);backdrop-filter:blur(8px)}
+.pill .dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 0 rgba(43,212,111,.6);animation:ping 2s infinite}
+@keyframes ping{0%{box-shadow:0 0 0 0 rgba(43,212,111,.55)}100%{box-shadow:0 0 0 12px rgba(43,212,111,0)}}
+.pill b{color:var(--fg);font-weight:600;white-space:nowrap}
+@media (max-width:560px){.pill{font-size:13px;flex-wrap:wrap;row-gap:0;border-radius:18px;padding:8px 14px}.pill span:last-child{flex-basis:100%;padding-left:18px}}
+.hero h1{font-size:clamp(38px,min(5.2vw,8.6vh),74px);line-height:1.02;letter-spacing:-.025em;margin-top:26px;font-weight:700}
+.hero h1 .line{display:block;overflow:hidden;padding-bottom:.06em}
+.hero h1 .line>span{display:inline-block;animation:lineUp 1.1s var(--ease) both}
+.hero h1 .line:nth-child(2)>span{animation-delay:.12s}
+.hero h1 .line:nth-child(3)>span{animation-delay:.24s}
+@keyframes lineUp{from{transform:translateY(105%)}to{transform:none}}
+.hero .lead{font-size:clamp(17px,1.5vw,20px);color:var(--muted);max-width:34em;margin-top:26px;animation:fadeUp 1s var(--ease) .4s both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+.offer{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:30px;animation:fadeUp 1s var(--ease) .5s both}
+.price-chip{display:flex;align-items:baseline;gap:14px;padding:12px 22px 12px 18px;border-radius:18px;background:linear-gradient(180deg,rgba(255,122,0,.14),rgba(255,122,0,.04));border:1px solid rgba(255,122,0,.35)}
+.price-chip s{font-family:var(--num);font-size:24px;color:var(--dim);text-decoration-color:var(--o3);text-decoration-thickness:2px}
+.price-chip b{font-family:var(--num);font-size:42px;font-weight:700;line-height:1}
+.price-chip span{font-size:14px;color:var(--muted);line-height:1.3}
+.cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px;animation:fadeUp 1s var(--ease) .6s both}
+.trust{display:grid;grid-template-columns:repeat(3,auto);justify-content:start;gap:12px 40px;margin-top:44px;padding-top:28px;border-top:1px solid var(--line);animation:fadeUp 1s var(--ease) .7s both}
+.trust b{display:block;font-family:var(--num);font-size:30px;font-weight:600;line-height:1;letter-spacing:.01em}
+.trust>div>span{display:block;font-size:14px;color:var(--muted);margin-top:8px;line-height:1.35;max-width:14em}
+@media (max-width:1100px){
+  .hero{min-height:0}
+  .hero .wrap{grid-template-columns:1fr;padding-block:40px 70px}
+}
+@media (max-width:560px){.trust{grid-template-columns:1fr 1fr}.trust>div:last-child{grid-column:1/-1}.cta-row .btn{width:100%}}
+
+/* Hero demo */
+.demo{--ph:clamp(500px,calc(100vh - 150px),590px);position:relative;height:calc(var(--ph) + 50px);perspective:1400px;animation:fadeUp 1.2s var(--ease) .3s both}
+.demo-label{position:absolute;right:6px;top:-6px;z-index:6}
+.d-search{position:absolute;left:0;top:28px;width:min(420px,78%);z-index:4;background:#fff;color:#202124;border-radius:999px;padding:14px 20px;display:flex;align-items:center;gap:12px;box-shadow:0 24px 60px -12px rgba(0,0,0,.7);font-size:16px}
+.d-search svg{width:20px;height:20px;stroke:#5f6368;flex:0 0 auto}
+.d-search .q{white-space:nowrap;overflow:hidden}
+.d-search .caret{width:2px;height:20px;background:#1a73e8;animation:blink 1s steps(2) infinite;flex:0 0 auto;margin-left:-8px}
+@keyframes blink{50%{opacity:0}}
+.d-ad{position:absolute;left:0;top:100px;width:min(420px,78%);z-index:4;background:#fff;color:#202124;border-radius:20px;padding:18px 20px 18px;box-shadow:0 40px 90px -16px rgba(0,0,0,.75);font-size:14px;line-height:1.45;transition:opacity .45s var(--ease),transform .45s var(--ease)}
+.d-ad.hide{opacity:0;transform:translateY(14px) scale(.98)}
+.d-ad .spons{font-weight:700;font-size:13px;color:#202124}
+.d-ad .site{display:flex;align-items:center;gap:10px;margin-top:8px}
+.d-ad .fav{width:28px;height:28px;border-radius:50%;background:#FFF1E6;display:grid;place-items:center;color:#FF6A00;font-weight:800;font-size:12px;font-family:var(--disp)}
+.d-ad .site b{display:block;font-weight:500;font-size:14px;color:#202124}
+.d-ad .site small{display:block;color:#4d5156;font-size:12px}
+.d-ad .title{color:#1a0dab;font-size:19px;line-height:1.3;margin-top:10px;font-weight:500}
+.d-ad .desc{color:#4d5156;margin-top:6px}
+.d-ad .links{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.d-ad .links span{border:1px solid #dadce0;border-radius:999px;padding:4px 12px;font-size:13px;color:#1a0dab}
+.d-arrow{position:absolute;left:34%;top:calc(var(--ph) * .52);width:120px;z-index:5;pointer-events:none}
+.d-arrow path{fill:none;stroke:var(--o1);stroke-width:2.5;stroke-linecap:round;stroke-dasharray:6 8;animation:dash 1.4s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-28}}
+.d-phone{position:absolute;right:0;top:40px;height:var(--ph);width:calc(var(--ph) * .49);z-index:3;border-radius:48px;background:linear-gradient(145deg,#2a2a31,#0c0c0f);padding:11px;box-shadow:0 60px 120px -20px rgba(0,0,0,.85),0 0 0 1px rgba(255,255,255,.08),inset 0 0 0 1px rgba(255,255,255,.05),0 0 120px -20px rgba(255,106,0,.35);transform-style:preserve-3d;transition:transform .5s var(--ease)}
+.d-phone .scr{position:relative;height:100%;border-radius:38px;overflow:hidden;background:#0b0b0d}
+.d-phone .isl{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:92px;height:26px;border-radius:20px;background:#000;z-index:5}
+.d-phone .stat{position:absolute;top:12px;left:26px;right:24px;display:flex;justify-content:space-between;font-size:12px;font-weight:600;z-index:4}
+.ps{position:absolute;inset:0;transition:opacity .4s var(--ease),transform .5s var(--ease)}
+.ps.swap{opacity:0;transform:scale(1.04)}
+.ps .ph{position:absolute;inset:0 0 44%;background-size:cover;background-position:center}
+.ps .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,.1) 40%,#0b0b0d 100%)}
+.ps .bar{position:absolute;top:46px;left:16px;right:16px;display:flex;justify-content:space-between;align-items:center;font-family:var(--disp);font-weight:700;font-size:13px;z-index:2}
+.ps .bar i{width:30px;height:30px;border-radius:50%;background:var(--og);display:grid;place-items:center}
+.ps .bar i svg{width:14px;height:14px;stroke:#170800}
+.ps .body{position:absolute;left:18px;right:18px;bottom:22px;z-index:2}
+.ps .body small{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--o1);font-weight:700}
+.ps .body h4{font-size:22px;line-height:1.12;margin-top:8px}
+.ps .body p{font-size:12px;color:var(--muted);margin-top:8px;line-height:1.45}
+.ps .call{margin-top:14px;background:var(--og);color:#170800;border-radius:16px;padding:14px;text-align:center;font-weight:700;font-family:var(--disp);font-size:14px;display:flex;align-items:center;justify-content:center;gap:8px;animation:callPulse 2.4s ease-in-out infinite}
+.ps .call svg{width:16px;height:16px;stroke:#170800}
+@keyframes callPulse{0%,100%{box-shadow:0 0 0 0 rgba(255,122,0,.5)}50%{box-shadow:0 0 0 10px rgba(255,122,0,0)}}
+.ps .row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+.ps .row span{border:1px solid var(--line2);border-radius:14px;padding:10px;text-align:center;font-size:12px;font-weight:600}
+.d-toast{position:absolute;left:2%;bottom:20px;z-index:6;width:min(330px,72%);display:flex;align-items:center;gap:14px;padding:14px 16px;border-radius:20px;background:rgba(22,22,27,.92);border:1px solid var(--line2);backdrop-filter:blur(16px);box-shadow:0 30px 70px -10px rgba(0,0,0,.8);transition:opacity .5s var(--ease),transform .5s var(--ease)}
+.d-toast.hide{opacity:0;transform:translateY(20px) scale(.95)}
+.d-toast .ic{width:46px;height:46px;border-radius:50%;background:var(--green);display:grid;place-items:center;flex:0 0 auto;animation:ring 1.2s ease-in-out infinite}
+.d-toast .ic svg{width:22px;height:22px;stroke:#04210f;stroke-width:2.2}
+@keyframes ring{0%,100%{transform:rotate(0)}10%{transform:rotate(-14deg)}20%{transform:rotate(12deg)}30%{transform:rotate(-10deg)}40%{transform:rotate(6deg)}50%{transform:rotate(0)}}
+.d-toast b{display:block;font-size:15px;font-family:var(--disp)}
+.d-toast span{display:block;font-size:13px;color:var(--muted);line-height:1.35}
+@media (max-width:1100px){
+  .demo{height:auto;display:grid;gap:16px;justify-items:center;padding-top:28px}
+  .demo-label{position:static;justify-self:start}
+  .d-search,.d-ad,.d-toast{position:relative;left:auto;top:auto;bottom:auto;width:100%;max-width:520px}
+  .d-arrow{display:none}
+  .d-phone{position:relative;right:auto;top:auto;width:280px;height:560px;order:5}
+  .d-toast{order:6;margin-top:-90px}
+}
+
+/* Logos marquee */
+.logos{padding-block:40px 30px;border-block:1px solid var(--line);background:var(--bg2)}
+.logos .cap{text-align:center;color:var(--dim);font-size:14px;letter-spacing:.06em;text-transform:uppercase;font-weight:600}
+.marq{overflow:hidden;margin-top:24px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+.track{display:flex;align-items:center;gap:72px;width:max-content;animation:scrollX 38s linear infinite}
+.marq:hover .track{animation-play-state:paused}
+.track img{height:46px;width:auto;object-fit:contain;filter:grayscale(1) brightness(1.6);opacity:.55;transition:filter .4s,opacity .4s}
+.track img:hover{filter:none;opacity:1}
+@keyframes scrollX{to{transform:translateX(-50%)}}
+
+/* Why Google */
+.why{display:grid;grid-template-columns:.95fr 1.05fr;gap:56px;align-items:center;margin-top:64px}
+.big-stat{position:relative;padding:48px 44px;border-radius:32px;background:radial-gradient(120% 90% at 0% 0%,rgba(255,122,0,.22),transparent 55%),var(--card);border:1px solid var(--line);overflow:hidden}
+.big-stat .n{font-family:var(--num);font-size:clamp(88px,11vw,156px);font-weight:700;line-height:1.05;padding-bottom:.06em;letter-spacing:-.01em}
+.big-stat .n small{font-size:.45em;margin-left:4px}
+.big-stat p{font-size:20px;margin-top:20px;max-width:18em}
+.big-stat .src{display:inline-flex;gap:8px;align-items:center;margin-top:22px;font-size:13px;color:var(--dim);border-bottom:1px dashed var(--line2);padding-bottom:2px}
+.big-stat .src:hover{color:var(--o1)}
+.big-stat .bars{display:grid;gap:10px;margin-top:30px}
+.big-stat .bar{display:grid;grid-template-columns:110px 1fr 64px;align-items:center;gap:14px;font-size:14px;color:var(--muted)}
+.big-stat .bar i{display:block;height:10px;border-radius:10px;background:rgba(255,255,255,.07);overflow:hidden}
+.big-stat .bar i::before{content:"";display:block;height:100%;width:var(--w);border-radius:inherit;background:var(--c,rgba(255,255,255,.28));transform:scaleX(0);transform-origin:left;transition:transform 1.6s var(--ease) .3s}
+.big-stat.in .bar i::before{transform:scaleX(1)}
+.big-stat .bar:first-child{color:var(--fg);font-weight:600}
+.big-stat .bar:first-child i::before{--c:var(--og);background:var(--og)}
+.big-stat .bar em{font-style:normal;text-align:right;font-family:var(--num);font-size:16px}
+.why-list{display:grid;gap:18px}
+.wi{display:grid;grid-template-columns:64px 1fr;gap:22px;padding:28px;border-radius:24px;background:var(--card);border:1px solid var(--line);transition:border-color .35s,transform .35s var(--ease),background .35s}
+.wi:hover{border-color:rgba(255,122,0,.45);transform:translateX(8px);background:var(--card2)}
+.wi .ic{width:64px;height:64px;border-radius:18px;display:grid;place-items:center;background:rgba(255,122,0,.1);border:1px solid rgba(255,122,0,.3)}
+.wi .ic svg{width:28px;height:28px;stroke:var(--o1);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.wi h3{font-size:22px}
+.wi p{color:var(--muted);margin-top:8px;font-size:16px}
+@media (max-width:980px){.why{grid-template-columns:1fr}.big-stat{padding:36px 26px}.big-stat .bar{grid-template-columns:90px 1fr 56px}}
+
+/* Niches */
+.niches{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:300px;gap:18px;margin-top:60px}
+.nc{position:relative;border-radius:26px;overflow:hidden;isolation:isolate;border:1px solid var(--line);cursor:pointer;background:#111}
+.nc img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform 1.2s var(--ease),filter .6s}
+.nc::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(8,8,10,.15) 0%,rgba(8,8,10,.2) 40%,rgba(8,8,10,.92) 100%);transition:background .5s}
+.nc::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 2px transparent;transition:box-shadow .4s}
+.nc:hover img{transform:scale(1.08);filter:saturate(1.15)}
+.nc:hover::after{box-shadow:inset 0 0 0 2px var(--o2)}
+.nc:hover::before{background:linear-gradient(180deg,rgba(255,90,0,.08) 0%,rgba(8,8,10,.25) 40%,rgba(8,8,10,.95) 100%)}
+.nc .q{position:absolute;top:18px;left:18px;right:18px;display:flex;align-items:center;gap:8px;padding:9px 14px;border-radius:999px;background:rgba(255,255,255,.92);color:#202124;font-size:13px;font-weight:500;width:max-content;max-width:calc(100% - 36px);box-shadow:0 10px 30px rgba(0,0,0,.35);transform:translateY(-8px);opacity:0;transition:opacity .45s var(--ease),transform .45s var(--ease)}
+.nc .q svg{width:14px;height:14px;stroke:#5f6368;flex:0 0 auto}
+.nc:hover .q,.nc:focus-visible .q{opacity:1;transform:none}
+.nc .cap{position:absolute;left:22px;right:22px;bottom:20px}
+.nc .cap h3{font-size:24px}
+.nc .cap span{display:flex;align-items:center;gap:8px;color:var(--o1);font-size:14px;font-weight:600;margin-top:6px;opacity:.9}
+.nc .cap span svg{width:16px;height:16px;transition:transform .35s var(--ease)}
+.nc:hover .cap span svg{transform:translateX(6px)}
+.nc.wide{grid-column:span 2}
+.nc.cta{display:flex;flex-direction:column;justify-content:space-between;padding:28px;background:radial-gradient(120% 120% at 100% 0%,rgba(255,122,0,.35),transparent 60%),var(--card)}
+.nc.cta::before{display:none}
+.nc.cta h3{font-size:30px;max-width:10em}
+.nc.cta p{color:var(--muted);margin-top:10px;font-size:16px}
+.nc.cta .btn{align-self:flex-start}
+@media (max-width:1100px){.niches{grid-template-columns:repeat(2,1fr);grid-auto-rows:260px}}
+@media (max-width:560px){.niches{grid-template-columns:1fr;grid-auto-rows:240px}.nc.wide{grid-column:auto}.nc .q{opacity:1;transform:none}.nc.cta{grid-row:span 1;min-height:280px}}
+
+/* Process */
+.process{background:var(--bg2);border-block:1px solid var(--line);overflow:hidden}
+.process::before{content:"";position:absolute;inset:auto -10% -60% -10%;height:100%;background:radial-gradient(50% 50% at 50% 100%,rgba(255,106,0,.16),transparent 70%);pointer-events:none}
+.steps{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:80px}
+.steps .rail{position:absolute;left:0;right:0;top:44px;height:2px;background:var(--line2)}
+.steps .rail i{position:absolute;inset:0;background:var(--og);transform-origin:left;transform:scaleX(var(--p,0));box-shadow:0 0 18px rgba(255,122,0,.8)}
+.st{position:relative;padding-right:10px}
+.st .num{width:88px;height:88px;border-radius:50%;display:grid;place-items:center;background:var(--bg);border:1px solid var(--line2);font-family:var(--num);font-size:34px;font-weight:600;position:relative;transition:border-color .5s,box-shadow .5s,color .5s}
+.st.on .num{border-color:var(--o2);box-shadow:0 0 0 8px rgba(255,122,0,.1),0 0 50px rgba(255,106,0,.5);color:var(--o1)}
+.st .day{display:inline-block;margin-top:28px;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--o1)}
+.st h3{font-size:24px;margin-top:10px}
+.st p{color:var(--muted);margin-top:10px;font-size:16px}
+@media (max-width:980px){.steps{grid-template-columns:1fr;gap:36px;padding-left:110px}.steps .rail{left:44px;right:auto;top:0;bottom:0;width:2px;height:auto}.steps .rail i{transform-origin:top;transform:scaleY(var(--p,0))}.st .num{position:absolute;left:-110px;top:0}.st .day{margin-top:6px}}
+
+/* Included bento */
+.bento{display:grid;grid-template-columns:repeat(6,1fr);gap:18px;margin-top:60px}
+.bx{position:relative;border-radius:28px;background:var(--card);border:1px solid var(--line);padding:30px;overflow:hidden;transition:border-color .35s,transform .45s var(--ease)}
+.bx:hover{border-color:rgba(255,122,0,.4);transform:translateY(-6px)}
+.bx.s3{grid-column:span 3}.bx.s2{grid-column:span 2}.bx.s4{grid-column:span 4}
+.bx h3{font-size:23px}
+.bx p{color:var(--muted);margin-top:10px;font-size:16px;max-width:30em}
+.bx .vis{margin-top:26px}
+.mini-site{border-radius:16px;border:1px solid var(--line2);background:#0b0b0d;overflow:hidden}
+.mini-site .tb{display:flex;gap:6px;padding:10px 12px;border-bottom:1px solid var(--line)}
+.mini-site .tb i{width:9px;height:9px;border-radius:50%;background:var(--line2)}
+.mini-site .tb i:first-child{background:#ff5f57}.mini-site .tb i:nth-child(2){background:#febc2e}.mini-site .tb i:nth-child(3){background:#28c840}
+.mini-site .bd{display:grid;grid-template-columns:1.2fr 1fr;gap:16px;padding:18px;align-items:center}
+.mini-site .ln{height:10px;border-radius:6px;background:rgba(255,255,255,.12);margin-top:8px}
+.mini-site .ln.h{height:16px;background:rgba(255,255,255,.3);width:90%}
+.mini-site .ln.o{width:55%;height:30px;border-radius:999px;background:var(--og);margin-top:14px}
+.mini-site .img{aspect-ratio:4/3;border-radius:12px;background:url(img/niche/tow.webp) center/cover}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{padding:8px 14px;border-radius:999px;border:1px solid var(--line2);font-size:14px;color:var(--muted);background:rgba(255,255,255,.02)}
+.chips span.o{border-color:rgba(255,122,0,.5);color:var(--o1);background:rgba(255,122,0,.08)}
+.chips span.m{text-decoration:line-through;text-decoration-color:var(--o3);color:var(--dim)}
+.btns3{display:flex;gap:12px;flex-wrap:wrap}
+.btns3 span{display:flex;align-items:center;gap:10px;padding:14px 18px;border-radius:16px;font-weight:600;font-size:15px;border:1px solid var(--line2)}
+.btns3 span:first-child{background:var(--og);color:#170800;border-color:transparent}
+.btns3 svg{width:18px;height:18px}
+.chart{display:flex;align-items:flex-end;gap:10px;height:110px}
+.chart i{flex:1;border-radius:8px 8px 3px 3px;background:linear-gradient(180deg,var(--o2),rgba(255,106,0,.15));transform-origin:bottom;transform:scaleY(0);transition:transform 1.2s var(--ease)}
+.bx.in .chart i{transform:scaleY(1)}
+.gift{display:flex;align-items:center;gap:18px}
+.gift b{font-family:var(--num);font-size:56px;line-height:1}
+@media (max-width:980px){.bento{grid-template-columns:1fr 1fr}.bx.s3,.bx.s2,.bx.s4{grid-column:span 1}.bx.full-m{grid-column:1/-1}}
+@media (max-width:640px){.bento{grid-template-columns:1fr}.bx{padding:24px}.mini-site .bd{grid-template-columns:1fr}.mini-site .img{display:none}}
+
+/* Constructor */
+.builder{display:grid;grid-template-columns:.9fr 1.1fr;gap:40px;margin-top:60px;padding:40px;border-radius:36px;background:radial-gradient(90% 120% at 100% 0%,rgba(255,122,0,.16),transparent 55%),var(--card);border:1px solid var(--line)}
+.builder h3{font-size:22px}
+.b-label{display:block;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin:26px 0 12px}
+.b-label.first{margin-top:0}
+.nchips{display:flex;flex-wrap:wrap;gap:8px}
+.nchips button{padding:10px 16px;border-radius:999px;border:1px solid var(--line2);background:rgba(255,255,255,.02);color:var(--muted);font-size:15px;font-weight:500;cursor:pointer;transition:all .25s}
+.nchips button:hover{color:var(--fg);border-color:var(--o2)}
+.nchips button[aria-pressed=true]{background:var(--og);border-color:transparent;color:#170800;font-weight:700}
+.inp{width:100%;background:rgba(0,0,0,.35);border:1px solid var(--line2);color:var(--fg);border-radius:16px;padding:16px 18px;font-size:17px;font-family:var(--body);transition:border-color .2s,box-shadow .2s}
+.inp:focus{outline:none;border-color:var(--o2);box-shadow:0 0 0 4px rgba(255,122,0,.15)}
+.inp::placeholder{color:var(--dim)}
+.b-note{font-size:14px;color:var(--dim);margin-top:22px}
+.b-prev{display:grid;grid-template-columns:1fr 200px;gap:24px;align-items:center}
+.b-prev .d-ad{position:relative;left:auto;top:auto;width:100%}
+.b-phone{width:200px;height:410px;border-radius:36px;padding:8px;background:linear-gradient(145deg,#2a2a31,#0c0c0f);box-shadow:0 40px 80px -20px rgba(0,0,0,.8),0 0 0 1px rgba(255,255,255,.08)}
+.b-phone .scr{position:relative;height:100%;border-radius:29px;overflow:hidden;background:#0b0b0d}
+.b-phone .ps .bar{top:30px;font-size:11px}
+.b-phone .ps .bar i{width:24px;height:24px}
+.b-phone .ps .body h4{font-size:17px}
+.b-phone .ps .body p{font-size:11px}
+.b-phone .ps .call{padding:11px 8px;font-size:11.5px;white-space:nowrap}
+@media (max-width:1100px){.builder{grid-template-columns:1fr;padding:28px 22px}}
+@media (max-width:640px){.b-prev{grid-template-columns:1fr;justify-items:center}}
+
+/* Portfolio */
+.works{display:grid;grid-template-columns:repeat(6,1fr);gap:22px;margin-top:60px}
+.wk{grid-column:span 2;border-radius:28px;background:var(--card);border:1px solid var(--line);overflow:hidden;transition:transform .5s var(--ease),border-color .35s,box-shadow .5s}
+.wk.big{grid-column:span 3}
+.wk:hover{transform:translateY(-8px);border-color:rgba(255,122,0,.4);box-shadow:0 40px 80px -30px rgba(255,106,0,.35)}
+.wk .frame{position:relative;margin:14px 14px 0;border-radius:16px;overflow:hidden;background:#000;border:1px solid var(--line2)}
+.wk .frame .tb{display:flex;align-items:center;gap:6px;padding:9px 12px;background:#1b1b20}
+.wk .frame .tb i{width:9px;height:9px;border-radius:50%}
+.wk .frame .tb i:nth-child(1){background:#ff5f57}.wk .frame .tb i:nth-child(2){background:#febc2e}.wk .frame .tb i:nth-child(3){background:#28c840}
+.wk video{width:100%;aspect-ratio:756/356;object-fit:cover;background:#111}
+.wk .meta{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;padding:22px 24px 24px}
+.wk .meta small{display:block;font-size:13px;color:var(--o1);font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.wk .meta h3{font-size:22px;margin-top:6px}
+.wk .meta p{color:var(--muted);font-size:15px;margin-top:4px}
+.days{flex:0 0 auto;text-align:center;padding:10px 14px;border-radius:16px;background:rgba(255,122,0,.1);border:1px solid rgba(255,122,0,.3)}
+.days b{display:block;font-family:var(--num);font-size:30px;line-height:1}
+.days span{font-size:12px;color:var(--muted)}
+.wk .vbtn{display:inline-flex;align-items:center;gap:8px;margin-top:12px;font-size:14px;font-weight:600;color:var(--fg);cursor:pointer;background:none;border:0;padding:0}
+.wk .vbtn i{width:28px;height:28px;border-radius:50%;background:var(--og);display:grid;place-items:center}
+.wk .vbtn i svg{width:10px;height:10px;fill:#170800;margin-left:2px}
+.wk .vbtn:hover{color:var(--o1)}
+@media (max-width:1100px){.works{grid-template-columns:1fr 1fr}.wk,.wk.big{grid-column:span 1}}
+@media (max-width:680px){.works{grid-template-columns:1fr}}
+
+/* Reviews */
+.rv-hero{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;margin-top:60px;padding:48px;border-radius:36px;background:radial-gradient(90% 100% at 0% 100%,rgba(255,106,0,.18),transparent 60%),var(--card);border:1px solid var(--line)}
+.rv-hero blockquote{margin:0;font-family:var(--disp);font-size:clamp(24px,2.6vw,36px);line-height:1.25;font-weight:600}
+.rv-hero blockquote::before{content:"“";display:block;font-family:var(--num);font-size:110px;line-height:.6;height:48px;background:var(--og);-webkit-background-clip:text;background-clip:text;color:transparent}
+.rv-hero .who{display:flex;align-items:center;gap:14px;margin-top:28px}
+.av{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;font-family:var(--disp);font-weight:700;font-size:16px;background:var(--og);color:#170800;flex:0 0 auto}
+.rv-hero .who b{display:block;font-size:17px}
+.rv-hero .who div span{display:block;font-size:14px;color:var(--muted)}
+.tr-note{font-size:12px;color:var(--dim);margin-top:14px}
+.shot{position:relative;border-radius:30px;padding:8px;background:linear-gradient(145deg,#2a2a31,#0c0c0f);box-shadow:0 40px 90px -20px rgba(0,0,0,.85),0 0 0 1px rgba(255,255,255,.08);cursor:zoom-in;transition:transform .5s var(--ease)}
+.shot img{border-radius:23px;width:100%;height:auto}
+.shot:hover{transform:rotate(-1.5deg) scale(1.02)}
+.rv-hero .shot{max-width:330px;justify-self:center;transform:rotate(3deg)}
+.rv-hero .shot:hover{transform:rotate(0) scale(1.03)}
+.carousel{position:relative;margin-top:28px}
+.cards{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding:12px 2px 24px;scrollbar-width:none}
+.cards::-webkit-scrollbar{display:none}
+.rc{flex:0 0 min(360px,84vw);scroll-snap-align:start;border-radius:28px;background:var(--card);border:1px solid var(--line);padding:24px;display:flex;flex-direction:column;transition:border-color .35s}
+.rc:hover{border-color:rgba(255,122,0,.4)}
+.rc .shot{height:300px;overflow:hidden;padding:6px;border-radius:24px}
+.rc .shot img{border-radius:19px}
+.rc .shot::after{content:"";position:absolute;left:6px;right:6px;bottom:6px;height:90px;border-radius:0 0 19px 19px;background:linear-gradient(transparent,#0c0c0f)}
+.rc .shot:hover{transform:none}
+.rc p{font-size:16px;margin-top:20px;flex:1}
+.rc .who{display:flex;align-items:center;gap:12px;margin-top:18px;padding-top:18px;border-top:1px solid var(--line)}
+.rc .who .av{width:40px;height:40px;font-size:14px}
+.rc .who b{display:block;font-size:15px}
+.rc .who div span{display:block;font-size:13px;color:var(--muted)}
+.c-nav{display:flex;gap:10px;justify-content:flex-end;margin-top:28px}
+.c-nav button{width:54px;height:54px;border-radius:50%;border:1px solid var(--line2);background:transparent;cursor:pointer;display:grid;place-items:center;transition:all .25s}
+.c-nav button:hover{background:var(--og);border-color:transparent}
+.c-nav button:hover svg{stroke:#170800}
+.c-nav svg{width:20px;height:20px;stroke:var(--fg)}
+@media (max-width:980px){.rv-hero{grid-template-columns:1fr;padding:30px 24px}.rv-hero .shot{max-width:280px}}
+
+/* Map */
+.geo{overflow:hidden}
+.geo .bgimg{position:absolute;inset:0;z-index:-1;background:url(img/city.webp) center/cover;opacity:.13;-webkit-mask-image:linear-gradient(180deg,transparent,#000 30%,#000 70%,transparent);mask-image:linear-gradient(180deg,transparent,#000 30%,#000 70%,transparent)}
+.geo-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:40px;align-items:center;margin-top:40px}
+.map{position:relative}
+.map svg{width:100%;height:auto;overflow:visible}
+.map .dots{stroke:rgba(255,255,255,.34);stroke-width:7.5;stroke-linecap:round}
+.map .city circle.c{fill:var(--o1)}
+.map .city circle.p{fill:none;stroke:var(--o2);stroke-width:2;transform-box:fill-box;transform-origin:center;animation:cityPulse 3s ease-out infinite;animation-delay:var(--d,0s)}
+@keyframes cityPulse{0%{transform:scale(.4);opacity:1}100%{transform:scale(4.5);opacity:0}}
+.map .city text{fill:var(--fg);font-family:var(--disp);font-size:20px;font-weight:600;paint-order:stroke;stroke:#08080A;stroke-width:6px}
+.map .glow{filter:blur(60px);opacity:.5}
+.geo-side h3{font-size:30px}
+.geo-side p{color:var(--muted);margin-top:14px}
+.geo-side .chips{margin-top:24px}
+@media (max-width:980px){.geo-grid{grid-template-columns:1fr}.map .city text{font-size:26px}}
+
+/* Price */
+.price-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:24px;margin-top:60px;align-items:stretch}
+.pcard{position:relative;border-radius:36px;padding:48px;overflow:hidden;background:linear-gradient(180deg,rgba(255,122,0,.12),rgba(255,122,0,.02) 40%),var(--card);border:1px solid rgba(255,122,0,.35);box-shadow:0 40px 120px -40px rgba(255,106,0,.45)}
+.pcard::before{content:"";position:absolute;right:-120px;top:-120px;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(255,122,0,.45),transparent 65%);pointer-events:none;animation:drift1 12s ease-in-out infinite}
+.pcard .badge{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:var(--og);color:#170800;font-weight:700;font-size:13px;font-family:var(--disp);letter-spacing:.04em;text-transform:uppercase}
+.pcard h3{font-size:32px;margin-top:22px}
+.amount{display:flex;align-items:flex-end;gap:22px;margin-top:22px;flex-wrap:wrap;position:relative}
+.amount .old{position:relative;font-family:var(--num);font-size:46px;color:var(--dim);line-height:1}
+.amount .old::after{content:"";position:absolute;left:-6%;right:-6%;top:52%;height:4px;border-radius:4px;background:var(--o3);transform:rotate(-8deg) scaleX(0);transform-origin:left;transition:transform .8s var(--ease) .4s}
+.pcard.in .amount .old::after{transform:rotate(-8deg) scaleX(1)}
+.amount .new{font-family:var(--num);font-size:clamp(84px,10vw,128px);font-weight:700;line-height:.85}
+.amount .lbl{color:var(--muted);font-size:15px;padding-bottom:10px;line-height:1.35}
+.pcard ul{list-style:none;padding:0;margin:34px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:14px 26px;position:relative}
+.pcard li{display:flex;gap:12px;font-size:16px;line-height:1.45}
+.pcard li svg{flex:0 0 24px;width:24px;height:24px;padding:4px;border-radius:50%;background:rgba(255,122,0,.15);stroke:var(--o1);fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.pcard .btn{margin-top:36px;width:100%}
+.pcard .note{font-size:14px;color:var(--muted);margin-top:18px;text-align:center}
+.pside{display:grid;gap:18px}
+.pside .bx{padding:28px}
+.pside .k{font-family:var(--num);font-size:34px;font-weight:600;line-height:1}
+.pside .k small{font-size:.5em;color:var(--muted);font-family:var(--body);font-weight:500;margin-left:4px}
+.pside h3{font-size:19px;margin-top:12px}
+.pside p{font-size:15px}
+@media (max-width:980px){.price-grid{grid-template-columns:1fr}.pcard{padding:32px 24px}.pcard ul{grid-template-columns:1fr}}
+
+/* Founder */
+.founder{display:grid;grid-template-columns:.85fr 1.15fr;gap:64px;align-items:center}
+.ph-frame{position:relative;border-radius:36px;overflow:hidden;aspect-ratio:1/1.08;box-shadow:0 0 0 1px rgba(255,122,0,.4),0 0 80px -10px rgba(255,106,0,.55)}
+.ph-frame img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;transition:transform 1.4s var(--ease)}
+.ph-frame:hover img{transform:scale(1.04)}
+.ph-frame::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(8,8,10,.85))}
+.ph-frame .nm{position:absolute;left:28px;bottom:24px;z-index:2}
+.ph-frame .nm b{display:block;font-family:var(--disp);font-size:24px}
+.ph-frame .nm span{color:var(--o1);font-size:14px;font-weight:600}
+.founder .txt h2{font-size:clamp(30px,3.6vw,48px);margin-top:16px}
+.founder .txt p{color:var(--muted);font-size:18px;margin-top:20px}
+.princ{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:34px}
+.princ div{padding:20px;border-radius:20px;background:var(--card);border:1px solid var(--line)}
+.princ b{display:flex;align-items:center;gap:10px;font-family:var(--disp);font-size:18px}
+.princ b i{font-style:normal;font-family:var(--num);font-size:14px;color:var(--o1)}
+.princ span{display:block;color:var(--muted);font-size:15px;margin-top:6px}
+@media (max-width:980px){.founder{grid-template-columns:1fr;gap:40px}.ph-frame{max-width:460px}}
+@media (max-width:560px){.princ{grid-template-columns:1fr}}
+
+/* FAQ */
+.faq{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px}
+.faq-list{border-top:1px solid var(--line)}
+details{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:24px;padding:26px 0;font-family:var(--disp);font-weight:600;font-size:21px;transition:color .25s}
+summary::-webkit-details-marker{display:none}
+summary:hover{color:var(--o1)}
+summary i{flex:0 0 44px;width:44px;height:44px;border-radius:50%;border:1px solid var(--line2);display:grid;place-items:center;transition:all .35s var(--ease)}
+summary i svg{width:18px;height:18px;stroke:var(--fg);transition:transform .35s var(--ease)}
+details[open] summary i{background:var(--og);border-color:transparent}
+details[open] summary i svg{transform:rotate(45deg);stroke:#170800}
+.ans{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s var(--ease)}
+details[open] .ans{grid-template-rows:1fr}
+.ans>div{overflow:hidden}
+.ans p{color:var(--muted);padding-bottom:26px;max-width:44em}
+@media (max-width:980px){.faq{grid-template-columns:1fr;gap:20px}summary{font-size:18px}}
+
+/* Final / quiz */
+.final{overflow:hidden;background:var(--bg2);border-top:1px solid var(--line)}
+.final::before{content:"";position:absolute;left:50%;bottom:-45%;width:1200px;height:800px;transform:translateX(-50%);background:radial-gradient(50% 50% at 50% 50%,rgba(255,106,0,.3),transparent 70%);pointer-events:none}
+.final-grid{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.final h2{font-size:clamp(34px,4.4vw,60px);margin-top:18px}
+.final .sub{color:var(--muted);font-size:19px;margin-top:20px;max-width:30em}
+.contacts{display:grid;gap:14px;margin-top:34px}
+.contacts a,.contacts div{display:flex;align-items:center;gap:14px;font-size:18px;font-weight:600}
+.contacts i{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;background:var(--card);border:1px solid var(--line2);flex:0 0 auto;transition:all .25s}
+.contacts i svg{width:20px;height:20px;stroke:var(--o1)}
+.contacts a:hover i{background:var(--og);border-color:transparent}
+.contacts a:hover i svg{stroke:#170800}
+.contacts small{display:block;font-size:13px;color:var(--dim);font-weight:500}
+.quiz{position:relative;border-radius:32px;padding:36px;background:rgba(19,19,23,.85);border:1px solid var(--line2);backdrop-filter:blur(16px);box-shadow:0 50px 120px -40px rgba(0,0,0,.9)}
+.quiz .top{display:flex;justify-content:space-between;align-items:center;gap:16px}
+.quiz .top b{font-family:var(--disp);font-size:22px}
+.quiz .top span{font-size:14px;color:var(--muted)}
+.qbar{height:4px;border-radius:4px;background:rgba(255,255,255,.08);margin-top:18px;overflow:hidden}
+.qbar i{display:block;height:100%;width:33%;background:var(--og);transition:width .5s var(--ease)}
+.qstep{display:none;margin-top:26px;animation:fadeUp .5s var(--ease)}
+.qstep.on{display:block}
+.qstep h4{font-size:20px;margin-bottom:16px}
+.qstep .nchips button{font-size:14px}
+.qstep label{display:block;font-size:14px;color:var(--muted);margin:14px 0 8px;font-weight:500}
+.qnav{display:flex;gap:12px;margin-top:26px}
+.qnav .btn{flex:1}
+.qnav .back{flex:0 0 auto;padding-inline:22px}
+.fine{font-size:13px;color:var(--dim);margin-top:16px;text-align:center}
+.done{text-align:center;padding:20px 0}
+.done .ok{width:84px;height:84px;margin:0 auto;border-radius:50%;background:var(--og);display:grid;place-items:center;box-shadow:0 0 60px rgba(255,106,0,.6)}
+.done .ok svg{width:38px;height:38px;stroke:#170800;stroke-width:3}
+.done h4{font-size:26px;margin-top:22px}
+.done p{color:var(--muted);margin-top:10px}
+.done .btn{margin-top:22px}
+.err{color:#ff8a65;font-size:14px;margin-top:10px;min-height:1.2em}
+@media (max-width:980px){.final-grid{grid-template-columns:1fr}.quiz{padding:26px 20px}}
+
+/* Footer */
+footer{border-top:1px solid var(--line);padding-block:48px 120px;color:var(--dim);font-size:14px}
+.f-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:28px;align-items:center}
+.f-top img{height:60px;width:auto}
+.f-top nav{display:flex;gap:26px;flex-wrap:wrap;color:var(--muted)}
+.f-top nav a:hover{color:var(--o1)}
+.f-notes{margin-top:30px;padding-top:24px;border-top:1px solid var(--line);display:grid;gap:8px;line-height:1.55;max-width:70em}
+.f-notes a{text-decoration:underline;text-decoration-color:var(--line2)}
+@media (min-width:981px){footer{padding-bottom:48px}}
+
+/* Mobile sticky bar */
+.mbar{position:fixed;left:12px;right:12px;bottom:max(12px,env(safe-area-inset-bottom,0px));z-index:60;display:none;gap:10px;padding:8px;border-radius:22px;background:rgba(19,19,23,.9);border:1px solid var(--line2);backdrop-filter:blur(16px);box-shadow:0 20px 50px rgba(0,0,0,.6);transform:translateY(140%);transition:transform .5s var(--ease)}
+.mbar.on{transform:none}
+.mbar .btn{flex:1;padding:15px 12px;font-size:15px}
+@media (max-width:980px){.mbar{display:flex}}
+
+/* Modal */
+.modal{position:fixed;inset:0;z-index:90;display:grid;place-items:center;padding:20px;background:rgba(0,0,0,.82);backdrop-filter:blur(8px);opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s}
+.modal.on{opacity:1;visibility:visible}
+.modal .box{position:relative;width:min(1000px,100%);max-height:90vh;transform:scale(.94);transition:transform .45s var(--ease)}
+.modal.on .box{transform:none}
+.modal .box.v{aspect-ratio:16/9}
+.modal iframe{width:100%;height:100%;border:0;border-radius:20px;background:#000}
+.modal .box.i{width:auto;display:grid;place-items:center}
+.modal .box.i img{max-height:86vh;width:auto;border-radius:20px}
+.modal .x{position:absolute;top:-56px;right:0;width:46px;height:46px;border-radius:50%;border:1px solid var(--line2);background:rgba(255,255,255,.06);cursor:pointer;display:grid;place-items:center}
+.modal .x svg{width:20px;height:20px;stroke:#fff}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+  html.js .rv,html.js .rv-scale{opacity:1;transform:none}
+}
+@media (max-width:640px){.sec{padding-block:84px}.sec-head p{font-size:17px}}
+</style>
+</head>
+<body>
+
+<div id="pre" aria-hidden="true">
+  <svg viewBox="0 0 120 100"><defs><linearGradient id="pg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFB038"/><stop offset=".5" stop-color="#FF7A00"/><stop offset="1" stop-color="#FF4D00"/></linearGradient></defs><path class="t1" fill="url(#pg)" d="M108 8c4-2 8 1 8 5v74c0 4-4 7-8 5L22 56c-4-2-4-8 0-10z"/><path class="t2" fill="url(#pg)" d="M4 62c0-3 3-5 6-3l30 17c2 1 2 4 0 5L10 98c-3 2-6 0-6-3z"/></svg>
+</div>
+
+<header class="hdr" id="hdr">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="PR-Max — на початок"><img src="img/logo.webp" alt="PR MAX Digital Agency" width="520" height="338"></a>
+    <nav class="menu" aria-label="Розділи">
+      <a href="#chomu">Чому Google</a><a href="#yak">Як працюємо</a><a href="#roboty">Роботи</a><a href="#vidguky">Відгуки</a><a href="#tsina">Ціна</a><a href="#faq">Питання</a>
+    </nav>
+    <a class="hdr-ph" data-c="phone-link" href="#"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><span data-c="phone">+380 (00) 000-00-00</span></a>
+    <a class="btn btn-o mag" href="#zayavka">Отримати дзвінки</a>
+    <div class="prog" id="prog"></div>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero" id="hero">
+  <div class="hero-bg" aria-hidden="true">
+    <div class="grid"></div>
+    <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+    <svg class="tri" viewBox="0 0 120 100"><path fill="#FF7A00" d="M108 8c4-2 8 1 8 5v74c0 4-4 7-8 5L22 56c-4-2-4-8 0-10z"/><path fill="#FF7A00" d="M4 62c0-3 3-5 6-3l30 17c2 1 2 4 0 5L10 98c-3 2-6 0-6-3z"/></svg>
+    <div class="spot"></div>
+    <div class="noise"></div>
+  </div>
+  <div class="wrap">
+    <div>
+      <div class="pill"><span class="dot"></span><b>Сайт + Google Ads</b><span>під ключ · вся Україна та Європа</span></div>
+      <h1><span class="line"><span>Клієнти вже шукають</span></span><span class="line"><span>вас у Google.</span></span><span class="line"><span class="og-text">Зробимо, щоб дзвонили.</span></span></h1>
+      <p class="lead">Робимо односторінковий сайт під вашу послугу і запускаємо рекламу Google у вашому місті. До 7 днів від брифу до запуску. Один платіж, без абонплати та без комісій з рекламного бюджету.</p>
+      <div class="offer">
+        <div class="price-chip"><s>$800</s><b class="og-text">$300</b><span>сайт + реклама<br>одним пакетом</span></div>
+      </div>
+      <div class="cta-row">
+        <a class="btn btn-o mag" href="#zayavka">Хочу дзвінки з Google <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-g mag" href="#roboty"><span class="play"><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z"/></svg></span>Дивитися роботи</a>
+      </div>
+      <div class="trust">
+        <div><b><span class="cnt" data-to="90.67" data-dec="2">90,67</span>%</b><span>пошуку в Україні — це Google<sup>1</sup></span></div>
+        <div><b>0%</b><span>наших комісій з вашого бюджету</span></div>
+        <div><b>до 7 днів</b><span>від брифу до запуску реклами</span></div>
+      </div>
+    </div>
+
+    <div class="demo" id="demo" aria-label="Приклад: людина шукає послугу в Google, бачить рекламу, відкриває сайт і телефонує">
+      <span class="tag-ex demo-label">Приклад, як це працює</span>
+      <div class="d-search"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><span class="q" id="dq">евакуатор київ</span><span class="caret"></span></div>
+      <div class="d-ad" id="dad">
+        <div class="spons">Спонсоровано</div>
+        <div class="site"><span class="fav">PR</span><div><b id="dsite">evakuator-kyiv.com.ua</b><small id="durl">https://evakuator-kyiv.com.ua</small></div></div>
+        <div class="title" id="dtitle">Евакуатор Київ | Приїдемо за 30 хв</div>
+        <div class="desc" id="ddesc">Цілодобово. Легкові та бусики, після ДТП. Ціну називаємо одразу по телефону.</div>
+        <div class="links"><span>Подзвонити</span><span>Ціни</span><span>Відгуки</span></div>
+      </div>
+      <svg class="d-arrow" viewBox="0 0 120 120" aria-hidden="true"><path d="M8 10 C 60 10, 100 40, 110 105"/></svg>
+      <div class="d-phone" id="dphone">
+        <div class="scr">
+          <div class="isl"></div>
+          <div class="stat"><span>9:41</span><span>● ● ●</span></div>
+          <div class="ps" id="dps">
+            <div class="ph" id="dph" style="background-image:url(img/niche/tow.webp)"></div>
+            <div class="bar"><span id="dbrand">Евакуатор 24/7</span><i><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></i></div>
+            <div class="body">
+              <small id="dcity">Київ і область</small>
+              <h4 id="dh">Евакуатор 24/7 — приїдемо за 30 хвилин</h4>
+              <p id="dp">Легкові та бусики, після ДТП. Ціну називаємо одразу.</p>
+              <div class="call"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><span id="dcta">Викликати евакуатор</span></div>
+              <div class="row"><span>Telegram</span><span>Viber</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="d-toast" id="dtoast">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></span>
+        <div><b>Вхідний дзвінок</b><span id="dts">з реклами Google · евакуатор, Київ</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="logos" aria-label="Клієнти">
+  <div class="cap">Сайти й реклама, які ми вже зробили</div>
+  <div class="marq"><div class="track" id="track">
+    <img src="img/logos/sensei.webp" alt="Сенсей Суші" loading="lazy"><img src="img/logos/potolok.webp" alt="Potolok 101" loading="lazy"><img src="img/logos/prokatka.webp" alt="Prokatka" loading="lazy"><img src="img/logos/tower.webp" alt="Tower Security" loading="lazy"><img src="img/logos/autoclimat.webp" alt="Авто Клімат" loading="lazy"><img src="img/logos/videomarketing.webp" alt="Video маркетинг" loading="lazy"><img src="img/logos/sporkl.svg" alt="Sporkl" loading="lazy"><img src="img/logos/logo46.svg" alt="Логотип клієнта" loading="lazy"><img src="img/logos/logo47.svg" alt="Логотип клієнта" loading="lazy">
+  </div></div>
+</section>
+
+<section class="sec" id="chomu">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="eyebrow">Чому Google</div>
+      <h2>Коли людині потрібна послуга <span class="og-text">зараз</span>, вона не гортає стрічку. Вона гуглить.</h2>
+      <p>«Евакуатор Київ», «ремонт котла Львів», «викуп авто Дніпро». Це запити людей, які готові платити сьогодні. Питання лише в тому, кого вони побачать першим.</p>
+    </div>
+    <div class="why">
+      <div class="big-stat rv-scale" id="bigstat">
+        <div class="n og-text"><span class="cnt" data-to="90.67" data-dec="2">90,67</span><small>%</small></div>
+        <p>пошукових запитів в Україні припадає на Google</p>
+        <div class="bars">
+          <div class="bar"><span>Google</span><i style="--w:90.67%"></i><em>90,67%</em></div>
+          <div class="bar"><span>Bing</span><i style="--w:2.47%"></i><em>2,47%</em></div>
+          <div class="bar"><span>Інші</span><i style="--w:6.86%"></i><em>6,86%</em></div>
+        </div>
+        <a class="src" href="https://gs.statcounter.com/search-engine-market-share/all/ukraine" target="_blank" rel="noopener">Джерело: Statcounter, вересень 2026 ↗</a>
+      </div>
+      <div class="why-list">
+        <div class="wi rv" style="--d:.05s"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></div><div><h3>Послуга + місто</h3><p>Так шукають ті, кому потрібно сьогодні. Ми налаштовуємо рекламу саме на такі запити і тільки у вашому місті чи області.</p></div></div>
+        <div class="wi rv" style="--d:.15s"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.4 6.8 19.1l1-5.8L3.5 9.2l5.9-.9z"/></svg></div><div><h3>Реклама — на першому екрані</h3><p>Оголошення Google показуються над звичайною видачею. Без реклами вас там немає, навіть якщо ви найкращі в місті.</p></div></div>
+        <div class="wi rv" style="--d:.25s"><div class="ic"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></div><div><h3>Сайт зроблений під дзвінок</h3><p>Одна сторінка, кнопка «Подзвонити» на першому екрані, Telegram і Viber поруч. Між клієнтом і вашим номером — нічого зайвого.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="dlya-kogo" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="eyebrow">Для кого</div>
+      <h2>Для бізнесу, якому клієнти <span class="og-text">дзвонять</span>, а не пишуть</h2>
+      <p>Наведіть на картку, щоб побачити, що вводить у Google ваш клієнт. Натисніть — і подивіться, як виглядатиме реклама саме вашої ніші.</p>
+    </div>
+    <div class="niches" id="niches">
+      <a class="nc wide rv" href="#konstruktor" data-n="tow"><img src="img/niche/tow.webp" alt="Евакуатор" loading="lazy"><span class="q"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>евакуатор київ</span><div class="cap"><h3>Евакуатори</h3><span>Подивитися рекламу <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
+      <a class="nc rv" style="--d:.06s" href="#konstruktor" data-n="car"><img src="img/niche/carkeys.webp" alt="Викуп авто" loading="lazy"><span class="q"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>викуп авто дніпро</span><div class="cap"><h3>Викуп авто</h3><span>Подивитися рекламу <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
+      <a class="nc rv" style="--d:.12s" href="#konstruktor" data-n="boiler"><img src="img/niche/boiler.webp" alt="Ремонт котлів" loading="lazy"><span class="q"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>ремонт котлів львів</span><div class="cap"><h3>Ремонт котлів</h3><span>Подивитися рекламу <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
+      <a class="nc rv" href="#konstruktor" data-n="wood"><img src="img/niche/firewood.webp" alt="Дрова і пелети" loading="lazy"><span class="q"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>дрова з доставкою вінниця</span><div class="cap"><h3>Дрова, пелети</h3><span>Подивитися рекламу <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
+      <a class="nc rv" style="--d:.06s" href="#konstruktor" data-n="stone"><img src="img/niche/granite.webp" alt="Пам'ятники з граніту" loading="lazy"><span class="q"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>пам'ятники житомир</span><div class="cap"><h3>Пам'ятники</h3><span>Подивитися рекламу <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
+      <a class="nc rv" style="--d:.12s" href="#konstruktor" data-n="gate"><img src="img/niche/gate.webp" alt="Ворота і паркани" loading="lazy"><span class="q"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>відкатні ворота полтава</span><div class="cap"><h3>Ворота і паркани</h3><span>Подивитися рекламу <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
+      <a class="nc rv" style="--d:.18s" href="#konstruktor" data-n="well"><img src="img/niche/well.webp" alt="Буріння свердловин" loading="lazy"><span class="q"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>буріння свердловин одеса</span><div class="cap"><h3>Свердловини</h3><span>Подивитися рекламу <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
+      <a class="nc wide rv" href="#konstruktor" data-n="kitchen"><img src="img/niche/kitchen.webp" alt="Кухні на замовлення" loading="lazy"><span class="q"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>кухні на замовлення харків</span><div class="cap"><h3>Кухні на замовлення</h3><span>Подивитися рекламу <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
+      <div class="nc cta wide rv" style="--d:.06s"><div><h3>Вашої ніші немає в списку?</h3><p>Автосервіс, сантехнік, вантажні перевезення, ремонт техніки, натяжні стелі — працює будь-яка послуга, яку шукають з назвою міста.</p></div><a class="btn btn-o mag" href="#zayavka">Обговорити мою нішу <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec process" id="yak">
+  <div class="wrap">
+    <div class="sec-head center rv">
+      <div class="eyebrow">Як працюємо</div>
+      <h2>Від першого дзвінка до запуску — <span class="og-text">до 7 днів</span></h2>
+      <p>Вам не потрібно розбиратися в сайтах і рекламі. Від вас — 10 хвилин розмови, фото і номер телефону.</p>
+    </div>
+    <div class="steps" id="steps">
+      <div class="rail"><i id="rail"></i></div>
+      <div class="st rv"><div class="num">01</div><span class="day">День 1</span><h3>Розмова на 10 хвилин</h3><p>Ніша, місто, ваші послуги й ціни, куди дзвонити. Фіксуємо все в короткому брифі.</p></div>
+      <div class="st rv" style="--d:.1s"><div class="num">02</div><span class="day">Дні 1–3</span><h3>Робимо сайт</h3><p>Тексти, дизайн, кнопки дзвінка і месенджерів. Показуємо вам до запуску і вносимо правки.</p></div>
+      <div class="st rv" style="--d:.2s"><div class="num">03</div><span class="day">Дні 3–5</span><h3>Налаштовуємо Google Ads</h3><p>Ключові та мінус-слова, оголошення, гео по вашому місту. Проходимо модерацію Google.</p></div>
+      <div class="st rv" style="--d:.3s"><div class="num">04</div><span class="day">До 7 дня</span><h3>Старт реклами</h3><p>Оголошення показуються, сайт працює. Перший тиждень після запуску стежимо за результатом.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="shcho">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="eyebrow">Що входить у пакет</div>
+      <h2>Усе, щоб клієнт знайшов вас і <span class="og-text">подзвонив</span></h2>
+    </div>
+    <div class="bento">
+      <div class="bx s3 rv"><h3>Сайт під вашу нішу</h3><p>Одна сторінка з чіткою структурою: що ви робите, скільки коштує, чому вам можна довіряти і як подзвонити. Зручний з телефону й комп'ютера.</p><div class="vis"><div class="mini-site"><div class="tb"><i></i><i></i><i></i></div><div class="bd"><div><div class="ln h"></div><div class="ln" style="width:75%"></div><div class="ln" style="width:60%"></div><div class="ln o"></div></div><div class="img"></div></div></div></div></div>
+      <div class="bx s3 rv" style="--d:.08s"><h3>Google Ads по вашому місту</h3><p>Підбираємо запити, з якими шукають саме вашу послугу, і відсікаємо зайві, щоб бюджет не зливався.</p><div class="vis chips"><span class="o">+ евакуатор київ</span><span class="o">+ евакуатор цілодобово</span><span class="o">+ евакуатор ціна</span><span class="m">евакуатор вакансії</span><span class="m">евакуатор іграшка</span><span class="m">безкоштовно</span></div></div>
+      <div class="bx s2 rv"><h3>Дзвінок в один дотик</h3><p>Кнопки дзвінка, Telegram і Viber, плюс форма заявки для тих, хто пише.</p><div class="vis btns3"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Подзвонити</span><span>Telegram</span><span>Viber</span></div></div>
+      <div class="bx s2 rv" style="--d:.08s"><h3>Аналітика й відстеження</h3><p>Підключаємо Google Analytics і відстеження дзвінків та заявок з реклами.</p><div class="vis chart" aria-hidden="true"><i style="height:30%"></i><i style="height:45%;transition-delay:.08s"></i><i style="height:38%;transition-delay:.16s"></i><i style="height:62%;transition-delay:.24s"></i><i style="height:55%;transition-delay:.32s"></i><i style="height:78%;transition-delay:.4s"></i><i style="height:92%;transition-delay:.48s"></i></div></div>
+      <div class="bx s2 rv full-m" style="--d:.16s"><h3>Домен і запуск</h3><p>Допомагаємо з доменом, підключаємо сайт, перевіряємо, що все працює до старту реклами.</p><div class="vis chips"><span class="o">ваша-послуга.com.ua</span><span>SSL</span><span>швидке завантаження</span></div></div>
+      <div class="bx s4 rv"><div class="gift"><b class="og-text">₴</b><div><h3>Бонус Google для нових акаунтів<sup>*</sup></h3><p>Допомагаємо активувати промокод Google на рекламу (до 10&nbsp;000&nbsp;₴) і пояснюємо точні умови на момент запуску. Розмір і умови визначає Google.</p></div></div></div>
+      <div class="bx s2 rv" style="--d:.08s"><h3>Усе оформлено на вас</h3><p>Сайт і рекламний кабінет — ваші. Захочете піти — усе залишиться у вас.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="konstruktor" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="eyebrow">Спробуйте самі</div>
+      <h2>Подивіться, як виглядатиме <span class="og-text">ваша</span> реклама</h2>
+      <p>Оберіть нішу і введіть своє місто — оголошення і перший екран сайту зміняться миттєво.</p>
+    </div>
+    <div class="builder rv-scale">
+      <div>
+        <span class="b-label first">1. Ваша ніша</span>
+        <div class="nchips" id="bn" role="group" aria-label="Ніша"></div>
+        <label class="b-label" for="bcity">2. Ваше місто</label>
+        <input class="inp" id="bcity" list="cities" value="Київ" placeholder="Наприклад, Луцьк" autocomplete="off">
+        <datalist id="cities"></datalist>
+        <p class="b-note">Це приклад. Справжні тексти пишемо під ваші послуги, ціни та переваги.</p>
+        <a class="btn btn-o mag" style="margin-top:22px" href="#zayavka">Хочу таку рекламу <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="b-prev">
+        <div class="d-ad" id="bad">
+          <div class="spons">Спонсоровано</div>
+          <div class="site"><span class="fav">PR</span><div><b id="bsite"></b><small id="burl"></small></div></div>
+          <div class="title" id="btitle"></div>
+          <div class="desc" id="bdesc"></div>
+          <div class="links"><span>Подзвонити</span><span>Ціни</span><span>Відгуки</span></div>
+        </div>
+        <div class="b-phone"><div class="scr">
+          <div class="ps" id="bps">
+            <div class="ph" id="bph"></div>
+            <div class="bar"><span id="bbrand"></span><i><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></i></div>
+            <div class="body"><small id="bcityl"></small><h4 id="bh"></h4><p id="bp"></p><div class="call"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><span id="bcta"></span></div></div>
+          </div>
+        </div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="roboty" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="eyebrow">Наші роботи</div>
+      <h2>Сайти, які ми <span class="og-text">вже запустили</span></h2>
+      <p>Справжні проєкти наших клієнтів. Натисніть «Відео», щоб подивитися сайт повністю.</p>
+    </div>
+    <div class="works">
+      <article class="wk big rv"><div class="frame"><div class="tb"><i></i><i></i><i></i></div><video muted loop playsinline preload="none" poster="img/sensei-poster.webp" data-src="video/sensei.mp4"></video></div><div class="meta"><div><small>Інтернет-магазин · ресторан</small><h3>Сенсей Суші</h3><p>Доставка суші та ролів</p><button class="vbtn" data-yt="MPUGT7luAhQ"><i><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z"/></svg></i>Відео сайту</button></div><div class="days"><b>7</b><span>днів</span></div></div></article>
+      <article class="wk big rv" style="--d:.08s"><div class="frame"><div class="tb"><i></i><i></i><i></i></div><video muted loop playsinline preload="none" poster="img/potolok-poster.webp" data-src="video/potolok.mp4"></video></div><div class="meta"><div><small>Натяжні стелі · Харків</small><h3>Potolok 101</h3><p>Монтаж стель під ключ</p><button class="vbtn" data-yt="blUqbF-Fi24"><i><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z"/></svg></i>Відео сайту</button></div><div class="days"><b>4</b><span>дні</span></div></div></article>
+      <article class="wk rv"><div class="frame"><div class="tb"><i></i><i></i><i></i></div><video muted loop playsinline preload="none" poster="img/autoclimat-poster.webp" data-src="video/autoclimat.mp4"></video></div><div class="meta"><div><small>Ремонт авто · Одеса</small><h3>Авто Клімат</h3><button class="vbtn" data-yt="B0aBt3NE99U"><i><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z"/></svg></i>Відео сайту</button></div><div class="days"><b>7</b><span>днів</span></div></div></article>
+      <article class="wk rv" style="--d:.08s"><div class="frame"><div class="tb"><i></i><i></i><i></i></div><video muted loop playsinline preload="none" poster="img/prokatka-poster.webp" data-src="video/prokatka.mp4"></video></div><div class="meta"><div><small>Прокат консолей</small><h3>Prokatka</h3><button class="vbtn" data-yt="hvlVGegqODc"><i><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z"/></svg></i>Відео сайту</button></div><div class="days"><b>6</b><span>днів</span></div></div></article>
+      <article class="wk rv" style="--d:.16s"><div class="frame"><div class="tb"><i></i><i></i><i></i></div><video muted loop playsinline preload="none" poster="img/tawwersecy-poster.webp" data-src="video/tawwersecy.mp4"></video></div><div class="meta"><div><small>Охоронні системи</small><h3>Tawwersecy</h3><button class="vbtn" data-yt="TA9GnZlAEPA"><i><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z"/></svg></i>Відео сайту</button></div><div class="days"><b>5</b><span>днів</span></div></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="vidguky" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="eyebrow">Відгуки</div>
+      <h2>Що пишуть клієнти <span class="og-text">після запуску</span></h2>
+      <p>Справжні повідомлення від клієнтів. Натисніть на скриншот, щоб відкрити повністю.</p>
+    </div>
+    <div class="rv-hero rv">
+      <div>
+        <blockquote>Замовляла у вас сайт і налаштування контекстної реклами. Ми отримали 72 заявки за перший тиждень. Ми повністю окупились.</blockquote>
+        <div class="who"><span class="av">НХ</span><div><b>Наташа Хоменко</b><span>сайт + контекстна реклама</span></div></div>
+        <p class="tr-note">Цитата скорочена й перекладена з російської. Оригінал — на скриншоті.</p>
+      </div>
+      <div class="shot" data-img="img/reviews/natasha.webp" role="button" tabindex="0" aria-label="Відкрити скриншот відгуку Наташі Хоменко"><img src="img/reviews/natasha.webp" alt="Скриншот відгуку Наташі Хоменко" loading="lazy" width="620" height="1072"></div>
+    </div>
+    <div class="carousel">
+      <div class="cards" id="cards">
+        <div class="rc rv"><div class="shot" data-img="img/reviews/nikita.webp" role="button" tabindex="0" aria-label="Відкрити скриншот"><img src="img/reviews/nikita.webp" alt="Скриншот відгуку Нікіти Барі" loading="lazy" width="620" height="1070"></div><p>«Замовляв у вас сайт і налаштування контекстної реклами. Я і вся моя команда дуже задоволені. Будемо працювати й над іншими проєктами».</p><div class="who"><span class="av">НБ</span><div><b>Нікіта Барі</b><span>сайт + реклама</span></div></div></div>
+        <div class="rc rv" style="--d:.06s"><div class="shot" data-img="img/reviews/svetlana.webp" role="button" tabindex="0" aria-label="Відкрити скриншот"><img src="img/reviews/svetlana.webp" alt="Скриншот відгуку Світлани" loading="lazy" width="620" height="1072"></div><p>«Роботу отримали завчасно, та ще й у період свят. Усі правки й побажання враховані. Тепер PR MAX — наше спасіння».</p><div class="who"><span class="av">С</span><div><b>Світлана</b><span>сайт і просування</span></div></div></div>
+        <div class="rc rv" style="--d:.12s"><div class="shot" data-img="img/reviews/natalia.webp" role="button" tabindex="0" aria-label="Відкрити скриншот"><img src="img/reviews/natalia.webp" alt="Скриншот відгуку Наталії Пан" loading="lazy" width="620" height="1072"></div><p>«Під час передачі проєкту детально розповіли, як ним керувати і що можна змінювати. Дуже комфортно працювати».</p><div class="who"><span class="av">НП</span><div><b>Наталія Пан</b><span>складний проєкт</span></div></div></div>
+        <div class="rc rv"><div class="shot" data-img="img/reviews/edik.webp" role="button" tabindex="0" aria-label="Відкрити скриншот"><img src="img/reviews/edik.webp" alt="Скриншот відгуку Едіка Ляшена" loading="lazy" width="620" height="1072"></div><p>«Працювати з вами було комфортно й ефективно. Залишився задоволений візуалом, проєкт зданий вчасно».</p><div class="who"><span class="av">ЕЛ</span><div><b>Едік Ляшен</b><span>редизайн проєкту</span></div></div></div>
+        <div class="rc rv"><div class="shot" data-img="img/reviews/katya.webp" role="button" tabindex="0" aria-label="Відкрити скриншот"><img src="img/reviews/katya.webp" alt="Скриншот відгуку Каті Чумак" loading="lazy" width="620" height="1072"></div><p>«Ви справжній професіонал своєї справи. Хочу одразу зробити друге замовлення — налаштувати рекламу на креативи, які ви створили».</p><div class="who"><span class="av">КЧ</span><div><b>Катя Чумак</b><span>повторне замовлення</span></div></div></div>
+      </div>
+      <p class="tr-note">Цитати скорочені й перекладені з російської. Оригінали — на скриншотах.</p>
+      <div class="c-nav"><button type="button" id="cprev" aria-label="Попередній відгук"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg></button><button type="button" id="cnext" aria-label="Наступний відгук"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec geo" id="geo">
+  <div class="bgimg" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="sec-head center rv">
+      <div class="eyebrow">Географія</div>
+      <h2>Вся Україна. <span class="og-text">І Європа</span> — онлайн.</h2>
+      <p>Ми не прив'язані до одного міста. Налаштовуємо рекламу на ваше місто, область чи кілька регіонів одразу.</p>
+    </div>
+    <div class="geo-grid">
+      <div class="map rv-scale" id="map"><svg viewBox="-110 -30 1140 730" role="img" aria-label="Карта України: працюємо в усіх обласних центрах"><defs><radialGradient id="mg"><stop offset="0" stop-color="#FF7A00" stop-opacity=".55"/><stop offset="1" stop-color="#FF7A00" stop-opacity="0"/></radialGradient></defs><ellipse cx="470" cy="300" rx="420" ry="260" fill="url(#mg)" opacity=".35"/><path class="dots" d="M586 8h0M604 8h0M620 8h0M638 8h0M654 8h0M510 23h0M527 23h0M544 23h0M561 23h0M578 23h0M595 23h0M612 23h0M629 23h0M646 23h0M663 23h0M144 38h0M162 38h0M178 38h0M196 38h0M484 38h0M502 38h0M518 38h0M536 38h0M552 38h0M570 38h0M586 38h0M604 38h0M620 38h0M638 38h0M654 38h0M672 38h0M119 53h0M136 53h0M153 53h0M170 53h0M187 53h0M204 53h0M221 53h0M238 53h0M255 53h0M476 53h0M493 53h0M510 53h0M527 53h0M544 53h0M561 53h0M578 53h0M595 53h0M612 53h0M629 53h0M646 53h0M663 53h0M94 67h0M110 67h0M128 67h0M144 67h0M162 67h0M178 67h0M196 67h0M212 67h0M230 67h0M246 67h0M264 67h0M280 67h0M298 67h0M314 67h0M332 67h0M382 67h0M484 67h0M502 67h0M518 67h0M536 67h0M552 67h0M570 67h0M586 67h0M604 67h0M620 67h0M638 67h0M654 67h0M102 82h0M119 82h0M136 82h0M153 82h0M170 82h0M187 82h0M204 82h0M221 82h0M238 82h0M255 82h0M272 82h0M289 82h0M306 82h0M323 82h0M340 82h0M357 82h0M374 82h0M391 82h0M408 82h0M425 82h0M442 82h0M459 82h0M476 82h0M493 82h0M510 82h0M527 82h0M544 82h0M561 82h0M578 82h0M595 82h0M612 82h0M629 82h0M646 82h0M663 82h0M94 97h0M110 97h0M128 97h0M144 97h0M162 97h0M178 97h0M196 97h0M212 97h0M230 97h0M246 97h0M264 97h0M280 97h0M298 97h0M314 97h0M332 97h0M348 97h0M366 97h0M382 97h0M400 97h0M416 97h0M434 97h0M450 97h0M468 97h0M484 97h0M502 97h0M518 97h0M536 97h0M552 97h0M570 97h0M586 97h0M604 97h0M620 97h0M638 97h0M654 97h0M672 97h0M688 97h0M706 97h0M102 112h0M119 112h0M136 112h0M153 112h0M170 112h0M187 112h0M204 112h0M221 112h0M238 112h0M255 112h0M272 112h0M289 112h0M306 112h0M323 112h0M340 112h0M357 112h0M374 112h0M391 112h0M408 112h0M425 112h0M442 112h0M459 112h0M476 112h0M493 112h0M510 112h0M527 112h0M544 112h0M561 112h0M578 112h0M595 112h0M612 112h0M629 112h0M646 112h0M663 112h0M680 112h0M697 112h0M714 112h0M110 126h0M128 126h0M144 126h0M162 126h0M178 126h0M196 126h0M212 126h0M230 126h0M246 126h0M264 126h0M280 126h0M298 126h0M314 126h0M332 126h0M348 126h0M366 126h0M382 126h0M400 126h0M416 126h0M434 126h0M450 126h0M468 126h0M484 126h0M502 126h0M518 126h0M536 126h0M552 126h0M570 126h0M586 126h0M604 126h0M620 126h0M638 126h0M654 126h0M672 126h0M688 126h0M706 126h0M722 126h0M119 141h0M136 141h0M153 141h0M170 141h0M187 141h0M204 141h0M221 141h0M238 141h0M255 141h0M272 141h0M289 141h0M306 141h0M323 141h0M340 141h0M357 141h0M374 141h0M391 141h0M408 141h0M425 141h0M442 141h0M459 141h0M476 141h0M493 141h0M510 141h0M527 141h0M544 141h0M561 141h0M578 141h0M595 141h0M612 141h0M629 141h0M646 141h0M663 141h0M680 141h0M697 141h0M714 141h0M731 141h0M110 156h0M128 156h0M144 156h0M162 156h0M178 156h0M196 156h0M212 156h0M230 156h0M246 156h0M264 156h0M280 156h0M298 156h0M314 156h0M332 156h0M348 156h0M366 156h0M382 156h0M400 156h0M416 156h0M434 156h0M450 156h0M468 156h0M484 156h0M502 156h0M518 156h0M536 156h0M552 156h0M570 156h0M586 156h0M604 156h0M620 156h0M638 156h0M654 156h0M672 156h0M688 156h0M706 156h0M722 156h0M740 156h0M756 156h0M85 170h0M102 170h0M119 170h0M136 170h0M153 170h0M170 170h0M187 170h0M204 170h0M221 170h0M238 170h0M255 170h0M272 170h0M289 170h0M306 170h0M323 170h0M340 170h0M357 170h0M374 170h0M391 170h0M408 170h0M425 170h0M442 170h0M459 170h0M476 170h0M493 170h0M510 170h0M527 170h0M544 170h0M561 170h0M578 170h0M595 170h0M612 170h0M629 170h0M646 170h0M663 170h0M680 170h0M697 170h0M714 170h0M731 170h0M748 170h0M765 170h0M782 170h0M833 170h0M850 170h0M76 185h0M94 185h0M110 185h0M128 185h0M144 185h0M162 185h0M178 185h0M196 185h0M212 185h0M230 185h0M246 185h0M264 185h0M280 185h0M298 185h0M314 185h0M332 185h0M348 185h0M366 185h0M382 185h0M400 185h0M416 185h0M434 185h0M450 185h0M468 185h0M484 185h0M502 185h0M518 185h0M536 185h0M552 185h0M570 185h0M586 185h0M604 185h0M620 185h0M638 185h0M654 185h0M672 185h0M688 185h0M706 185h0M722 185h0M740 185h0M756 185h0M774 185h0M790 185h0M808 185h0M824 185h0M842 185h0M858 185h0M68 200h0M85 200h0M102 200h0M119 200h0M136 200h0M153 200h0M170 200h0M187 200h0M204 200h0M221 200h0M238 200h0M255 200h0M272 200h0M289 200h0M306 200h0M323 200h0M340 200h0M357 200h0M374 200h0M391 200h0M408 200h0M425 200h0M442 200h0M459 200h0M476 200h0M493 200h0M510 200h0M527 200h0M544 200h0M561 200h0M578 200h0M595 200h0M612 200h0M629 200h0M646 200h0M663 200h0M680 200h0M697 200h0M714 200h0M731 200h0M748 200h0M765 200h0M782 200h0M799 200h0M816 200h0M833 200h0M850 200h0M867 200h0M42 215h0M60 215h0M76 215h0M94 215h0M110 215h0M128 215h0M144 215h0M162 215h0M178 215h0M196 215h0M212 215h0M230 215h0M246 215h0M264 215h0M280 215h0M298 215h0M314 215h0M332 215h0M348 215h0M366 215h0M382 215h0M400 215h0M416 215h0M434 215h0M450 215h0M468 215h0M484 215h0M502 215h0M518 215h0M536 215h0M552 215h0M570 215h0M586 215h0M604 215h0M620 215h0M638 215h0M654 215h0M672 215h0M688 215h0M706 215h0M722 215h0M740 215h0M756 215h0M774 215h0M790 215h0M808 215h0M824 215h0M842 215h0M858 215h0M876 215h0M892 215h0M910 215h0M926 215h0M944 215h0M34 229h0M51 229h0M68 229h0M85 229h0M102 229h0M119 229h0M136 229h0M153 229h0M170 229h0M187 229h0M204 229h0M221 229h0M238 229h0M255 229h0M272 229h0M289 229h0M306 229h0M323 229h0M340 229h0M357 229h0M374 229h0M391 229h0M408 229h0M425 229h0M442 229h0M459 229h0M476 229h0M493 229h0M510 229h0M527 229h0M544 229h0M561 229h0M578 229h0M595 229h0M612 229h0M629 229h0M646 229h0M663 229h0M680 229h0M697 229h0M714 229h0M731 229h0M748 229h0M765 229h0M782 229h0M799 229h0M816 229h0M833 229h0M850 229h0M867 229h0M884 229h0M901 229h0M918 229h0M935 229h0M952 229h0M969 229h0M986 229h0M42 244h0M60 244h0M76 244h0M94 244h0M110 244h0M128 244h0M144 244h0M162 244h0M178 244h0M196 244h0M212 244h0M230 244h0M246 244h0M264 244h0M280 244h0M298 244h0M314 244h0M332 244h0M348 244h0M366 244h0M382 244h0M400 244h0M416 244h0M434 244h0M450 244h0M468 244h0M484 244h0M502 244h0M518 244h0M536 244h0M552 244h0M570 244h0M586 244h0M604 244h0M620 244h0M638 244h0M654 244h0M672 244h0M688 244h0M706 244h0M722 244h0M740 244h0M756 244h0M774 244h0M790 244h0M808 244h0M824 244h0M842 244h0M858 244h0M876 244h0M892 244h0M910 244h0M926 244h0M944 244h0M960 244h0M978 244h0M994 244h0M34 259h0M51 259h0M68 259h0M85 259h0M102 259h0M119 259h0M136 259h0M153 259h0M170 259h0M187 259h0M204 259h0M221 259h0M238 259h0M255 259h0M272 259h0M289 259h0M306 259h0M323 259h0M340 259h0M357 259h0M374 259h0M391 259h0M408 259h0M425 259h0M442 259h0M459 259h0M476 259h0M493 259h0M510 259h0M527 259h0M544 259h0M561 259h0M578 259h0M595 259h0M612 259h0M629 259h0M646 259h0M663 259h0M680 259h0M697 259h0M714 259h0M731 259h0M748 259h0M765 259h0M782 259h0M799 259h0M816 259h0M833 259h0M850 259h0M867 259h0M884 259h0M901 259h0M918 259h0M935 259h0M952 259h0M969 259h0M986 259h0M42 273h0M60 273h0M76 273h0M94 273h0M110 273h0M128 273h0M144 273h0M162 273h0M178 273h0M196 273h0M212 273h0M230 273h0M246 273h0M264 273h0M280 273h0M298 273h0M314 273h0M332 273h0M348 273h0M366 273h0M382 273h0M400 273h0M416 273h0M434 273h0M450 273h0M468 273h0M484 273h0M502 273h0M518 273h0M536 273h0M552 273h0M570 273h0M586 273h0M604 273h0M620 273h0M638 273h0M654 273h0M672 273h0M688 273h0M706 273h0M722 273h0M740 273h0M756 273h0M774 273h0M790 273h0M808 273h0M824 273h0M842 273h0M858 273h0M876 273h0M892 273h0M910 273h0M926 273h0M944 273h0M960 273h0M978 273h0M17 288h0M34 288h0M51 288h0M68 288h0M85 288h0M102 288h0M119 288h0M136 288h0M153 288h0M170 288h0M187 288h0M204 288h0M221 288h0M238 288h0M255 288h0M272 288h0M289 288h0M306 288h0M323 288h0M340 288h0M357 288h0M374 288h0M391 288h0M408 288h0M425 288h0M442 288h0M459 288h0M476 288h0M493 288h0M510 288h0M527 288h0M544 288h0M561 288h0M578 288h0M595 288h0M612 288h0M629 288h0M646 288h0M663 288h0M680 288h0M697 288h0M714 288h0M731 288h0M748 288h0M765 288h0M782 288h0M799 288h0M816 288h0M833 288h0M850 288h0M867 288h0M884 288h0M901 288h0M918 288h0M935 288h0M952 288h0M969 288h0M8 303h0M26 303h0M42 303h0M60 303h0M76 303h0M94 303h0M110 303h0M128 303h0M144 303h0M162 303h0M178 303h0M196 303h0M212 303h0M230 303h0M246 303h0M264 303h0M280 303h0M298 303h0M314 303h0M332 303h0M348 303h0M366 303h0M382 303h0M400 303h0M416 303h0M434 303h0M450 303h0M468 303h0M484 303h0M502 303h0M518 303h0M536 303h0M552 303h0M570 303h0M586 303h0M604 303h0M620 303h0M638 303h0M654 303h0M672 303h0M688 303h0M706 303h0M722 303h0M740 303h0M756 303h0M774 303h0M790 303h0M808 303h0M824 303h0M842 303h0M858 303h0M876 303h0M892 303h0M910 303h0M926 303h0M944 303h0M960 303h0M978 303h0M17 318h0M34 318h0M51 318h0M68 318h0M85 318h0M102 318h0M119 318h0M136 318h0M153 318h0M170 318h0M187 318h0M204 318h0M221 318h0M238 318h0M255 318h0M272 318h0M289 318h0M306 318h0M323 318h0M340 318h0M357 318h0M374 318h0M391 318h0M408 318h0M425 318h0M442 318h0M459 318h0M476 318h0M493 318h0M510 318h0M527 318h0M544 318h0M561 318h0M578 318h0M595 318h0M612 318h0M629 318h0M646 318h0M663 318h0M680 318h0M697 318h0M714 318h0M731 318h0M748 318h0M765 318h0M782 318h0M799 318h0M816 318h0M833 318h0M850 318h0M867 318h0M884 318h0M901 318h0M918 318h0M935 318h0M952 318h0M969 318h0M8 332h0M26 332h0M42 332h0M60 332h0M76 332h0M94 332h0M110 332h0M128 332h0M144 332h0M162 332h0M178 332h0M196 332h0M212 332h0M230 332h0M246 332h0M264 332h0M332 332h0M348 332h0M366 332h0M382 332h0M400 332h0M416 332h0M434 332h0M450 332h0M468 332h0M484 332h0M502 332h0M518 332h0M536 332h0M552 332h0M570 332h0M586 332h0M604 332h0M620 332h0M638 332h0M654 332h0M672 332h0M688 332h0M706 332h0M722 332h0M740 332h0M756 332h0M774 332h0M790 332h0M808 332h0M824 332h0M842 332h0M858 332h0M876 332h0M892 332h0M910 332h0M926 332h0M944 332h0M960 332h0M978 332h0M34 347h0M51 347h0M68 347h0M85 347h0M102 347h0M119 347h0M136 347h0M153 347h0M170 347h0M187 347h0M204 347h0M221 347h0M340 347h0M357 347h0M374 347h0M391 347h0M408 347h0M425 347h0M442 347h0M459 347h0M476 347h0M493 347h0M510 347h0M527 347h0M544 347h0M561 347h0M578 347h0M595 347h0M612 347h0M629 347h0M646 347h0M663 347h0M680 347h0M697 347h0M714 347h0M731 347h0M748 347h0M765 347h0M782 347h0M799 347h0M816 347h0M833 347h0M850 347h0M867 347h0M884 347h0M901 347h0M918 347h0M935 347h0M952 347h0M969 347h0M986 347h0M42 362h0M94 362h0M110 362h0M128 362h0M144 362h0M162 362h0M178 362h0M196 362h0M212 362h0M382 362h0M400 362h0M416 362h0M434 362h0M450 362h0M468 362h0M484 362h0M502 362h0M518 362h0M536 362h0M552 362h0M570 362h0M586 362h0M604 362h0M620 362h0M638 362h0M654 362h0M672 362h0M688 362h0M706 362h0M722 362h0M740 362h0M756 362h0M774 362h0M790 362h0M808 362h0M824 362h0M842 362h0M858 362h0M876 362h0M892 362h0M910 362h0M926 362h0M944 362h0M960 362h0M978 362h0M153 377h0M408 377h0M425 377h0M442 377h0M459 377h0M476 377h0M493 377h0M510 377h0M527 377h0M544 377h0M561 377h0M578 377h0M595 377h0M612 377h0M629 377h0M646 377h0M663 377h0M680 377h0M697 377h0M714 377h0M731 377h0M748 377h0M765 377h0M782 377h0M799 377h0M816 377h0M833 377h0M850 377h0M867 377h0M884 377h0M901 377h0M918 377h0M935 377h0M400 391h0M416 391h0M434 391h0M450 391h0M468 391h0M484 391h0M502 391h0M518 391h0M536 391h0M552 391h0M570 391h0M586 391h0M604 391h0M620 391h0M638 391h0M654 391h0M672 391h0M688 391h0M706 391h0M722 391h0M740 391h0M756 391h0M774 391h0M790 391h0M808 391h0M824 391h0M842 391h0M858 391h0M876 391h0M892 391h0M910 391h0M391 406h0M408 406h0M425 406h0M442 406h0M459 406h0M476 406h0M493 406h0M510 406h0M527 406h0M544 406h0M561 406h0M578 406h0M595 406h0M612 406h0M629 406h0M646 406h0M663 406h0M680 406h0M697 406h0M714 406h0M731 406h0M748 406h0M765 406h0M782 406h0M799 406h0M816 406h0M833 406h0M850 406h0M867 406h0M884 406h0M416 421h0M434 421h0M450 421h0M468 421h0M484 421h0M502 421h0M518 421h0M536 421h0M552 421h0M570 421h0M586 421h0M604 421h0M620 421h0M638 421h0M654 421h0M672 421h0M688 421h0M706 421h0M722 421h0M740 421h0M756 421h0M774 421h0M790 421h0M808 421h0M824 421h0M842 421h0M858 421h0M876 421h0M892 421h0M425 435h0M442 435h0M459 435h0M476 435h0M493 435h0M510 435h0M527 435h0M544 435h0M561 435h0M578 435h0M595 435h0M612 435h0M629 435h0M646 435h0M663 435h0M680 435h0M697 435h0M714 435h0M731 435h0M748 435h0M765 435h0M782 435h0M799 435h0M816 435h0M833 435h0M850 435h0M867 435h0M884 435h0M416 450h0M434 450h0M450 450h0M468 450h0M484 450h0M502 450h0M518 450h0M536 450h0M552 450h0M570 450h0M586 450h0M604 450h0M620 450h0M638 450h0M654 450h0M672 450h0M688 450h0M706 450h0M722 450h0M740 450h0M756 450h0M774 450h0M790 450h0M808 450h0M824 450h0M842 450h0M442 465h0M459 465h0M476 465h0M493 465h0M510 465h0M527 465h0M544 465h0M561 465h0M578 465h0M595 465h0M612 465h0M629 465h0M646 465h0M663 465h0M680 465h0M697 465h0M714 465h0M731 465h0M748 465h0M765 465h0M782 465h0M799 465h0M816 465h0M434 480h0M450 480h0M468 480h0M484 480h0M536 480h0M552 480h0M570 480h0M586 480h0M604 480h0M620 480h0M638 480h0M654 480h0M672 480h0M688 480h0M706 480h0M722 480h0M740 480h0M756 480h0M391 494h0M442 494h0M459 494h0M476 494h0M544 494h0M561 494h0M578 494h0M595 494h0M612 494h0M629 494h0M646 494h0M663 494h0M680 494h0M697 494h0M714 494h0M731 494h0M382 509h0M400 509h0M416 509h0M434 509h0M450 509h0M468 509h0M570 509h0M586 509h0M604 509h0M620 509h0M638 509h0M654 509h0M672 509h0M688 509h0M706 509h0M374 524h0M391 524h0M408 524h0M425 524h0M442 524h0M459 524h0M629 524h0M646 524h0M663 524h0M680 524h0M697 524h0M714 524h0M366 538h0M382 538h0M400 538h0M416 538h0M434 538h0M450 538h0M638 538h0M654 538h0M672 538h0M688 538h0M706 538h0M374 553h0M391 553h0M408 553h0M425 553h0M442 553h0M629 553h0M646 553h0M663 553h0M680 553h0M697 553h0M714 553h0M366 568h0M382 568h0M400 568h0M416 568h0M604 568h0M620 568h0M638 568h0M654 568h0M672 568h0M688 568h0M706 568h0M722 568h0M357 583h0M374 583h0M408 583h0M595 583h0M612 583h0M629 583h0M646 583h0M663 583h0M680 583h0M697 583h0M714 583h0M731 583h0M748 583h0M765 583h0M782 583h0M799 583h0M604 597h0M620 597h0M638 597h0M654 597h0M672 597h0M688 597h0M706 597h0M722 597h0M740 597h0M756 597h0M774 597h0M790 597h0M646 612h0M663 612h0M680 612h0M697 612h0M714 612h0M731 612h0M748 612h0M638 627h0M654 627h0M672 627h0M688 627h0M706 627h0M629 642h0M646 642h0M663 642h0M680 642h0M697 642h0M638 656h0M654 656h0M672 656h0"/><g class="eu"><path d="M100 209 C 40 200, -20 190, -70 170" fill="none" stroke="#FFB038" stroke-width="2" stroke-dasharray="4 7"/><circle cx="-74" cy="168" r="6" fill="#FFB038"/><text x="-96" y="146" fill="#FFB038" font-family="Jost,sans-serif" font-size="22" font-weight="700">Європа</text></g><g class="city" style="--d:0.00s"><circle class="p" cx="468.7" cy="158.1" r="9"/><circle class="c" cx="468.7" cy="158.1" r="7"/><text x="480.7" y="148.1">Київ</text></g><g class="city" style="--d:0.37s"><circle class="p" cx="108.1" cy="209.2" r="7.5"/><circle class="c" cx="108.1" cy="209.2" r="5.5"/><text x="120.1" y="199.2">Львів</text></g><g class="city" style="--d:0.74s"><circle class="p" cx="786.0" cy="196.7" r="7.5"/><circle class="c" cx="786.0" cy="196.7" r="5.5"/><text x="798.0" y="186.7">Харків</text></g><g class="city" style="--d:1.11s"><circle class="p" cx="480.4" cy="491.0" r="7.5"/><circle class="c" cx="480.4" cy="491.0" r="5.5"/><text x="492.4" y="481.0">Одеса</text></g><g class="city" style="--d:1.48s"><circle class="p" cx="720.4" cy="325.0" r="7.5"/><circle class="c" cx="720.4" cy="325.0" r="5.5"/><text x="732.4" y="315.0">Дніпро</text></g><g class="city" style="--d:1.85s"><circle class="p" cx="725.4" cy="377.0" r="6.5"/><circle class="c" cx="725.4" cy="377.0" r="4.5"/></g><g class="city" style="--d:2.22s"><circle class="p" cx="354.8" cy="260.4" r="7.5"/><circle class="c" cx="354.8" cy="260.4" r="5.5"/><text x="366.8" y="250.39999999999998">Вінниця</text></g><g class="city" style="--d:2.59s"><circle class="p" cx="692.7" cy="230.2" r="6.5"/><circle class="c" cx="692.7" cy="230.2" r="4.5"/></g><g class="city" style="--d:2.96s"><circle class="p" cx="145.8" cy="286.4" r="6.5"/><circle class="c" cx="145.8" cy="286.4" r="4.5"/></g><g class="city" style="--d:0.33s"><circle class="p" cx="194.7" cy="233.6" r="6.5"/><circle class="c" cx="194.7" cy="233.6" r="4.5"/></g><g class="city" style="--d:0.70s"><circle class="p" cx="180.3" cy="132.9" r="6.5"/><circle class="c" cx="180.3" cy="132.9" r="4.5"/></g><g class="city" style="--d:1.07s"><circle class="p" cx="231.4" cy="143.8" r="6.5"/><circle class="c" cx="231.4" cy="143.8" r="4.5"/></g><g class="city" style="--d:1.44s"><circle class="p" cx="365.3" cy="174.9" r="6.5"/><circle class="c" cx="365.3" cy="174.9" r="4.5"/></g><g class="city" style="--d:1.81s"><circle class="p" cx="511.5" cy="70.9" r="6.5"/><circle class="c" cx="511.5" cy="70.9" r="4.5"/></g><g class="city" style="--d:2.18s"><circle class="p" cx="706.5" cy="119.5" r="6.5"/><circle class="c" cx="706.5" cy="119.5" r="4.5"/></g><g class="city" style="--d:2.55s"><circle class="p" cx="554.3" cy="242.8" r="6.5"/><circle class="c" cx="554.3" cy="242.8" r="4.5"/></g><g class="city" style="--d:2.92s"><circle class="p" cx="565.4" cy="320.8" r="6.5"/><circle class="c" cx="565.4" cy="320.8" r="4.5"/></g><g class="city" style="--d:0.29s"><circle class="p" cx="550.4" cy="449.9" r="6.5"/><circle class="c" cx="550.4" cy="449.9" r="4.5"/></g><g class="city" style="--d:0.66s"><circle class="p" cx="585.4" cy="477.6" r="6.5"/><circle class="c" cx="585.4" cy="477.6" r="4.5"/></g><g class="city" style="--d:1.03s"><circle class="p" cx="11.4" cy="311.6" r="7.5"/><circle class="c" cx="11.4" cy="311.6" r="5.5"/></g><g class="city" style="--d:1.40s"><circle class="p" cx="214.2" cy="339.2" r="6.5"/><circle class="c" cx="214.2" cy="339.2" r="4.5"/></g><g class="city" style="--d:1.77s"><circle class="p" cx="272.5" cy="244.5" r="6.5"/><circle class="c" cx="272.5" cy="244.5" r="4.5"/></g></svg></div>
+      <div class="geo-side rv">
+        <h3>Реклама там, де ваші клієнти</h3>
+        <p>Гео налаштовуємо точно: тільки місто, місто з передмістям чи вся область. Жодної гривні на покази в регіонах, де ви не працюєте.</p>
+        <p>Працюємо дистанційно, тому можемо запустити сайт і рекламу й для бізнесу в Польщі, Чехії, Німеччині та інших країнах ЄС.</p>
+        <div class="chips" id="cityChips"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="tsina">
+  <div class="wrap">
+    <div class="sec-head center rv">
+      <div class="eyebrow">Ціна</div>
+      <h2>Один пакет. <span class="og-text">Один платіж.</span></h2>
+      <p>Окремо сайт коштує в нас $500, налаштування Google Ads — $300. Разом у пакеті — $300.</p>
+    </div>
+    <div class="price-grid">
+      <div class="pcard rv-scale" id="pcard">
+        <span class="badge">Пакет «Сайт + Google»</span>
+        <div class="amount"><span class="old">$800</span><span class="new og-text">$300</span><span class="lbl">разово,<br>під ключ</span></div>
+        <ul>
+          <li><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>Односторінковий сайт під вашу нішу</li>
+          <li><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>Кнопки дзвінка, Telegram, Viber і форма заявки</li>
+          <li><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>Підключення домену та аналітики</li>
+          <li><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>Налаштування Google Ads по вашому місту</li>
+          <li><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>Відстеження дзвінків і заявок</li>
+          <li><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>Допомога з бонусом Google<sup>*</sup></li>
+          <li><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>Показуємо сайт до запуску, вносимо правки</li>
+          <li><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>Перший тиждень стежимо за результатом</li>
+        </ul>
+        <a class="btn btn-o mag" href="#zayavka">Замовити за $300 <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <p class="note">Оплата 50/50: половина до початку робіт, половина після запуску.</p>
+      </div>
+      <div class="pside">
+        <div class="bx rv" style="--d:.08s"><div class="k">$150<small>/ міс</small></div><h3>Ведення реклами й підтримка сайту</h3><p>За бажанням, після запуску. Коригуємо ставки й ключові слова, вносимо правки на сайт. Можна відмовитися будь-якого місяця.</p></div>
+        <div class="bx rv" style="--d:.16s"><div class="k">0%</div><h3>Рекламний бюджет — напряму Google</h3><p>Ви платите Google зі своєї картки і самі визначаєте суму. Ми не беремо комісію і не торкаємося ваших грошей.</p></div>
+        <div class="bx rv" style="--d:.24s"><div class="k og-text">₴ бонус<sup>*</sup></div><h3>Промокод Google для нових акаунтів</h3><p>До 10&nbsp;000&nbsp;₴ на рекламу. Допоможемо активувати; точні умови назвемо на момент запуску.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="pro-nas" style="padding-top:0">
+  <div class="wrap founder">
+    <div class="ph-frame rv-scale"><img src="img/maxim.webp" alt="Максим, засновник PR-Max" loading="lazy" width="1000" height="1000"><div class="nm"><b>Максим</b><span>засновник PR MAX</span></div></div>
+    <div class="txt rv">
+      <div class="eyebrow">Про нас</div>
+      <h2>PR MAX — це не про «гарний сайт». Це про <span class="og-text">дзвінки</span>.</h2>
+      <p>Привіт! Я Максим. Ми робимо сайти й налаштовуємо рекламу Google для бізнесу, якому клієнти телефонують: евакуатори, майстри, виробництва, сервіси. Наша мета проста — щоб ваш телефон дзвонив.</p>
+      <div class="princ">
+        <div><b><i>01</i>Один платіж</b><span>$300 і все. Без річних договорів і прихованих платежів.</span></div>
+        <div><b><i>02</i>Бюджет ваш</b><span>Реклама оплачується з вашої картки напряму Google.</span></div>
+        <div><b><i>03</i>Доступи у вас</b><span>Сайт і рекламний кабінет оформлені на вас.</span></div>
+        <div><b><i>04</i>Без сюрпризів</b><span>Показуємо сайт до запуску й пояснюємо кожен крок.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="faq" style="padding-top:0">
+  <div class="wrap faq">
+    <div class="sec-head rv">
+      <div class="eyebrow">Питання</div>
+      <h2>Що зазвичай запитують</h2>
+      <p>Не знайшли відповіді? Залиште заявку — пояснимо все за 10 хвилин.</p>
+    </div>
+    <div class="faq-list rv">
+      <details><summary>Чому так недорого?<i><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></i></summary><div class="ans"><div><p>Ми робимо сайти за відпрацьованою структурою під кожну нішу і налаштовуємо рекламу самі, без великого офісу. Тому $300 за пакет, а не агентський цінник.</p></div></div></details>
+      <details><summary>Скільки коштуватиме сама реклама?<i><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></i></summary><div class="ans"><div><p>Бюджет визначаєте ви і платите напряму Google зі своєї картки. Ми порадимо стартову суму під ваше місто й нішу. Зупинити або зменшити рекламу можна в будь-який момент.</p></div></div></details>
+      <details><summary>Що за бонус до 10&nbsp;000&nbsp;₴?<i><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></i></summary><div class="ans"><div><p>Google дає промокод новим рекламним акаунтам: після того як ви витратите визначену суму у визначений строк, Google нараховує бонус на подальші покази. Розмір і умови встановлює Google і може їх змінювати. Ми допоможемо активувати й назвемо точні умови на момент запуску.</p></div></div></details>
+      <details><summary>Скільки часу до запуску?<i><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></i></summary><div class="ans"><div><p>Зазвичай до 7 днів. Сайт робимо за 1–3 робочі дні після того, як ви надішлете фото й контакти. Реклама стартує після модерації Google.</p></div></div></details>
+      <details><summary>Як відбувається оплата?<i><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></i></summary><div class="ans"><div><p>50/50: половина до початку робіт, половина після запуску. Ведення реклами за $150 на місяць — тільки за вашим бажанням.</p></div></div></details>
+      <details><summary>Ви працюєте тільки в одному місті?<i><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></i></summary><div class="ans"><div><p>Ні. Працюємо по всій Україні дистанційно, а також беремо проєкти для бізнесу в Європі. Рекламу налаштовуємо саме на те місто чи область, де ви працюєте.</p></div></div></details>
+      <details><summary>Мені потрібно щось уміти?<i><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></i></summary><div class="ans"><div><p>Ні. Від вас — розмова на 10 хвилин, фото робіт і номер телефону. Усе інше робимо ми. Ваше завдання — відповідати на дзвінки.</p></div></div></details>
+    </div>
+  </div>
+</section>
+
+<section class="sec final" id="zayavka">
+  <div class="wrap final-grid">
+    <div class="rv">
+      <div class="eyebrow">Заявка</div>
+      <h2>Почнімо з <span class="og-text">10‑хвилинної</span> розмови</h2>
+      <p class="sub">Розкажемо, як виглядатиме ваш сайт, який бюджет на рекламу має сенс у вашому місті і коли можна стартувати.</p>
+      <div class="contacts">
+        <a href="#" data-c="phone-link"><i><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></i><span><small>Телефон</small><span data-c="phone">+380 (00) 000-00-00</span></span></a>
+        <a href="#" data-c="tg-link" target="_blank" rel="noopener"><i><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 4L3 11l6 2 2 6 3-4 5 4z"/><path d="M9 13l9-7"/></svg></i><span><small>Telegram</small><span data-c="tg">@prmax_ua</span></span></a>
+      </div>
+    </div>
+    <form class="quiz rv-scale" id="quiz" novalidate>
+      <div class="top"><b>Отримати пропозицію</b><span id="qstepn">Крок 1 з 3</span></div>
+      <div class="qbar"><i id="qbar"></i></div>
+      <div class="qstep on" data-s="1"><h4>Яка у вас ніша?</h4><div class="nchips" id="qn" role="group" aria-label="Ніша"></div></div>
+      <div class="qstep" data-s="2"><h4>У якому місті ви працюєте?</h4><input class="inp" id="qcity" list="cities" placeholder="Наприклад, Київ" autocomplete="address-level2"><label><input type="checkbox" id="qobl"> Потрібна реклама по всій області</label></div>
+      <div class="qstep" data-s="3"><h4>Куди вам передзвонити?</h4><label for="qname">Ім'я</label><input class="inp" id="qname" placeholder="Андрій" autocomplete="name"><label for="qphone">Телефон</label><input class="inp" id="qphone" type="tel" placeholder="+380" autocomplete="tel"></div>
+      <div class="err" id="qerr" role="alert"></div>
+      <div class="qnav" id="qnav"><button type="button" class="btn btn-g back" id="qback" hidden>Назад</button><button type="submit" class="btn btn-o" id="qnext">Далі <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+      <p class="fine">Без спаму. Один дзвінок щодо вашого проєкту.</p>
+      <div class="done" id="qdone" hidden><div class="ok"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></div><h4>Дякуємо, заявку прийнято!</h4><p>Передзвонимо протягом години в робочий час. Хочете швидше — напишіть нам у Telegram.</p><a class="btn btn-o" id="qtg" href="#" target="_blank" rel="noopener">Написати в Telegram</a></div>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="f-top">
+      <img src="img/logo.webp" alt="PR MAX Digital Agency" loading="lazy" width="520" height="338">
+      <nav aria-label="Нижнє меню"><a href="#chomu">Чому Google</a><a href="#yak">Як працюємо</a><a href="#roboty">Роботи</a><a href="#vidguky">Відгуки</a><a href="#tsina">Ціна</a><a href="#faq">Питання</a></nav>
+      <span>© PR MAX · сайти та реклама Google для локального бізнесу</span>
+    </div>
+    <div class="f-notes">
+      <span><sup>1</sup> Частка Google серед пошукових систем в Україні за вересень 2026 року — 90,67%. Джерело: <a href="https://gs.statcounter.com/search-engine-market-share/all/ukraine" target="_blank" rel="noopener">Statcounter Global Stats</a>.</span>
+      <span><sup>*</sup> Бонус надає Google у вигляді промокоду для нових рекламних акаунтів після виконання умов Google (витрата визначеної суми у визначений строк). Розмір бонусу та умови встановлює Google і може їх змінювати. Точні умови повідомляємо на момент запуску.</span>
+      <span>Фото ніш — Unsplash. Логотипи, роботи та відгуки — наших клієнтів.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="mbar" id="mbar"><a class="btn btn-g" href="#" data-c="phone-link">Подзвонити</a><a class="btn btn-o" href="#zayavka">Заявка</a></div>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Перегляд"><div class="box" id="mbox"><button class="x" type="button" id="mx" aria-label="Закрити"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button><div id="mc"></div></div></div>
+
+<script>
+/* ===== КОНТАКТИ: замінити тут, коли будуть справжні ===== */
+var CONTACTS={
+  phone:'+380 (00) 000-00-00',   // як показувати
+  phoneTel:'+380000000000',      // для кнопки дзвінка
+  telegram:'prmax_ua'            // без @
+};
+</script>
+<script>
+(function(){
+  document.documentElement.classList.add('js');
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var fine=matchMedia('(pointer:fine)').matches;
+  function $(s,c){return (c||document).querySelector(s)}
+  function $$(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))}
+
+  /* Contacts */
+  $$('[data-c=phone]').forEach(function(e){e.textContent=CONTACTS.phone});
+  $$('[data-c=phone-link]').forEach(function(e){e.href='tel:'+CONTACTS.phoneTel});
+  $$('[data-c=tg]').forEach(function(e){e.textContent='@'+CONTACTS.telegram});
+  $$('[data-c=tg-link]').forEach(function(e){e.href='https://t.me/'+CONTACTS.telegram});
+
+  /* Preloader */
+  var pre=$('#pre');
+  function hidePre(){pre.classList.add('out');setTimeout(function(){pre.remove()},700)}
+  if(reduce){pre.remove()}else{window.addEventListener('load',function(){setTimeout(hidePre,350)});setTimeout(function(){if(document.body.contains(pre))hidePre()},1800)}
+
+  /* Header + progress + mobile bar */
+  var hdr=$('#hdr'),prog=$('#prog'),mbar=$('#mbar'),hero=$('#hero');
+  function onScroll(){
+    var y=scrollY,h=document.documentElement,max=h.scrollHeight-h.clientHeight;
+    hdr.classList.toggle('sc',y>30);
+    prog.style.transform='scaleX('+(max>0?y/max:0)+')';
+    mbar.classList.toggle('on',y>hero.offsetHeight*.6);
+    rail();
+  }
+  addEventListener('scroll',onScroll,{passive:true});
+
+  /* Reveal */
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15,rootMargin:'0px 0px -8% 0px'});
+  $$('.rv,.rv-scale,.bx,.big-stat,.pcard').forEach(function(el){io.observe(el)});
+
+  /* Counters */
+  function fmt(v,d){return v.toFixed(d).replace('.',',')}
+  var cio=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(!e.isIntersecting)return;cio.unobserve(e.target);
+    var el=e.target,to=parseFloat(el.dataset.to),d=+el.dataset.dec||0;
+    if(reduce){el.textContent=fmt(to,d);return}
+    var t0=performance.now(),dur=1800;
+    (function tick(t){var p=Math.min(1,(t-t0)/dur);p=1-Math.pow(1-p,4);el.textContent=fmt(to*p,d);if(p<1)requestAnimationFrame(tick)})(t0);
+  })},{threshold:.6});
+  $$('.cnt').forEach(function(el){cio.observe(el)});
+
+  /* Niche data */
+  var N={
+    tow:{name:'Евакуатор',q:'евакуатор',slug:'evakuator',img:'img/niche/tow.webp',brand:'Евакуатор 24/7',title:'Евакуатор {C} | Приїдемо за 30 хв',desc:'Цілодобово. Легкові та бусики, після ДТП. Ціну називаємо одразу по телефону.',h:'Евакуатор 24/7 — приїдемо за 30 хвилин',p:'Легкові та бусики, після ДТП. Ціну називаємо одразу.',cta:'Викликати евакуатор'},
+    car:{name:'Викуп авто',q:'викуп авто',slug:'vykup-avto',img:'img/niche/carkeys.webp',brand:'АвтоВикуп',title:'Викуп авто {C} | Гроші за 1 годину',desc:'Оцінка на місці. Будь-який стан: після ДТП, кредитні, з проблемами.',h:'Викупимо ваше авто за 1 годину',p:'Приїдемо, оцінимо, заплатимо на місці.',cta:'Оцінити авто'},
+    boiler:{name:'Ремонт котлів',q:'ремонт котлів',slug:'remont-kotliv',img:'img/niche/boiler.webp',brand:'Котли Сервіс',title:'Ремонт котлів {C} | Майстер сьогодні',desc:'Газові та електричні котли всіх марок. Діагностика й ремонт на місці.',h:'Майстер по котлах приїде сьогодні',p:'Усі марки. Діагностика й ремонт на місці.',cta:'Викликати майстра'},
+    wood:{name:'Дрова, пелети',q:'дрова з доставкою',slug:'drova',img:'img/niche/firewood.webp',brand:'Дрова Двір',title:'Дрова з доставкою {C} | Сухі, колоті',desc:'Дуб, граб, ясен. Пелети та брикети. Доставка в день замовлення.',h:'Сухі дрова з доставкою додому',p:'Дуб, граб, ясен. Пелети та брикети.',cta:'Замовити дрова'},
+    stone:{name:"Пам'ятники",q:"пам'ятники",slug:'pamiatnyky',img:'img/niche/granite.webp',brand:'Граніт Майстер',title:"Пам'ятники з граніту {C} | Під ключ",desc:'Виготовлення, гравіювання та встановлення. Безкоштовний виїзд на замір.',h:"Пам'ятники з граніту під ключ",p:'Виготовлення, гравіювання, встановлення.',cta:'Отримати розрахунок'},
+    gate:{name:'Ворота і паркани',q:'відкатні ворота',slug:'vorota',img:'img/niche/gate.webp',brand:'Ворота Профі',title:'Відкатні ворота {C} | Монтаж під ключ',desc:'Ворота, паркани, навіси, автоматика. Безкоштовний замір.',h:'Ворота й паркани під ключ',p:'Ворота, паркани, автоматика. Замір безкоштовно.',cta:'Викликати замірника'},
+    well:{name:'Свердловини',q:'буріння свердловин',slug:'burinnia',img:'img/niche/well.webp',brand:'Вода Бур',title:'Буріння свердловин {C} | Вода за 1 день',desc:'Буріння, облаштування, насоси. Виїзд по місту та області.',h:'Своя вода на ділянці за 1 день',p:'Буріння, облаштування, насоси.',cta:'Розрахувати ціну'},
+    kitchen:{name:'Кухні',q:'кухні на замовлення',slug:'kukhni',img:'img/niche/kitchen.webp',brand:'Кухні Studio',title:'Кухні на замовлення {C} | Замір безкоштовно',desc:'Проєкт під ваші розміри. Фасади, стільниці, фурнітура.',h:'Кухня під ваші розміри',p:'Проєкт, виготовлення, монтаж.',cta:'Записатися на замір'}
+  };
+  var CITIES=['Київ','Львів','Харків','Одеса','Дніпро','Запоріжжя','Вінниця','Полтава','Івано-Франківськ','Тернопіль','Луцьк','Рівне','Житомир','Чернігів','Суми','Черкаси','Кропивницький','Миколаїв','Херсон','Ужгород','Чернівці','Хмельницький','Біла Церква','Кременчук','Кривий Ріг','Бровари','Ірпінь'];
+  var TR={'а':'a','б':'b','в':'v','г':'h','ґ':'g','д':'d','е':'e','є':'ie','ж':'zh','з':'z','и':'y','і':'i','ї':'i','й':'i','к':'k','л':'l','м':'m','н':'n','о':'o','п':'p','р':'r','с':'s','т':'t','у':'u','ф':'f','х':'kh','ц':'ts','ч':'ch','ш':'sh','щ':'shch','ь':'','ю':'iu','я':'ia',"'":'','’':'',' ':'-','-':'-'};
+  function slugCity(c){return c.toLowerCase().split('').map(function(ch){return TR[ch]!==undefined?TR[ch]:(/[a-z0-9]/.test(ch)?ch:'')}).join('').replace(/-+/g,'-').replace(/^-|-$/g,'')||'misto'}
+  function cap(s){s=s.trim();return s?s.charAt(0).toUpperCase()+s.slice(1):s}
+  function fill(prefix,n,city){
+    var c=cap(city)||'Ваше місто',dom=n.slug+'-'+slugCity(c)+'.com.ua';
+    $('#'+prefix+'site').textContent=dom;
+    $('#'+prefix+'url').textContent='https://'+dom;
+    $('#'+prefix+'title').textContent=n.title.replace('{C}',c);
+    $('#'+prefix+'desc').textContent=n.desc;
+    $('#'+prefix+'ph').style.backgroundImage='url('+n.img+')';
+    $('#'+prefix+'brand').textContent=n.brand;
+    $('#'+prefix+'h').textContent=n.h;
+    $('#'+prefix+'p').textContent=n.p;
+    $('#'+prefix+'cta').textContent=n.cta;
+  }
+
+  /* Hero demo cycle */
+  var seq=[['tow','Київ'],['car','Дніпро'],['boiler','Львів'],['wood','Вінниця'],['well','Одеса'],['kitchen','Харків'],['gate','Полтава'],['stone','Житомир']];
+  var dq=$('#dq'),dad=$('#dad'),dps=$('#dps'),dtoast=$('#dtoast');
+  function setHero(i){
+    var n=N[seq[i][0]],c=seq[i][1];
+    fill('d',n,c);
+    $('#dcity').textContent=c+' і область';
+    $('#dts').textContent='з реклами Google · '+n.q+', '+c;
+  }
+  setHero(0);
+  if(!reduce){
+    var hi=0;
+    var wait=function(ms){return new Promise(function(r){setTimeout(r,ms)})};
+    var typeTo=async function(txt){for(var k=1;k<=txt.length;k++){dq.textContent=txt.slice(0,k);await wait(55+Math.random()*40)}};
+    var erase=async function(){var t=dq.textContent;for(var k=t.length;k>=0;k--){dq.textContent=t.slice(0,k);await wait(22)}};
+    (async function loop(){
+      await wait(2600);
+      while(true){
+        dtoast.classList.add('hide');
+        await erase();
+        hi=(hi+1)%seq.length;
+        var n=N[seq[hi][0]],c=seq[hi][1];
+        await typeTo(n.q+' '+c.toLowerCase());
+        await wait(250);
+        dad.classList.add('hide');dps.classList.add('swap');
+        await wait(380);
+        setHero(hi);
+        dad.classList.remove('hide');
+        await wait(350);dps.classList.remove('swap');
+        await wait(900);dtoast.classList.remove('hide');
+        await wait(3800);
+      }
+    })();
+  }
+
+  /* Hero spotlight + phone tilt */
+  if(fine&&!reduce){
+    var bg=$('.hero-bg'),ph=$('#dphone'),demo=$('#demo');
+    hero.addEventListener('mousemove',function(e){var r=hero.getBoundingClientRect();bg.style.setProperty('--sx',(e.clientX-r.left)/r.width*100+'%');bg.style.setProperty('--sy',(e.clientY-r.top)/r.height*100+'%')});
+    demo.addEventListener('mousemove',function(e){if(innerWidth<1100)return;var r=demo.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;ph.style.transform='rotateY('+x*14+'deg) rotateX('+(-y*10)+'deg)'});
+    demo.addEventListener('mouseleave',function(){ph.style.transform=''});
+    /* magnetic buttons */
+    $$('.mag').forEach(function(b){
+      b.addEventListener('mousemove',function(e){var r=b.getBoundingClientRect();b.style.setProperty('--mx',(e.clientX-r.left-r.width/2)*.18+'px');b.style.setProperty('--my',(e.clientY-r.top-r.height/2)*.28+'px')});
+      b.addEventListener('mouseleave',function(){b.style.setProperty('--mx','0px');b.style.setProperty('--my','0px')});
+    });
+  }
+
+  /* Logos marquee: duplicate for seamless loop */
+  var tr=$('#track');tr.innerHTML+=tr.innerHTML.replace(/alt="[^"]*"/g,'alt="" aria-hidden="true"');
+
+  /* Process rail */
+  var steps=$('#steps'),railEl=$('#rail'),sts=$$('.st');
+  function rail(){
+    var r=steps.getBoundingClientRect(),vh=innerHeight;
+    var p=Math.max(0,Math.min(1,(vh*.75-r.top)/(r.height+vh*.1)));
+    railEl.style.setProperty('--p',p);
+    sts.forEach(function(s,i){s.classList.toggle('on',p>=(i/(sts.length))+.02)});
+  }
+  onScroll();
+
+  /* Builder */
+  var bn=$('#bn'),bcity=$('#bcity'),cur='tow';
+  $('#cities').innerHTML=CITIES.map(function(c){return '<option value="'+c+'">'}).join('');
+  Object.keys(N).forEach(function(k){var b=document.createElement('button');b.type='button';b.textContent=N[k].name;b.dataset.k=k;b.setAttribute('aria-pressed',k===cur);bn.appendChild(b)});
+  var bps=$('#bps');
+  function upd(anim){
+    if(anim&&!reduce){bps.classList.add('swap');setTimeout(function(){fill('b',N[cur],bcity.value);$('#bcityl').textContent=(cap(bcity.value)||'Ваше місто')+' і область';bps.classList.remove('swap')},220)}
+    else{fill('b',N[cur],bcity.value);$('#bcityl').textContent=(cap(bcity.value)||'Ваше місто')+' і область'}
+  }
+  bn.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;cur=b.dataset.k;$$('button',bn).forEach(function(x){x.setAttribute('aria-pressed',x===b)});upd(true)});
+  bcity.addEventListener('input',function(){upd(false)});
+  upd(false);
+  $$('.nc[data-n]').forEach(function(a){a.addEventListener('click',function(){cur=a.dataset.n;$$('button',bn).forEach(function(x){x.setAttribute('aria-pressed',x.dataset.k===cur)});upd(true)})});
+
+  /* Portfolio videos: load & play only when visible */
+  var vio=new IntersectionObserver(function(es){es.forEach(function(e){var v=e.target;if(e.isIntersecting){if(!v.src){v.src=v.dataset.src}if(!reduce){var p=v.play();if(p&&p.catch)p.catch(function(){})}}else{v.pause()}})},{threshold:.35});
+  $$('.wk video').forEach(function(v){vio.observe(v)});
+
+  /* Modal */
+  var modal=$('#modal'),mbox=$('#mbox'),mc=$('#mc'),lastFocus=null;
+  function openModal(html,cls){lastFocus=document.activeElement;mbox.className='box '+cls;mc.innerHTML=html;if(cls==='v'){mc.style.cssText='width:100%;height:100%'}else{mc.style.cssText=''}modal.classList.add('on');$('#mx').focus()}
+  function closeModal(){modal.classList.remove('on');setTimeout(function(){mc.innerHTML=''},350);if(lastFocus)lastFocus.focus()}
+  $('#mx').addEventListener('click',closeModal);
+  modal.addEventListener('click',function(e){if(e.target===modal)closeModal()});
+  addEventListener('keydown',function(e){if(e.key==='Escape'&&modal.classList.contains('on'))closeModal()});
+  $$('[data-yt]').forEach(function(b){b.addEventListener('click',function(){openModal('<iframe src="https://www.youtube-nocookie.com/embed/'+b.dataset.yt+'?autoplay=1&rel=0" title="Відео сайту" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>','v')})});
+  $$('.shot[data-img]').forEach(function(s){
+    var open=function(){openModal('<img src="'+s.dataset.img+'" alt="Скриншот відгуку">','i')};
+    s.addEventListener('click',open);s.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();open()}});
+  });
+
+  /* Reviews carousel */
+  var cards=$('#cards');
+  function step(){var c=cards.querySelector('.rc');return c?c.getBoundingClientRect().width+20:360}
+  $('#cprev').addEventListener('click',function(){cards.scrollBy({left:-step(),behavior:'smooth'})});
+  $('#cnext').addEventListener('click',function(){cards.scrollBy({left:step(),behavior:'smooth'})});
+
+  /* City chips */
+  $('#cityChips').innerHTML=['Київ','Львів','Харків','Одеса','Дніпро','Вінниця','Полтава','Житомир','Рівне','Чернівці','+ будь-яке місто','Європа'].map(function(c,i){return '<span'+(i>9?' class="o"':'')+'>'+c+'</span>'}).join('');
+
+  /* Quiz */
+  var qn=$('#qn'),qs=1,qniche='';
+  Object.keys(N).forEach(function(k){var b=document.createElement('button');b.type='button';b.textContent=N[k].name;b.dataset.v=N[k].name;b.setAttribute('aria-pressed','false');qn.appendChild(b)});
+  var other=document.createElement('button');other.type='button';other.textContent='Інша ніша';other.dataset.v='Інша';other.setAttribute('aria-pressed','false');qn.appendChild(other);
+  qn.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;qniche=b.dataset.v;$$('button',qn).forEach(function(x){x.setAttribute('aria-pressed',x===b)});$('#qerr').textContent='';setTimeout(function(){go(2)},250)});
+  function go(n){qs=n;$$('.qstep').forEach(function(s){s.classList.toggle('on',+s.dataset.s===n)});$('#qbar').style.width=(n/3*100)+'%';$('#qstepn').textContent='Крок '+n+' з 3';$('#qback').hidden=n===1;$('#qnext').firstChild.textContent=n===3?'Надіслати заявку ':'Далі ';var f=$('.qstep.on input');if(f&&n>1)f.focus()}
+  $('#qback').addEventListener('click',function(){go(Math.max(1,qs-1))});
+  $('#quiz').addEventListener('submit',function(e){
+    e.preventDefault();var err=$('#qerr');err.textContent='';
+    if(qs===1){if(!qniche){err.textContent='Оберіть нішу';return}go(2);return}
+    if(qs===2){if(!$('#qcity').value.trim()){err.textContent='Вкажіть місто';$('#qcity').focus();return}go(3);return}
+    var nm=$('#qname').value.trim(),phv=$('#qphone').value.trim();
+    if(!nm){err.textContent="Вкажіть ім'я";$('#qname').focus();return}
+    if(phv.replace(/\D/g,'').length<9){err.textContent='Вкажіть номер телефону';$('#qphone').focus();return}
+    var txt='Заявка з сайту PR-Max\nІм\'я: '+nm+'\nТелефон: '+phv+'\nНіша: '+qniche+'\nМісто: '+$('#qcity').value.trim()+($('#qobl').checked?' (вся область)':'');
+    $('#qtg').href='https://t.me/'+CONTACTS.telegram+'?text='+encodeURIComponent(txt);
+    $$('.qstep,#qnav,.qbar,.quiz .fine,.quiz .top').forEach(function(x){x.hidden=true;x.style.display='none'});
+    $('#qdone').hidden=false;
+  });
+})();
+</script>
+</body>
+</html>
