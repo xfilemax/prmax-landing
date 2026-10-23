@@ -47,7 +47,7 @@ s{text-decoration-color:var(--o3);text-decoration-thickness:1.5px}
 html.shot .hero{min-height:0}
 
 /* ===== Kicker (надпись с линией) ===== */
-.eyebrow{display:inline-flex;align-items:center;gap:14px;font:700 11.5px/1 var(--b);letter-spacing:.26em;text-transform:uppercase;color:var(--ol)}
+.eyebrow{display:inline-flex;align-items:center;gap:14px;font:700 13px/1 var(--b);letter-spacing:.22em;text-transform:uppercase;color:var(--ol)}
 .eyebrow::before{content:"";width:42px;height:1px;background:linear-gradient(90deg,transparent,currentColor)}
 .eyebrow i{font-style:normal;font-family:var(--d);font-size:15px;font-weight:500;letter-spacing:.06em;color:var(--dim)}
 .sec{padding-block:var(--mo);position:relative}
@@ -118,6 +118,9 @@ html.js .rv.in{opacity:1;transform:none}
 .mnav.on{opacity:1;visibility:visible}
 .m-logo{position:absolute;left:var(--gut);top:calc(13px + env(safe-area-inset-top,0px));z-index:1}
 .m-logo img{height:44px;width:auto}
+.m-close{position:absolute;right:var(--gut);top:calc(13px + env(safe-area-inset-top,0px));width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.4);background:rgba(255,255,255,.06);color:#fff;display:grid;place-items:center;cursor:pointer;z-index:2;padding:0;transition:background .3s,transform .5s var(--e)}
+.m-close svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round}
+.m-close:hover{background:rgba(255,255,255,.14);transform:rotate(90deg)}
 .mnav nav{display:grid;position:relative}
 .mnav nav,.mnav .m-bonus,.mnav .m-foot{flex-shrink:0}
 .mnav nav a{display:flex;align-items:center;gap:16px;padding:11px 4px;border-bottom:1px solid var(--line);font-family:var(--d);font-size:27px;font-weight:400;opacity:0;transform:translateX(-24px);transition:opacity .6s var(--e),transform .6s var(--e)}
@@ -179,7 +182,7 @@ html.js .rv.in{opacity:1;transform:none}
 .stat{padding:8px 12px;border-inline-start:1px solid rgba(255,255,255,.14)}
 .stat:nth-child(odd){border:0}
 .stat b{display:block;font-family:var(--d);font-weight:500;font-size:30px;line-height:1;background:var(--grad);background-size:220% auto;-webkit-background-clip:text;background-clip:text;color:transparent}
-.stat span{display:block;font-size:11px;letter-spacing:.04em;color:rgba(255,255,255,.72);font-weight:600;margin-top:5px;line-height:1.35}
+.stat span{display:block;font-size:12px;letter-spacing:.04em;color:rgba(255,255,255,.72);font-weight:600;margin-top:5px;line-height:1.35}
 .stat span s{color:var(--dim);font-weight:500}
 .demo{display:none}
 
@@ -551,7 +554,7 @@ footer{border-top:1px solid var(--line);padding-block:34px 120px;color:var(--dim
   .ntf-wrap{display:none}
   .display{font-size:clamp(56px,min(5.2vw,9.6vh),104px);margin-top:22px}
   .lead{font-size:clamp(17px,1.2vw,19px);margin-top:22px}
-  .h-cta{margin-top:30px}
+  .h-cta{margin-top:32px}
   .stats{margin-top:34px}
   .demo{display:block;--ph:clamp(520px,calc(100vh - 170px),640px);position:relative;height:calc(var(--ph) + 50px);perspective:1400px;animation:fadeUp 1.3s var(--e) .3s both}
   .demo-label{position:absolute;right:6px;top:-6px;z-index:6}
@@ -564,7 +567,7 @@ footer{border-top:1px solid var(--line);padding-block:34px 120px;color:var(--dim
   .d-arrow path{fill:none;stroke:var(--o1);stroke-width:1.5;stroke-linecap:round;stroke-dasharray:5 9;animation:dash 1.6s linear infinite}
   @keyframes dash{to{stroke-dashoffset:-28}}
   .d-phone{position:absolute;right:0;top:40px;height:var(--ph);width:calc(var(--ph) * .49);z-index:3;transition:transform .6s var(--e)}
-  .d-toast{position:absolute;left:2%;bottom:16px;z-index:6;width:min(340px,72%);display:flex;align-items:center;gap:14px;padding:14px 16px;border-radius:22px;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);transition:opacity .5s var(--e),transform .5s var(--e)}
+  .d-toast{position:absolute;left:-56px;bottom:16px;z-index:6;width:min(320px,calc(100% - var(--ph) * .49 + 80px));display:flex;align-items:center;gap:14px;padding:14px 16px;border-radius:22px;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);transition:opacity .5s var(--e),transform .5s var(--e)}
   .d-toast.hide{opacity:0;transform:translateY(20px) scale(.95)}
   .d-toast .ic{width:46px;height:46px;border-radius:50%;background:var(--green);display:grid;place-items:center;flex:0 0 auto}
   .d-toast .ic svg{width:22px;height:22px;stroke:#04210f;stroke-width:2.2;fill:none;animation:ring 1.2s ease-in-out infinite}
@@ -620,7 +623,7 @@ footer{border-top:1px solid var(--line);padding-block:34px 120px;color:var(--dim
 /* ===== Читабельна типографіка PRMAX (жирний Jost, цифри Oswald, помаранчевий на чорному) ===== */
 h1,h2,h3,h4,.display,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h3,.wk .meta h3,.pc .lbl h3,.stp h3,.bonus-big h3,.princ b,.ph-frame .nm b,summary,.quiz .top b,.qstep h4,.done h4,.ad .title,.ps .body h4,.tb-top p b,.mnav nav a{font-family:var(--d);font-weight:700;font-style:normal;letter-spacing:-.015em}
 .og-text{font-style:normal;font-weight:inherit;background:var(--tgrad);background-size:220% auto;-webkit-background-clip:text;background-clip:text;color:transparent}
-.display{font-weight:800;font-size:clamp(34px,8.8vw,74px);line-height:1.02;letter-spacing:-.025em}
+.display{font-weight:800;font-size:clamp(34px,8.8vw,74px);line-height:1.1;letter-spacing:-.035em}
 .ln{padding-bottom:.08em;margin-bottom:-.04em}
 .sec-head h2{font-size:clamp(30px,5vw,60px);line-height:1.06}
 .founder h2{font-size:clamp(28px,3.6vw,50px);line-height:1.06}
@@ -637,13 +640,20 @@ h1,h2,h3,h4,.display,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,
 .map .city text{font-family:var(--d);font-weight:600;font-size:26px}
 .stat b{font-size:26px;white-space:nowrap}.stat{padding-inline:14px}.pc .am b{font-size:60px}.pc .am s{font-size:24px}.bonus b{font-size:26px}.bonus-big .sum{font-size:clamp(44px,12vw,96px)}.rv-main .big{font-size:60px}.total p b{font-size:36px}.total p s{font-size:20px}.hw .n{font-size:20px}
 .ad .title{font-size:20px;line-height:1.25}.ps .body h4{font-size:22px}.nc .cap h3{font-size:24px}.nc.cta h3{font-size:26px}.hw .cap h3{font-size:24px}.wk .meta h3{font-size:22px}.pc .lbl h3{font-size:21px}.stp h3{font-size:21px}.princ b{font-size:17px}.ph-frame .nm b{font-size:24px}summary{font-size:18px}.quiz .top b{font-size:21px}.qstep h4{font-size:19px}.done h4{font-size:24px}.bonus-big h3{font-size:20px}.tb-top p b{font-size:16px}
-.btn{font-family:var(--d);font-size:16px;letter-spacing:.01em}
-.btn-sm{font-size:14px}
-@media (min-width:700px){.stat b{font-size:30px}.stat{padding:0 18px}}
+.btn{font-family:var(--d);font-size:17px;letter-spacing:.01em}
+.btn-sm{font-size:15px}
+@media (min-width:700px){.stat b{font-size:32px}.stat span{font-size:12px}.stat{padding:0 20px}}
 @media (min-width:1100px){
-  .display{font-size:clamp(46px,min(4vw,8vh),76px)}
+  .display{font-size:clamp(46px,min(4vw,8vh),78px)}
+  .eyebrow{font-size:14px;white-space:nowrap}
+  .lead{font-size:clamp(18px,1.25vw,20px);line-height:1.6}
+  .menu{font-size:15px;white-space:nowrap}
+  .hdr-ph{font-size:16px}
+  .stat b{font-size:34px}.stat span{font-size:12.5px}
   .pc .am b{font-size:76px}.rv-main .big{font-size:80px}.bonus-big h3{font-size:24px}summary{font-size:20px}
 }
+@media (min-width:1100px) and (max-width:1499px){.eyebrow .more{display:none}}
+@media (min-width:1100px) and (max-width:1299px){.menu{font-size:14px;gap:20px}.hdr .wrap{gap:16px}}
 @media (min-width:1500px){.pc .am b{font-size:88px}.rv-main blockquote{font-size:24px}}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
@@ -680,6 +690,7 @@ h1,h2,h3,h4,.display,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,
 
 <div class="mnav" id="mnav" aria-hidden="true">
   <a class="m-logo" href="#top" aria-label="PRMAX — на початок"><img src="img/logo.webp" alt="PRMAX" width="520" height="338" loading="lazy"></a>
+  <button class="m-close" type="button" aria-label="Закрити меню"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
   <nav aria-label="Меню">
     <a href="#yak"><i>01</i>Як це працює<svg><use href="#i-arr"/></svg></a>
     <a href="#nishi"><i>02</i>Для кого<svg><use href="#i-arr"/></svg></a>
@@ -1048,6 +1059,7 @@ var CONTACTS={
   function setMenu(open){bg.setAttribute('aria-expanded',open);mn.classList.toggle('on',open);mn.setAttribute('aria-hidden',!open);document.body.classList.toggle('lock',open)}
   bg.addEventListener('click',function(){setMenu(bg.getAttribute('aria-expanded')!=='true')});
   $$('a',mn).forEach(function(a){a.addEventListener('click',function(){setMenu(false)})});
+  $('.m-close').addEventListener('click',function(){setMenu(false)});
   addEventListener('keydown',function(e){if(e.key==='Escape'&&mn.classList.contains('on'))setMenu(false)});
 
   /* Reveal */
