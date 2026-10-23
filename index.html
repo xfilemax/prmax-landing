@@ -661,11 +661,16 @@ h1,h2,h3,h4,.display,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,
 .ldm-h{padding-right:50px}
 .ldm-h h3{font-size:clamp(25px,6.4vw,34px);line-height:1.08;margin-top:14px}
 .ldm-h p{display:none;color:var(--muted);margin-top:10px;font-size:15px;line-height:1.5}
-.ldm .inp{border:1.5px solid rgba(255,201,126,.45);background:rgba(0,0,0,.32);padding:13px 18px;font-size:16px}
+.ldm .inp{border:1.5px solid rgba(255,201,126,.45);background:rgba(0,0,0,.32);padding:12px 18px;font-size:16px}
 .ldm .inp:focus{border-color:var(--o2)}
-.ldm-f{display:grid;gap:7px;margin-top:12px}
+.ldm-f{display:grid;gap:6px;margin-top:10px}
 .ldm-f label{font:700 11px/1 var(--b);letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-top:7px}
 .ldm-f label em{font-style:normal;text-transform:none;letter-spacing:0;font-weight:500}
+.need{display:grid;grid-template-columns:.8fr 1.1fr 1.3fr;gap:6px}
+.need button{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:50px;padding:8px 6px;border-radius:14px;border:1.5px solid rgba(255,201,126,.35);background:rgba(0,0,0,.3);color:var(--muted);font:600 13px/1.15 var(--b);cursor:pointer;transition:background .3s,color .3s,border-color .3s;text-align:center}
+.need button i{font-style:normal;display:block;font:700 9px/1 var(--b);letter-spacing:.1em;text-transform:uppercase;color:var(--ol);margin-top:4px}
+.need button[aria-pressed=true]{background:var(--grad);border-color:transparent;color:var(--ink)}
+.need button[aria-pressed=true] i{color:#5a2a00}
 .ldm-f .nchips button{padding:10px 14px;font-size:13.5px}
 .ldm-2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .ldm-2>div{display:grid;gap:7px;min-width:0}
@@ -1186,6 +1191,8 @@ footer{border-top:1px solid var(--line);background:var(--obs2);padding:40px 0 ca
     <button class="ldm-x" type="button" id="leadx" aria-label="Закрити"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
     <div class="ldm-h"><span class="pill"><i class="dot"></i><span>Заявка · 1 хвилина</span></span><h3 id="leadh">Дзвінки та заявки <span class="og-text live">з Google</span></h3><p>Залиште номер — передзвонимо або напишемо в Telegram, уточнимо нішу й місто.</p></div>
     <div class="ldm-f" id="leadfields">
+      <label>Що потрібно?</label>
+      <div class="need" id="lneed" role="group" aria-label="Що потрібно"><button type="button" data-v="Сайт">Сайт</button><button type="button" data-v="Реклама Google">Реклама Google</button><button type="button" data-v="Сайт + реклама Google" aria-pressed="true">Сайт + Google <i>вигідно</i></button></div>
       <label for="lph">Телефон <em>· обов'язково</em></label><input class="inp" id="lph" type="tel" inputmode="tel" placeholder="+380 __ ___ __ __" autocomplete="tel">
       <div class="ldm-2"><div><label for="ltg">Telegram</label><input class="inp" id="ltg" placeholder="@нікнейм"></div><div><label for="lnm">Ім'я</label><input class="inp" id="lnm" placeholder="Як звертатися" autocomplete="name"></div></div>
       <label for="lni">Ніша <em>· за бажанням</em></label><input class="inp" id="lni" placeholder="Наприклад: евакуатор, стоматологія">
@@ -1419,7 +1426,7 @@ var CONTACTS={
      Поки не налаштовано — заявка фіксується як конверсія (dataLayer / gtag / fbq) і зберігається в localStorage. */
   var LEAD=CONTACTS.lead||{};
   function normPhone(v){var d=(v||'').replace(/\D/g,'');if(d.length===10&&d.charAt(0)==='0')d='38'+d;if(d.length===9)d='380'+d;if(d.length<11||d.length>13)return '';return d.length===12&&d.indexOf('380')===0?'380 '+d.slice(3,5)+' '+d.slice(5,8)+' '+d.slice(8,10)+' '+d.slice(10):d} /* без «+»: Google Таблиця приймала «+380…» за формулу (#ERROR!); повернути «+» після оновлення приймача */
-  function leadText(d){return 'Нова заявка — сайт PRMAX\n'+(d.name?"Ім'я: "+d.name+'\n':'')+'Телефон: '+d.phone+'\n'+(d.tg?'Telegram: '+d.tg+'\n':'')+(d.niche?'Ніша: '+d.niche+'\n':'')+(d.city?'Місто: '+d.city+'\n':'')+'Форма: '+d.form+'\nСторінка: '+location.href}
+  function leadText(d){return 'Нова заявка — сайт PRMAX\n'+(d.need?'Потрібно: '+d.need+'\n':'')+(d.name?"Ім'я: "+d.name+'\n':'')+'Телефон: '+d.phone+'\n'+(d.tg?'Telegram: '+d.tg+'\n':'')+(d.niche?'Ніша: '+d.niche+'\n':'')+(d.city?'Місто: '+d.city+'\n':'')+'Форма: '+d.form+'\nСторінка: '+location.href}
   function sendLead(d){
     conv('lead',{niche:d.niche||'',city:d.city||'',form:d.form});
     d.page=location.href;d.ua=navigator.userAgent.slice(0,120);
@@ -1429,7 +1436,8 @@ var CONTACTS={
     if(LEAD.botToken&&LEAD.chatId)ps.push(fetch('https://api.telegram.org/bot'+LEAD.botToken+'/sendMessage',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:LEAD.chatId,text:txt})}));
     return Promise.all(ps.map(function(p){return p.catch(function(){})}));
   }
-  var lead=$('#lead'),leadf=$('#leadf'),leadLast=null;
+  var lead=$('#lead'),leadf=$('#leadf'),leadLast=null,lneed=$('#lneed'),needV='Сайт + реклама Google';
+  lneed.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;needV=b.dataset.v;$$('button',lneed).forEach(function(x){x.setAttribute('aria-pressed',x===b)})});
   function openLead(src){leadLast=document.activeElement;lead.classList.add('on');lead.setAttribute('aria-hidden','false');document.body.classList.add('lock');conv('lead_open',{place:src||''});if(fine)setTimeout(function(){$('#lph').focus({preventScroll:true})},500)}
   function closeLead(){lead.classList.remove('on');lead.setAttribute('aria-hidden','true');if(!$('#mnav').classList.contains('on'))document.body.classList.remove('lock');if(leadLast&&leadLast.focus)leadLast.focus({preventScroll:true})}
   $$('[data-lead]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();var sc=a.closest('section,header,.mnav,.mbar,footer');openLead(sc?(sc.id||sc.className.split(' ')[0]):'')})});
@@ -1439,7 +1447,7 @@ var CONTACTS={
     e.preventDefault();var err=$('#lerr');err.textContent='';
     var ph=normPhone($('#lph').value);
     if(!ph){err.textContent='Вкажіть номер телефону — наприклад, +380 63 207 20 00';$('#lph').focus();return}
-    var d={form:'modal',phone:ph,name:$('#lnm').value.trim(),tg:$('#ltg').value.trim(),niche:$('#lni').value.trim()};
+    var d={form:'modal',phone:ph,name:$('#lnm').value.trim(),tg:$('#ltg').value.trim(),niche:$('#lni').value.trim(),need:needV};
     var btn=$('button[type=submit]',leadf);btn.disabled=true;
     sendLead(d).then(function(){$('#leadfields').hidden=true;$('#ldone').hidden=false;btn.disabled=false;$('#leadx').focus()});
   });
