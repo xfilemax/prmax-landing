@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>PRMAX — вас вже шукають у Google. Сайт + реклама за 3 дні</title>
-<meta name="description" content="Люди вже шукають вашу послугу в Google. Ставимо вас першим — дзвінки та заявки в Telegram. Сайт $300 + реклама Google $150, запуск за 3 дні, бонус до 10 000 ₴ від Google. Вся Україна та Європа.">
+<meta name="description" content="Люди вже шукають вашу послугу в Google. Ставимо вас першим — дзвінки та заявки в Telegram. Сайт $300 + реклама Google $150, запуск за 3 дні, бонус до 90 000 ₴ від Google. Вся Україна та Європа.">
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#08080A">
 <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
@@ -522,10 +522,8 @@ footer{border-top:1px solid var(--line);padding-block:34px 120px;color:var(--dim
   .pc{padding:34px}
   .pc .am b{font-size:80px}
   .bonus-big{padding:44px 48px}
-  .bonus-big .wrapc{display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:center}
   .bonus-big .gift{width:88px;height:88px;border-radius:24px}
   .bonus-big .gift svg{width:44px;height:44px}
-  .bonus-big h3{margin-top:0;font-size:28px}
   .builder{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);align-items:center;padding:40px 44px}
   .b-prev{grid-template-columns:minmax(0,1fr) 190px;align-items:center;gap:24px;justify-items:stretch}
   .b-prev .b-phone{justify-self:end}
@@ -759,6 +757,39 @@ h1,h2,h3,h4,.display,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,
 .track img:hover{filter:none;opacity:1}
 @media (min-width:1100px){.trustbar{padding:40px 0 44px}.marq{margin-top:28px}.track{gap:100px;animation-duration:44s}.track img{height:64px;max-width:260px}}
 
+/* ===== v8 · Квіз: ніші по 2 в ряд; бонус Google: три рівні ===== */
+.quiz .nchips{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.quiz .nchips button{text-align:center;padding:12px 10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bonus-big .wrapc{display:grid;gap:18px}
+.bonus-big .row{display:flex;align-items:center;gap:14px}
+.bonus-big .row>div{min-width:0}
+.bonus-big .sum{font-size:clamp(38px,12.5vw,64px);line-height:1;white-space:nowrap}
+.bonus-big .row h3{margin-top:6px;font-size:16px;line-height:1.25}
+.bonus-big .bb-l p{margin-top:14px;font-size:14px;line-height:1.5}
+.bonus-big .tiers{display:grid;grid-template-columns:1fr;gap:8px}
+.bonus-big .tier{display:flex;justify-content:space-between;align-items:center;gap:12px;border:1px solid rgba(255,201,126,.35);border-radius:16px;padding:11px 16px;background:rgba(0,0,0,.28);min-width:0}
+.bonus-big .tier small{display:block;font:600 11px/1.2 var(--b);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.bonus-big .tier b{display:block;font-family:var(--n);font-weight:700;font-size:24px;line-height:1;color:var(--o1);white-space:nowrap}
+.bonus-big .tier.top{border-color:rgba(255,201,126,.75);background:linear-gradient(160deg,rgba(255,138,31,.22),rgba(0,0,0,.28))}
+.bonus-big .tier.top b{background:var(--grad);background-size:220% auto;-webkit-background-clip:text;background-clip:text;color:transparent}
+@media (min-width:700px){
+  .quiz .nchips{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .bonus-big .sum{font-size:64px}
+  .bonus-big .row h3{font-size:20px}
+  .bonus-big .tiers{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .bonus-big .tier{display:block;text-align:center;padding:16px 10px;border-radius:18px}
+  .bonus-big .tier small{font-size:10px;color:var(--dim)}
+  .bonus-big .tier b{font-size:28px;margin-top:7px}
+}
+@media (min-width:1100px){
+  .bonus-big .wrapc{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);align-items:center;gap:40px}
+  .bonus-big .sum{font-size:72px}
+  .bonus-big .row h3{font-size:22px;margin-top:8px}
+  .bonus-big .bb-l p{font-size:15.5px;max-width:520px}
+  .bonus-big .tiers{gap:12px}
+  .bonus-big .tier{padding:22px 12px;border-radius:22px}
+  .bonus-big .tier b{font-size:32px}
+}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
   html.js .rv{opacity:1;transform:none}
@@ -804,7 +835,7 @@ h1,h2,h3,h4,.display,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,
     <a href="#faq"><i>06</i>Питання<svg><use href="#i-arr"/></svg></a>
     <a href="#zayavka" data-lead><i>07</i>Залишити заявку<svg><use href="#i-arr"/></svg></a>
   </nav>
-  <a class="bonus m-bonus" href="#tsiny"><span class="gift"><svg><use href="#i-gift"/></svg></span><div><b>+10&nbsp;000&nbsp;₴</b><span>на рекламу — бонус від Google<sup>*</sup></span></div></a>
+  <a class="bonus m-bonus" href="#tsiny"><span class="gift"><svg><use href="#i-gift"/></svg></span><div><b>до 90&nbsp;000&nbsp;₴</b><span>бонус від Google на рекламу<sup>*</sup></span></div></a>
   <div class="m-foot">
     <a class="btn btn-o btn-w" href="#zayavka" data-lead><span>Отримати дзвінки</span><span class="ar"><svg><use href="#i-arr"/></svg></span></a>
     <div class="m-row"><a href="#" data-c="phone-link"><svg><use href="#i-phone"/></svg>Подзвонити</a><a href="#" data-c="tg-link" target="_blank" rel="noopener"><svg><use href="#i-tg"/></svg>Telegram</a></div>
@@ -848,7 +879,7 @@ h1,h2,h3,h4,.display,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,
         </div>
       </div>
     </div>
-    <div class="stats"><div class="stat"><b>3 дні</b><span>від брифу до запуску</span></div><div class="stat"><b>$300</b><span>сайт під ключ · <s>$700</s></span></div><div class="stat"><b>$150</b><span>реклама Google · <s>$300</s></span></div><div class="stat"><b>+10 000 ₴</b><span>бонус від Google<sup>*</sup></span></div></div>
+    <div class="stats"><div class="stat"><b>3 дні</b><span>від брифу до запуску</span></div><div class="stat"><b>$300</b><span>сайт під ключ · <s>$700</s></span></div><div class="stat"><b>$150</b><span>реклама Google · <s>$300</s></span></div><div class="stat"><b>до 90 000 ₴</b><span>бонус від Google<sup>*</sup></span></div></div>
   </div>
 </section>
 
@@ -916,8 +947,15 @@ h1,h2,h3,h4,.display,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,
     <div class="bonus-big rv">
       <div class="coins" aria-hidden="true"><i style="right:8%;top:14%"></i><i style="right:20%;top:8%;animation-delay:1s;width:7px;height:7px"></i><i style="right:4%;top:40%;animation-delay:2s;width:6px;height:6px"></i></div>
       <div class="wrapc">
-        <div class="row"><span class="gift"><svg><use href="#i-gift"/></svg></span><div class="sum">+10&nbsp;000&nbsp;₴</div></div>
-        <div><h3>на рекламу — бонус від Google<sup>*</sup></h3><p>Google дає новим акаунтам бонус на покази. Допоможемо активувати.</p></div>
+        <div class="bb-l">
+          <div class="row"><span class="gift"><svg><use href="#i-gift"/></svg></span><div><div class="sum">до 90&nbsp;000&nbsp;₴</div><h3>бонус від Google на рекламу<sup>*</sup></h3></div></div>
+          <p>Витрачаєте на рекламу 10&nbsp;000, 40&nbsp;000 або 90&nbsp;000&nbsp;₴ — Google нараховує стільки ж бонусом на покази. Допоможемо активувати.</p>
+        </div>
+        <div class="tiers" aria-label="Рівні бонусу">
+          <div class="tier"><small>Бюджет 10 000 ₴</small><b>+10&nbsp;000&nbsp;₴</b></div>
+          <div class="tier"><small>Бюджет 40 000 ₴</small><b>+40&nbsp;000&nbsp;₴</b></div>
+          <div class="tier top"><small>Бюджет 90 000 ₴</small><b>+90&nbsp;000&nbsp;₴</b></div>
+        </div>
       </div>
     </div>
     <div class="pay-notes">
@@ -1056,7 +1094,7 @@ h1,h2,h3,h4,.display,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,
     <div class="faq-list rv">
       <details><summary>Чому так недорого?<i><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></i></summary><div class="ans"><div><p>Робимо за відпрацьованою структурою під кожну сферу, без великого офісу. Тому $300 за сайт і $150 за налаштування реклами, а не агентський цінник.</p></div></div></details>
       <details><summary>Скільки коштуватиме сама реклама?<i><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></i></summary><div class="ans"><div><p>Бюджет визначаєте ви і платите напряму Google зі своєї картки. Порадимо стартову суму під ваше місто. Зупинити можна будь-коли.</p></div></div></details>
-      <details><summary>Що за бонус 10&nbsp;000&nbsp;₴?<i><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></i></summary><div class="ans"><div><p>Google дає новим рекламним акаунтам промокод: після витрати визначеної суми нараховує бонус на покази. Допоможемо активувати й назвемо точні умови на момент запуску.</p></div></div></details>
+      <details><summary>Що за бонус від Google?<i><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></i></summary><div class="ans"><div><p>Google дає новим рекламним акаунтам бонус: витрачаєте на рекламу 10&nbsp;000, 40&nbsp;000 або 90&nbsp;000&nbsp;₴ — отримуєте стільки ж на покази. Допоможемо активувати й назвемо точні умови на момент запуску.</p></div></div></details>
       <details><summary>Скільки часу до запуску?<i><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></i></summary><div class="ans"><div><p>3 дні. Сайт — за 1–2 дні після того, як надішлете фото й контакти. На 3-й день реклама проходить модерацію Google і стартує.</p></div></div></details>
       <details><summary>Ви працюєте в моєму місті?<i><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></i></summary><div class="ans"><div><p>Так. Працюємо дистанційно по всій Україні і для бізнесу в Європі. Реклама показується саме у вашому місті чи області.</p></div></div></details>
       <details><summary>Що потрібно від мене?<i><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></i></summary><div class="ans"><div><p>10 хвилин розмови, фото робіт і номер телефону. Решту робимо ми. Ваше завдання — брати трубку.</p></div></div></details>
@@ -1316,8 +1354,7 @@ var CONTACTS={
 
   /* Quiz */
   var qn=$('#qn'),qs=1,qniche='';
-  Object.keys(N).forEach(function(k){var b=document.createElement('button');b.type='button';b.textContent=N[k].name;b.dataset.v=N[k].name;b.setAttribute('aria-pressed','false');qn.appendChild(b)});
-  var oth=document.createElement('button');oth.type='button';oth.textContent='Інша ніша';oth.dataset.v='Інша';oth.setAttribute('aria-pressed','false');qn.appendChild(oth);
+  ['Стоматолог','Юрист','Евакуатор','Автосервіс','Ремонт квартир','Сантехнік','Доставка їжі','Салон краси','Оренда авто','Клінінг','Меблі','Інша ніша'].forEach(function(nm){var b=document.createElement('button');b.type='button';b.textContent=nm;b.dataset.v=nm==='Інша ніша'?'Інша':nm;b.setAttribute('aria-pressed','false');qn.appendChild(b)});
   qn.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;qniche=b.dataset.v;$$('button',qn).forEach(function(x){x.setAttribute('aria-pressed',x===b)});$('#qerr').textContent='';setTimeout(function(){go(2)},250)});
   function go(n){qs=n;$$('.qstep').forEach(function(s){s.classList.toggle('on',+s.dataset.s===n)});$('#qbar').style.width=(n/3*100)+'%';$('#qstepn').textContent='Крок '+n+' з 3';$('#qback').hidden=n===1;$('#qnextt').textContent=n===3?'Надіслати заявку':'Далі';var f=$('.qstep.on input');if(f&&n>1)f.focus({preventScroll:true})}
   $('#qback').addEventListener('click',function(){go(Math.max(1,qs-1))});
