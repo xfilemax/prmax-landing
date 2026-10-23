@@ -11,6 +11,15 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700;800&family=Onest:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap">
+<!-- Meta Pixel «PRMAX» (набір даних 567372494317796) -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','567372494317796');
+fbq('track','PageView');
+fbq('track','ViewContent',{content_name:'prmax_offer'});
+</script>
+<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=567372494317796&ev=PageView&noscript=1"></noscript>
+<!-- Meta Pixel End -->
 <!-- TikTok Pixel «PRMAX» (кабінет 7628542326444556304) -->
 <script>
 !function (w, d, t) {
@@ -1230,9 +1239,11 @@ var CONTACTS={
      Події йдуть у dataLayer (Google Tag Manager), у gtag (Google Ads / GA4) і fbq (Meta), якщо вони підключені.
      Щоб підключити: вставити тег GA4/Google Ads або GTM у <head> — події call / telegram / lead з'являться самі. */
   window.dataLayer=window.dataLayer||[];
+  /* Meta Pixel: стандартні події (чат Instagram/Facebook, 24.10.2026) */
+  var FB_EV={call:['Contact',{content_name:'call'}],telegram:['Contact',{content_name:'telegram'}],lead:['Lead',{content_name:'prmax_offer',value:450,currency:'USD'}]};
   /* TikTok Pixel: назви подій і формат з Events Manager (чат TikTok, 24.10.2026) */
   var TTQ_EV={call:['Contact',{contents:[{content_id:'call',content_type:'product',content_name:'phone_click'}]}],telegram:['ClickButton',{contents:[{content_id:'telegram',content_type:'product',content_name:'telegram_click'}]}],lead:['Lead',{contents:[{content_id:'prmax_offer',content_type:'product',content_name:'site_300_ads_150'}],value:450,currency:'USD'}]};
-  function conv(name,extra){var d={event:'prmax_conv',conv:name};for(var k in (extra||{}))d[k]=extra[k];dataLayer.push(d);try{if(typeof gtag==='function')gtag('event',name,extra||{});if(typeof fbq==='function')fbq('trackCustom','PRMAX_'+name,extra||{});if(typeof ttq!=='undefined'&&TTQ_EV[name])ttq.track(TTQ_EV[name][0],TTQ_EV[name][1]);}catch(e){}}
+  function conv(name,extra){var d={event:'prmax_conv',conv:name};for(var k in (extra||{}))d[k]=extra[k];dataLayer.push(d);try{if(typeof gtag==='function')gtag('event',name,extra||{});if(typeof fbq==='function'){fbq('trackCustom','PRMAX_'+name,extra||{});if(FB_EV[name])fbq('track',FB_EV[name][0],FB_EV[name][1]);}if(typeof ttq!=='undefined'&&TTQ_EV[name])ttq.track(TTQ_EV[name][0],TTQ_EV[name][1]);}catch(e){}}
   window.prmaxConv=conv;
 
   /* Contacts */
