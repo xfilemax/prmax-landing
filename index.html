@@ -436,6 +436,7 @@ details[open] .ans{grid-template-rows:1fr}
 .qnav .btn{flex:1}
 .qnav .back{flex:0 0 auto;padding:0 22px}
 .fine{font-size:12px;color:var(--dim);margin-top:12px;text-align:center}
+.fine a{color:var(--muted);text-decoration:underline;text-underline-offset:3px}
 .done{text-align:center;padding:16px 0}
 .done .ok{width:76px;height:76px;margin:0 auto;border-radius:50%;background:var(--grad);display:grid;place-items:center;box-shadow:0 0 60px rgba(240,110,0,.6)}
 .done .ok svg{width:34px;height:34px;stroke:var(--ink);stroke-width:2.5;fill:none}
@@ -1008,7 +1009,7 @@ h1,h2,h3,h4,.display,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,
       <div class="qstep" data-s="3"><h4>Куди передзвонити?</h4><label for="qname">Ім'я</label><input class="inp" id="qname" placeholder="Андрій" autocomplete="name"><label for="qphone">Телефон</label><input class="inp" id="qphone" type="tel" placeholder="+380" autocomplete="tel"></div>
       <div class="err" id="qerr" role="alert"></div>
       <div class="qnav" id="qnav"><button type="button" class="btn btn-g back" id="qback" hidden>Назад</button><button type="submit" class="btn btn-o" id="qnext"><span id="qnextt">Далі</span> <span class="ar"><svg><use href="#i-arr"/></svg></span></button></div>
-      <p class="fine" id="qfine">Без спаму. Один дзвінок щодо вашого проєкту.</p>
+      <p class="fine" id="qfine">Без спаму. Надсилаючи, ви погоджуєтесь з <a href="privacy.html" target="_blank" rel="noopener">політикою конфіденційності</a>.</p>
       <div class="done" id="qdone" hidden><div class="ok"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></div><h4>Дякуємо, заявку прийнято!</h4><p>Передзвонимо протягом години в робочий час. Хочете швидше — напишіть у Telegram.</p><a class="btn btn-o" id="qtg" href="#" target="_blank" rel="noopener"><span>Написати в Telegram</span><span class="ar"><svg><use href="#i-arr"/></svg></span></a></div>
     </form>
   </div>
@@ -1119,7 +1120,7 @@ h1,h2,h3,h4,.display,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,
         <div class="mini-top"><b>Передзвоніть мені</b><span>10 секунд</span></div>
         <div class="mini-row"><input class="inp" id="mph" type="tel" inputmode="tel" placeholder="+380 __ ___ __ __" autocomplete="tel" aria-label="Телефон"><button class="btn btn-o" type="submit"><span>Надіслати</span><span class="ar"><svg><use href="#i-arr"/></svg></span></button></div>
         <div class="err" id="merr" role="alert"></div>
-        <p class="fine">Або <a href="#zayavka" data-lead>повна заявка</a> — ніша, місто, Telegram. Без спаму.</p>
+        <p class="fine">Або <a href="#zayavka" data-lead>повна заявка</a>. Надсилаючи, ви погоджуєтесь з <a href="privacy.html" target="_blank" rel="noopener">політикою</a>.</p>
       </div>
       <div class="done" id="mdone" hidden><div class="ok"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></div><h4>Дякуємо!</h4><p>Передзвонимо в робочий час. Хочете швидше — напишіть у Telegram.</p><a class="btn btn-o" href="#" data-c="tg-link" target="_blank" rel="noopener"><span>Написати в Telegram</span><span class="ar"><svg><use href="#i-arr"/></svg></span></a></div>
     </form>
@@ -1131,13 +1132,12 @@ h1,h2,h3,h4,.display,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,
   <div class="wrap">
     <div class="f-top">
       <img src="img/logo.webp" alt="PRMAX Digital Agency" loading="lazy" width="520" height="338">
-      <nav aria-label="Нижнє меню"><a href="#yak">Як це працює</a><a href="#roboty">Роботи</a><a href="#tsiny">Ціни</a><a href="#vidguky">Відгуки</a><a href="#faq">Питання</a></nav>
-      <span>© PRMAX · сайти та реклама Google</span>
+      <nav aria-label="Нижнє меню"><a href="#yak">Як це працює</a><a href="#roboty">Роботи</a><a href="#tsiny">Ціни</a><a href="#vidguky">Відгуки</a><a href="#faq">Питання</a><a href="privacy.html">Політика конфіденційності</a></nav>
+      <span>© 2026 PRMAX · сайти та реклама Google</span>
     </div>
     <div class="f-notes">
-      <span><sup>1</sup> Частка Google серед пошукових систем в Україні за вересень 2026 року — 90,67%. Джерело: <a href="https://gs.statcounter.com/search-engine-market-share/all/ukraine" target="_blank" rel="noopener">Statcounter Global Stats</a>.</span>
-      <span><sup>*</sup> Бонус надає Google у вигляді промокоду для нових рекламних акаунтів після виконання умов Google. Розмір бонусу та умови встановлює Google і може їх змінювати.</span>
-      <span>Фото — Unsplash. Логотипи, роботи та відгуки — наших клієнтів.</span>
+      <span><sup>*</sup> Бонус надає Google новим рекламним акаунтам після виконання умов Google. Розмір бонусу та умови встановлює Google і може їх змінювати.</span>
+      <span><sup>1</sup> Statcounter Global Stats: частка Google серед пошукових систем в Україні, вересень 2026 — 90,67%.</span>
     </div>
   </div>
 </footer>
@@ -1153,7 +1153,7 @@ h1,h2,h3,h4,.display,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,
       <label for="lni">Ніша <em>· за бажанням</em></label><input class="inp" id="lni" placeholder="Наприклад: евакуатор, стоматологія">
       <div class="err" id="lerr" role="alert"></div>
       <button class="btn btn-o btn-w" type="submit"><span>Надіслати заявку</span><span class="ar"><svg><use href="#i-arr"/></svg></span></button>
-      <p class="fine">Без спаму. Передзвонимо або напишемо в Telegram.</p>
+      <p class="fine">Без спаму. Надсилаючи, ви погоджуєтесь з <a href="privacy.html" target="_blank" rel="noopener">політикою конфіденційності</a>.</p>
     </div>
     <div class="done" id="ldone" hidden><div class="ok"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></div><h4>Дякуємо, заявку прийнято!</h4><p>Передзвонимо в робочий час. Хочете швидше — напишіть у Telegram або подзвоніть.</p><div class="done-row"><a class="btn btn-o" href="#" data-c="tg-link" target="_blank" rel="noopener"><span>Написати в Telegram</span><span class="ar"><svg><use href="#i-tg"/></svg></span></a><a class="btn btn-g" href="#" data-c="phone-link"><span data-c="phone">+38 (063) 207-2000</span><span class="ar"><svg><use href="#i-phone"/></svg></span></a></div></div>
   </form>
