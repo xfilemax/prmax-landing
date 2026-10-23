@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>PRMAX — вас вже шукають у Google. Сайт + реклама за 3 дні</title>
-<meta name="description" content="Люди вже шукають вашу послугу в Google. Ставимо вас першим: сайт $300 + реклама Google $200, запуск за 3 дні, бонус до 10 000 ₴ від Google. Вся Україна та Європа.">
+<meta name="description" content="Люди вже шукають вашу послугу в Google. Ставимо вас першим: сайт $300 + реклама Google $150, запуск за 3 дні, бонус до 10 000 ₴ від Google. Вся Україна та Європа.">
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#08080A">
 <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
@@ -44,8 +44,8 @@ p{margin:0}
 .og-text.live{animation:flow 6s linear infinite}
 html.shot .hero{min-height:0}
 @keyframes flow{to{background-position:300% 0}}
-.eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--disp);font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--o1)}
-.eyebrow::before{content:"";width:22px;height:2px;border-radius:2px;background:var(--og)}
+.eyebrow{display:inline-flex;align-items:center;gap:14px;font-family:var(--body);font-size:11.5px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--o1)}
+.eyebrow::before{content:"";width:42px;height:1px;background:linear-gradient(90deg,transparent,currentColor)}
 .eyebrow i{font-style:normal;font-family:var(--num);font-size:13px;font-weight:500;color:var(--dim);letter-spacing:.04em}
 .sec{padding-block:72px;position:relative}
 .sec-head{max-width:760px}
@@ -55,7 +55,7 @@ sup{font-size:.55em;color:var(--o1)}
 .tag-ex{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);border:1px solid var(--line2);border-radius:6px;padding:2px 7px}
 
 /* ===== Buttons: flowing gradient + shine + glow ===== */
-.btn{--mx:0px;--my:0px;position:relative;isolation:isolate;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:18px 28px;border-radius:999px;font-family:var(--disp);font-weight:700;font-size:17px;letter-spacing:.01em;border:1px solid transparent;cursor:pointer;transition:transform .3s var(--ease),color .3s;white-space:nowrap;transform:translate(var(--mx),var(--my))}
+.btn{--mx:0px;--my:0px;position:relative;isolation:isolate;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:16px 28px;border-radius:999px;font-family:var(--disp);font-weight:700;font-size:16px;letter-spacing:.01em;border:1px solid transparent;cursor:pointer;transition:transform .3s var(--ease),color .3s;white-space:nowrap;transform:translate(var(--mx),var(--my))}
 .btn svg{width:20px;height:20px;flex:0 0 auto;transition:transform .3s var(--ease)}
 .btn:hover svg.arr{transform:translateX(5px)}
 .btn:active{transform:scale(.97)}
@@ -72,6 +72,9 @@ sup{font-size:.55em;color:var(--o1)}
 :focus-visible{outline:2px solid var(--o1);outline-offset:3px}
 
 /* Reveal */
+/* Легке скло (преміум-дотик) */
+.pc,.rc,.rv-main,.builder,.quiz,.bonus-big,.total,.wk,.stp,.princ div,.contacts a,.nc.cta{background:linear-gradient(150deg,rgba(255,255,255,.075),rgba(255,255,255,.025));box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 40px 90px -50px rgba(0,0,0,.8)}
+.pc,.rc,.rv-main,.builder,.quiz,.bonus-big,.wk,.stp,.nc,.hw{border-radius:30px}
 html.js .rv{opacity:0;transform:translateY(30px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:var(--d,0s)}
 html.js .rv.in{opacity:1;transform:none}
 
@@ -285,8 +288,9 @@ html.js .rv.in{opacity:1;transform:none}
 .nc .q svg{width:14px;height:14px;stroke:#5f6368;flex:0 0 auto}
 .nc .cap{position:absolute;left:20px;right:20px;bottom:18px}
 .nc .cap h3{font-size:25px}
-.nc .cap span{display:flex;align-items:center;gap:8px;color:var(--o1);font-size:14px;font-weight:600;margin-top:4px}
-.nc .cap span svg{width:16px;height:16px}
+.nc .cap span{display:flex;align-items:center;gap:10px;color:var(--o1);font-size:14px;font-weight:600;margin-top:6px}
+.nc .cap span svg{width:16px;height:16px;padding:9px;box-sizing:content-box;border-radius:50%;background:var(--og);color:#170800;stroke:#170800;transition:transform .5s var(--ease)}
+.nc:hover .cap span svg{transform:rotate(-45deg)}
 .nc.cta{display:flex;flex-direction:column;justify-content:space-between;padding:24px;background:radial-gradient(120% 120% at 100% 0%,rgba(255,122,0,.4),transparent 60%),var(--card)}
 .nc.cta::before{display:none}
 .nc.cta h3{font-size:26px}
@@ -698,7 +702,7 @@ footer{border-top:1px solid var(--line);padding-block:34px 120px;color:var(--dim
       <p class="lead">Люди щодня гуглять вашу послугу у вашому місті. Ми ставимо вас першим.<span class="more"> <b>Сайт + реклама за 3 дні</b>. Ви просто берете трубку.</span></p>
       <div class="ptiles">
         <div class="pt"><span>Сайт під ключ</span><div><s>$700</s><b class="og-text live">$300</b></div></div>
-        <div class="pt"><span>Реклама Google</span><div><s>$500</s><b class="og-text live">$200</b></div></div>
+        <div class="pt"><span>Реклама Google</span><div><s>$300</s><b class="og-text live">$150</b></div></div>
       </div>
       <a class="bonus" href="#tsiny"><span class="gift"><svg><use href="#i-gift"/></svg></span><div><b>+10&nbsp;000&nbsp;₴</b><span>на рекламу — бонус від Google<sup>*</sup></span></div></a>
       <div class="h-cta">
@@ -814,12 +818,12 @@ footer{border-top:1px solid var(--line);padding-block:34px 120px;color:var(--dim
     <div class="price-cards">
       <div class="pc hot rv"><div class="lbl"><h3>Сайт під ключ</h3><em>−57%</em></div><div class="am"><s>$700</s><b class="og-text live">$300</b><small>разово</small></div>
         <ul><li><svg><use href="#i-check"/></svg>Дизайн і тексти під вашу нішу</li><li><svg><use href="#i-check"/></svg>Кнопки дзвінка, Telegram, Viber</li><li><svg><use href="#i-check"/></svg>Зручний з телефону</li><li><svg><use href="#i-check"/></svg>Домен, аналітика, форма заявки</li><li><svg><use href="#i-check"/></svg>Запуск за 3 дні</li></ul></div>
-      <div class="pc hot rv" style="--d:.08s"><div class="lbl"><h3>Реклама Google</h3><em>−60%</em></div><div class="am"><s>$500</s><b class="og-text live">$200</b><small>налаштування</small></div>
+      <div class="pc hot rv" style="--d:.08s"><div class="lbl"><h3>Реклама Google</h3><em>−50%</em></div><div class="am"><s>$300</s><b class="og-text live">$150</b><small>налаштування</small></div>
         <ul><li><svg><use href="#i-check"/></svg>Запити «послуга + місто»</li><li><svg><use href="#i-check"/></svg>Мінус-слова — бюджет не зливається</li><li><svg><use href="#i-check"/></svg>Показ тільки у вашому місті</li><li><svg><use href="#i-check"/></svg>Відстеження дзвінків і заявок</li></ul></div>
       <div class="pc rv" style="--d:.16s"><div class="lbl"><h3>Ведення реклами й сайту</h3><em class="g">за бажанням</em></div><div class="am"><b>$75</b><small>/ місяць</small></div>
         <ul><li><svg><use href="#i-check"/></svg>Стежимо за рекламою щотижня: мінус-слова, ставки, запити</li><li><svg><use href="#i-check"/></svg>Правки на сайті — без доплат</li><li><svg><use href="#i-check"/></svg>Короткий звіт щомісяця</li><li><svg><use href="#i-check"/></svg>Відмовитися можна будь-коли</li></ul></div>
     </div>
-    <div class="total rv"><p>Сайт + реклама разом: <b class="og-text live">$500</b><s>$1200</s></p><a class="btn btn-o" href="#zayavka">Замовити <svg class="arr"><use href="#i-arr"/></svg></a></div>
+    <div class="total rv"><p>Сайт + реклама разом: <b class="og-text live">$450</b><s>$1000</s></p><a class="btn btn-o" href="#zayavka">Замовити <svg class="arr"><use href="#i-arr"/></svg></a></div>
     <div class="bonus-big rv">
       <div class="coins" aria-hidden="true"><i style="right:8%;top:14%"></i><i style="right:20%;top:8%;animation-delay:1s;width:7px;height:7px"></i><i style="right:4%;top:40%;animation-delay:2s;width:6px;height:6px"></i></div>
       <div class="wrapc">
@@ -939,7 +943,7 @@ footer{border-top:1px solid var(--line);padding-block:34px 120px;color:var(--dim
       <h2>Коротко про головне</h2>
     </div>
     <div class="faq-list rv">
-      <details><summary>Чому так недорого?<i><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></i></summary><div class="ans"><div><p>Робимо за відпрацьованою структурою під кожну сферу, без великого офісу. Тому $300 за сайт і $200 за налаштування реклами, а не агентський цінник.</p></div></div></details>
+      <details><summary>Чому так недорого?<i><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></i></summary><div class="ans"><div><p>Робимо за відпрацьованою структурою під кожну сферу, без великого офісу. Тому $300 за сайт і $150 за налаштування реклами, а не агентський цінник.</p></div></div></details>
       <details><summary>Скільки коштуватиме сама реклама?<i><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></i></summary><div class="ans"><div><p>Бюджет визначаєте ви і платите напряму Google зі своєї картки. Порадимо стартову суму під ваше місто. Зупинити можна будь-коли.</p></div></div></details>
       <details><summary>Що за бонус 10&nbsp;000&nbsp;₴?<i><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></i></summary><div class="ans"><div><p>Google дає новим рекламним акаунтам промокод: після витрати визначеної суми нараховує бонус на покази. Допоможемо активувати й назвемо точні умови на момент запуску.</p></div></div></details>
       <details><summary>Скільки часу до запуску?<i><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></i></summary><div class="ans"><div><p>3 дні. Сайт — за 1–2 дні після того, як надішлете фото й контакти. На 3-й день реклама проходить модерацію Google і стартує.</p></div></div></details>
