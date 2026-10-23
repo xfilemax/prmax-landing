@@ -39,13 +39,14 @@ a{color:inherit;text-decoration:none}
 button{font:inherit;color:inherit}
 h1,h2,h3,h4{font-family:var(--disp);font-weight:700;letter-spacing:-.015em;line-height:1.08;margin:0;text-wrap:balance}
 p{margin:0}
-.wrap{max-width:1920px;margin:0 auto;padding-inline:max(var(--gut),env(safe-area-inset-left,0px))}
+.wrap{max-width:1520px;margin:0 auto;padding-inline:max(var(--gut),env(safe-area-inset-left,0px))}
 .og-text{background:var(--flow);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent}
 .og-text.live{animation:flow 6s linear infinite}
 html.shot .hero{min-height:0}
 @keyframes flow{to{background-position:300% 0}}
 .eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--disp);font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--o1)}
 .eyebrow::before{content:"";width:22px;height:2px;border-radius:2px;background:var(--og)}
+.eyebrow i{font-style:normal;font-family:var(--num);font-size:13px;font-weight:500;color:var(--dim);letter-spacing:.04em}
 .sec{padding-block:72px;position:relative}
 .sec-head{max-width:760px}
 .sec-head h2{font-size:clamp(28px,7.4vw,56px);margin-top:14px}
@@ -163,9 +164,10 @@ html.js .rv.in{opacity:1;transform:none}
 .pt div{display:flex;align-items:baseline;gap:8px;margin-top:2px}
 .pt s{font-family:var(--num);font-size:17px;color:var(--dim);text-decoration-color:var(--o3);text-decoration-thickness:2px}
 .pt b{font-family:var(--num);font-size:32px;font-weight:700;line-height:1.05}
-.bonus{position:relative;display:flex;align-items:center;gap:14px;margin-top:10px;padding:11px 16px;border-radius:20px;border:1.5px solid transparent;background:linear-gradient(#17120C,#17120C) padding-box,conic-gradient(from var(--ang),#FF4D00,#FFD27A,#FF7A00,#FFD27A,#FF4D00) border-box;animation:spin 5s linear infinite,fadeUp .9s var(--ease) .5s both;overflow:hidden}
+.bonus{position:relative;display:flex;align-items:center;gap:14px;margin-top:10px;padding:12px 18px 12px 14px;border-radius:20px;border:1.5px solid transparent;background:linear-gradient(#17120C,#17120C) padding-box,conic-gradient(from var(--ang),#FF4D00,#FFD27A,#FF7A00,#FFD27A,#FF4D00) border-box;animation:spin 5s linear infinite,fadeUp .9s var(--ease) .5s both;overflow:hidden}
 .bonus::before{content:"";position:absolute;inset:0;background:radial-gradient(120% 140% at 0% 50%,rgba(255,170,0,.22),transparent 60%);pointer-events:none}
-.gift{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;background:var(--og);flex:0 0 auto;box-shadow:0 0 24px rgba(255,140,0,.6);animation:bob 2.4s ease-in-out infinite}
+.gift{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;background:var(--og);flex:0 0 auto;align-self:center;animation:giftGlow 2.6s ease-in-out infinite}
+@keyframes giftGlow{0%,100%{box-shadow:0 0 16px rgba(255,140,0,.45)}50%{box-shadow:0 0 34px rgba(255,170,0,.9)}}
 .gift svg{width:24px;height:24px;stroke:#170800;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 @keyframes bob{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-3px) rotate(-6deg)}}
 .bonus b{display:block;font-family:var(--num);font-size:28px;font-weight:700;line-height:1.05;background:linear-gradient(90deg,#FFE3A3,#FFB038 40%,#FFF1CC 55%,#FF8A00 80%,#FFE3A3);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:flow 4s linear infinite}
@@ -325,7 +327,7 @@ html.js .rv.in{opacity:1;transform:none}
 .bonus-big{position:relative;margin-top:14px;padding:24px 20px;border-radius:28px;overflow:hidden;isolation:isolate;border:1.5px solid transparent;background:linear-gradient(#140F09,#140F09) padding-box,conic-gradient(from var(--ang),#FF4D00,#FFD27A,#FF7A00,#FFF1CC,#FF4D00) border-box;animation:spin 5s linear infinite}
 .bonus-big::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(80% 120% at 100% 0%,rgba(255,180,40,.35),transparent 60%),radial-gradient(60% 80% at 0% 100%,rgba(255,77,0,.3),transparent 60%)}
 .bonus-big .row{display:flex;align-items:center;gap:14px}
-.bonus-big .gift{width:60px;height:60px;border-radius:18px;box-shadow:0 0 40px rgba(255,150,0,.6)}
+.bonus-big .gift{width:60px;height:60px;border-radius:18px}
 .bonus-big .gift svg{width:30px;height:30px}
 .bonus-big .sum{font-family:var(--num);font-size:clamp(44px,13vw,96px);font-weight:700;line-height:1.05;background:linear-gradient(90deg,#FFE3A3,#FFB038 35%,#FFF4D6 50%,#FF8A00 75%,#FFE3A3);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:flow 4s linear infinite;white-space:nowrap}
 .bonus-big h3{font-size:20px;margin-top:12px}
@@ -512,20 +514,20 @@ footer{border-top:1px solid var(--line);padding-block:34px 120px;color:var(--dim
 }
 /* ===== Desktop ===== */
 @media (min-width:1100px){
-  :root{--gut:clamp(32px,4.5vw,96px)}
+  :root{--gut:clamp(32px,4vw,80px)}
   body{font-size:17px}
   .sec{padding-block:110px}
   .sec-head p{font-size:18px}
   .hdr .wrap{height:80px;gap:26px}
   .hdr.sc .wrap{height:68px}
-  .logo img{height:52px}
+  .logo img{height:60px}
   .menu{display:flex;gap:28px;margin-left:auto;font-weight:500;font-size:15px;color:var(--muted)}
   .menu a{position:relative;transition:color .25s}
   .menu a::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;background:var(--og);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
   .menu a:hover{color:var(--fg)}.menu a:hover::after{transform:scaleX(1)}
   .hdr-ph{display:flex;align-items:center;gap:8px;font-family:var(--disp);font-weight:600;white-space:nowrap}
   .hdr-ph svg{width:18px;height:18px;stroke:var(--o1)}
-  .hdr-cta{display:inline-flex;padding:13px 22px;font-size:15px}
+  .hdr-cta{display:inline-flex;padding:15px 26px;font-size:16px}
   .hdr .call,.burger{display:none}
   .hero{padding-top:80px;justify-content:center}
   .h-bg .ph{left:46%;-webkit-mask-image:linear-gradient(90deg,transparent,#000 35%);mask-image:linear-gradient(90deg,transparent,#000 35%);background-position:50% 40%;opacity:.5}
@@ -598,7 +600,7 @@ footer{border-top:1px solid var(--line);padding-block:34px 120px;color:var(--dim
   .hero h1{font-size:clamp(56px,3.6vw,78px)}
   .lead{font-size:clamp(19px,1.15vw,24px);max-width:34em}
   .pill{font-size:15px}
-  .ptiles,.bonus{max-width:600px}
+  .ptiles,.bonus{max-width:560px}
   .pt b{font-size:44px}.pt s{font-size:20px}.pt span{font-size:13px}
   .bonus b{font-size:36px}.bonus span{font-size:14px}
   .btn{font-size:18px;padding:20px 34px}
@@ -608,8 +610,6 @@ footer{border-top:1px solid var(--line);padding-block:34px 120px;color:var(--dim
   .sec-head{max-width:960px}
   .sec-head h2{font-size:clamp(44px,3.3vw,68px)}
   .sec-head p{font-size:20px;max-width:46em}
-  .hs>*{flex:0 0 calc((100% - 60px)/4)}
-  .hs.c4>*{flex-basis:calc((100% - 60px)/4)}
   .hw{height:520px}.hw .cap h3{font-size:26px}
   .nc{height:360px}.nc .cap h3{font-size:27px}
   .hs-arr{width:66px;height:66px}.hs-arr.prev{left:-33px}.hs-arr.next{right:-33px}
@@ -623,11 +623,9 @@ footer{border-top:1px solid var(--line);padding-block:34px 120px;color:var(--dim
   .final h2{font-size:clamp(44px,3.3vw,66px)}.quiz{padding:36px}
   .trackbar .track img{height:44px}
 }
-@media (min-width:2000px){
-  .hero h1{font-size:clamp(64px,3.4vw,88px)}
-  .hs>*{flex:0 0 calc((100% - 80px)/5)}
-  .hs.c4>*{flex-basis:calc((100% - 60px)/4)}
-}
+/* Дуже широкі екрани: масштабуємо всю сторінку пропорційно, як преміальні студії */
+@media (min-width:1800px){html{zoom:1.08}}
+@media (min-width:2300px){html{zoom:1.22}}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
   html.js .rv{opacity:1;transform:none}
@@ -737,7 +735,7 @@ footer{border-top:1px solid var(--line);padding-block:34px 120px;color:var(--dim
 <section class="sec" id="yak">
   <div class="wrap">
     <div class="sec-head rv">
-      <div class="eyebrow">Чому Google</div>
+      <div class="eyebrow"><i>01</i>Чому Google</div>
       <h2>Вас не треба нав'язувати. <span class="og-text">Вас вже шукають.</span></h2>
       <p>У соцмережах реклама перериває людину. У Google вона сама вводить «послуга + місто» і готова платити зараз. Ми робимо так, щоб вона побачила вас першим.</p>
     </div>
@@ -759,7 +757,7 @@ footer{border-top:1px solid var(--line);padding-block:34px 120px;color:var(--dim
 <section class="sec" id="nishi" style="padding-top:0">
   <div class="wrap">
     <div class="sec-head rv">
-      <div class="eyebrow">Для кого</div>
+      <div class="eyebrow"><i>02</i>Для кого</div>
       <h2>Для будь-якого бізнесу, якому <span class="og-text">дзвонять</span></h2>
       <p>Авто, ремонт, краса, їжа, оренда, товари, послуги — усе, що люди шукають із назвою міста. Натисніть на категорію — покажемо вашу рекламу.</p>
     </div>
@@ -782,7 +780,7 @@ footer{border-top:1px solid var(--line);padding-block:34px 120px;color:var(--dim
 <section class="sec" id="roboty" style="padding-top:0">
   <div class="wrap">
     <div class="sec-head rv">
-      <div class="eyebrow">Наші роботи</div>
+      <div class="eyebrow"><i>03</i>Наші роботи</div>
       <h2>Сайти, які ми <span class="og-text">вже запустили</span></h2>
     </div>
     <div class="hs-wrap"><div class="hs" data-hs>
@@ -799,7 +797,7 @@ footer{border-top:1px solid var(--line);padding-block:34px 120px;color:var(--dim
 <section class="sec" id="tsiny" style="padding-top:0">
   <div class="wrap">
     <div class="sec-head rv">
-      <div class="eyebrow">Ціни</div>
+      <div class="eyebrow"><i>04</i>Ціни</div>
       <h2>Чесні ціни. <span class="og-text">Без абонплати.</span></h2>
     </div>
     <div class="price-cards">
@@ -828,7 +826,7 @@ footer{border-top:1px solid var(--line);padding-block:34px 120px;color:var(--dim
 <section class="sec" id="vidguky" style="padding-top:0">
   <div class="wrap">
     <div class="sec-head rv">
-      <div class="eyebrow">Відгуки</div>
+      <div class="eyebrow"><i>05</i>Відгуки</div>
       <h2>Що пишуть <span class="og-text">клієнти</span></h2>
     </div>
     <div class="rv-main rv">
@@ -854,7 +852,7 @@ footer{border-top:1px solid var(--line);padding-block:34px 120px;color:var(--dim
 <section class="sec" id="konstruktor" style="padding-top:0">
   <div class="wrap">
     <div class="sec-head rv">
-      <div class="eyebrow">Спробуйте</div>
+      <div class="eyebrow"><i>06</i>Спробуйте</div>
       <h2>Ваша реклама — <span class="og-text">за 2 кліки</span></h2>
     </div>
     <div class="builder rv">
@@ -878,7 +876,7 @@ footer{border-top:1px solid var(--line);padding-block:34px 120px;color:var(--dim
 <section class="sec" id="etapy" style="padding-top:0">
   <div class="wrap">
     <div class="sec-head rv">
-      <div class="eyebrow">Етапи</div>
+      <div class="eyebrow"><i>07</i>Етапи</div>
       <h2>Запуск <span class="og-text">за 3 дні</span></h2>
       <p>Від вас — 10 хвилин розмови, фото і номер телефону. Решту робимо ми.</p>
     </div>
@@ -895,7 +893,7 @@ footer{border-top:1px solid var(--line);padding-block:34px 120px;color:var(--dim
 <section class="sec" id="geo" style="padding-top:0">
   <div class="wrap">
     <div class="sec-head rv">
-      <div class="eyebrow">Географія</div>
+      <div class="eyebrow"><i>08</i>Географія</div>
       <h2>Вся Україна. <span class="og-text">І Європа.</span></h2>
       <p>Реклама показується тільки там, де ви працюєте: місто, область чи кілька регіонів.</p>
     </div>
@@ -910,7 +908,7 @@ footer{border-top:1px solid var(--line);padding-block:34px 120px;color:var(--dim
   <div class="wrap founder">
     <div class="ph-frame rv"><img src="img/maxim.webp" alt="Максим, засновник PR MAX" loading="lazy" width="1000" height="1000"><div class="nm"><b>Максим</b><span>засновник PR MAX</span></div></div>
     <div class="txt rv">
-      <div class="eyebrow">Про нас</div>
+      <div class="eyebrow"><i>09</i>Про нас</div>
       <h2>Ми робимо не просто гарний сайт. <span class="og-text">Ми робимо так, щоб вам дзвонили.</span></h2>
       <p>Сайт сам по собі клієнтів не приносить. Приносить зв'язка: реклама в Google на тих, хто вже шукає вашу послугу, + сайт, який переконує подзвонити. Саме цю зв'язку ми налаштовуємо за 3 дні — і далі ваш телефон дзвонить.</p>
       <div class="princ">
@@ -926,7 +924,7 @@ footer{border-top:1px solid var(--line);padding-block:34px 120px;color:var(--dim
 <section class="sec" id="faq" style="padding-top:0">
   <div class="wrap faq-wrap">
     <div class="sec-head rv">
-      <div class="eyebrow">Питання</div>
+      <div class="eyebrow"><i>10</i>Питання</div>
       <h2>Коротко про головне</h2>
     </div>
     <div class="faq-list rv">
@@ -943,7 +941,7 @@ footer{border-top:1px solid var(--line);padding-block:34px 120px;color:var(--dim
 <section class="sec final" id="zayavka">
   <div class="wrap final-grid">
     <div class="rv">
-      <div class="eyebrow">Заявка</div>
+      <div class="eyebrow"><i>11</i>Заявка</div>
       <h2>Почнімо з <span class="og-text">10&#8209;хвилинної</span> розмови</h2>
       <p class="sub">3 кроки — і ми передзвонимо. Розкажемо, як виглядатиме ваш сайт і який бюджет має сенс у вашому місті.</p>
       <div class="contacts">
