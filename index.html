@@ -8,7 +8,6 @@
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#08080A">
 <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
-<link rel="preload" as="image" href="img/hero-phone.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700;800&family=Onest:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap">
@@ -44,7 +43,6 @@ s{text-decoration-color:var(--o3);text-decoration-thickness:1.5px}
 .og-text{font-style:italic;font-weight:300;background:var(--grad);background-size:220% auto;-webkit-background-clip:text;background-clip:text;color:transparent}
 .og-text.live{animation:goldflow 9s linear infinite}
 @keyframes goldflow{to{background-position:220% center}}
-html.shot .hero{min-height:0}
 
 /* ===== Kicker (надпись с линией) ===== */
 .eyebrow{display:inline-flex;align-items:center;gap:14px;font:700 13px/1 var(--b);letter-spacing:.22em;text-transform:uppercase;color:var(--ol)}
@@ -136,32 +134,7 @@ html.js .rv.in{opacity:1;transform:none}
 .mnav .m-row svg{width:18px;height:18px;stroke:var(--o1)}
 
 /* ===== Hero ===== */
-.hero{position:relative;min-height:100svh;padding-top:calc(72px + env(safe-area-inset-top,0px));overflow:hidden;isolation:isolate;display:flex;flex-direction:column}
-.h-bg{position:absolute;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
-.h-bg .ph{position:absolute;inset:-4%;background:url(img/hero-phone.webp) 50% 28%/cover no-repeat;animation:kb 26s ease-in-out infinite alternate}
-@keyframes kb{from{transform:scale(1.02)}to{transform:scale(1.12) translateY(-1.5%)}}
-.h-bg .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,10,9,.72) 0%,rgba(11,10,9,.25) 18%,rgba(11,10,9,.38) 34%,rgba(11,10,9,.9) 52%,var(--obs) 66%)}
-.h-bg .glow{position:absolute;width:140%;aspect-ratio:1;left:-20%;top:30%;border-radius:50%;background:radial-gradient(circle,rgba(240,110,0,.28),transparent 60%);animation:breathe 8s ease-in-out infinite}
-@keyframes breathe{0%,100%{opacity:.6}50%{opacity:1}}
-.hero>.wrap{flex:1;display:flex;flex-direction:column;justify-content:flex-end;width:100%;padding-bottom:20px}
-.ntf-wrap{position:relative;margin:8px 0 auto;padding-bottom:16px}
-.ntfs{position:relative;height:126px}
-.ntf{position:absolute;left:0;right:0;top:0;display:flex;gap:11px;align-items:center;padding:9px 13px;border-radius:20px;background:rgba(38,34,30,.9);backdrop-filter:none;transition:transform .8s var(--e),opacity .6s var(--e);transform-origin:top center}
-.ntf.enter{animation:ntfIn .8s var(--e) both}
-@keyframes ntfIn{from{opacity:0;transform:translateY(-26px) scale(.92)}to{opacity:1;transform:none}}
-.ntf .ic{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;flex:0 0 auto}
-.ntf .ic svg{width:21px;height:21px}
-.ntf .ic.call{background:var(--green)}.ntf .ic.call svg{stroke:#04210f;fill:none;stroke-width:2.2;animation:ring 1.2s ease-in-out infinite}
-.ntf .ic.tg{background:#2AABEE}.ntf .ic.tg svg{fill:#fff}
-.ntf .ic.vb{background:#7360F2}.ntf .ic.vb svg{stroke:#fff;fill:none;stroke-width:2}
-.ntf .ic.ads{background:var(--grad)}.ntf .ic.ads svg{stroke:var(--ink);fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
 @keyframes ring{0%,100%{transform:rotate(0)}10%{transform:rotate(-14deg)}20%{transform:rotate(12deg)}30%{transform:rotate(-10deg)}40%{transform:rotate(6deg)}50%{transform:rotate(0)}}
-.ntf .b{min-width:0;flex:1}
-.ntf .t{display:flex;justify-content:space-between;gap:8px;font-size:14px}
-.ntf .t b{font-weight:600}
-.ntf .t span{color:var(--dim);font-size:12px;flex:0 0 auto}
-.ntf p{font-size:13px;color:rgba(255,255,255,.82);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.ntf-cap{position:absolute;right:2px;bottom:0;font:600 9.5px/1 var(--b);letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
 .hk{color:#FFD9A3;text-shadow:0 1px 12px rgba(0,0,0,.5)}
 .display{font-family:var(--d);font-weight:300;font-size:clamp(40px,10vw,124px);line-height:.96;letter-spacing:-.02em;margin:18px 0 0}
 .ln{display:block;overflow:hidden;padding-bottom:.08em;margin-bottom:-.06em}
@@ -184,7 +157,6 @@ html.js .rv.in{opacity:1;transform:none}
 .stat b{display:block;font-family:var(--d);font-weight:500;font-size:30px;line-height:1;background:var(--grad);background-size:220% auto;-webkit-background-clip:text;background-clip:text;color:transparent}
 .stat span{display:block;font-size:12px;letter-spacing:.04em;color:rgba(255,255,255,.72);font-weight:600;margin-top:5px;line-height:1.35}
 .stat span s{color:var(--dim);font-weight:500}
-.demo{display:none}
 
 /* Google-демо (общее): поиск, объявление, телефон, звонок */
 .ad{border-radius:22px;padding:18px 20px;font-size:14px;line-height:1.45;color:var(--sand);backdrop-filter:blur(26px) saturate(150%);-webkit-backdrop-filter:blur(26px) saturate(150%);transition:opacity .45s var(--e),transform .45s var(--e)}
@@ -221,14 +193,6 @@ html.js .rv.in{opacity:1;transform:none}
 @keyframes blink{50%{opacity:0}}
 
 /* ===== Полоса доверия ===== */
-.trustbar{padding:26px 0 28px;border-block:1px solid var(--line);background:var(--obs2)}
-.tb-top{display:flex;align-items:center;justify-content:space-between;gap:14px}
-.avs{display:flex;align-items:center;flex:0 0 auto}
-.avs span{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font-family:var(--d);font-weight:600;font-size:13px;background:var(--grad);color:var(--ink);border:2px solid var(--obs2);margin-left:-10px}
-.avs span:first-child{margin-left:0}
-.tb-top p{font-size:13.5px;line-height:1.35;flex:1;color:var(--muted)}
-.tb-top p b{display:block;font-family:var(--d);font-size:20px;color:var(--sand);font-weight:500}
-.tb-top a{font:700 11.5px/1 var(--b);letter-spacing:.2em;text-transform:uppercase;color:var(--ol);white-space:nowrap}
 .marq{overflow:hidden;margin-top:22px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
 .track{display:flex;align-items:center;gap:56px;width:max-content;animation:scrollX 34s linear infinite}
 .track img{height:36px;width:auto;object-fit:contain;filter:grayscale(1) brightness(1.8);opacity:.55}
@@ -321,11 +285,6 @@ html.js .rv.in{opacity:1;transform:none}
 .pc ul{list-style:none;padding:0;margin:16px 0 0;display:grid;gap:9px}
 .pc li{display:flex;gap:10px;font-size:14.5px;line-height:1.45;color:rgba(244,239,231,.85)}
 .pc li svg{flex:0 0 20px;width:20px;height:20px;padding:4px;border-radius:50%;border:1px solid rgba(255,201,126,.5);stroke:var(--o1);fill:none;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;margin-top:1px}
-.total{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-top:14px;padding:16px 20px;border-radius:999px}
-.total p{font-size:14.5px;color:var(--muted);display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;padding-left:10px}
-.total p b{font-family:var(--d);font-size:40px;line-height:1;font-weight:500;color:var(--sand)}
-.total p s{font-family:var(--d);font-size:22px;color:var(--dim)}
-.total .btn{--h:54px}.total .btn .ar{width:42px;height:42px}
 .bonus{position:relative;display:flex;align-items:center;gap:12px;margin-top:8px;padding:10px 16px 10px 11px;border-radius:22px;overflow:hidden}
 .gift{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;background:var(--grad);flex:0 0 auto;align-self:center;animation:giftGlow 2.8s ease-in-out infinite}
 .gift svg{width:24px;height:24px;stroke:var(--ink);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
@@ -523,13 +482,11 @@ footer{border-top:1px solid var(--line);padding-block:34px 120px;color:var(--dim
   .h-cta .btn-g{display:inline-flex}
   .tg-round{display:none}
   .more{display:inline}
-  .ntf-wrap{max-width:440px}
   .stats{grid-template-columns:repeat(4,auto);justify-content:start;gap:0;padding:16px 8px;max-width:max-content}
   .stat{padding:0 26px;border-inline-start:1px solid rgba(255,255,255,.16)}
   .stat:nth-child(odd){border-inline-start:1px solid rgba(255,255,255,.16)}
   .stat:first-child{border:0}
   .stat b{font-size:38px}.stat span{font-size:11.5px}
-  .hero{min-height:min(100svh,860px)}
 }
 /* ===== Комп'ютер ===== */
 @media (min-width:1100px){
@@ -546,33 +503,7 @@ footer{border-top:1px solid var(--line);padding-block:34px 120px;color:var(--dim
   .hdr-ph svg{width:17px;height:17px;stroke:var(--o1)}
   .hdr-cta{display:inline-flex}
   .hdr .call,.burger{display:none}
-  .hero{padding-top:92px;justify-content:center;min-height:100svh}
-  .h-bg .ph{left:40%;-webkit-mask-image:linear-gradient(90deg,transparent,#000 35%);mask-image:linear-gradient(90deg,transparent,#000 35%);background-position:50% 40%;opacity:.55}
-  .h-bg .shade{background:radial-gradient(70% 90% at 75% 40%,transparent,rgba(11,10,9,.6) 70%),linear-gradient(180deg,rgba(11,10,9,.6),transparent 20%,transparent 78%,var(--obs))}
-  .h-bg .glow{width:900px;left:auto;right:-200px;top:-150px}
-  .hero>.wrap{display:grid;grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr);gap:clamp(48px,5vw,110px);align-items:center;padding-block:30px 60px;flex:0}
-  .ntf-wrap{display:none}
-  .display{font-size:clamp(56px,min(5.2vw,9.6vh),104px);margin-top:22px}
-  .lead{font-size:clamp(17px,1.2vw,19px);margin-top:22px}
-  .h-cta{margin-top:32px}
-  .stats{margin-top:34px}
-  .demo{display:block;--ph:clamp(520px,calc(100vh - 170px),640px);position:relative;height:calc(var(--ph) + 50px);perspective:1400px;animation:fadeUp 1.3s var(--e) .3s both}
-  .demo-label{position:absolute;right:6px;top:-6px;z-index:6}
-  .d-search{position:absolute;left:0;top:28px;width:min(440px,78%);z-index:4;background:rgba(244,239,231,.97);color:#202124;border-radius:999px;padding:15px 22px;display:flex;align-items:center;gap:12px;box-shadow:0 24px 60px -12px rgba(0,0,0,.7);font-size:16px}
-  .d-search svg{width:20px;height:20px;stroke:#5f6368;flex:0 0 auto}
-  .d-search .q{white-space:nowrap;overflow:hidden}
-  .d-search .caret{background:#1a73e8}
-  .d-ad{position:absolute;left:0;top:104px;width:min(440px,78%);z-index:4}
-  .d-arrow{position:absolute;left:34%;top:calc(var(--ph) * .52);width:120px;z-index:5;pointer-events:none}
-  .d-arrow path{fill:none;stroke:var(--o1);stroke-width:1.5;stroke-linecap:round;stroke-dasharray:5 9;animation:dash 1.6s linear infinite}
   @keyframes dash{to{stroke-dashoffset:-28}}
-  .d-phone{position:absolute;right:0;top:40px;height:var(--ph);width:calc(var(--ph) * .49);z-index:3;transition:transform .6s var(--e)}
-  .d-toast{position:absolute;left:-56px;bottom:16px;z-index:6;width:min(320px,calc(100% - var(--ph) * .49 + 80px));display:flex;align-items:center;gap:14px;padding:14px 16px;border-radius:22px;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);transition:opacity .5s var(--e),transform .5s var(--e)}
-  .d-toast.hide{opacity:0;transform:translateY(20px) scale(.95)}
-  .d-toast .ic{width:46px;height:46px;border-radius:50%;background:var(--green);display:grid;place-items:center;flex:0 0 auto}
-  .d-toast .ic svg{width:22px;height:22px;stroke:#04210f;stroke-width:2.2;fill:none;animation:ring 1.2s ease-in-out infinite}
-  .d-toast b{display:block;font-size:15px;font-weight:600}
-  .d-toast span{display:block;font-size:13px;color:var(--muted);line-height:1.35}
   .hs{margin:44px 0 0;padding:6px 2px 12px;gap:22px;scroll-padding-inline:2px}
   .hs>*{flex:0 0 calc((100% - 44px)/3)}
   .hs.c4>*{flex-basis:calc((100% - 66px)/4)}
@@ -638,7 +569,7 @@ h1,h2,h3,h4,.display,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,
 .mnav nav a{font-size:22px;font-weight:600}
 .ps .bar{font-family:var(--d);font-weight:700;font-size:13px}
 .map .city text{font-family:var(--d);font-weight:600;font-size:26px}
-.stat b{font-size:26px;white-space:nowrap}.stat{padding-inline:14px}.pc .am b{font-size:60px}.pc .am s{font-size:24px}.bonus b{font-size:26px}.bonus-big .sum{font-size:clamp(44px,12vw,96px)}.rv-main .big{font-size:60px}.total p b{font-size:36px}.total p s{font-size:20px}.hw .n{font-size:20px}
+.stat b{font-size:26px;white-space:nowrap}.stat{padding-inline:14px}.pc .am b{font-size:60px}.pc .am s{font-size:24px}.bonus b{font-size:26px}.bonus-big .sum{font-size:clamp(44px,12vw,96px)}.rv-main .big{font-size:60px}.hw .n{font-size:20px}
 .ad .title{font-size:20px;line-height:1.25}.ps .body h4{font-size:22px}.nc .cap h3{font-size:24px}.nc.cta h3{font-size:26px}.hw .cap h3{font-size:24px}.wk .meta h3{font-size:22px}.pc .lbl h3{font-size:21px}.stp h3{font-size:21px}.princ b{font-size:17px}.ph-frame .nm b{font-size:24px}summary{font-size:18px}.quiz .top b{font-size:21px}.qstep h4{font-size:19px}.done h4{font-size:24px}.bonus-big h3{font-size:20px}.tb-top p b{font-size:16px}
 .btn{font-family:var(--d);font-size:17px;letter-spacing:.01em}
 .btn-sm{font-size:15px}
@@ -655,6 +586,175 @@ h1,h2,h3,h4,.display,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,
 @media (min-width:1100px) and (max-width:1499px){.eyebrow .more{display:none}}
 @media (min-width:1100px) and (max-width:1299px){.menu{font-size:14px;gap:20px}.hdr .wrap{gap:16px}}
 @media (min-width:1500px){.pc .am b{font-size:88px}.rv-main blockquote{font-size:24px}}
+/* ===== v8 · Перший екран: аврора, центр, сцена «пошук → реклама → дзвінок» ===== */
+.hero{position:relative;overflow:hidden;isolation:isolate;padding:calc(100px + env(safe-area-inset-top,0px)) 0 30px}
+.aur{position:absolute;inset:0;z-index:-1;pointer-events:none;overflow:hidden;background:radial-gradient(70% 45% at 50% 0%,rgba(255,138,31,.14),transparent 70%)}
+.aur i{position:absolute;border-radius:50%;will-change:transform}
+.aur .a1{width:90vw;height:90vw;left:-30vw;top:-45vw;background:radial-gradient(circle,rgba(240,94,0,.38),rgba(240,94,0,0) 60%);animation:aur1 18s ease-in-out infinite alternate}
+.aur .a2{width:70vw;height:70vw;right:-28vw;top:-16vw;background:radial-gradient(circle,rgba(255,176,86,.26),rgba(255,176,86,0) 60%);animation:aur2 22s ease-in-out infinite alternate}
+.aur .a3{width:100vw;height:60vw;left:0;top:46%;background:radial-gradient(ellipse,rgba(182,66,0,.3),rgba(182,66,0,0) 60%);animation:aur3 26s ease-in-out infinite alternate}
+@keyframes aur1{to{transform:translate(14vw,12vw) scale(1.15)}}
+@keyframes aur2{to{transform:translate(-12vw,16vw) scale(.9)}}
+@keyframes aur3{to{transform:translate(-6vw,-8vw) scale(1.1)}}
+.aur .grid{inset:0;border-radius:0;background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:64px 64px;-webkit-mask-image:radial-gradient(70% 60% at 50% 28%,#000 20%,transparent 100%);mask-image:radial-gradient(70% 60% at 50% 28%,#000 20%,transparent 100%)}
+.aur .noise{inset:0;border-radius:0;opacity:.16;mix-blend-mode:overlay;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='.9'/></svg>");background-size:200px 200px}
+.aur .spot{inset:0;border-radius:0;background:radial-gradient(560px circle at var(--sx,50%) var(--sy,30%),rgba(255,170,80,.16),transparent 62%);opacity:0;transition:opacity .8s}
+.hero.live .aur .spot{opacity:1}
+.h-top{position:relative;text-align:center;display:flex;flex-direction:column;align-items:center}
+.pill{display:inline-flex;align-items:center;gap:10px;padding:9px 16px 9px 12px;border-radius:999px;border:1px solid rgba(255,201,126,.4);background:rgba(255,255,255,.05);font:600 11px/1.3 var(--b);letter-spacing:.12em;text-transform:uppercase;color:#FFD9A3;animation:fadeUp 1s var(--e) both;white-space:nowrap}
+.pill .dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 0 rgba(43,212,111,.65);animation:pulse 2.2s infinite;flex:0 0 auto}
+@keyframes pulse{70%{box-shadow:0 0 0 9px rgba(43,212,111,0)}100%{box-shadow:0 0 0 0 rgba(43,212,111,0)}}
+.hero .display{margin-top:22px;font-size:clamp(36px,9.6vw,62px);line-height:1.06;letter-spacing:-.035em}
+.hero .ln{padding-bottom:.1em;margin-bottom:-.06em}
+.hero .display,.hero .lni{text-wrap:wrap}.hero .lni{max-width:100%}
+.hero .lead{margin:18px auto 0;max-width:600px;font-size:16.5px}
+.hero .h-cta{width:100%;max-width:440px;margin-top:24px}
+.stage{position:relative;margin:34px auto 0;max-width:1180px;animation:fadeUp 1.2s var(--e) .45s both}
+.st-in{position:relative;display:grid;gap:12px;border-radius:30px;padding:12px;border:1px solid transparent;background:linear-gradient(160deg,rgba(255,255,255,.11),rgba(255,255,255,.03)) padding-box,linear-gradient(135deg,rgba(255,201,126,.6),rgba(255,255,255,.08) 38%,rgba(255,255,255,.06) 62%,rgba(240,94,0,.55)) border-box;box-shadow:0 40px 100px -30px rgba(0,0,0,.85),0 0 140px -50px rgba(240,110,0,.55)}
+.st-cap{position:absolute;right:14px;top:-11px;z-index:3;background:var(--obs)}
+.st-in>*,.st-google>*{min-width:0}
+.st-google{display:grid;gap:12px;padding:12px;border-radius:22px;background:rgba(11,10,9,.62)}
+.st-bar{display:flex;align-items:center;gap:10px;background:#F7F5F1;color:#202124;border-radius:999px;padding:10px 10px 10px 18px;font-size:15.5px;box-shadow:0 16px 40px -16px rgba(0,0,0,.9)}
+.st-bar svg{width:20px;height:20px;stroke:#5f6368;flex:0 0 auto}
+.st-bar .q{white-space:nowrap;overflow:hidden;min-width:0;flex:0 1 auto;max-width:calc(100% - 120px)}
+.st-bar .caret{background:#1a73e8;height:18px;margin-left:-4px}
+.st-bar .st-go{margin-left:auto;flex:0 0 auto;font:600 12px/1 var(--b);letter-spacing:.06em;color:#fff;background:#1a73e8;border-radius:999px;padding:9px 14px}
+.st-ad{position:relative;padding:16px;border-radius:20px}
+.st-ad .spons{color:var(--ol)}
+.st-ad .thumb{display:none}
+.st-rank{position:absolute;right:14px;top:-10px;font:700 10px/1 var(--b);letter-spacing:.14em;text-transform:uppercase;color:var(--ink);background:var(--grad);padding:7px 10px;border-radius:999px;box-shadow:0 10px 24px -10px rgba(240,110,0,.9)}
+.st-ghosts{display:grid;gap:10px;padding:4px 10px 6px}
+.st-ghosts i{display:block;height:10px;border-radius:6px;background:linear-gradient(90deg,rgba(255,255,255,.12),rgba(255,255,255,.04))}
+.st-ev{display:flex;align-items:center;gap:13px;padding:12px 14px;border-radius:20px;background:rgba(24,21,19,.92);border:1px solid rgba(255,255,255,.08);box-shadow:0 20px 50px -24px rgba(0,0,0,.9);transition:opacity .5s var(--e),transform .6s var(--e)}
+.st-ev.off{opacity:0;transform:translateY(16px) scale(.97)}
+.st-ev .av{position:relative;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;flex:0 0 auto}
+.st-ev .av svg{width:22px;height:22px}
+.st-ev.call .av{background:var(--green)}.st-ev.call .av svg{stroke:#04210f;fill:none;stroke-width:2.2;animation:ring 1.2s ease-in-out infinite}
+.st-ev.call .av::before,.st-ev.call .av::after{content:"";position:absolute;inset:-3px;border-radius:50%;border:1.5px solid var(--green);animation:ringOut 2s ease-out infinite}
+.st-ev.call .av::after{animation-delay:1s}
+.st-ev.tg .av{background:#2AABEE}.st-ev.tg .av svg{fill:#fff}
+.st-ev.vb .av{background:#7360F2}.st-ev.vb .av svg{stroke:#fff;fill:none;stroke-width:2}
+.st-ev.ads .av{background:var(--grad)}.st-ev.ads .av svg{stroke:var(--ink);fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.st-ev .tx{min-width:0;flex:1}
+.st-ev .tx small{display:block;font:700 10.5px/1 var(--b);letter-spacing:.14em;text-transform:uppercase;color:var(--dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.st-ev .tx b{display:block;font-family:var(--d);font-weight:600;font-size:17px;line-height:1.15;margin-top:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.st-ev .tx span{display:block;font-size:13px;color:var(--muted);margin-top:3px;line-height:1.35;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.st-ev .btns{display:none;gap:10px;flex:0 0 auto}
+.st-ev.call .btns{display:flex}
+.st-ev .btns i{width:42px;height:42px;border-radius:50%;display:grid;place-items:center}
+@media (max-width:699px){.st-ev .btns .dec{display:none}}
+.st-ev .btns svg{width:20px;height:20px;stroke:#fff;fill:none;stroke-width:2.2;stroke-linecap:round}
+.st-ev .btns .dec{background:#FF453A}.st-ev .btns .acc{background:var(--green)}.st-ev .btns .acc svg{stroke:#04210f}
+.hero .stats{margin-top:14px}
+
+/* ===== v8 · Заявка (вікно), квіз, коротка форма, плаваючі кнопки, блок «разом» ===== */
+.ldm{position:fixed;inset:0;z-index:95;display:flex;align-items:flex-end;justify-content:center;opacity:0;visibility:hidden;transition:opacity .45s var(--e),visibility .45s}
+.ldm.on{opacity:1;visibility:visible}
+.ldm-bg{position:absolute;inset:0;background:rgba(5,4,3,.74);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+.ldm-box{position:relative;width:100%;max-height:calc(100svh - 16px);overflow:auto;margin:0;border-radius:32px 32px 0 0;padding:26px 20px calc(22px + env(safe-area-inset-bottom,0px));border:1px solid transparent;background:linear-gradient(165deg,rgba(255,138,31,.26),rgba(19,17,16,.985) 34%,rgba(19,17,16,.985)) padding-box,linear-gradient(135deg,#FFC97E,rgba(255,255,255,.12) 38%,rgba(255,255,255,.08) 62%,#F05E00) border-box;box-shadow:0 -40px 140px -30px rgba(240,110,0,.45);transform:translateY(48px);transition:transform .65s var(--e)}
+.ldm.on .ldm-box{transform:none}
+.ldm-x{position:absolute;right:14px;top:14px;width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.06);color:#fff;display:grid;place-items:center;cursor:pointer;padding:0;transition:background .3s,transform .5s var(--e)}
+.ldm-x svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round}
+.ldm-x:hover{background:rgba(255,255,255,.14);transform:rotate(90deg)}
+.ldm-h{padding-right:50px}
+.ldm-h h3{font-size:clamp(26px,6.4vw,34px);line-height:1.08;margin-top:16px}
+.ldm-h p{color:var(--muted);margin-top:10px;font-size:15px;line-height:1.5}
+.ldm-f{display:grid;gap:8px;margin-top:16px}
+.ldm-f label{font:700 11px/1 var(--b);letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-top:10px}
+.ldm-f label em{font-style:normal;text-transform:none;letter-spacing:0;font-weight:500}
+.ldm-f .nchips button{padding:10px 14px;font-size:13.5px}
+.ldm-2{display:grid;gap:8px}
+.ldm-2>div{display:grid;gap:8px}
+.ldm .btn-w{margin-top:14px}
+.ldm .fine{margin-top:12px}
+.done-row{display:grid;gap:10px;margin-top:18px}
+.done-row .btn{width:100%;margin:0}
+.fab{display:none}
+.qz-grid{display:grid;gap:26px}
+.qz-grid h2{font-size:clamp(30px,7.4vw,56px);line-height:1.06;margin-top:16px}
+.qz-grid .sub{color:var(--muted);font-size:16px;margin-top:14px;line-height:1.6}
+.qz-list{list-style:none;padding:0;margin:20px 0 0;display:grid;gap:10px}
+.qz-list li{position:relative;padding-left:34px;font-size:15px;color:rgba(245,243,239,.86)}
+.qz-list li::before{content:"";position:absolute;left:0;top:1px;width:22px;height:22px;border-radius:50%;border:1px solid rgba(255,201,126,.6);background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FFC97E' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'><path d='M6 12l4 4 8-8'/></svg>") center/12px no-repeat}
+.mini{position:relative;border-radius:30px;padding:22px;backdrop-filter:blur(26px) saturate(150%);-webkit-backdrop-filter:blur(26px) saturate(150%);background:linear-gradient(150deg,rgba(255,255,255,.1),rgba(255,255,255,.03));border:1px solid var(--line2)}
+.mini-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.mini-top b{font-family:var(--d);font-size:22px;font-weight:700}
+.mini-top span{font:600 11px/1 var(--b);letter-spacing:.14em;text-transform:uppercase;color:var(--dim);white-space:nowrap}
+.mini-row{display:grid;gap:10px;margin-top:16px}
+.mini-row .btn{width:100%}
+.mini .fine a{color:var(--ol);text-decoration:underline;text-underline-offset:3px}
+.mini .done,.ldm .done{padding-top:8px}
+.total{display:grid;gap:16px;margin-top:14px;padding:22px 20px 20px;border-radius:28px;text-align:center}
+.total p{display:block;padding:0;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.total p .tl{display:block}
+.total p .tp{display:flex;justify-content:center;align-items:baseline;gap:12px;margin-top:8px;letter-spacing:0;text-transform:none}
+.total p b{font-size:52px;line-height:1}
+.total p s{font-size:24px;color:var(--dim)}
+.total .btn{width:100%;--h:56px}
+@media (min-width:700px){
+  .mini{padding:30px}
+  .mini-row{grid-template-columns:minmax(0,1fr) auto}
+  .mini-row .btn{width:auto}
+  .ldm-2{grid-template-columns:1fr 1fr;gap:12px}
+  .done-row{grid-template-columns:1fr 1fr}
+  .ldm{align-items:center;padding:20px}
+  .ldm-box{width:min(600px,100%);max-height:calc(100svh - 40px);border-radius:34px;padding:36px 36px 30px;transform:translateY(26px) scale(.97)}
+  .ldm-h h3{font-size:34px}
+  .total{grid-template-columns:minmax(0,1fr) auto;align-items:center;text-align:left;padding:18px 18px 18px 30px;border-radius:999px}
+  .total p .tp{justify-content:flex-start;margin-top:6px}
+  .total .btn{width:auto}
+  .qz-grid{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);align-items:center;gap:40px}
+  .hero .h-cta{justify-content:center}
+  .hero .stats{margin-inline:auto}
+}
+@media (min-width:1100px){
+  .hero{padding:calc(132px + env(safe-area-inset-top,0px)) 0 64px}
+  .pill{font-size:12.5px;letter-spacing:.14em;padding:11px 18px 11px 14px}
+  .hero .display{margin-top:28px;font-size:clamp(46px,4.8vw,92px);line-height:1.02}
+  .hero .display .ln{white-space:nowrap}
+  .hero .ldm{font-size:clamp(17px,1.2vw,20px);margin-top:24px;max-width:680px}
+  .hero .h-cta{margin-top:34px;max-width:none;width:auto}
+  .stage{margin-top:60px}
+  .st-in{grid-template-columns:minmax(0,1.35fr) minmax(0,.65fr);gap:16px;padding:16px;border-radius:34px;transform-origin:50% 0;will-change:transform}
+  .st-cap{right:22px;top:-12px}
+  .st-google{padding:16px;gap:14px;border-radius:26px}
+  .st-bar{font-size:17px;padding:12px 12px 12px 22px}
+  .st-bar svg{width:22px;height:22px}
+  .st-ad{padding:20px 134px 20px 20px}
+  .st-ad .thumb{display:block;position:absolute;right:18px;top:18px;width:96px;height:96px;border-radius:18px;background-size:cover;background-position:center;box-shadow:0 10px 30px -10px rgba(0,0,0,.8)}
+  .st-ad .title{font-size:24px}
+  .st-rank{right:auto;left:18px}
+  .st-ghosts{padding:6px 12px 8px}
+  .st-ev{flex-direction:column;justify-content:center;text-align:center;padding:30px 22px;border-radius:26px;gap:0}
+  .st-ev .av{width:88px;height:88px}.st-ev .av svg{width:38px;height:38px}
+  .st-ev.call .av::before,.st-ev.call .av::after{inset:-6px}
+  .st-ev .tx{margin-top:18px;width:100%}
+  .st-ev .tx b{font-size:24px;white-space:normal}
+  .st-ev .tx span{font-size:14.5px;white-space:normal;margin-top:6px}
+  .st-ev .btns{margin-top:24px;gap:26px}
+  .st-ev .btns i{width:60px;height:60px}.st-ev .btns svg{width:26px;height:26px}
+  .hero .stats{margin:40px auto 0;justify-content:center;padding:18px 10px}
+  .fab{position:fixed;right:28px;bottom:28px;z-index:56;display:flex;flex-direction:column;gap:12px;opacity:0;transform:translateY(18px);transition:opacity .5s var(--e),transform .5s var(--e);pointer-events:none}
+  .fab.on{opacity:1;transform:none;pointer-events:auto}
+  .fab a{position:relative;width:60px;height:60px;border-radius:50%;display:grid;place-items:center;box-shadow:0 18px 44px -14px rgba(0,0,0,.85);transition:transform .5s var(--e)}
+  .fab a:hover{transform:translateY(-3px)}
+  .fab .tg{background:#2AABEE}.fab .tg svg{width:28px;height:28px;fill:#fff}
+  .fab .ph{background:var(--grad)}.fab .ph svg{width:24px;height:24px;stroke:var(--ink)}
+  .fab .tg::after{content:"";position:absolute;inset:-3px;border-radius:50%;border:1.5px solid #2AABEE;animation:ringOut 2.4s ease-out infinite}
+  .fab a::before{content:attr(data-l);position:absolute;right:calc(100% + 14px);top:50%;transform:translateY(-50%) translateX(8px);background:rgba(19,17,16,.96);border:1px solid var(--line2);padding:9px 13px;border-radius:12px;font-size:13px;font-weight:600;white-space:nowrap;opacity:0;transition:opacity .3s,transform .4s var(--e);pointer-events:none}
+  .fab a:hover::before{opacity:1;transform:translateY(-50%)}
+  .qz-grid{gap:64px}
+  .total p b{font-size:56px}
+}
+/* ===== v8 · Логотипи клієнтів ===== */
+.trustbar{padding:30px 0 34px;border-block:1px solid var(--line);background:var(--obs2)}
+.tb-cap{text-align:center;font:700 11px/1 var(--b);letter-spacing:.28em;text-transform:uppercase;color:var(--dim)}
+.marq{margin-top:22px}
+.track{gap:64px}
+.track img{height:52px;max-width:200px;filter:grayscale(1) brightness(2);opacity:.92;transition:filter .4s,opacity .4s}
+.track img:hover{filter:none;opacity:1}
+@media (min-width:1100px){.trustbar{padding:40px 0 44px}.marq{margin-top:28px}.track{gap:100px;animation-duration:44s}.track img{height:64px;max-width:260px}}
+
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
   html.js .rv{opacity:1;transform:none}
@@ -681,7 +781,7 @@ h1,h2,h3,h4,.display,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,
     <a class="logo" href="#top" aria-label="PRMAX — на початок"><img src="img/logo.webp" alt="PRMAX Digital Agency" width="520" height="338"></a>
     <nav class="menu" aria-label="Розділи"><a href="#yak">Як це працює</a><a href="#roboty">Роботи</a><a href="#tsiny">Ціни</a><a href="#vidguky">Відгуки</a><a href="#etapy">Етапи</a><a href="#faq">Питання</a></nav>
     <a class="hdr-ph" data-c="phone-link" href="#"><svg><use href="#i-phone"/></svg><span data-c="phone">+38 (063) 207-2000</span></a>
-    <a class="btn btn-o btn-sm hdr-cta" href="#zayavka"><span>Отримати дзвінки</span><span class="ar"><svg><use href="#i-arr"/></svg></span></a>
+    <a class="btn btn-o btn-sm hdr-cta" href="#zayavka" data-lead><span>Отримати дзвінки</span><span class="ar"><svg><use href="#i-arr"/></svg></span></a>
     <a class="icbtn call" data-c="phone-link" href="#" aria-label="Подзвонити"><svg><use href="#i-phone"/></svg></a>
     <button class="burger" id="burger" type="button" aria-label="Меню" aria-expanded="false" aria-controls="mnav"><i></i><i></i><i></i></button>
     <div class="prog" id="prog"></div>
@@ -699,61 +799,58 @@ h1,h2,h3,h4,.display,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,
     <a href="#vidguky"><i>05</i>Відгуки<svg><use href="#i-arr"/></svg></a>
     <a href="#etapy"><i>06</i>Етапи роботи<svg><use href="#i-arr"/></svg></a>
     <a href="#faq"><i>07</i>Питання<svg><use href="#i-arr"/></svg></a>
-    <a href="#zayavka"><i>08</i>Залишити заявку<svg><use href="#i-arr"/></svg></a>
+    <a href="#zayavka" data-lead><i>08</i>Залишити заявку<svg><use href="#i-arr"/></svg></a>
   </nav>
   <a class="bonus m-bonus" href="#tsiny"><span class="gift"><svg><use href="#i-gift"/></svg></span><div><b>+10&nbsp;000&nbsp;₴</b><span>на рекламу — бонус від Google<sup>*</sup></span></div></a>
   <div class="m-foot">
-    <a class="btn btn-o btn-w" href="#zayavka"><span>Отримати дзвінки</span><span class="ar"><svg><use href="#i-arr"/></svg></span></a>
+    <a class="btn btn-o btn-w" href="#zayavka" data-lead><span>Отримати дзвінки</span><span class="ar"><svg><use href="#i-arr"/></svg></span></a>
     <div class="m-row"><a href="#" data-c="phone-link"><svg><use href="#i-phone"/></svg>Подзвонити</a><a href="#" data-c="tg-link" target="_blank" rel="noopener"><svg><use href="#i-tg"/></svg>Telegram</a></div>
   </div>
 </div>
 
 <main id="top">
 <section class="hero" id="hero">
-  <div class="h-bg" aria-hidden="true"><div class="ph"></div><div class="glow"></div><div class="shade"></div></div>
+  <div class="aur" aria-hidden="true"><i class="a1"></i><i class="a2"></i><i class="a3"></i><i class="grid"></i><i class="noise"></i><i class="spot"></i></div>
+  <div class="wrap h-top">
+    <span class="pill"><i class="dot"></i><span>Сайт + реклама Google · <span class="more">запуск </span>за 3 дні</span></span>
+    <h1 class="display"><span class="ln"><span class="lni">Вас вже шукають <span class="og-text live">у&nbsp;Google.</span></span></span><span class="ln"><span class="lni">Зробимо, щоб дзвонили.</span></span></h1>
+    <p class="lead">Люди щодня гуглять вашу послугу у вашому місті. Ми ставимо вас першим&nbsp;— ви просто берете трубку.</p>
+    <div class="h-cta">
+      <a class="btn btn-o" href="#zayavka" data-lead><span>Залишити заявку</span><span class="ar"><svg><use href="#i-arr"/></svg></span></a>
+      <a class="btn btn-g" href="#roboty"><span>Наші роботи</span><span class="ar"><svg viewBox="0 0 10 12" class="play"><path d="M0 0l10 6-10 6z"/></svg></span></a>
+      <a class="tg-round" href="#" data-c="tg-link" target="_blank" rel="noopener" aria-label="Написати в Telegram"><svg viewBox="0 0 24 24"><path d="M21.5 3.5L2.8 10.7c-1.3.5-1.2 1.3-.2 1.6l4.8 1.5 1.8 5.6c.2.7.6.8 1.1.3l2.6-2.4 5 3.7c.9.5 1.6.2 1.8-.9l3.2-15c.3-1.3-.5-1.9-1.4-1.6z"/></svg></a>
+    </div>
+  </div>
   <div class="wrap">
-    <div class="ntf-wrap" aria-hidden="true"><div class="ntfs" id="ntfs"></div><span class="ntf-cap">приклад сповіщень</span></div>
-    <div class="h-txt">
-      <span class="eyebrow hk">Сайт + реклама Google<span class="more"> · вся Україна та Європа</span></span>
-      <h1 class="display"><span class="ln"><span class="lni">Вас вже шукають</span></span><span class="ln"><span class="lni og-text live">у Google.</span></span><span class="ln"><span class="lni">Зробимо, щоб дзвонили.</span></span></h1>
-      <p class="lead">Люди щодня гуглять вашу послугу у вашому місті. Ми ставимо вас першим.<span class="more"> Сайт + реклама за 3 дні. Ви просто берете трубку.</span></p>
-      <div class="h-cta">
-        <a class="btn btn-o" href="#zayavka"><span>Залишити заявку</span><span class="ar"><svg><use href="#i-arr"/></svg></span></a>
-        <a class="btn btn-g" href="#roboty"><span>Наші роботи</span><span class="ar"><svg viewBox="0 0 10 12" class="play"><path d="M0 0l10 6-10 6z"/></svg></span></a>
-        <a class="tg-round" href="#" data-c="tg-link" target="_blank" rel="noopener" aria-label="Написати в Telegram"><svg viewBox="0 0 24 24"><path d="M21.5 3.5L2.8 10.7c-1.3.5-1.2 1.3-.2 1.6l4.8 1.5 1.8 5.6c.2.7.6.8 1.1.3l2.6-2.4 5 3.7c.9.5 1.6.2 1.8-.9l3.2-15c.3-1.3-.5-1.9-1.4-1.6z"/></svg></a>
-      </div>
-      <div class="stats"><div class="stat"><b>3 дні</b><span>від брифу до запуску</span></div><div class="stat"><b>$300</b><span>сайт під ключ · <s>$700</s></span></div><div class="stat"><b>$150</b><span>реклама Google · <s>$300</s></span></div><div class="stat"><b>+10 000 ₴</b><span>бонус від Google<sup>*</sup></span></div></div>
-    </div>
-
-    <div class="demo" id="demo" aria-label="Приклад: пошук у Google, реклама, сайт і дзвінок">
-      <span class="tag-ex demo-label">Приклад, як це працює</span>
-      <div class="d-search"><svg><use href="#i-search"/></svg><span class="q" id="dq">евакуатор київ</span><span class="caret"></span></div>
-      <div class="ad d-ad" id="dad">
-        <div class="spons">Спонсоровано</div>
-        <div class="site"><span class="fav">PR</span><div><b id="dsite">evakuator-kyiv.com.ua</b><small id="durl">https://evakuator-kyiv.com.ua</small></div></div>
-        <div class="title" id="dtitle">Евакуатор Київ | Приїдемо за 30 хв</div>
-        <div class="desc" id="ddesc">Цілодобово. Легкові та бусики, після ДТП.</div>
-        <div class="links"><span>Подзвонити</span><span>Ціни</span><span>Відгуки</span></div>
-      </div>
-      <svg class="d-arrow" viewBox="0 0 120 120" aria-hidden="true"><path d="M8 10 C 60 10, 100 40, 110 105"/></svg>
-      <div class="phone d-phone" id="dphone"><div class="scr"><div class="isl"></div>
-        <div class="ps" id="dps">
-          <div class="pph" id="dph" style="background-image:url(img/niche/tow.webp)"></div>
-          <div class="bar"><span id="dbrand">Евакуатор 24/7</span><i><svg><use href="#i-phone"/></svg></i></div>
-          <div class="body"><small id="dcity">Київ і область</small><h4 id="dh">Евакуатор 24/7 — приїдемо за 30 хвилин</h4><p id="dp">Легкові та бусики, після ДТП.</p><div class="callb"><svg><use href="#i-phone"/></svg><span id="dcta">Викликати евакуатор</span></div><div class="row"><span>Telegram</span><span>Viber</span></div></div>
+    <div class="stage" id="stage" aria-label="Приклад: людина шукає в Google, бачить вашу рекламу першою і телефонує">
+      <div class="st-in" id="stin">
+        <span class="tag-ex st-cap">Приклад, як це працює</span>
+        <div class="st-google">
+          <div class="st-bar"><svg><use href="#i-search"/></svg><span class="q" id="dq">евакуатор київ</span><span class="caret"></span><span class="st-go">Пошук</span></div>
+          <div class="ad st-ad" id="dad">
+            <span class="st-rank">1-ше місце</span>
+            <div class="spons">Реклама</div>
+            <div class="site"><span class="fav">PR</span><div><b id="dsite">evakuator-kyiv.com.ua</b><small id="durl">https://evakuator-kyiv.com.ua</small></div></div>
+            <div class="title" id="dtitle">Евакуатор Київ | Приїдемо за 30 хв</div>
+            <div class="desc" id="ddesc">Цілодобово. Легкові та бусики, після ДТП.</div>
+            <div class="links"><span>Подзвонити</span><span>Ціни</span><span>Відгуки</span></div>
+            <i class="thumb" id="dthumb" style="background-image:url(img/niche/tow.webp)"></i>
+          </div>
+          <div class="st-ghosts" aria-hidden="true"><i style="width:58%"></i><i style="width:76%"></i><i style="width:44%"></i></div>
         </div>
-      </div></div>
-      <div class="d-toast" id="dtoast"><span class="ic"><svg><use href="#i-phone"/></svg></span><div><b>Вхідний дзвінок</b><span id="dts">з реклами Google · евакуатор, Київ</span></div></div>
+        <div class="st-ev call" id="dev">
+          <span class="av" id="devic"><svg><use href="#i-phone"/></svg></span>
+          <div class="tx"><small id="devk">Вхідний дзвінок</small><b id="devt">Клієнт · Київ</b><span id="devm">з реклами Google · евакуатор</span></div>
+          <div class="btns"><i class="dec"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></i><i class="acc"><svg><use href="#i-phone"/></svg></i></div>
+        </div>
+      </div>
     </div>
+    <div class="stats"><div class="stat"><b>3 дні</b><span>від брифу до запуску</span></div><div class="stat"><b>$300</b><span>сайт під ключ · <s>$700</s></span></div><div class="stat"><b>$150</b><span>реклама Google · <s>$300</s></span></div><div class="stat"><b>+10 000 ₴</b><span>бонус від Google<sup>*</sup></span></div></div>
   </div>
 </section>
 
 <section class="trustbar" aria-label="Нам довіряють">
-  <div class="wrap tb-top">
-    <div class="avs"><span>НХ</span><span>НБ</span><span>С</span><span>НП</span><span>КЧ</span></div>
-    <p><b>Нам довіряють</b>сайти й реклама для клієнтів</p>
-    <a href="#vidguky">Відгуки →</a>
-  </div>
+  <div class="wrap"><p class="tb-cap">Нам довіряють</p></div>
   <div class="marq"><div class="track" id="track">
     <img src="img/logos/sensei.webp" alt="Сенсей Суші" loading="lazy"><img src="img/logos/potolok.webp" alt="Potolok 101" loading="lazy"><img src="img/logos/prokatka.webp" alt="Prokatka" loading="lazy"><img src="img/logos/tower.webp" alt="Tower Security" loading="lazy"><img src="img/logos/autoclimat.webp" alt="Авто Клімат" loading="lazy"><img src="img/logos/videomarketing.webp" alt="Video маркетинг" loading="lazy"><img src="img/logos/sporkl.svg" alt="Sporkl" loading="lazy"><img src="img/logos/logo46.svg" alt="Логотип клієнта" loading="lazy"><img src="img/logos/logo47.svg" alt="Логотип клієнта" loading="lazy">
   </div></div>
@@ -798,7 +895,7 @@ h1,h2,h3,h4,.display,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,
       <a class="nc" href="#konstruktor" data-n="rent"><img src="img/niche/carkeys.webp" alt="Оренда та прокат" loading="lazy"><span class="q"><svg><use href="#i-search"/></svg>оренда авто львів</span><div class="cap"><h3>Оренда та прокат</h3><span>Моя реклама <svg><use href="#i-arr"/></svg></span></div></a>
       <a class="nc" href="#konstruktor" data-n="goods"><img src="img/niche/firewood.webp" alt="Товари з доставкою" loading="lazy"><span class="q"><svg><use href="#i-search"/></svg>дрова з доставкою житомир</span><div class="cap"><h3>Товари з доставкою</h3><span>Моя реклама <svg><use href="#i-arr"/></svg></span></div></a>
       <a class="nc" href="#konstruktor" data-n="biz"><img src="img/niche/cleaning.webp" alt="Послуги для дому та бізнесу" loading="lazy"><span class="q"><svg><use href="#i-search"/></svg>клінінг київ</span><div class="cap"><h3>Послуги для дому та бізнесу</h3><span>Моя реклама <svg><use href="#i-arr"/></svg></span></div></a>
-      <div class="nc cta"><div><h3>Ваш бізнес інший?</h3><p>Якщо вашу послугу шукають у Google з назвою міста — це працює. Напишіть, і ми скажемо, скільки людей шукають вас щомісяця.</p></div><a class="btn btn-o btn-w" href="#zayavka">Дізнатися про мою нішу <svg><use href="#i-arr"/></svg></a></div>
+      <div class="nc cta"><div><h3>Ваш бізнес інший?</h3><p>Якщо вашу послугу шукають у Google з назвою міста — це працює. Напишіть, і ми скажемо, скільки людей шукають вас щомісяця.</p></div><a class="btn btn-o btn-w" href="#zayavka" data-lead>Дізнатися про мою нішу <svg><use href="#i-arr"/></svg></a></div>
     </div><div class="hs-nav"><button type="button" class="hs-arr prev" aria-label="Назад"><svg viewBox="0 0 24 24"><path d="M19 12H5M11 18l-6-6 6-6"/></svg></button><button type="button" class="hs-arr next" aria-label="Далі"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div></div>
     <div class="hs-bar"><i></i></div>
   </div>
@@ -811,10 +908,10 @@ h1,h2,h3,h4,.display,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,
       <h2>Сайти, які ми <span class="og-text">вже запустили</span></h2>
     </div>
     <div class="hs-wrap"><div class="hs" data-hs>
-            <article class="wk"><div class="frame"><div class="tb"><i></i><i></i><i></i></div><video muted loop playsinline preload="none" poster="img/sensei-poster.webp" data-src="video/sensei.mp4"></video></div><div class="meta"><div><small>Ресторан · доставка</small><h3>Сенсей Суші</h3><button class="vbtn" data-yt="MPUGT7luAhQ"><i><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z"/></svg></i>Відео сайту</button></div></div></article>
-      <article class="wk"><div class="frame"><div class="tb"><i></i><i></i><i></i></div><video muted loop playsinline preload="none" poster="img/potolok-poster.webp" data-src="video/potolok.mp4"></video></div><div class="meta"><div><small>Натяжні стелі · Харків</small><h3>Potolok 101</h3><button class="vbtn" data-yt="blUqbF-Fi24"><i><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z"/></svg></i>Відео сайту</button></div></div></article>
       <article class="wk"><div class="frame"><div class="tb"><i></i><i></i><i></i></div><video muted loop playsinline preload="none" poster="img/autoclimat-poster.webp" data-src="video/autoclimat.mp4"></video></div><div class="meta"><div><small>Ремонт авто · Одеса</small><h3>Авто Клімат</h3><button class="vbtn" data-yt="B0aBt3NE99U"><i><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z"/></svg></i>Відео сайту</button></div></div></article>
+      <article class="wk"><div class="frame"><div class="tb"><i></i><i></i><i></i></div><video muted loop playsinline preload="none" poster="img/sensei-poster.webp" data-src="video/sensei.mp4"></video></div><div class="meta"><div><small>Ресторан · доставка</small><h3>Сенсей Суші</h3><button class="vbtn" data-yt="MPUGT7luAhQ"><i><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z"/></svg></i>Відео сайту</button></div></div></article>
       <article class="wk"><div class="frame"><div class="tb"><i></i><i></i><i></i></div><video muted loop playsinline preload="none" poster="img/prokatka-poster.webp" data-src="video/prokatka.mp4"></video></div><div class="meta"><div><small>Прокат консолей</small><h3>Prokatka</h3><button class="vbtn" data-yt="hvlVGegqODc"><i><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z"/></svg></i>Відео сайту</button></div></div></article>
+      <article class="wk"><div class="frame"><div class="tb"><i></i><i></i><i></i></div><video muted loop playsinline preload="none" poster="img/potolok-poster.webp" data-src="video/potolok.mp4"></video></div><div class="meta"><div><small>Натяжні стелі · Харків</small><h3>Potolok 101</h3><button class="vbtn" data-yt="blUqbF-Fi24"><i><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z"/></svg></i>Відео сайту</button></div></div></article>
       <article class="wk"><div class="frame"><div class="tb"><i></i><i></i><i></i></div><video muted loop playsinline preload="none" poster="img/tawwersecy-poster.webp" data-src="video/tawwersecy.mp4"></video></div><div class="meta"><div><small>Охоронні системи</small><h3>Tawwersecy</h3><button class="vbtn" data-yt="TA9GnZlAEPA"><i><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z"/></svg></i>Відео сайту</button></div></div></article>
     </div><div class="hs-nav"><button type="button" class="hs-arr prev" aria-label="Назад"><svg viewBox="0 0 24 24"><path d="M19 12H5M11 18l-6-6 6-6"/></svg></button><button type="button" class="hs-arr next" aria-label="Далі"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div></div>
     <div class="hs-bar"><i></i></div>
@@ -835,7 +932,7 @@ h1,h2,h3,h4,.display,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,
       <div class="pc rv" style="--d:.16s"><div class="lbl"><h3>Ведення реклами й сайту</h3><em class="g">за бажанням</em></div><div class="am"><b>$75</b><small>/ місяць</small></div>
         <ul><li><svg><use href="#i-check"/></svg>Стежимо за рекламою щотижня: мінус-слова, ставки, запити</li><li><svg><use href="#i-check"/></svg>Правки на сайті — без доплат</li><li><svg><use href="#i-check"/></svg>Короткий звіт щомісяця</li><li><svg><use href="#i-check"/></svg>Відмовитися можна будь-коли</li></ul></div>
     </div>
-    <div class="total rv"><p>Сайт + реклама разом: <b class="og-text live">$450</b><s>$1000</s></p><a class="btn btn-o" href="#zayavka"><span>Замовити</span><span class="ar"><svg><use href="#i-arr"/></svg></span></a></div>
+    <div class="total rv"><p><span class="tl">Сайт + реклама разом</span><span class="tp"><b class="og-text live">$450</b><s>$1000</s></span></p><a class="btn btn-o" href="#zayavka" data-lead><span>Замовити</span><span class="ar"><svg><use href="#i-arr"/></svg></span></a></div>
     <div class="bonus-big rv">
       <div class="coins" aria-hidden="true"><i style="right:8%;top:14%"></i><i style="right:20%;top:8%;animation-delay:1s;width:7px;height:7px"></i><i style="right:4%;top:40%;animation-delay:2s;width:6px;height:6px"></i></div>
       <div class="wrapc">
@@ -876,10 +973,32 @@ h1,h2,h3,h4,.display,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,
   </div>
 </section>
 
+<section class="sec" id="kviz" style="padding-top:0">
+  <div class="wrap qz-grid">
+    <div class="rv">
+      <div class="eyebrow"><i>06</i>Квіз</div>
+      <h2>Підберемо рішення <span class="og-text">за 30 секунд</span></h2>
+      <p class="sub">Три швидкі питання — і ми підготуємо пропозицію саме під вашу нішу та місто.</p>
+      <ul class="qz-list"><li>Приклад сайту під вашу нішу</li><li>Скільки людей шукають вас у Google — за даними Google</li><li>Бюджет на рекламу і план запуску за 3 дні</li></ul>
+    </div>
+    <form class="quiz rv" id="quiz" novalidate>
+      <div class="top"><b>Отримати пропозицію</b><span id="qstepn">Крок 1 з 3</span></div>
+      <div class="qbar"><i id="qbar"></i></div>
+      <div class="qstep on" data-s="1"><h4>Яка у вас ніша?</h4><div class="nchips" id="qn" role="group" aria-label="Ніша"></div></div>
+      <div class="qstep" data-s="2"><h4>У якому місті працюєте?</h4><input class="inp" id="qcity" list="cities" placeholder="Наприклад, Київ" autocomplete="address-level2"><label class="ck"><input type="checkbox" id="qobl"> Реклама по всій області</label></div>
+      <div class="qstep" data-s="3"><h4>Куди передзвонити?</h4><label for="qname">Ім'я</label><input class="inp" id="qname" placeholder="Андрій" autocomplete="name"><label for="qphone">Телефон</label><input class="inp" id="qphone" type="tel" placeholder="+380" autocomplete="tel"></div>
+      <div class="err" id="qerr" role="alert"></div>
+      <div class="qnav" id="qnav"><button type="button" class="btn btn-g back" id="qback" hidden>Назад</button><button type="submit" class="btn btn-o" id="qnext"><span id="qnextt">Далі</span> <span class="ar"><svg><use href="#i-arr"/></svg></span></button></div>
+      <p class="fine" id="qfine">Без спаму. Один дзвінок щодо вашого проєкту.</p>
+      <div class="done" id="qdone" hidden><div class="ok"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></div><h4>Дякуємо, заявку прийнято!</h4><p>Передзвонимо протягом години в робочий час. Хочете швидше — напишіть у Telegram.</p><a class="btn btn-o" id="qtg" href="#" target="_blank" rel="noopener"><span>Написати в Telegram</span><span class="ar"><svg><use href="#i-arr"/></svg></span></a></div>
+    </form>
+  </div>
+</section>
+
 <section class="sec" id="konstruktor" style="padding-top:0">
   <div class="wrap">
     <div class="sec-head rv">
-      <div class="eyebrow"><i>06</i>Спробуйте</div>
+      <div class="eyebrow"><i>07</i>Спробуйте</div>
       <h2>Ваша реклама — <span class="og-text">за 2 кліки</span></h2>
     </div>
     <div class="builder rv">
@@ -890,7 +1009,7 @@ h1,h2,h3,h4,.display,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,
         <input class="inp" id="bcity" list="cities" value="Київ" placeholder="Наприклад, Луцьк" autocomplete="off">
         <datalist id="cities"></datalist>
         <p class="b-hint">Це приклад. Справжні тексти пишемо під ваші послуги й ціни.</p>
-        <a class="btn btn-o btn-w" style="margin-top:18px" href="#zayavka">Хочу таку рекламу <svg><use href="#i-arr"/></svg></a>
+        <a class="btn btn-o btn-w" style="margin-top:18px" href="#zayavka" data-lead>Хочу таку рекламу <svg><use href="#i-arr"/></svg></a>
       </div>
       <div class="b-prev">
         <div class="ad" id="bad"><div class="spons">Спонсоровано</div><div class="site"><span class="fav">PR</span><div><b id="bsite"></b><small id="burl"></small></div></div><div class="title" id="btitle"></div><div class="desc" id="bdesc"></div><div class="links"><span>Подзвонити</span><span>Ціни</span><span>Відгуки</span></div></div>
@@ -903,7 +1022,7 @@ h1,h2,h3,h4,.display,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,
 <section class="sec" id="etapy" style="padding-top:0">
   <div class="wrap">
     <div class="sec-head rv">
-      <div class="eyebrow"><i>07</i>Етапи</div>
+      <div class="eyebrow"><i>08</i>Етапи</div>
       <h2>Запуск <span class="og-text">за 3 дні</span></h2>
       <p>Від вас — 10 хвилин розмови, фото і номер телефону. Решту робимо ми.</p>
     </div>
@@ -920,7 +1039,7 @@ h1,h2,h3,h4,.display,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,
 <section class="sec" id="geo" style="padding-top:0">
   <div class="wrap">
     <div class="sec-head rv">
-      <div class="eyebrow"><i>08</i>Географія</div>
+      <div class="eyebrow"><i>09</i>Географія</div>
       <h2>Вся Україна. <span class="og-text">І Європа.</span></h2>
       <p>Реклама показується тільки там, де ви працюєте: місто, область чи кілька регіонів.</p>
     </div>
@@ -935,7 +1054,7 @@ h1,h2,h3,h4,.display,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,
   <div class="wrap founder">
     <div class="ph-frame rv"><img src="img/maxim.webp" alt="Максим, засновник PRMAX" loading="lazy" width="1000" height="1000"><div class="nm"><b>Максим</b><span>засновник PRMAX</span></div></div>
     <div class="txt rv">
-      <div class="eyebrow"><i>09</i>Про нас</div>
+      <div class="eyebrow"><i>10</i>Про нас</div>
       <h2>Ми робимо не просто гарний сайт. <span class="og-text">Ми робимо так, щоб вам дзвонили.</span></h2>
       <p>Сайт сам по собі клієнтів не приносить. Приносить зв'язка: реклама на тих, хто вже шукає, + сайт, який переконує подзвонити. Її ми налаштовуємо за 3 дні.</p>
       <div class="princ">
@@ -951,7 +1070,7 @@ h1,h2,h3,h4,.display,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,
 <section class="sec" id="faq" style="padding-top:0">
   <div class="wrap faq-wrap">
     <div class="sec-head rv">
-      <div class="eyebrow"><i>10</i>Питання</div>
+      <div class="eyebrow"><i>11</i>Питання</div>
       <h2>Коротко про головне</h2>
     </div>
     <div class="faq-list rv">
@@ -968,24 +1087,22 @@ h1,h2,h3,h4,.display,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,
 <section class="sec final" id="zayavka">
   <div class="wrap final-grid">
     <div class="rv">
-      <div class="eyebrow"><i>11</i>Заявка</div>
+      <div class="eyebrow"><i>12</i>Заявка</div>
       <h2>Почнімо з <span class="og-text">10&#8209;хвилинної</span> розмови</h2>
-      <p class="sub">3 кроки — і ми передзвонимо протягом години в робочий час.</p>
+      <p class="sub">Залиште номер — передзвонимо в робочий час, розповімо, скільки людей шукають вас у Google, і запустимо за 3 дні.</p>
       <div class="contacts">
         <a href="#" data-c="phone-link"><i><svg><use href="#i-phone"/></svg></i><span><small>Телефон</small><span data-c="phone">+38 (063) 207-2000</span></span></a>
         <a href="#" data-c="tg-link" target="_blank" rel="noopener"><i><svg><use href="#i-tg"/></svg></i><span><small>Telegram</small><span>Написати нам</span></span></a>
       </div>
     </div>
-    <form class="quiz rv" id="quiz" novalidate>
-      <div class="top"><b>Отримати пропозицію</b><span id="qstepn">Крок 1 з 3</span></div>
-      <div class="qbar"><i id="qbar"></i></div>
-      <div class="qstep on" data-s="1"><h4>Яка у вас ніша?</h4><div class="nchips" id="qn" role="group" aria-label="Ніша"></div></div>
-      <div class="qstep" data-s="2"><h4>У якому місті працюєте?</h4><input class="inp" id="qcity" list="cities" placeholder="Наприклад, Київ" autocomplete="address-level2"><label class="ck"><input type="checkbox" id="qobl"> Реклама по всій області</label></div>
-      <div class="qstep" data-s="3"><h4>Куди передзвонити?</h4><label for="qname">Ім'я</label><input class="inp" id="qname" placeholder="Андрій" autocomplete="name"><label for="qphone">Телефон</label><input class="inp" id="qphone" type="tel" placeholder="+380" autocomplete="tel"></div>
-      <div class="err" id="qerr" role="alert"></div>
-      <div class="qnav" id="qnav"><button type="button" class="btn btn-g back" id="qback" hidden>Назад</button><button type="submit" class="btn btn-o" id="qnext"><span id="qnextt">Далі</span> <span class="ar"><svg><use href="#i-arr"/></svg></span></button></div>
-      <p class="fine" id="qfine">Без спаму. Один дзвінок щодо вашого проєкту.</p>
-      <div class="done" id="qdone" hidden><div class="ok"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></div><h4>Дякуємо, заявку прийнято!</h4><p>Передзвонимо протягом години в робочий час. Хочете швидше — напишіть у Telegram.</p><a class="btn btn-o" id="qtg" href="#" target="_blank" rel="noopener"><span>Написати в Telegram</span><span class="ar"><svg><use href="#i-arr"/></svg></span></a></div>
+    <form class="mini rv" id="minif" novalidate>
+      <div id="minifields">
+        <div class="mini-top"><b>Передзвоніть мені</b><span>10 секунд</span></div>
+        <div class="mini-row"><input class="inp" id="mph" type="tel" inputmode="tel" placeholder="+380 __ ___ __ __" autocomplete="tel" aria-label="Телефон"><button class="btn btn-o" type="submit"><span>Надіслати</span><span class="ar"><svg><use href="#i-arr"/></svg></span></button></div>
+        <div class="err" id="merr" role="alert"></div>
+        <p class="fine">Або <a href="#zayavka" data-lead>повна заявка</a> — ніша, місто, Telegram. Без спаму.</p>
+      </div>
+      <div class="done" id="mdone" hidden><div class="ok"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></div><h4>Дякуємо!</h4><p>Передзвонимо в робочий час. Хочете швидше — напишіть у Telegram.</p><a class="btn btn-o" href="#" data-c="tg-link" target="_blank" rel="noopener"><span>Написати в Telegram</span><span class="ar"><svg><use href="#i-arr"/></svg></span></a></div>
     </form>
   </div>
 </section>
@@ -1006,7 +1123,24 @@ h1,h2,h3,h4,.display,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,
   </div>
 </footer>
 
-<div class="mbar" id="mbar"><a class="icbtn" href="#" data-c="phone-link" aria-label="Подзвонити"><svg><use href="#i-phone"/></svg></a><a class="icbtn" href="#" data-c="tg-link" target="_blank" rel="noopener" aria-label="Telegram"><svg><use href="#i-tg"/></svg></a><a class="btn btn-o" href="#zayavka"><span>Залишити заявку</span><span class="ar"><svg><use href="#i-arr"/></svg></span></a></div>
+<div class="ldm" id="lead" role="dialog" aria-modal="true" aria-labelledby="leadh" aria-hidden="true">
+  <div class="ldm-bg" id="leadbg"></div>
+  <form class="ldm-box" id="leadf" novalidate>
+    <button class="ldm-x" type="button" id="leadx" aria-label="Закрити"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <div class="ldm-h"><span class="pill"><i class="dot"></i><span>Заявка · 1 хвилина</span></span><h3 id="leadh">Отримати дзвінки <span class="og-text live">з Google</span></h3><p>Залиште контакт — передзвонимо, уточнимо нішу й місто і запустимо за 3 дні.</p></div>
+    <div class="ldm-f" id="leadfields">
+      <label>Ваша ніша</label><div class="nchips" id="ln" role="group" aria-label="Ніша"></div>
+      <label for="lph">Телефон</label><input class="inp" id="lph" type="tel" inputmode="tel" placeholder="+380 __ ___ __ __" autocomplete="tel">
+      <div class="ldm-2"><div><label for="lnm">Ім'я</label><input class="inp" id="lnm" placeholder="Як до вас звертатися" autocomplete="name"></div><div><label for="ltg">Telegram <em>· необов'язково</em></label><input class="inp" id="ltg" placeholder="@нікнейм"></div></div>
+      <div class="err" id="lerr" role="alert"></div>
+      <button class="btn btn-o btn-w" type="submit"><span>Надіслати заявку</span><span class="ar"><svg><use href="#i-arr"/></svg></span></button>
+      <p class="fine">Без спаму. Один дзвінок щодо вашого проєкту.</p>
+    </div>
+    <div class="done" id="ldone" hidden><div class="ok"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></div><h4>Дякуємо, заявку прийнято!</h4><p>Передзвонимо в робочий час. Хочете швидше — напишіть у Telegram або подзвоніть.</p><div class="done-row"><a class="btn btn-o" href="#" data-c="tg-link" target="_blank" rel="noopener"><span>Написати в Telegram</span><span class="ar"><svg><use href="#i-tg"/></svg></span></a><a class="btn btn-g" href="#" data-c="phone-link"><span data-c="phone">+38 (063) 207-2000</span><span class="ar"><svg><use href="#i-phone"/></svg></span></a></div></div>
+  </form>
+</div>
+<div class="fab" id="fab" aria-label="Швидкий зв'язок"><a class="ph" href="#" data-c="phone-link" data-l="Подзвонити" aria-label="Подзвонити"><svg><use href="#i-phone"/></svg></a><a class="tg" href="#" data-c="tg-link" target="_blank" rel="noopener" data-l="Написати в Telegram" aria-label="Telegram"><svg viewBox="0 0 24 24"><path d="M21.5 3.5L2.8 10.7c-1.3.5-1.2 1.3-.2 1.6l4.8 1.5 1.8 5.6c.2.7.6.8 1.1.3l2.6-2.4 5 3.7c.9.5 1.6.2 1.8-.9l3.2-15c.3-1.3-.5-1.9-1.4-1.6z"/></svg></a></div>
+<div class="mbar" id="mbar"><a class="icbtn" href="#" data-c="phone-link" aria-label="Подзвонити"><svg><use href="#i-phone"/></svg></a><a class="icbtn" href="#" data-c="tg-link" target="_blank" rel="noopener" aria-label="Telegram"><svg><use href="#i-tg"/></svg></a><a class="btn btn-o" href="#zayavka" data-lead><span>Залишити заявку</span><span class="ar"><svg><use href="#i-arr"/></svg></span></a></div>
 
 <div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Перегляд"><div class="box" id="mbox"><button class="x" type="button" id="mx" aria-label="Закрити"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button><div id="mc"></div></div></div>
 
@@ -1015,7 +1149,8 @@ h1,h2,h3,h4,.display,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,
 var CONTACTS={
   phone:'+38 (063) 207-2000',    // як показувати
   phoneTel:'+380632072000',      // для кнопки дзвінка
-  telegram:'+380632072000'       // Telegram за номером; пізніше замінити на бота (без @)
+  telegram:'+380632072000',      // Telegram за номером; пізніше замінити на бота (без @)
+  lead:{endpoint:'',botToken:'',chatId:''} // куди падають заявки: вебхук (Apps Script / Worker) або Telegram-бот — див. README
 };
 </script>
 <script>
@@ -1046,11 +1181,13 @@ var CONTACTS={
 
   /* Header, progress, mobile bar */
   var hdr=$('#hdr'),prog=$('#prog'),mbar=$('#mbar'),hero=$('#hero'),fin=$('#zayavka');
+  var fab=$('#fab');
   function onScroll(){
     var y=scrollY,h=document.documentElement,max=h.scrollHeight-h.clientHeight;
     hdr.classList.toggle('sc',y>20);
     prog.style.transform='scaleX('+(max>0?y/max:0)+')';
     mbar.classList.toggle('on',y>hero.offsetHeight*.7&&fin.getBoundingClientRect().top>innerHeight*.6);
+    fab.classList.toggle('on',y>hero.offsetHeight*.45&&fin.getBoundingClientRect().top>innerHeight*.55);
   }
   addEventListener('scroll',onScroll,{passive:true});onScroll();
 
@@ -1095,52 +1232,36 @@ var CONTACTS={
   var urlN=(location.search.match(/[?&]n=([a-z]+)/)||[])[1];
   if(urlN&&N[urlN])seq.sort(function(a,b){return (b[0]===urlN)-(a[0]===urlN)});
 
-  /* Mobile hero: iOS-style notification stack */
-  var ntfs=$('#ntfs');
-  var ICON={call:'<svg><use href="#i-phone"/></svg>',tg:'<svg viewBox="0 0 24 24"><path d="M21.5 3.5L2.8 10.7c-1.3.5-1.2 1.3-.2 1.6l4.8 1.5 1.8 5.6c.2.7.6.8 1.1.3l2.6-2.4 5 3.7c.9.5 1.6.2 1.8-.9l3.2-15c.3-1.3-.5-1.9-1.4-1.6z"/></svg>',vb:'<svg viewBox="0 0 24 24"><path d="M12 3c5 0 8 2.5 8 7.5S17 18 12 18l-4 3v-3.5C5.5 16.5 4 14 4 10.5 4 5.5 7 3 12 3z"/></svg>',ads:'<svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></svg>'};
-  var MSGS=[];
-  seq.forEach(function(s,i){
-    var n=N[s[0]],c=s[1];
-    MSGS.push({ic:'call',t:'Вхідний дзвінок',m:'Клієнт з Google · '+n.q+', '+c});
-    if(i===0)MSGS.push({ic:'tg',t:'Нова заявка з сайту',m:n.name+', '+c+' — передзвоніть'});
-    if(i===1)MSGS.push({ic:'ads',t:'Google Ads',m:'Ваше оголошення показується: '+c});
-    if(i===2)MSGS.push({ic:'vb',t:'Viber',m:'Добрий день! Ви сьогодні працюєте? Хочу замовити.'});
-    if(i===4)MSGS.push({ic:'tg',t:'Нова заявка з сайту',m:n.name+', '+c+' — потрібен розрахунок'});
-  });
-  var stack=[],mi=0,GAP=8;
-  function layout(){var h=stack.length?stack[0].offsetHeight:68;stack.forEach(function(el,i){el.style.transform='translateY('+(i*(h+GAP))+'px) scale('+(1-i*.04)+')';el.style.opacity=i>1?0:(i===1?.8:1);el.style.zIndex=10-i})}
-  function pushN(){
-    var m=MSGS[mi%MSGS.length];mi++;
-    var el=document.createElement('div');el.className='ntf enter';
-    el.innerHTML='<span class="ic '+m.ic+'">'+ICON[m.ic]+'</span><div class="b"><div class="t"><b>'+m.t+'</b><span>зараз</span></div><p>'+m.m+'</p></div>';
-    ntfs.appendChild(el);stack.unshift(el);
-    stack.forEach(function(x,i){if(i>0)x.querySelector('.t span').textContent=i+' хв'});
-    layout();setTimeout(function(){el.classList.remove('enter')},750);
-    if(stack.length>3){var old=stack.pop();setTimeout(function(){old.remove()},700)}
-  }
-  pushN();
-  if(!reduce){setTimeout(function(){pushN();setInterval(function(){if(!document.hidden)pushN()},3000)},1400)}
 
-  /* Desktop hero demo + how-it-works typing */
-  var dq=$('#dq'),dad=$('#dad'),dps=$('#dps'),dtoast=$('#dtoast'),demo=$('#demo');
-  function setHero(i){var n=N[seq[i][0]],c=seq[i][1];fill('d',n,c);$('#dcity').textContent=c+' і область';$('#dts').textContent='з реклами Google · '+n.q+', '+c}
-  setHero(0);dq.textContent=N[seq[0][0]].q+' '+seq[0][1].toLowerCase();
+  /* ===== Перший екран: сцена «пошук → реклама на 1-му місці → подія (дзвінок / Telegram / Viber / Google Ads)» ===== */
+  var dq=$('#dq'),dad=$('#dad'),dev=$('#dev'),stage=$('#stage'),stin=$('#stin'),heroEl=$('#hero');
+  var EVI={call:'<svg><use href="#i-phone"/></svg>',tg:'<svg viewBox="0 0 24 24"><path d="M21.5 3.5L2.8 10.7c-1.3.5-1.2 1.3-.2 1.6l4.8 1.5 1.8 5.6c.2.7.6.8 1.1.3l2.6-2.4 5 3.7c.9.5 1.6.2 1.8-.9l3.2-15c.3-1.3-.5-1.9-1.4-1.6z"/></svg>',vb:'<svg viewBox="0 0 24 24"><path d="M12 3c5 0 8 2.5 8 7.5S17 18 12 18l-4 3v-3.5C5.5 16.5 4 14 4 10.5 4 5.5 7 3 12 3z"/></svg>',ads:'<svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></svg>'};
+  var EVT=['call','tg','vb','ads']; /* події йдуть по колу, по одній, завжди різні */
+  function setAd(n,c){var dom=n.slug+'-'+slugCity(c)+'.com.ua';$('#dsite').textContent=dom;$('#durl').textContent='https://'+dom;$('#dtitle').textContent=n.title.replace('{C}',c);$('#ddesc').textContent=n.desc;$('#dthumb').style.backgroundImage='url('+n.img+')'}
+  function setEv(type,n,c){
+    var k,t,m;
+    if(type==='call'){k='Вхідний дзвінок';t='Клієнт · '+c;m='з реклами Google · '+n.q}
+    else if(type==='tg'){k='Telegram · нова заявка';t='Заявка з сайту';m=n.name+', '+c+' — передзвоніть'}
+    else if(type==='vb'){k='Viber';t='Нове повідомлення';m='Добрий день! Ви сьогодні працюєте? Хочу замовити.'}
+    else{k='Google Ads';t='Оголошення показується';m=c+' · «'+n.q+'»'}
+    dev.className='st-ev '+type;$('#devic').innerHTML=EVI[type];$('#devk').textContent=k;$('#devt').textContent=t;$('#devm').textContent=m;
+  }
+  setAd(N[seq[0][0]],seq[0][1]);setEv('call',N[seq[0][0]],seq[0][1]);dq.textContent=N[seq[0][0]].q+' '+seq[0][1].toLowerCase();
   var typeTo=async function(el,txt){for(var k=1;k<=txt.length;k++){el.textContent=txt.slice(0,k);await wait(55+Math.random()*40)}};
   var erase=async function(el){var t=el.textContent;for(var k=t.length;k>=0;k--){el.textContent=t.slice(0,k);await wait(22)}};
   if(!reduce){
-    var hi=0;
+    var hi=0,ei=0;
     (async function loop(){
-      await wait(2600);
+      await wait(2400);
       while(true){
-        if(getComputedStyle(demo).display==='none'){await wait(2000);continue}
-        dtoast.classList.add('hide');
-        await erase(dq);hi=(hi+1)%seq.length;
+        if(document.hidden){await wait(1500);continue}
+        await erase(dq);hi=(hi+1)%seq.length;ei=(ei+1)%EVT.length;
         var n=N[seq[hi][0]],c=seq[hi][1];
         await typeTo(dq,n.q+' '+c.toLowerCase());
-        await wait(250);dad.classList.add('hide');dps.classList.add('swap');
-        await wait(380);setHero(hi);dad.classList.remove('hide');
-        await wait(350);dps.classList.remove('swap');
-        await wait(900);dtoast.classList.remove('hide');
+        await wait(300);dad.classList.add('hide');
+        await wait(380);setAd(n,c);dad.classList.remove('hide');
+        await wait(700);dev.classList.add('off');
+        await wait(400);setEv(EVT[ei],n,c);dev.classList.remove('off');
         await wait(3800);
       }
     })();
@@ -1148,11 +1269,14 @@ var CONTACTS={
     (async function hl(){while(true){await wait(2600);await erase(hq);qi=(qi+1)%seq.length;await typeTo(hq,N[seq[qi][0]].q+' '+seq[qi][1].toLowerCase())}})();
   }
 
-  /* Desktop: phone tilt + magnetic buttons */
+  /* Сцена: 3D-нахил, що вирівнюється при прокрутці (комп'ютер); прожектор за мишею; магнітні кнопки */
+  var isDesk=matchMedia('(min-width:1100px)');
+  function tilt(){if(!isDesk.matches||reduce){stin.style.transform='';return}var r=stage.getBoundingClientRect(),vh=innerHeight,p=Math.min(1,Math.max(0,(vh*.92-r.top)/(vh*.6)));stin.style.transform='perspective(1600px) rotateX('+(16*(1-p)).toFixed(2)+'deg) scale('+(.94+.06*p).toFixed(3)+') translateY('+(34*(1-p)).toFixed(1)+'px)'}
+  addEventListener('scroll',tilt,{passive:true});addEventListener('resize',tilt);tilt();
   if(fine&&!reduce){
-    var ph=$('#dphone');
-    demo.addEventListener('mousemove',function(e){var r=demo.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;ph.style.transform='rotateY('+x*14+'deg) rotateX('+(-y*10)+'deg)'});
-    demo.addEventListener('mouseleave',function(){ph.style.transform=''});
+    var spot=$('.aur .spot');
+    heroEl.addEventListener('mousemove',function(e){var r=heroEl.getBoundingClientRect();spot.style.setProperty('--sx',((e.clientX-r.left)/r.width*100).toFixed(1)+'%');spot.style.setProperty('--sy',((e.clientY-r.top)/r.height*100).toFixed(1)+'%');heroEl.classList.add('live')});
+    heroEl.addEventListener('mouseleave',function(){heroEl.classList.remove('live')});
     $$('.mag').forEach(function(b){
       b.addEventListener('mousemove',function(e){var r=b.getBoundingClientRect();b.style.setProperty('--mx',(e.clientX-r.left-r.width/2)*.18+'px');b.style.setProperty('--my',(e.clientY-r.top-r.height/2)*.28+'px')});
       b.addEventListener('mouseleave',function(){b.style.setProperty('--mx','0px');b.style.setProperty('--my','0px')});
@@ -1223,13 +1347,50 @@ var CONTACTS={
     if(qs===2){if(!$('#qcity').value.trim()){err.textContent='Вкажіть місто';$('#qcity').focus();return}go(3);return}
     var nm=$('#qname').value.trim(),phv=$('#qphone').value.trim();
     if(!nm){err.textContent="Вкажіть ім'я";$('#qname').focus();return}
-    if(phv.replace(/\D/g,'').length<9){err.textContent='Вкажіть номер телефону';$('#qphone').focus();return}
-    var txt='Заявка з сайту PRMAX\nІм\'я: '+nm+'\nТелефон: '+phv+'\nНіша: '+qniche+'\nМісто: '+$('#qcity').value.trim()+($('#qobl').checked?' (вся область)':'');
-    $('#qtg').href='https://t.me/'+CONTACTS.telegram+'?text='+encodeURIComponent(txt);
-    conv('lead',{niche:qniche,city:$('#qcity').value.trim()});
+    var qd={form:'quiz',phone:normPhone(phv),name:nm,niche:qniche,city:$('#qcity').value.trim()+($('#qobl').checked?' (вся область)':'')};
+    if(!qd.phone){err.textContent='Вкажіть номер телефону — наприклад, +380 63 207 20 00';$('#qphone').focus();return}
+    $('#qtg').href='https://t.me/'+CONTACTS.telegram;
+    sendLead(qd);
     $('#qtg').addEventListener('click',function(){conv('telegram',{place:'after_lead'})});
     $$('.qstep,#qnav,.qbar,#qfine,.quiz .top,#qerr').forEach(function(x){x.hidden=true});
     $('#qdone').hidden=false;
+  });
+
+  /* ===== ЗАЯВКИ: модальне вікно, квіз, коротка форма =====
+     Куди падає заявка — CONTACTS.lead: endpoint (вебхук) та/або Telegram-бот (botToken + chatId).
+     Поки не налаштовано — заявка фіксується як конверсія (dataLayer / gtag / fbq) і зберігається в localStorage. */
+  var LEAD=CONTACTS.lead||{};
+  function normPhone(v){var d=(v||'').replace(/\D/g,'');if(d.length===10&&d.charAt(0)==='0')d='38'+d;if(d.length===9)d='380'+d;return d.length>=11&&d.length<=13?'+'+d:''}
+  function leadText(d){return 'Нова заявка — сайт PRMAX\n'+(d.name?"Ім'я: "+d.name+'\n':'')+'Телефон: '+d.phone+'\n'+(d.tg?'Telegram: '+d.tg+'\n':'')+(d.niche?'Ніша: '+d.niche+'\n':'')+(d.city?'Місто: '+d.city+'\n':'')+'Форма: '+d.form+'\nСторінка: '+location.href}
+  function sendLead(d){
+    conv('lead',{niche:d.niche||'',city:d.city||'',form:d.form});
+    try{localStorage.setItem('prmax_lead',JSON.stringify(d))}catch(e){}
+    var txt=leadText(d),ps=[];
+    if(LEAD.endpoint)ps.push(fetch(LEAD.endpoint,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},body:JSON.stringify(d)}));
+    if(LEAD.botToken&&LEAD.chatId)ps.push(fetch('https://api.telegram.org/bot'+LEAD.botToken+'/sendMessage',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:LEAD.chatId,text:txt})}));
+    return Promise.all(ps.map(function(p){return p.catch(function(){})}));
+  }
+  var lead=$('#lead'),leadf=$('#leadf'),lnBox=$('#ln'),lniche='',leadLast=null;
+  Object.keys(N).concat(['other']).forEach(function(k){var b=document.createElement('button');b.type='button';b.textContent=k==='other'?'Інша ніша':N[k].name;b.dataset.v=k==='other'?'Інша':N[k].name;b.setAttribute('aria-pressed','false');lnBox.appendChild(b)});
+  lnBox.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;lniche=b.dataset.v;$$('button',lnBox).forEach(function(x){x.setAttribute('aria-pressed',x===b)})});
+  function openLead(src){leadLast=document.activeElement;lead.classList.add('on');lead.setAttribute('aria-hidden','false');document.body.classList.add('lock');conv('lead_open',{place:src||''});if(fine)setTimeout(function(){$('#lph').focus({preventScroll:true})},500)}
+  function closeLead(){lead.classList.remove('on');lead.setAttribute('aria-hidden','true');if(!$('#mnav').classList.contains('on'))document.body.classList.remove('lock');if(leadLast&&leadLast.focus)leadLast.focus({preventScroll:true})}
+  $$('[data-lead]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();var sc=a.closest('section,header,.mnav,.mbar,footer');openLead(sc?(sc.id||sc.className.split(' ')[0]):'')})});
+  $('#leadx').addEventListener('click',closeLead);$('#leadbg').addEventListener('click',closeLead);
+  addEventListener('keydown',function(e){if(e.key==='Escape'&&lead.classList.contains('on'))closeLead()});
+  leadf.addEventListener('submit',function(e){
+    e.preventDefault();var err=$('#lerr');err.textContent='';
+    var ph=normPhone($('#lph').value);
+    if(!ph){err.textContent='Вкажіть номер телефону — наприклад, +380 63 207 20 00';$('#lph').focus();return}
+    var d={form:'modal',phone:ph,name:$('#lnm').value.trim(),tg:$('#ltg').value.trim(),niche:lniche};
+    var btn=$('button[type=submit]',leadf);btn.disabled=true;
+    sendLead(d).then(function(){$('#leadfields').hidden=true;$('#ldone').hidden=false;btn.disabled=false;$('#leadx').focus()});
+  });
+  $('#minif').addEventListener('submit',function(e){
+    e.preventDefault();var err=$('#merr');err.textContent='';var ph=normPhone($('#mph').value);
+    if(!ph){err.textContent='Вкажіть номер телефону — наприклад, +380 63 207 20 00';$('#mph').focus();return}
+    var b=$('button[type=submit]',e.target);b.disabled=true;
+    sendLead({form:'mini',phone:ph}).then(function(){$('#minifields').hidden=true;$('#mdone').hidden=false});
   });
 })();
 </script>
