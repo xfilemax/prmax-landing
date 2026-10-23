@@ -161,6 +161,7 @@ html.js .rv.in{opacity:1;transform:none}
 /* Google-демо (общее): поиск, объявление, телефон, звонок */
 .ad{border-radius:22px;padding:18px 20px;font-size:14px;line-height:1.45;color:var(--sand);backdrop-filter:blur(26px) saturate(150%);-webkit-backdrop-filter:blur(26px) saturate(150%);transition:opacity .45s var(--e),transform .45s var(--e)}
 .ad.hide{opacity:0;transform:translateY(14px) scale(.98)}
+.st-ad{transition-duration:.3s}
 .ad .spons{font:700 10.5px/1 var(--b);letter-spacing:.2em;text-transform:uppercase;color:var(--ol)}
 .ad .site{display:flex;align-items:center;gap:10px;margin-top:12px}
 .ad .fav{width:28px;height:28px;border-radius:50%;background:var(--grad);display:grid;place-items:center;color:var(--ink);font-weight:800;font-size:11px;font-family:var(--b);flex:0 0 auto}
@@ -625,7 +626,7 @@ h1,h2,h3,h4,.display,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,
 .st-rank{position:absolute;right:14px;top:-10px;font:700 10px/1 var(--b);letter-spacing:.14em;text-transform:uppercase;color:var(--ink);background:var(--grad);padding:7px 10px;border-radius:999px;box-shadow:0 10px 24px -10px rgba(240,110,0,.9)}
 .st-ghosts{display:grid;gap:10px;padding:4px 10px 6px}
 .st-ghosts i{display:block;height:10px;border-radius:6px;background:linear-gradient(90deg,rgba(255,255,255,.12),rgba(255,255,255,.04))}
-.st-ev{display:flex;align-items:center;gap:13px;padding:12px 14px;border-radius:20px;background:rgba(24,21,19,.92);border:1px solid rgba(255,255,255,.08);box-shadow:0 20px 50px -24px rgba(0,0,0,.9);transition:opacity .5s var(--e),transform .6s var(--e)}
+.st-ev{display:flex;align-items:center;gap:13px;padding:12px 14px;border-radius:20px;background:rgba(24,21,19,.92);border:1px solid rgba(255,255,255,.08);box-shadow:0 20px 50px -24px rgba(0,0,0,.9);transition:opacity .35s var(--e),transform .45s var(--e)}
 .st-ev.off{opacity:0;transform:translateY(16px) scale(.97)}
 .st-ev .av{position:relative;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;flex:0 0 auto}
 .st-ev .av svg{width:22px;height:22px}
@@ -1226,26 +1227,26 @@ var CONTACTS={
     dev.className='st-ev '+type;$('#devic').innerHTML=EVI[type];$('#devk').textContent=k;$('#devt').textContent=t;$('#devm').textContent=m;
   }
   setAd(N[seq[0][0]],seq[0][1]);setEv('call',N[seq[0][0]],seq[0][1]);dq.textContent=N[seq[0][0]].q+' '+seq[0][1].toLowerCase();
-  var typeTo=async function(el,txt){for(var k=1;k<=txt.length;k++){el.textContent=txt.slice(0,k);await wait(55+Math.random()*40)}};
-  var erase=async function(el){var t=el.textContent;for(var k=t.length;k>=0;k--){el.textContent=t.slice(0,k);await wait(22)}};
+  var typeTo=async function(el,txt){for(var k=1;k<=txt.length;k++){el.textContent=txt.slice(0,k);await wait(26+Math.random()*26)}};
+  var erase=async function(el){var t=el.textContent;for(var k=t.length;k>=0;k--){el.textContent=t.slice(0,k);await wait(11)}};
   if(!reduce){
     var hi=0,ei=0;
     (async function loop(){
-      await wait(2400);
+      await wait(1200);
       while(true){
         if(document.hidden){await wait(1500);continue}
         await erase(dq);hi=(hi+1)%seq.length;ei=(ei+1)%EVT.length;
         var n=N[seq[hi][0]],c=seq[hi][1];
         await typeTo(dq,n.q+' '+c.toLowerCase());
-        await wait(300);dad.classList.add('hide');
-        await wait(380);setAd(n,c);dad.classList.remove('hide');
-        await wait(700);dev.classList.add('off');
-        await wait(400);setEv(EVT[ei],n,c);dev.classList.remove('off');
-        await wait(3800);
+        await wait(180);dad.classList.add('hide');
+        await wait(300);setAd(n,c);dad.classList.remove('hide');
+        await wait(450);dev.classList.add('off');
+        await wait(320);setEv(EVT[ei],n,c);dev.classList.remove('off');
+        await wait(2200);
       }
     })();
     var hq=$('#hwq'),qi=0;
-    (async function hl(){while(true){await wait(2600);await erase(hq);qi=(qi+1)%seq.length;await typeTo(hq,N[seq[qi][0]].q+' '+seq[qi][1].toLowerCase())}})();
+    (async function hl(){while(true){await wait(1800);await erase(hq);qi=(qi+1)%seq.length;await typeTo(hq,N[seq[qi][0]].q+' '+seq[qi][1].toLowerCase())}})();
   }
 
   /* Сцена: 3D-нахил, що вирівнюється при прокрутці (комп'ютер); прожектор за мишею; магнітні кнопки */
