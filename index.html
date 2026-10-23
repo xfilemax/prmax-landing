@@ -446,13 +446,6 @@ details[open] .ans{grid-template-rows:1fr}
 .err{color:#ff9a6e;font-size:14px;margin-top:10px;min-height:1.2em}
 
 /* Підвал, панель, модалка */
-footer{border-top:1px solid var(--line);padding-block:34px 120px;color:var(--dim);font-size:13px}
-.f-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;align-items:center}
-.f-top img{height:50px;width:auto}
-.f-top nav{display:flex;gap:20px;flex-wrap:wrap;color:var(--muted);font-size:13px}
-.f-top nav a:hover{color:var(--o1)}
-.f-notes{margin-top:22px;padding-top:18px;border-top:1px solid var(--line);display:grid;gap:8px;line-height:1.55;max-width:70em}
-.f-notes a{text-decoration:underline;text-decoration-color:var(--line2)}
 .mbar{position:fixed;left:10px;right:10px;bottom:max(10px,env(safe-area-inset-bottom,0px));z-index:55;display:flex;gap:8px;padding:7px;border-radius:999px;background:rgba(19,17,16,.88);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 20px 50px rgba(0,0,0,.6);transform:translateY(150%);transition:transform .6s var(--e)}
 .mbar.on{transform:none}
 .mbar .icbtn{width:52px;height:52px}
@@ -531,7 +524,6 @@ footer{border-top:1px solid var(--line);padding-block:34px 120px;color:var(--dim
   .geo-grid{grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);align-items:center;gap:40px}
   .faq-wrap{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:56px}
   summary{font-size:26px;padding:24px 0}
-  footer{padding-bottom:44px}
   .mbar{display:none}
   .rc .shot{height:300px}
 }
@@ -791,6 +783,34 @@ h1,h2,h3,h4,.display,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,
   .bonus-big .tiers{gap:12px}
   .bonus-big .tier{padding:22px 12px;border-radius:22px}
   .bonus-big .tier b{font-size:32px}
+}
+/* ===== v8 · Підвал ===== */
+footer{border-top:1px solid var(--line);background:var(--obs2);padding:40px 0 calc(26px + env(safe-area-inset-bottom,0px));color:var(--dim);font-size:13px}
+.f-grid{display:grid;gap:28px}
+.f-brand img{height:46px;width:auto}
+.f-brand p{margin-top:12px;color:var(--muted);font-size:14px;line-height:1.5;max-width:320px}
+.f-nav{display:grid;grid-template-columns:1fr 1fr;gap:10px 16px;font-size:14.5px;font-weight:500;color:var(--sand)}
+.f-nav a{transition:color .3s}.f-nav a:hover{color:var(--o1)}
+.f-contact{display:grid;gap:12px;justify-items:start}
+.f-contact>a:not(.btn){display:flex;align-items:center;gap:10px;font-weight:600;font-size:15px;color:var(--sand)}
+.f-contact i{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;border:1px solid rgba(255,201,126,.45);flex:0 0 auto}
+.f-contact i svg{width:16px;height:16px;stroke:var(--o1);fill:none}
+.f-contact .btn{margin-top:4px}
+.f-bottom{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;font-size:12.5px}
+.f-bottom a{color:var(--muted);text-decoration:underline;text-underline-offset:3px}
+.f-bottom a:hover{color:var(--o1)}
+.f-note{flex-basis:100%;font-size:11.5px;line-height:1.5;color:var(--dim)}
+.f-note sup{font-size:.75em}
+@media (min-width:700px){
+  footer{padding-top:48px}
+  .f-grid{grid-template-columns:minmax(0,1.3fr) minmax(0,.8fr) minmax(0,1fr);gap:36px;align-items:start}
+  .f-nav{grid-template-columns:1fr;gap:9px}
+  .f-note{flex-basis:auto;margin-left:auto;text-align:right}
+}
+@media (min-width:1100px){
+  footer{padding-top:60px}
+  .f-grid{grid-template-columns:minmax(0,1.5fr) minmax(0,.7fr) minmax(0,1fr);gap:64px}
+  .f-brand img{height:54px}
 }
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
@@ -1130,14 +1150,22 @@ h1,h2,h3,h4,.display,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,
 
 <footer>
   <div class="wrap">
-    <div class="f-top">
-      <img src="img/logo.webp" alt="PRMAX Digital Agency" loading="lazy" width="520" height="338">
-      <nav aria-label="Нижнє меню"><a href="#yak">Як це працює</a><a href="#roboty">Роботи</a><a href="#tsiny">Ціни</a><a href="#vidguky">Відгуки</a><a href="#faq">Питання</a><a href="privacy.html">Політика конфіденційності</a></nav>
-      <span>© 2026 PRMAX · сайти та реклама Google</span>
+    <div class="f-grid">
+      <div class="f-brand">
+        <img src="img/logo.webp" alt="PRMAX Digital Agency" loading="lazy" width="520" height="338">
+        <p>Сайт + реклама Google для локального бізнесу. Запуск за 3 дні — дзвінки та заявки в Telegram.</p>
+      </div>
+      <nav class="f-nav" aria-label="Нижнє меню"><a href="#yak">Як це працює</a><a href="#roboty">Роботи</a><a href="#tsiny">Ціни</a><a href="#vidguky">Відгуки</a><a href="#etapy">Етапи</a><a href="#faq">Питання</a></nav>
+      <div class="f-contact">
+        <a href="#" data-c="phone-link"><i><svg><use href="#i-phone"/></svg></i><span data-c="phone">+38 (063) 207-2000</span></a>
+        <a href="#" data-c="tg-link" target="_blank" rel="noopener"><i><svg><use href="#i-tg"/></svg></i><span>Написати в Telegram</span></a>
+        <a class="btn btn-o btn-sm" href="#zayavka" data-lead><span>Отримати дзвінки</span><span class="ar"><svg><use href="#i-arr"/></svg></span></a>
+      </div>
     </div>
-    <div class="f-notes">
-      <span><sup>*</sup> Бонус надає Google новим рекламним акаунтам після виконання умов Google. Розмір бонусу та умови встановлює Google і може їх змінювати.</span>
-      <span><sup>1</sup> Statcounter Global Stats: частка Google серед пошукових систем в Україні, вересень 2026 — 90,67%.</span>
+    <div class="f-bottom">
+      <span>© 2026 PRMAX</span>
+      <a href="privacy.html">Політика конфіденційності</a>
+      <span class="f-note"><sup>*</sup> Розмір бонусу та умови визначає Google. <sup>1</sup> Statcounter, вересень 2026.</span>
     </div>
   </div>
 </footer>
