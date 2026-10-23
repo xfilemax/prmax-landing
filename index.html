@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>PR-Max — вас вже шукають у Google. Сайт + реклама за 3 дні</title>
+<title>PRMAX — вас вже шукають у Google. Сайт + реклама за 3 дні</title>
 <meta name="description" content="Люди вже шукають вашу послугу в Google. Ставимо вас першим: сайт $300 + реклама Google $200, запуск за 3 дні, бонус до 10 000 ₴ від Google. Вся Україна та Європа.">
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#08080A">
@@ -103,17 +103,19 @@ html.js .rv.in{opacity:1;transform:none}
 .prog{position:absolute;left:0;bottom:-1px;height:2px;width:100%;background:var(--og);transform:scaleX(0);transform-origin:left}
 
 /* Mobile nav */
-.mnav{position:fixed;inset:0;z-index:70;background:rgba(8,8,10,.95);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);display:flex;flex-direction:column;padding:calc(80px + env(safe-area-inset-top,0px)) var(--gut) calc(22px + env(safe-area-inset-bottom,0px));opacity:0;visibility:hidden;transition:opacity .4s var(--ease),visibility .4s;overflow-y:auto}
+.mnav{position:fixed;inset:0;z-index:70;background:rgba(8,8,10,.95);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);display:flex;flex-direction:column;padding:calc(74px + env(safe-area-inset-top,0px)) var(--gut) calc(18px + env(safe-area-inset-bottom,0px));opacity:0;visibility:hidden;transition:opacity .4s var(--ease),visibility .4s;overflow-y:auto}
 .mnav::before{content:"";position:absolute;right:-30%;top:-10%;width:90%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(255,106,0,.35),transparent 65%);pointer-events:none}
 .mnav.on{opacity:1;visibility:visible}
 .mnav nav{display:grid;position:relative}
-.mnav nav a{display:flex;align-items:center;gap:16px;padding:12px 4px;border-bottom:1px solid var(--line);font-family:var(--disp);font-size:23px;font-weight:600;opacity:0;transform:translateX(-24px);transition:opacity .45s var(--ease),transform .45s var(--ease)}
+.mnav nav a{display:flex;align-items:center;gap:14px;padding:9px 4px;border-bottom:1px solid var(--line);font-family:var(--disp);font-size:20px;font-weight:600;opacity:0;transform:translateX(-24px);transition:opacity .45s var(--ease),transform .45s var(--ease)}
 .mnav nav a i{font-style:normal;font-family:var(--num);font-size:14px;color:var(--o1);width:24px}
 .mnav nav a svg{width:20px;height:20px;margin-left:auto;stroke:var(--dim)}
 .mnav.on nav a{opacity:1;transform:none}
 .mnav.on nav a:nth-child(1){transition-delay:.05s}.mnav.on nav a:nth-child(2){transition-delay:.09s}.mnav.on nav a:nth-child(3){transition-delay:.13s}.mnav.on nav a:nth-child(4){transition-delay:.17s}.mnav.on nav a:nth-child(5){transition-delay:.21s}.mnav.on nav a:nth-child(6){transition-delay:.25s}.mnav.on nav a:nth-child(7){transition-delay:.29s}.mnav.on nav a:nth-child(8){transition-delay:.33s}
-.mnav .m-bonus{margin-top:20px}
-.mnav .m-foot{margin-top:auto;padding-top:20px;display:grid;gap:10px;position:relative}
+.mnav nav,.mnav .m-bonus,.mnav .m-foot{flex-shrink:0}
+.mnav .m-bonus{margin-top:16px}
+@media (max-height:720px){.mnav .m-bonus{display:none}.mnav nav a{padding:8px 4px;font-size:19px}}
+.mnav .m-foot{margin-top:auto;padding-top:16px;display:grid;gap:10px;position:relative}
 .mnav .m-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px}
 .mnav .m-row a{display:flex;align-items:center;justify-content:center;gap:8px;padding:14px;border-radius:16px;border:1px solid var(--line2);font-weight:600;font-size:15px}
 .mnav .m-row svg{width:18px;height:18px;stroke:var(--o1)}
@@ -127,15 +129,15 @@ html.js .rv.in{opacity:1;transform:none}
 .h-bg .glow{position:absolute;width:140%;aspect-ratio:1;left:-20%;top:30%;border-radius:50%;background:radial-gradient(circle,rgba(255,106,0,.3),transparent 60%);animation:breathe 7s ease-in-out infinite}
 @keyframes breathe{0%,100%{opacity:.6}50%{opacity:1}}
 .noise{position:absolute;inset:0;opacity:.07;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
-.hero>.wrap{flex:1;display:flex;flex-direction:column;justify-content:flex-end;width:100%;padding-bottom:26px}
+.hero>.wrap{flex:1;display:flex;flex-direction:column;justify-content:flex-end;width:100%;padding-bottom:18px}
 
 /* notifications */
 .ntf-wrap{position:relative;margin:8px 0 auto;padding-bottom:16px}
-.ntfs{position:relative;height:148px}
-.ntf{position:absolute;left:0;right:0;top:0;display:flex;gap:12px;align-items:center;padding:11px 14px;border-radius:20px;background:rgba(46,46,52,.9);border:1px solid rgba(255,255,255,.13);box-shadow:0 18px 40px -12px rgba(0,0,0,.6);transition:transform .7s var(--ease),opacity .6s var(--ease);transform-origin:top center}
+.ntfs{position:relative;height:126px}
+.ntf{position:absolute;left:0;right:0;top:0;display:flex;gap:11px;align-items:center;padding:9px 13px;border-radius:20px;background:rgba(46,46,52,.9);border:1px solid rgba(255,255,255,.13);box-shadow:0 18px 40px -12px rgba(0,0,0,.6);transition:transform .7s var(--ease),opacity .6s var(--ease);transform-origin:top center}
 .ntf.enter{animation:ntfIn .7s var(--ease) both}
 @keyframes ntfIn{from{opacity:0;transform:translateY(-26px) scale(.92)}to{opacity:1;transform:none}}
-.ntf .ic{width:40px;height:40px;border-radius:11px;display:grid;place-items:center;flex:0 0 auto}
+.ntf .ic{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;flex:0 0 auto}
 .ntf .ic svg{width:21px;height:21px}
 .ntf .ic.call{background:var(--green)}.ntf .ic.call svg{stroke:#04210f;fill:none;stroke-width:2.2;animation:ring 1.2s ease-in-out infinite}
 .ntf .ic.tg{background:#2AABEE}.ntf .ic.tg svg{fill:#fff}
@@ -150,31 +152,36 @@ html.js .rv.in{opacity:1;transform:none}
 .ntf-cap{position:absolute;right:2px;bottom:0;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.4)}
 
 .pill{display:none}
-.hero h1{font-size:clamp(30px,8.8vw,74px);line-height:1.02;letter-spacing:-.025em;font-weight:700;margin-top:4px}
+.hero h1{font-size:clamp(28px,8.2vw,74px);line-height:1.02;letter-spacing:-.025em;font-weight:700;margin-top:4px}
 .hero h1 .ln{display:block;overflow:hidden;padding-bottom:.07em}
 .hero h1 .ln>span{display:inline-block;animation:lineUp 1s var(--ease) both}
 .hero h1 .ln:nth-child(2)>span{animation:lineUp 1s var(--ease) .12s both,flow 6s linear infinite}
 @keyframes lineUp{from{transform:translateY(105%)}to{transform:none}}
-.lead{font-size:17px;color:#D6D6DC;margin-top:10px;animation:fadeUp .9s var(--ease) .3s both}
+.lead{font-size:16px;color:#D6D6DC;margin-top:8px;animation:fadeUp .9s var(--ease) .3s both}
+.lead .more{display:none}
 .lead b{color:#fff}
 @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
-.ptiles{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px;margin-top:16px;animation:fadeUp .9s var(--ease) .4s both}
-.pt{padding:10px 14px;border-radius:18px;background:rgba(20,20,24,.9);border:1px solid var(--line2)}
+.ptiles{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px;margin-top:12px;animation:fadeUp .9s var(--ease) .4s both}
+.pt{padding:8px 13px;border-radius:16px;background:rgba(20,20,24,.9);border:1px solid var(--line2)}
 .pt span{display:block;font-size:12px;color:var(--muted);font-weight:500}
 .pt div{display:flex;align-items:baseline;gap:8px;margin-top:2px}
 .pt s{font-family:var(--num);font-size:17px;color:var(--dim);text-decoration-color:var(--o3);text-decoration-thickness:2px}
-.pt b{font-family:var(--num);font-size:32px;font-weight:700;line-height:1.05}
-.bonus{position:relative;display:flex;align-items:center;gap:14px;margin-top:10px;padding:12px 18px 12px 14px;border-radius:20px;border:1.5px solid transparent;background:linear-gradient(#17120C,#17120C) padding-box,conic-gradient(from var(--ang),#FF4D00,#FFD27A,#FF7A00,#FFD27A,#FF4D00) border-box;animation:spin 5s linear infinite,fadeUp .9s var(--ease) .5s both;overflow:hidden}
+.pt b{font-family:var(--num);font-size:30px;font-weight:700;line-height:1.05}
+.bonus{position:relative;display:flex;align-items:center;gap:12px;margin-top:8px;padding:9px 16px 9px 11px;border-radius:20px;border:1.5px solid transparent;background:linear-gradient(#17120C,#17120C) padding-box,conic-gradient(from var(--ang),#FF4D00,#FFD27A,#FF7A00,#FFD27A,#FF4D00) border-box;animation:spin 5s linear infinite,fadeUp .9s var(--ease) .5s both;overflow:hidden}
 .bonus::before{content:"";position:absolute;inset:0;background:radial-gradient(120% 140% at 0% 50%,rgba(255,170,0,.22),transparent 60%);pointer-events:none}
 .gift{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;background:var(--og);flex:0 0 auto;align-self:center;animation:giftGlow 2.6s ease-in-out infinite}
 @keyframes giftGlow{0%,100%{box-shadow:0 0 16px rgba(255,140,0,.45)}50%{box-shadow:0 0 34px rgba(255,170,0,.9)}}
 .gift svg{width:24px;height:24px;stroke:#170800;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 @keyframes bob{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-3px) rotate(-6deg)}}
-.bonus b{display:block;font-family:var(--num);font-size:28px;font-weight:700;line-height:1.05;background:linear-gradient(90deg,#FFE3A3,#FFB038 40%,#FFF1CC 55%,#FF8A00 80%,#FFE3A3);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:flow 4s linear infinite}
+.bonus b{display:block;font-family:var(--num);font-size:25px;font-weight:700;line-height:1.05;background:linear-gradient(90deg,#FFE3A3,#FFB038 40%,#FFF1CC 55%,#FF8A00 80%,#FFE3A3);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:flow 4s linear infinite}
 .bonus span{display:block;font-size:13px;color:#E8DCCB;margin-top:2px;line-height:1.3}
-.h-cta{display:grid;gap:10px;margin-top:14px;animation:fadeUp .9s var(--ease) .6s both}
+.h-cta{display:grid;grid-template-columns:minmax(0,1fr) 58px;gap:10px;margin-top:12px;animation:fadeUp .9s var(--ease) .6s both}
 .h-cta .btn-g{display:none}
-.h-note{display:flex;justify-content:center;flex-wrap:wrap;gap:6px 16px;margin-top:12px;font-size:12.5px;color:var(--muted);animation:fadeUp .9s var(--ease) .7s both}
+.tg-round{position:relative;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:#1c1c22;border:1.5px solid rgba(42,171,238,.7)}
+.tg-round svg{width:26px;height:26px;fill:#2AABEE}
+.tg-round::before,.tg-round::after{content:"";position:absolute;inset:-2px;border-radius:50%;border:1.5px solid #2AABEE;animation:ringOut 2.2s ease-out infinite}
+.tg-round::after{animation-delay:1.1s}
+.h-note{display:flex;justify-content:center;flex-wrap:wrap;gap:6px 14px;margin-top:10px;font-size:12px;color:var(--muted);animation:fadeUp .9s var(--ease) .7s both}
 .h-note span{display:flex;align-items:center;gap:6px}
 .h-note svg{width:14px;height:14px;stroke:var(--green);fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
 .demo{display:none}
@@ -508,6 +515,8 @@ footer{border-top:1px solid var(--line);padding-block:34px 120px;color:var(--dim
   .quiz{padding:30px}
   .h-cta{grid-template-columns:auto auto;justify-content:start}
   .h-cta .btn-g{display:inline-flex}
+  .tg-round{display:none}
+  .lead .more{display:inline}
   .h-note{justify-content:flex-start}
   .ntf-wrap,.ptiles,.bonus{max-width:440px}
   .hero{min-height:min(100svh,820px)}
@@ -541,6 +550,7 @@ footer{border-top:1px solid var(--line);padding-block:34px 120px;color:var(--dim
   .pill b{color:var(--fg);font-weight:600}
   .hero h1{font-size:clamp(40px,min(3.7vw,7vh),56px);margin-top:22px}
   .lead{font-size:19px;margin-top:16px;max-width:32em}
+  .ptiles{margin-top:22px}.pt{padding:12px 16px}.bonus{padding:12px 18px 12px 14px;margin-top:12px}.bonus b{font-size:30px}.ntfs{height:148px}
   .ptiles,.bonus{max-width:520px}
   .ptiles{margin-top:22px}
   .pt b{font-size:38px}
@@ -649,7 +659,7 @@ footer{border-top:1px solid var(--line);padding-block:34px 120px;color:var(--dim
 
 <header class="hdr" id="hdr">
   <div class="wrap">
-    <a class="logo" href="#top" aria-label="PR-Max — на початок"><img src="img/logo.webp" alt="PR MAX Digital Agency" width="520" height="338"></a>
+    <a class="logo" href="#top" aria-label="PRMAX — на початок"><img src="img/logo.webp" alt="PRMAX Digital Agency" width="520" height="338"></a>
     <nav class="menu" aria-label="Розділи"><a href="#yak">Як це працює</a><a href="#roboty">Роботи</a><a href="#tsiny">Ціни</a><a href="#vidguky">Відгуки</a><a href="#etapy">Етапи</a><a href="#faq">Питання</a></nav>
     <a class="hdr-ph" data-c="phone-link" href="#"><svg><use href="#i-phone"/></svg><span data-c="phone">+38 (063) 207-2000</span></a>
     <a class="btn btn-o hdr-cta mag" href="#zayavka">Отримати дзвінки</a>
@@ -685,17 +695,18 @@ footer{border-top:1px solid var(--line);padding-block:34px 120px;color:var(--dim
     <div class="h-txt">
       <div class="pill"><span class="dot"></span><b>Вас вже шукають у Google</b> · сайт + реклама за 3 дні</div>
       <h1><span class="ln"><span>Вас вже шукають у Google.</span></span><span class="ln"><span class="og-text live">Зробимо, щоб дзвонили.</span></span></h1>
-      <p class="lead">Люди щодня гуглять вашу послугу у вашому місті. Ми ставимо вас першим — <b>сайт + реклама за 3 дні</b>. Ви просто берете трубку.</p>
+      <p class="lead">Люди щодня гуглять вашу послугу у вашому місті. Ми ставимо вас першим.<span class="more"> <b>Сайт + реклама за 3 дні</b>. Ви просто берете трубку.</span></p>
       <div class="ptiles">
         <div class="pt"><span>Сайт під ключ</span><div><s>$700</s><b class="og-text live">$300</b></div></div>
         <div class="pt"><span>Реклама Google</span><div><s>$500</s><b class="og-text live">$200</b></div></div>
       </div>
       <a class="bonus" href="#tsiny"><span class="gift"><svg><use href="#i-gift"/></svg></span><div><b>+10&nbsp;000&nbsp;₴</b><span>на рекламу — бонус від Google<sup>*</sup></span></div></a>
       <div class="h-cta">
-        <a class="btn btn-o btn-w mag" href="#zayavka">Хочу дзвінки з Google <svg class="arr"><use href="#i-arr"/></svg></a>
+        <a class="btn btn-o btn-w mag" href="#zayavka">Залишити заявку <svg class="arr"><use href="#i-arr"/></svg></a>
+        <a class="tg-round" href="#" data-c="tg-link" target="_blank" rel="noopener" aria-label="Написати в Telegram"><svg viewBox="0 0 24 24"><path d="M21.5 3.5L2.8 10.7c-1.3.5-1.2 1.3-.2 1.6l4.8 1.5 1.8 5.6c.2.7.6.8 1.1.3l2.6-2.4 5 3.7c.9.5 1.6.2 1.8-.9l3.2-15c.3-1.3-.5-1.9-1.4-1.6z"/></svg></a>
         <a class="btn btn-g mag" href="#roboty"><span class="play"><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z"/></svg></span>Наші роботи</a>
       </div>
-      <div class="h-note"><span><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>Клієнт приходить сам</span><span><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>0% з бюджету</span><span><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>Оплата 50/50</span></div>
+      <div class="h-note"><span><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>Запуск за 3 дні</span><span><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>0% з бюджету</span><span><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>Оплата 50/50</span></div>
     </div>
 
     <div class="demo" id="demo" aria-label="Приклад: пошук у Google, реклама, сайт і дзвінок">
@@ -840,7 +851,7 @@ footer{border-top:1px solid var(--line);padding-block:34px 120px;color:var(--dim
     </div>
     <div class="hs-wrap">    <div class="hs" data-hs>
       <div class="rc"><div class="shot" data-img="img/reviews/nikita.webp" role="button" tabindex="0" aria-label="Відкрити скриншот"><img src="img/reviews/nikita.webp" alt="Скриншот відгуку Нікіти Барі" loading="lazy" width="620" height="1070"></div><p>«Замовляв сайт і налаштування реклами. Я і вся команда дуже задоволені».</p><div class="who"><span class="av">НБ</span><div><b>Нікіта Барі</b><span>сайт + реклама</span></div></div></div>
-      <div class="rc"><div class="shot" data-img="img/reviews/svetlana.webp" role="button" tabindex="0" aria-label="Відкрити скриншот"><img src="img/reviews/svetlana.webp" alt="Скриншот відгуку Світлани" loading="lazy" width="620" height="1072"></div><p>«Роботу отримали завчасно, ще й у свята. Тепер PR MAX — наше спасіння».</p><div class="who"><span class="av">С</span><div><b>Світлана</b><span>сайт і просування</span></div></div></div>
+      <div class="rc"><div class="shot" data-img="img/reviews/svetlana.webp" role="button" tabindex="0" aria-label="Відкрити скриншот"><img src="img/reviews/svetlana.webp" alt="Скриншот відгуку Світлани" loading="lazy" width="620" height="1072"></div><p>«Роботу отримали завчасно, ще й у свята. Тепер PRMAX — наше спасіння».</p><div class="who"><span class="av">С</span><div><b>Світлана</b><span>сайт і просування</span></div></div></div>
       <div class="rc"><div class="shot" data-img="img/reviews/natalia.webp" role="button" tabindex="0" aria-label="Відкрити скриншот"><img src="img/reviews/natalia.webp" alt="Скриншот відгуку Наталії Пан" loading="lazy" width="620" height="1072"></div><p>«Детально пояснили, як керувати сайтом. Дуже комфортно працювати».</p><div class="who"><span class="av">НП</span><div><b>Наталія Пан</b><span>складний проєкт</span></div></div></div>
       <div class="rc"><div class="shot" data-img="img/reviews/edik.webp" role="button" tabindex="0" aria-label="Відкрити скриншот"><img src="img/reviews/edik.webp" alt="Скриншот відгуку Едіка Ляшена" loading="lazy" width="620" height="1072"></div><p>«Комфортно й ефективно. Задоволений візуалом, проєкт зданий вчасно».</p><div class="who"><span class="av">ЕЛ</span><div><b>Едік Ляшен</b><span>редизайн</span></div></div></div>
       <div class="rc"><div class="shot" data-img="img/reviews/katya.webp" role="button" tabindex="0" aria-label="Відкрити скриншот"><img src="img/reviews/katya.webp" alt="Скриншот відгуку Каті Чумак" loading="lazy" width="620" height="1072"></div><p>«Справжній професіонал. Одразу хочу друге замовлення — рекламу».</p><div class="who"><span class="av">КЧ</span><div><b>Катя Чумак</b><span>повторне замовлення</span></div></div></div>
@@ -906,7 +917,7 @@ footer{border-top:1px solid var(--line);padding-block:34px 120px;color:var(--dim
 
 <section class="sec" id="pro-nas" style="padding-top:0">
   <div class="wrap founder">
-    <div class="ph-frame rv"><img src="img/maxim.webp" alt="Максим, засновник PR MAX" loading="lazy" width="1000" height="1000"><div class="nm"><b>Максим</b><span>засновник PR MAX</span></div></div>
+    <div class="ph-frame rv"><img src="img/maxim.webp" alt="Максим, засновник PRMAX" loading="lazy" width="1000" height="1000"><div class="nm"><b>Максим</b><span>засновник PRMAX</span></div></div>
     <div class="txt rv">
       <div class="eyebrow"><i>09</i>Про нас</div>
       <h2>Ми робимо не просто гарний сайт. <span class="og-text">Ми робимо так, щоб вам дзвонили.</span></h2>
@@ -967,9 +978,9 @@ footer{border-top:1px solid var(--line);padding-block:34px 120px;color:var(--dim
 <footer>
   <div class="wrap">
     <div class="f-top">
-      <img src="img/logo.webp" alt="PR MAX Digital Agency" loading="lazy" width="520" height="338">
+      <img src="img/logo.webp" alt="PRMAX Digital Agency" loading="lazy" width="520" height="338">
       <nav aria-label="Нижнє меню"><a href="#yak">Як це працює</a><a href="#roboty">Роботи</a><a href="#tsiny">Ціни</a><a href="#vidguky">Відгуки</a><a href="#faq">Питання</a></nav>
-      <span>© PR MAX · сайти та реклама Google</span>
+      <span>© PRMAX · сайти та реклама Google</span>
     </div>
     <div class="f-notes">
       <span><sup>1</sup> Частка Google серед пошукових систем в Україні за вересень 2026 року — 90,67%. Джерело: <a href="https://gs.statcounter.com/search-engine-market-share/all/ukraine" target="_blank" rel="noopener">Statcounter Global Stats</a>.</span>
@@ -1000,10 +1011,17 @@ var CONTACTS={
   function $$(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))}
   var wait=function(ms){return new Promise(function(r){setTimeout(r,ms)})};
 
+  /* ===== КОНВЕРСІЇ: дзвінок, Telegram, заявка =====
+     Події йдуть у dataLayer (Google Tag Manager), у gtag (Google Ads / GA4) і fbq (Meta), якщо вони підключені.
+     Щоб підключити: вставити тег GA4/Google Ads або GTM у <head> — події call / telegram / lead з'являться самі. */
+  window.dataLayer=window.dataLayer||[];
+  function conv(name,extra){var d={event:'prmax_conv',conv:name};for(var k in (extra||{}))d[k]=extra[k];dataLayer.push(d);try{if(typeof gtag==='function')gtag('event',name,extra||{});if(typeof fbq==='function')fbq('trackCustom','PRMAX_'+name,extra||{});}catch(e){}}
+  window.prmaxConv=conv;
+
   /* Contacts */
   $$('[data-c=phone]').forEach(function(e){e.textContent=CONTACTS.phone});
-  $$('[data-c=phone-link]').forEach(function(e){e.href='tel:'+CONTACTS.phoneTel});
-  $$('[data-c=tg-link]').forEach(function(e){e.href='https://t.me/'+CONTACTS.telegram});
+  $$('[data-c=phone-link]').forEach(function(e){e.href='tel:'+CONTACTS.phoneTel;e.addEventListener('click',function(){conv('call',{place:e.closest('section,header,.mnav,.mbar,footer')?(e.closest('section,header,.mnav,.mbar,footer').id||e.closest('section,header,.mnav,.mbar,footer').className.split(' ')[0]):''})})});
+  $$('[data-c=tg-link]').forEach(function(e){e.href='https://t.me/'+CONTACTS.telegram;e.addEventListener('click',function(){conv('telegram',{place:e.closest('section,header,.mnav,.mbar,footer')?(e.closest('section,header,.mnav,.mbar,footer').id||e.closest('section,header,.mnav,.mbar,footer').className.split(' ')[0]):''})})});
 
   /* Preloader */
   var pre=$('#pre');
@@ -1189,8 +1207,10 @@ var CONTACTS={
     var nm=$('#qname').value.trim(),phv=$('#qphone').value.trim();
     if(!nm){err.textContent="Вкажіть ім'я";$('#qname').focus();return}
     if(phv.replace(/\D/g,'').length<9){err.textContent='Вкажіть номер телефону';$('#qphone').focus();return}
-    var txt='Заявка з сайту PR-Max\nІм\'я: '+nm+'\nТелефон: '+phv+'\nНіша: '+qniche+'\nМісто: '+$('#qcity').value.trim()+($('#qobl').checked?' (вся область)':'');
+    var txt='Заявка з сайту PRMAX\nІм\'я: '+nm+'\nТелефон: '+phv+'\nНіша: '+qniche+'\nМісто: '+$('#qcity').value.trim()+($('#qobl').checked?' (вся область)':'');
     $('#qtg').href='https://t.me/'+CONTACTS.telegram+'?text='+encodeURIComponent(txt);
+    conv('lead',{niche:qniche,city:$('#qcity').value.trim()});
+    $('#qtg').addEventListener('click',function(){conv('telegram',{place:'after_lead'})});
     $$('.qstep,#qnav,.qbar,#qfine,.quiz .top,#qerr').forEach(function(x){x.hidden=true});
     $('#qdone').hidden=false;
   });
