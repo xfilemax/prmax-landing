@@ -40,7 +40,9 @@ button{font:inherit;color:inherit}
 h1,h2,h3,h4{font-family:var(--disp);font-weight:700;letter-spacing:-.015em;line-height:1.08;margin:0;text-wrap:balance}
 p{margin:0}
 .wrap{max-width:1240px;margin:0 auto;padding-inline:max(var(--gut),env(safe-area-inset-left,0px))}
-.og-text{background:var(--flow);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:flow 6s linear infinite}
+.og-text{background:var(--flow);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent}
+.og-text.live{animation:flow 6s linear infinite}
+html.shot .hero{min-height:0}
 @keyframes flow{to{background-position:300% 0}}
 .eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--disp);font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--o1)}
 .eyebrow::before{content:"";width:22px;height:2px;border-radius:2px;background:var(--og)}
@@ -56,11 +58,11 @@ sup{font-size:.55em;color:var(--o1)}
 .btn svg{width:20px;height:20px;flex:0 0 auto;transition:transform .3s var(--ease)}
 .btn:hover svg.arr{transform:translateX(5px)}
 .btn:active{transform:scale(.97)}
-.btn-o{background:var(--flow);background-size:300% 100%;color:#170800;animation:flow 5s linear infinite,glow 2.6s ease-in-out infinite;box-shadow:0 12px 36px -8px rgba(255,106,0,.65),inset 0 1px 0 rgba(255,255,255,.5)}
+.btn-o{background:var(--flow);background-size:300% 100%;color:#170800;animation:flow 5s linear infinite;box-shadow:0 12px 36px -8px rgba(255,106,0,.65),inset 0 1px 0 rgba(255,255,255,.5)}
 .btn-o::after{content:"";position:absolute;inset:-2px;z-index:-1;background:linear-gradient(105deg,transparent 30%,rgba(255,255,255,.75) 48%,rgba(255,255,255,.2) 52%,transparent 70%);transform:translateX(-120%);animation:sweep 3.6s var(--ease) infinite 1s}
 @keyframes sweep{0%{transform:translateX(-120%)}40%,100%{transform:translateX(120%)}}
 @keyframes glow{0%,100%{box-shadow:0 12px 36px -8px rgba(255,106,0,.6),inset 0 1px 0 rgba(255,255,255,.5)}50%{box-shadow:0 16px 54px -6px rgba(255,140,0,.9),0 0 0 4px rgba(255,140,0,.12),inset 0 1px 0 rgba(255,255,255,.5)}}
-.btn-g{color:var(--fg);border:1.5px solid transparent;background:linear-gradient(#141418,#141418) padding-box,conic-gradient(from var(--ang),rgba(255,255,255,.14) 0deg,#FF7A00 70deg,#FFD27A 110deg,rgba(255,255,255,.14) 170deg,rgba(255,255,255,.14) 360deg) border-box;animation:spin 4s linear infinite}
+.btn-g{color:var(--fg);border:1.5px solid transparent;background:linear-gradient(#141418,#141418) padding-box,conic-gradient(from 200deg,rgba(255,255,255,.14) 0deg,#FF7A00 70deg,#FFD27A 110deg,rgba(255,255,255,.14) 170deg,rgba(255,255,255,.14) 360deg) border-box}
 @keyframes spin{to{--ang:360deg}}
 .btn-g:hover{color:var(--o1)}
 .btn-g .play{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--og)}
@@ -86,7 +88,7 @@ html.js .rv.in{opacity:1;transform:none}
 .hdr .wrap{position:relative;display:flex;align-items:center;gap:10px;height:64px}
 .logo img{height:42px;width:auto}
 .menu,.hdr-ph,.hdr-cta{display:none}
-.icbtn{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--line2);background:rgba(255,255,255,.05);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);flex:0 0 auto}
+.icbtn{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--line2);background:rgba(20,20,24,.75);flex:0 0 auto}
 .icbtn svg{width:20px;height:20px;stroke:var(--o1)}
 .hdr .call{margin-left:auto;position:relative}
 .hdr .call::after{content:"";position:absolute;inset:-1px;border-radius:50%;border:1.5px solid var(--o2);animation:ringOut 2.4s ease-out infinite}
@@ -118,18 +120,18 @@ html.js .rv.in{opacity:1;transform:none}
 /* ===== Hero ===== */
 .hero{position:relative;min-height:100svh;padding-top:calc(64px + env(safe-area-inset-top,0px));overflow:hidden;isolation:isolate;display:flex;flex-direction:column}
 .h-bg{position:absolute;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
-.h-bg .ph{position:absolute;inset:-4%;background:url(img/hero-phone.webp) 50% 28%/cover no-repeat;animation:kb 22s ease-in-out infinite alternate;filter:saturate(1.15)}
+.h-bg .ph{position:absolute;inset:-4%;background:url(img/hero-phone.webp) 50% 28%/cover no-repeat;animation:kb 22s ease-in-out infinite alternate}
 @keyframes kb{from{transform:scale(1.02)}to{transform:scale(1.12) translateY(-1.5%)}}
 .h-bg .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,8,10,.7) 0%,rgba(8,8,10,.2) 16%,rgba(8,8,10,.35) 32%,rgba(8,8,10,.88) 48%,#08080A 64%)}
 .h-bg .glow{position:absolute;width:140%;aspect-ratio:1;left:-20%;top:30%;border-radius:50%;background:radial-gradient(circle,rgba(255,106,0,.3),transparent 60%);animation:breathe 7s ease-in-out infinite}
-@keyframes breathe{0%,100%{opacity:.7;transform:scale(1)}50%{opacity:1;transform:scale(1.08)}}
+@keyframes breathe{0%,100%{opacity:.6}50%{opacity:1}}
 .noise{position:absolute;inset:0;opacity:.07;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 .hero>.wrap{flex:1;display:flex;flex-direction:column;justify-content:flex-end;width:100%;padding-bottom:26px}
 
 /* notifications */
 .ntf-wrap{position:relative;margin:8px 0 auto;padding-bottom:16px}
 .ntfs{position:relative;height:148px}
-.ntf{position:absolute;left:0;right:0;top:0;display:flex;gap:12px;align-items:center;padding:11px 14px;border-radius:20px;background:rgba(44,44,50,.6);backdrop-filter:blur(22px) saturate(1.6);-webkit-backdrop-filter:blur(22px) saturate(1.6);border:1px solid rgba(255,255,255,.13);box-shadow:0 18px 40px -12px rgba(0,0,0,.6);transition:transform .7s var(--ease),opacity .6s var(--ease);transform-origin:top center}
+.ntf{position:absolute;left:0;right:0;top:0;display:flex;gap:12px;align-items:center;padding:11px 14px;border-radius:20px;background:rgba(46,46,52,.9);border:1px solid rgba(255,255,255,.13);box-shadow:0 18px 40px -12px rgba(0,0,0,.6);transition:transform .7s var(--ease),opacity .6s var(--ease);transform-origin:top center}
 .ntf.enter{animation:ntfIn .7s var(--ease) both}
 @keyframes ntfIn{from{opacity:0;transform:translateY(-26px) scale(.92)}to{opacity:1;transform:none}}
 .ntf .ic{width:40px;height:40px;border-radius:11px;display:grid;place-items:center;flex:0 0 auto}
@@ -156,7 +158,7 @@ html.js .rv.in{opacity:1;transform:none}
 .lead b{color:#fff}
 @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
 .ptiles{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px;margin-top:16px;animation:fadeUp .9s var(--ease) .4s both}
-.pt{padding:10px 14px;border-radius:18px;background:rgba(20,20,24,.78);border:1px solid var(--line2);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.pt{padding:10px 14px;border-radius:18px;background:rgba(20,20,24,.9);border:1px solid var(--line2)}
 .pt span{display:block;font-size:12px;color:var(--muted);font-weight:500}
 .pt div{display:flex;align-items:baseline;gap:8px;margin-top:2px}
 .pt s{font-family:var(--num);font-size:17px;color:var(--dim);text-decoration-color:var(--o3);text-decoration-thickness:2px}
@@ -294,7 +296,7 @@ html.js .rv.in{opacity:1;transform:none}
 /* ===== Prices ===== */
 .price-cards{display:grid;gap:14px;margin-top:26px}
 .pc{position:relative;border-radius:26px;padding:24px;background:var(--card);border:1px solid var(--line);overflow:hidden}
-.pc.hot{border:1.5px solid transparent;background:linear-gradient(var(--card),var(--card)) padding-box,conic-gradient(from var(--ang),rgba(255,122,0,.25),#FF7A00,#FFD27A,rgba(255,122,0,.25) 50%,rgba(255,122,0,.25)) border-box;animation:spin 6s linear infinite}
+.pc.hot{border:1.5px solid transparent;background:linear-gradient(var(--card),var(--card)) padding-box,conic-gradient(from 140deg,rgba(255,122,0,.25),#FF7A00,#FFD27A,rgba(255,122,0,.25) 50%,rgba(255,122,0,.25)) border-box}
 .pc .lbl{display:flex;justify-content:space-between;align-items:center;gap:10px}
 .pc .lbl h3{font-size:21px}
 .pc .lbl em{font-style:normal;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:5px 10px;border-radius:999px;background:var(--og);color:#170800}
@@ -386,6 +388,7 @@ html.js .rv.in{opacity:1;transform:none}
 .map .dots{stroke:rgba(255,255,255,.34);stroke-width:7.5;stroke-linecap:round}
 .map .city circle.c{fill:var(--o1)}
 .map .city circle.p{fill:none;stroke:var(--o2);stroke-width:2;transform-box:fill-box;transform-origin:center;animation:cityPulse 3s ease-out infinite;animation-delay:var(--d,0s)}
+.map:not(.in) .city circle.p{animation:none}
 @keyframes cityPulse{0%{transform:scale(.4);opacity:1}100%{transform:scale(4.5);opacity:0}}
 .map .city text{fill:var(--fg);font-family:var(--disp);font-size:28px;font-weight:600;paint-order:stroke;stroke:#08080A;stroke-width:7px}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
@@ -496,7 +499,8 @@ footer{border-top:1px solid var(--line);padding-block:34px 120px;color:var(--dim
   .h-cta{grid-template-columns:auto auto;justify-content:start}
   .h-cta .btn-g{display:inline-flex}
   .h-note{justify-content:flex-start}
-  .ntfs,.ptiles,.bonus{max-width:440px}
+  .ntf-wrap,.ptiles,.bonus{max-width:440px}
+  .hero{min-height:min(100svh,820px)}
 }
 /* ===== Desktop ===== */
 @media (min-width:1100px){
@@ -625,16 +629,16 @@ footer{border-top:1px solid var(--line);padding-block:34px 120px;color:var(--dim
 
 <main id="top">
 <section class="hero" id="hero">
-  <div class="h-bg" aria-hidden="true"><div class="ph"></div><div class="glow"></div><div class="shade"></div><div class="noise"></div></div>
+  <div class="h-bg" aria-hidden="true"><div class="ph"></div><div class="glow"></div><div class="shade"></div></div>
   <div class="wrap">
     <div class="ntf-wrap" aria-hidden="true"><div class="ntfs" id="ntfs"></div><span class="ntf-cap">приклад сповіщень</span></div>
     <div class="h-txt">
       <div class="pill"><span class="dot"></span><b>Сайт + реклама Google</b> під ключ · вся Україна та Європа</div>
-      <h1><span class="ln"><span>Клієнти з Google</span></span><span class="ln"><span class="og-text">дзвонять вам</span></span></h1>
+      <h1><span class="ln"><span>Клієнти з Google</span></span><span class="ln"><span class="og-text live">дзвонять вам</span></span></h1>
       <p class="lead">Сайт + реклама під ключ <b>за 7 днів</b>. Ви просто берете трубку.</p>
       <div class="ptiles">
-        <div class="pt"><span>Сайт під ключ</span><div><s>$700</s><b class="og-text">$300</b></div></div>
-        <div class="pt"><span>Реклама Google</span><div><s>$350</s><b class="og-text">$100</b></div></div>
+        <div class="pt"><span>Сайт під ключ</span><div><s>$700</s><b class="og-text live">$300</b></div></div>
+        <div class="pt"><span>Реклама Google</span><div><s>$350</s><b class="og-text live">$100</b></div></div>
       </div>
       <a class="bonus" href="#tsiny"><span class="gift"><svg><use href="#i-gift"/></svg></span><div><b>+10&nbsp;000&nbsp;₴</b><span>на рекламу — бонус від Google<sup>*</sup></span></div></a>
       <div class="h-cta">
@@ -745,14 +749,14 @@ footer{border-top:1px solid var(--line);padding-block:34px 120px;color:var(--dim
       <h2>Чесні ціни. <span class="og-text">Без абонплати.</span></h2>
     </div>
     <div class="price-cards">
-      <div class="pc hot rv"><div class="lbl"><h3>Сайт під ключ</h3><em>−57%</em></div><div class="am"><s>$700</s><b class="og-text">$300</b><small>разово</small></div>
+      <div class="pc hot rv"><div class="lbl"><h3>Сайт під ключ</h3><em>−57%</em></div><div class="am"><s>$700</s><b class="og-text live">$300</b><small>разово</small></div>
         <ul><li><svg><use href="#i-check"/></svg>Дизайн і тексти під вашу нішу</li><li><svg><use href="#i-check"/></svg>Кнопки дзвінка, Telegram, Viber</li><li><svg><use href="#i-check"/></svg>Зручний з телефону</li><li><svg><use href="#i-check"/></svg>Домен, аналітика, форма заявки</li></ul></div>
-      <div class="pc hot rv" style="--d:.08s"><div class="lbl"><h3>Реклама Google</h3><em>−71%</em></div><div class="am"><s>$350</s><b class="og-text">$100</b><small>налаштування</small></div>
+      <div class="pc hot rv" style="--d:.08s"><div class="lbl"><h3>Реклама Google</h3><em>−71%</em></div><div class="am"><s>$350</s><b class="og-text live">$100</b><small>налаштування</small></div>
         <ul><li><svg><use href="#i-check"/></svg>Запити «послуга + місто»</li><li><svg><use href="#i-check"/></svg>Мінус-слова — бюджет не зливається</li><li><svg><use href="#i-check"/></svg>Показ тільки у вашому місті</li><li><svg><use href="#i-check"/></svg>Відстеження дзвінків і заявок</li></ul></div>
       <div class="pc rv" style="--d:.16s"><div class="lbl"><h3>Ведення реклами</h3><em class="g">за бажанням</em></div><div class="am"><b>$150</b><small>/ місяць</small></div>
         <ul><li><svg><use href="#i-check"/></svg>Коригуємо ставки й запити</li><li><svg><use href="#i-check"/></svg>Вносимо правки на сайт</li><li><svg><use href="#i-check"/></svg>Звіт щомісяця</li><li><svg><use href="#i-check"/></svg>Можна відмовитися будь-коли</li></ul></div>
     </div>
-    <div class="total rv"><p>Сайт + реклама разом: <b class="og-text">$400</b><s>$1050</s></p><a class="btn btn-o" href="#zayavka">Замовити <svg class="arr"><use href="#i-arr"/></svg></a></div>
+    <div class="total rv"><p>Сайт + реклама разом: <b class="og-text live">$400</b><s>$1050</s></p><a class="btn btn-o" href="#zayavka">Замовити <svg class="arr"><use href="#i-arr"/></svg></a></div>
     <div class="bonus-big rv">
       <div class="coins" aria-hidden="true"><i style="right:8%;top:14%"></i><i style="right:20%;top:8%;animation-delay:1s;width:7px;height:7px"></i><i style="right:4%;top:40%;animation-delay:2s;width:6px;height:6px"></i></div>
       <div class="wrapc">
@@ -775,7 +779,7 @@ footer{border-top:1px solid var(--line);padding-block:34px 120px;color:var(--dim
     </div>
     <div class="rv-main rv">
       <div>
-        <div class="big og-text">72 заявки</div><small>за перший тиждень після запуску</small>
+        <div class="big og-text live">72 заявки</div><small>за перший тиждень після запуску</small>
         <blockquote>«Замовляла у вас сайт і налаштування контекстної реклами. Ми повністю окупились».</blockquote>
         <div class="who"><span class="av">НХ</span><div><b>Наташа Хоменко</b><span>сайт + реклама Google</span></div></div>
         <p class="tr-note">Слова клієнтки, скорочено й перекладено з російської. Оригінал — на скриншоті.</p>
@@ -937,7 +941,7 @@ var CONTACTS={
 </script>
 <script>
 (function(){
-  document.documentElement.classList.add('js');
+  document.documentElement.classList.add('js');if(/[?&]shot/.test(location.search))document.documentElement.classList.add('shot');
   var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
   var fine=matchMedia('(pointer:fine)').matches;
   function $(s,c){return (c||document).querySelector(s)}
