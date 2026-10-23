@@ -1418,7 +1418,7 @@ var CONTACTS={
      Куди падає заявка — CONTACTS.lead: endpoint (вебхук) та/або Telegram-бот (botToken + chatId).
      Поки не налаштовано — заявка фіксується як конверсія (dataLayer / gtag / fbq) і зберігається в localStorage. */
   var LEAD=CONTACTS.lead||{};
-  function normPhone(v){var d=(v||'').replace(/\D/g,'');if(d.length===10&&d.charAt(0)==='0')d='38'+d;if(d.length===9)d='380'+d;if(d.length<11||d.length>13)return '';return d.length===12&&d.indexOf('380')===0?'+380 '+d.slice(3,5)+' '+d.slice(5,8)+' '+d.slice(8,10)+' '+d.slice(10):'+'+d}
+  function normPhone(v){var d=(v||'').replace(/\D/g,'');if(d.length===10&&d.charAt(0)==='0')d='38'+d;if(d.length===9)d='380'+d;if(d.length<11||d.length>13)return '';return d.length===12&&d.indexOf('380')===0?'380 '+d.slice(3,5)+' '+d.slice(5,8)+' '+d.slice(8,10)+' '+d.slice(10):d} /* без «+»: Google Таблиця приймала «+380…» за формулу (#ERROR!); повернути «+» після оновлення приймача */
   function leadText(d){return 'Нова заявка — сайт PRMAX\n'+(d.name?"Ім'я: "+d.name+'\n':'')+'Телефон: '+d.phone+'\n'+(d.tg?'Telegram: '+d.tg+'\n':'')+(d.niche?'Ніша: '+d.niche+'\n':'')+(d.city?'Місто: '+d.city+'\n':'')+'Форма: '+d.form+'\nСторінка: '+location.href}
   function sendLead(d){
     conv('lead',{niche:d.niche||'',city:d.city||'',form:d.form});
