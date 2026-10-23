@@ -116,6 +116,8 @@ html.js .rv.in{opacity:1;transform:none}
 .mnav{position:fixed;inset:0;z-index:70;background:rgba(11,10,9,.94);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);display:flex;flex-direction:column;padding:calc(84px + env(safe-area-inset-top,0px)) var(--gut) calc(18px + env(safe-area-inset-bottom,0px));opacity:0;visibility:hidden;transition:opacity .5s var(--e),visibility .5s;overflow-y:auto}
 .mnav::before{content:"";position:absolute;right:-30%;top:-10%;width:90%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(240,110,0,.3),transparent 65%);pointer-events:none}
 .mnav.on{opacity:1;visibility:visible}
+.m-logo{position:absolute;left:var(--gut);top:calc(13px + env(safe-area-inset-top,0px));z-index:1}
+.m-logo img{height:44px;width:auto}
 .mnav nav{display:grid;position:relative}
 .mnav nav,.mnav .m-bonus,.mnav .m-foot{flex-shrink:0}
 .mnav nav a{display:flex;align-items:center;gap:16px;padding:11px 4px;border-bottom:1px solid var(--line);font-family:var(--d);font-size:27px;font-weight:400;opacity:0;transform:translateX(-24px);transition:opacity .6s var(--e),transform .6s var(--e)}
@@ -677,6 +679,7 @@ h1,h2,h3,h4,.display,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,
 </header>
 
 <div class="mnav" id="mnav" aria-hidden="true">
+  <a class="m-logo" href="#top" aria-label="PRMAX — на початок"><img src="img/logo.webp" alt="PRMAX" width="520" height="338" loading="lazy"></a>
   <nav aria-label="Меню">
     <a href="#yak"><i>01</i>Як це працює<svg><use href="#i-arr"/></svg></a>
     <a href="#nishi"><i>02</i>Для кого<svg><use href="#i-arr"/></svg></a>
