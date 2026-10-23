@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>PRMAX — вас вже шукають у Google. Сайт + реклама за 3 дні</title>
-<meta name="description" content="Люди вже шукають вашу послугу в Google. Ставимо вас першим: сайт $300 + реклама Google $150, запуск за 3 дні, бонус до 10 000 ₴ від Google. Вся Україна та Європа.">
+<meta name="description" content="Люди вже шукають вашу послугу в Google. Ставимо вас першим — дзвінки та заявки в Telegram. Сайт $300 + реклама Google $150, запуск за 3 дні, бонус до 10 000 ₴ від Google. Вся Україна та Європа.">
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#08080A">
 <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
@@ -604,7 +604,7 @@ h1,h2,h3,h4,.display,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,
 .pill{display:inline-flex;align-items:center;gap:10px;padding:9px 16px 9px 12px;border-radius:999px;border:1px solid rgba(255,201,126,.4);background:rgba(255,255,255,.05);font:600 11px/1.3 var(--b);letter-spacing:.12em;text-transform:uppercase;color:#FFD9A3;animation:fadeUp 1s var(--e) both;white-space:nowrap}
 .pill .dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 0 rgba(43,212,111,.65);animation:pulse 2.2s infinite;flex:0 0 auto}
 @keyframes pulse{70%{box-shadow:0 0 0 9px rgba(43,212,111,0)}100%{box-shadow:0 0 0 0 rgba(43,212,111,0)}}
-.hero .display{margin-top:22px;font-size:clamp(36px,9.6vw,62px);line-height:1.06;letter-spacing:-.035em}
+.hero .display{margin-top:22px;font-size:clamp(33px,9.1vw,62px);line-height:1.06;letter-spacing:-.035em}
 .hero .ln{padding-bottom:.1em;margin-bottom:-.06em}
 .hero .display,.hero .lni{text-wrap:wrap}.hero .lni{max-width:100%}
 .hero .lead{margin:18px auto 0;max-width:600px;font-size:16.5px}
@@ -651,22 +651,24 @@ h1,h2,h3,h4,.display,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,
 .ldm{position:fixed;inset:0;z-index:95;display:flex;align-items:flex-end;justify-content:center;opacity:0;visibility:hidden;transition:opacity .45s var(--e),visibility .45s}
 .ldm.on{opacity:1;visibility:visible}
 .ldm-bg{position:absolute;inset:0;background:rgba(5,4,3,.74);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
-.ldm-box{position:relative;width:100%;max-height:calc(100svh - 16px);overflow:auto;margin:0;border-radius:32px 32px 0 0;padding:26px 20px calc(22px + env(safe-area-inset-bottom,0px));border:1px solid transparent;background:linear-gradient(165deg,rgba(255,138,31,.26),rgba(19,17,16,.985) 34%,rgba(19,17,16,.985)) padding-box,linear-gradient(135deg,#FFC97E,rgba(255,255,255,.12) 38%,rgba(255,255,255,.08) 62%,#F05E00) border-box;box-shadow:0 -40px 140px -30px rgba(240,110,0,.45);transform:translateY(48px);transition:transform .65s var(--e)}
+.ldm-box{position:relative;width:100%;max-height:calc(100svh - 16px);overflow:auto;margin:0;border-radius:32px 32px 0 0;padding:22px 18px calc(18px + env(safe-area-inset-bottom,0px));border:1px solid transparent;background:linear-gradient(165deg,rgba(255,138,31,.26),rgba(19,17,16,.985) 34%,rgba(19,17,16,.985)) padding-box,linear-gradient(135deg,#FFC97E,rgba(255,255,255,.12) 38%,rgba(255,255,255,.08) 62%,#F05E00) border-box;box-shadow:0 -40px 140px -30px rgba(240,110,0,.45);transform:translateY(48px);transition:transform .65s var(--e)}
 .ldm.on .ldm-box{transform:none}
 .ldm-x{position:absolute;right:14px;top:14px;width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.06);color:#fff;display:grid;place-items:center;cursor:pointer;padding:0;transition:background .3s,transform .5s var(--e)}
 .ldm-x svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round}
 .ldm-x:hover{background:rgba(255,255,255,.14);transform:rotate(90deg)}
 .ldm-h{padding-right:50px}
-.ldm-h h3{font-size:clamp(26px,6.4vw,34px);line-height:1.08;margin-top:16px}
-.ldm-h p{color:var(--muted);margin-top:10px;font-size:15px;line-height:1.5}
-.ldm-f{display:grid;gap:8px;margin-top:16px}
-.ldm-f label{font:700 11px/1 var(--b);letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-top:10px}
+.ldm-h h3{font-size:clamp(25px,6.4vw,34px);line-height:1.08;margin-top:14px}
+.ldm-h p{display:none;color:var(--muted);margin-top:10px;font-size:15px;line-height:1.5}
+.ldm .inp{border:1.5px solid rgba(255,201,126,.45);background:rgba(0,0,0,.32);padding:13px 18px;font-size:16px}
+.ldm .inp:focus{border-color:var(--o2)}
+.ldm-f{display:grid;gap:7px;margin-top:12px}
+.ldm-f label{font:700 11px/1 var(--b);letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-top:7px}
 .ldm-f label em{font-style:normal;text-transform:none;letter-spacing:0;font-weight:500}
 .ldm-f .nchips button{padding:10px 14px;font-size:13.5px}
-.ldm-2{display:grid;gap:8px}
-.ldm-2>div{display:grid;gap:8px}
-.ldm .btn-w{margin-top:14px}
-.ldm .fine{margin-top:12px}
+.ldm-2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ldm-2>div{display:grid;gap:7px;min-width:0}
+.ldm .btn-w{margin-top:10px}
+.ldm .fine{margin-top:10px}
 .done-row{display:grid;gap:10px;margin-top:18px}
 .done-row .btn{width:100%;margin:0}
 .fab{display:none}
@@ -700,6 +702,7 @@ h1,h2,h3,h4,.display,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,
   .ldm{align-items:center;padding:20px}
   .ldm-box{width:min(600px,100%);max-height:calc(100svh - 40px);border-radius:34px;padding:36px 36px 30px;transform:translateY(26px) scale(.97)}
   .ldm-h h3{font-size:34px}
+  .ldm-h p{display:block}
   .total{grid-template-columns:minmax(0,1fr) auto;align-items:center;text-align:left;padding:18px 18px 18px 30px;border-radius:999px}
   .total p .tp{justify-content:flex-start;margin-top:6px}
   .total .btn{width:auto}
@@ -710,8 +713,8 @@ h1,h2,h3,h4,.display,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,
 @media (min-width:1100px){
   .hero{padding:calc(132px + env(safe-area-inset-top,0px)) 0 64px}
   .pill{font-size:12.5px;letter-spacing:.14em;padding:11px 18px 11px 14px}
-  .hero .display{margin-top:28px;font-size:clamp(46px,4.8vw,92px);line-height:1.02}
-  .hero .display .ln{white-space:nowrap}
+  .hero .display{margin-top:28px;font-size:clamp(46px,4.6vw,90px);line-height:1.02}
+  .hero .display .ln,.hero .display .lni{white-space:nowrap;text-wrap:nowrap}
   .hero .ldm{font-size:clamp(17px,1.2vw,20px);margin-top:24px;max-width:680px}
   .hero .h-cta{margin-top:34px;max-width:none;width:auto}
   .stage{margin-top:60px}
@@ -793,13 +796,12 @@ h1,h2,h3,h4,.display,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,
   <button class="m-close" type="button" aria-label="Закрити меню"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
   <nav aria-label="Меню">
     <a href="#yak"><i>01</i>Як це працює<svg><use href="#i-arr"/></svg></a>
-    <a href="#nishi"><i>02</i>Для кого<svg><use href="#i-arr"/></svg></a>
-    <a href="#roboty"><i>03</i>Наші роботи<svg><use href="#i-arr"/></svg></a>
-    <a href="#tsiny"><i>04</i>Ціни і бонус<svg><use href="#i-arr"/></svg></a>
-    <a href="#vidguky"><i>05</i>Відгуки<svg><use href="#i-arr"/></svg></a>
-    <a href="#etapy"><i>06</i>Етапи роботи<svg><use href="#i-arr"/></svg></a>
-    <a href="#faq"><i>07</i>Питання<svg><use href="#i-arr"/></svg></a>
-    <a href="#zayavka" data-lead><i>08</i>Залишити заявку<svg><use href="#i-arr"/></svg></a>
+    <a href="#roboty"><i>02</i>Наші роботи<svg><use href="#i-arr"/></svg></a>
+    <a href="#tsiny"><i>03</i>Ціни і бонус<svg><use href="#i-arr"/></svg></a>
+    <a href="#vidguky"><i>04</i>Відгуки<svg><use href="#i-arr"/></svg></a>
+    <a href="#etapy"><i>05</i>Етапи роботи<svg><use href="#i-arr"/></svg></a>
+    <a href="#faq"><i>06</i>Питання<svg><use href="#i-arr"/></svg></a>
+    <a href="#zayavka" data-lead><i>07</i>Залишити заявку<svg><use href="#i-arr"/></svg></a>
   </nav>
   <a class="bonus m-bonus" href="#tsiny"><span class="gift"><svg><use href="#i-gift"/></svg></span><div><b>+10&nbsp;000&nbsp;₴</b><span>на рекламу — бонус від Google<sup>*</sup></span></div></a>
   <div class="m-foot">
@@ -813,8 +815,8 @@ h1,h2,h3,h4,.display,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,
   <div class="aur" aria-hidden="true"><i class="a1"></i><i class="a2"></i><i class="a3"></i><i class="grid"></i><i class="noise"></i><i class="spot"></i></div>
   <div class="wrap h-top">
     <span class="pill"><i class="dot"></i><span>Сайт + реклама Google · <span class="more">запуск </span>за 3 дні</span></span>
-    <h1 class="display"><span class="ln"><span class="lni">Вас вже шукають <span class="og-text live">у&nbsp;Google.</span></span></span><span class="ln"><span class="lni">Зробимо, щоб дзвонили.</span></span></h1>
-    <p class="lead">Люди щодня гуглять вашу послугу у вашому місті. Ми ставимо вас першим&nbsp;— ви просто берете трубку.</p>
+    <h1 class="display"><span class="ln"><span class="lni">Вас вже шукають <span class="og-text live">у&nbsp;Google.</span></span></span><span class="ln"><span class="lni">Зробимо, щоб дзвонили й писали.</span></span></h1>
+    <p class="lead">Люди щодня гуглять вашу послугу у вашому місті. Ми ставимо вас першим&nbsp;— і ви отримуєте дзвінки та заявки в Telegram.</p>
     <div class="h-cta">
       <a class="btn btn-o" href="#zayavka" data-lead><span>Залишити заявку</span><span class="ar"><svg><use href="#i-arr"/></svg></span></a>
       <a class="btn btn-g" href="#roboty"><span>Наші роботи</span><span class="ar"><svg viewBox="0 0 10 12" class="play"><path d="M0 0l10 6-10 6z"/></svg></span></a>
@@ -872,30 +874,7 @@ h1,h2,h3,h4,.display,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,
         <div class="cap"><h3>Бачить вас першим</h3><p>Ваша реклама — над усією видачею. Клік — і людина на вашому сайті.</p></div></article>
       <article class="hw"><img src="img/how-call.webp" alt="" loading="lazy"><span class="n">3</span>
         <div class="mock"><div class="call-card"><span class="ic"><svg><use href="#i-phone"/></svg></span><div><b>Вхідний дзвінок</b><span>з реклами Google</span></div><span class="acc"><svg><use href="#i-phone"/></svg></span></div></div>
-        <div class="cap"><h3>Дзвонить вам</h3><p>Кнопка «Подзвонити» на першому екрані. Без посередників.</p></div></article>
-    </div><div class="hs-nav"><button type="button" class="hs-arr prev" aria-label="Назад"><svg viewBox="0 0 24 24"><path d="M19 12H5M11 18l-6-6 6-6"/></svg></button><button type="button" class="hs-arr next" aria-label="Далі"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div></div>
-    <div class="hs-bar"><i></i></div>
-  </div>
-</section>
-
-<section class="sec" id="nishi" style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <div class="eyebrow"><i>02</i>Для кого</div>
-      <h2>Для будь-якого бізнесу, якому <span class="og-text">дзвонять</span></h2>
-      <p>Усе, що люди шукають із назвою міста. Натисніть на категорію — покажемо вашу рекламу.</p>
-    </div>
-    <div class="hs-wrap"><div class="hs" data-hs>
-            <a class="nc" href="#konstruktor" data-n="auto"><img src="img/niche/tow.webp" alt="Авто: СТО, евакуатор, викуп" loading="lazy"><span class="q"><svg><use href="#i-search"/></svg>евакуатор київ</span><div class="cap"><h3>Авто: СТО, евакуатор, викуп</h3><span>Моя реклама <svg><use href="#i-arr"/></svg></span></div></a>
-      <a class="nc" href="#konstruktor" data-n="repair"><img src="img/niche/repair.webp" alt="Ремонт і будівництво" loading="lazy"><span class="q"><svg><use href="#i-search"/></svg>ремонт квартир львів</span><div class="cap"><h3>Ремонт і будівництво</h3><span>Моя реклама <svg><use href="#i-arr"/></svg></span></div></a>
-      <a class="nc" href="#konstruktor" data-n="home"><img src="img/niche/boiler.webp" alt="Майстри додому" loading="lazy"><span class="q"><svg><use href="#i-search"/></svg>сантехнік дніпро</span><div class="cap"><h3>Майстри додому</h3><span>Моя реклама <svg><use href="#i-arr"/></svg></span></div></a>
-      <a class="nc" href="#konstruktor" data-n="beauty"><img src="img/niche/beauty.webp" alt="Краса та здоров'я" loading="lazy"><span class="q"><svg><use href="#i-search"/></svg>стоматологія одеса</span><div class="cap"><h3>Краса та здоров'я</h3><span>Моя реклама <svg><use href="#i-arr"/></svg></span></div></a>
-      <a class="nc" href="#konstruktor" data-n="food"><img src="img/niche/food.webp" alt="Їжа та доставка" loading="lazy"><span class="q"><svg><use href="#i-search"/></svg>суші доставка вінниця</span><div class="cap"><h3>Їжа та доставка</h3><span>Моя реклама <svg><use href="#i-arr"/></svg></span></div></a>
-      <a class="nc" href="#konstruktor" data-n="furniture"><img src="img/niche/kitchen.webp" alt="Меблі та кухні" loading="lazy"><span class="q"><svg><use href="#i-search"/></svg>кухні на замовлення харків</span><div class="cap"><h3>Меблі та кухні</h3><span>Моя реклама <svg><use href="#i-arr"/></svg></span></div></a>
-      <a class="nc" href="#konstruktor" data-n="rent"><img src="img/niche/carkeys.webp" alt="Оренда та прокат" loading="lazy"><span class="q"><svg><use href="#i-search"/></svg>оренда авто львів</span><div class="cap"><h3>Оренда та прокат</h3><span>Моя реклама <svg><use href="#i-arr"/></svg></span></div></a>
-      <a class="nc" href="#konstruktor" data-n="goods"><img src="img/niche/firewood.webp" alt="Товари з доставкою" loading="lazy"><span class="q"><svg><use href="#i-search"/></svg>дрова з доставкою житомир</span><div class="cap"><h3>Товари з доставкою</h3><span>Моя реклама <svg><use href="#i-arr"/></svg></span></div></a>
-      <a class="nc" href="#konstruktor" data-n="biz"><img src="img/niche/cleaning.webp" alt="Послуги для дому та бізнесу" loading="lazy"><span class="q"><svg><use href="#i-search"/></svg>клінінг київ</span><div class="cap"><h3>Послуги для дому та бізнесу</h3><span>Моя реклама <svg><use href="#i-arr"/></svg></span></div></a>
-      <div class="nc cta"><div><h3>Ваш бізнес інший?</h3><p>Якщо вашу послугу шукають у Google з назвою міста — це працює. Напишіть, і ми скажемо, скільки людей шукають вас щомісяця.</p></div><a class="btn btn-o btn-w" href="#zayavka" data-lead>Дізнатися про мою нішу <svg><use href="#i-arr"/></svg></a></div>
+        <div class="cap"><h3>Дзвонить або пише вам</h3><p>Кнопки «Подзвонити» і Telegram на першому екрані. Без посередників.</p></div></article>
     </div><div class="hs-nav"><button type="button" class="hs-arr prev" aria-label="Назад"><svg viewBox="0 0 24 24"><path d="M19 12H5M11 18l-6-6 6-6"/></svg></button><button type="button" class="hs-arr next" aria-label="Далі"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div></div>
     <div class="hs-bar"><i></i></div>
   </div>
@@ -904,7 +883,7 @@ h1,h2,h3,h4,.display,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,
 <section class="sec" id="roboty" style="padding-top:0">
   <div class="wrap">
     <div class="sec-head rv">
-      <div class="eyebrow"><i>03</i>Наші роботи</div>
+      <div class="eyebrow"><i>02</i>Наші роботи</div>
       <h2>Сайти, які ми <span class="og-text">вже запустили</span></h2>
     </div>
     <div class="hs-wrap"><div class="hs" data-hs>
@@ -921,7 +900,7 @@ h1,h2,h3,h4,.display,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,
 <section class="sec" id="tsiny" style="padding-top:0">
   <div class="wrap">
     <div class="sec-head rv">
-      <div class="eyebrow"><i>04</i>Ціни</div>
+      <div class="eyebrow"><i>03</i>Ціни</div>
       <h2>Чесні ціни. <span class="og-text">Без абонплати.</span></h2>
     </div>
     <div class="price-cards">
@@ -950,7 +929,7 @@ h1,h2,h3,h4,.display,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,
 <section class="sec" id="vidguky" style="padding-top:0">
   <div class="wrap">
     <div class="sec-head rv">
-      <div class="eyebrow"><i>05</i>Відгуки</div>
+      <div class="eyebrow"><i>04</i>Відгуки</div>
       <h2>Що пишуть <span class="og-text">клієнти</span></h2>
     </div>
     <div class="rv-main rv">
@@ -976,7 +955,7 @@ h1,h2,h3,h4,.display,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,
 <section class="sec" id="kviz" style="padding-top:0">
   <div class="wrap qz-grid">
     <div class="rv">
-      <div class="eyebrow"><i>06</i>Квіз</div>
+      <div class="eyebrow"><i>05</i>Квіз</div>
       <h2>Підберемо рішення <span class="og-text">за 30 секунд</span></h2>
       <p class="sub">Три швидкі питання — і ми підготуємо пропозицію саме під вашу нішу та місто.</p>
       <ul class="qz-list"><li>Приклад сайту під вашу нішу</li><li>Скільки людей шукають вас у Google — за даними Google</li><li>Бюджет на рекламу і план запуску за 3 дні</li></ul>
@@ -998,7 +977,7 @@ h1,h2,h3,h4,.display,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,
 <section class="sec" id="konstruktor" style="padding-top:0">
   <div class="wrap">
     <div class="sec-head rv">
-      <div class="eyebrow"><i>07</i>Спробуйте</div>
+      <div class="eyebrow"><i>06</i>Спробуйте</div>
       <h2>Ваша реклама — <span class="og-text">за 2 кліки</span></h2>
     </div>
     <div class="builder rv">
@@ -1022,7 +1001,7 @@ h1,h2,h3,h4,.display,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,
 <section class="sec" id="etapy" style="padding-top:0">
   <div class="wrap">
     <div class="sec-head rv">
-      <div class="eyebrow"><i>08</i>Етапи</div>
+      <div class="eyebrow"><i>07</i>Етапи</div>
       <h2>Запуск <span class="og-text">за 3 дні</span></h2>
       <p>Від вас — 10 хвилин розмови, фото і номер телефону. Решту робимо ми.</p>
     </div>
@@ -1030,7 +1009,7 @@ h1,h2,h3,h4,.display,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,
       <article class="stp"><div class="im"><img src="img/step-talk.webp" alt="" loading="lazy"><span class="n">День 1</span></div><div class="tx"><h3>Розмова 10 хвилин</h3><p>Ніша, місто, ціни, куди дзвонити.</p></div></article>
       <article class="stp"><div class="im"><img src="img/step-design.webp" alt="" loading="lazy"><span class="n">Дні 1–2</span></div><div class="tx"><h3>Робимо сайт</h3><p>Показуємо до запуску, вносимо правки.</p></div></article>
       <article class="stp"><div class="im"><img src="img/step-ads.webp" alt="" loading="lazy"><span class="n">Дні 2–3</span></div><div class="tx"><h3>Налаштовуємо рекламу</h3><p>Запити, оголошення, гео. Модерація Google.</p></div></article>
-      <article class="stp"><div class="im"><img src="img/craftsman.webp" alt="" loading="lazy"><span class="n">День 3</span></div><div class="tx"><h3>Старт і дзвінки</h3><p>Запускаємо і тиждень стежимо за результатом.</p></div></article>
+      <article class="stp"><div class="im"><img src="img/craftsman.webp" alt="" loading="lazy"><span class="n">День 3</span></div><div class="tx"><h3>Старт: дзвінки та заявки</h3><p>Запускаємо і тиждень стежимо за результатом.</p></div></article>
     </div><div class="hs-nav"><button type="button" class="hs-arr prev" aria-label="Назад"><svg viewBox="0 0 24 24"><path d="M19 12H5M11 18l-6-6 6-6"/></svg></button><button type="button" class="hs-arr next" aria-label="Далі"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div></div>
     <div class="hs-bar"><i></i></div>
   </div>
@@ -1039,7 +1018,7 @@ h1,h2,h3,h4,.display,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,
 <section class="sec" id="geo" style="padding-top:0">
   <div class="wrap">
     <div class="sec-head rv">
-      <div class="eyebrow"><i>09</i>Географія</div>
+      <div class="eyebrow"><i>08</i>Географія</div>
       <h2>Вся Україна. <span class="og-text">І Європа.</span></h2>
       <p>Реклама показується тільки там, де ви працюєте: місто, область чи кілька регіонів.</p>
     </div>
@@ -1054,9 +1033,9 @@ h1,h2,h3,h4,.display,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,
   <div class="wrap founder">
     <div class="ph-frame rv"><img src="img/maxim.webp" alt="Максим, засновник PRMAX" loading="lazy" width="1000" height="1000"><div class="nm"><b>Максим</b><span>засновник PRMAX</span></div></div>
     <div class="txt rv">
-      <div class="eyebrow"><i>10</i>Про нас</div>
-      <h2>Ми робимо не просто гарний сайт. <span class="og-text">Ми робимо так, щоб вам дзвонили.</span></h2>
-      <p>Сайт сам по собі клієнтів не приносить. Приносить зв'язка: реклама на тих, хто вже шукає, + сайт, який переконує подзвонити. Її ми налаштовуємо за 3 дні.</p>
+      <div class="eyebrow"><i>09</i>Про нас</div>
+      <h2>Ми робимо не просто гарний сайт. <span class="og-text">Ми робимо так, щоб вам дзвонили й писали.</span></h2>
+      <p>Сайт сам по собі клієнтів не приносить. Приносить зв'язка: реклама на тих, хто вже шукає, + сайт, який переконує подзвонити або написати в Telegram. Її ми налаштовуємо за 3 дні.</p>
       <div class="princ">
         <div><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18"/></svg><b>Без абонплати</b><span>Платите один раз</span></div>
         <div><svg viewBox="0 0 24 24"><path d="M12 3l8 4v6c0 4-3.5 7-8 8-4.5-1-8-4-8-8V7z"/></svg><b>Доступи ваші</b><span>Сайт і кабінет на вас</span></div>
@@ -1070,7 +1049,7 @@ h1,h2,h3,h4,.display,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,
 <section class="sec" id="faq" style="padding-top:0">
   <div class="wrap faq-wrap">
     <div class="sec-head rv">
-      <div class="eyebrow"><i>11</i>Питання</div>
+      <div class="eyebrow"><i>10</i>Питання</div>
       <h2>Коротко про головне</h2>
     </div>
     <div class="faq-list rv">
@@ -1087,7 +1066,7 @@ h1,h2,h3,h4,.display,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,
 <section class="sec final" id="zayavka">
   <div class="wrap final-grid">
     <div class="rv">
-      <div class="eyebrow"><i>12</i>Заявка</div>
+      <div class="eyebrow"><i>11</i>Заявка</div>
       <h2>Почнімо з <span class="og-text">10&#8209;хвилинної</span> розмови</h2>
       <p class="sub">Залиште номер — передзвонимо в робочий час, розповімо, скільки людей шукають вас у Google, і запустимо за 3 дні.</p>
       <div class="contacts">
@@ -1127,14 +1106,14 @@ h1,h2,h3,h4,.display,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,
   <div class="ldm-bg" id="leadbg"></div>
   <form class="ldm-box" id="leadf" novalidate>
     <button class="ldm-x" type="button" id="leadx" aria-label="Закрити"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
-    <div class="ldm-h"><span class="pill"><i class="dot"></i><span>Заявка · 1 хвилина</span></span><h3 id="leadh">Отримати дзвінки <span class="og-text live">з Google</span></h3><p>Залиште контакт — передзвонимо, уточнимо нішу й місто і запустимо за 3 дні.</p></div>
+    <div class="ldm-h"><span class="pill"><i class="dot"></i><span>Заявка · 1 хвилина</span></span><h3 id="leadh">Дзвінки та заявки <span class="og-text live">з Google</span></h3><p>Залиште номер — передзвонимо або напишемо в Telegram, уточнимо нішу й місто.</p></div>
     <div class="ldm-f" id="leadfields">
-      <label>Ваша ніша</label><div class="nchips" id="ln" role="group" aria-label="Ніша"></div>
-      <label for="lph">Телефон</label><input class="inp" id="lph" type="tel" inputmode="tel" placeholder="+380 __ ___ __ __" autocomplete="tel">
-      <div class="ldm-2"><div><label for="lnm">Ім'я</label><input class="inp" id="lnm" placeholder="Як до вас звертатися" autocomplete="name"></div><div><label for="ltg">Telegram <em>· необов'язково</em></label><input class="inp" id="ltg" placeholder="@нікнейм"></div></div>
+      <label for="lph">Телефон <em>· обов'язково</em></label><input class="inp" id="lph" type="tel" inputmode="tel" placeholder="+380 __ ___ __ __" autocomplete="tel">
+      <div class="ldm-2"><div><label for="ltg">Telegram</label><input class="inp" id="ltg" placeholder="@нікнейм"></div><div><label for="lnm">Ім'я</label><input class="inp" id="lnm" placeholder="Як звертатися" autocomplete="name"></div></div>
+      <label for="lni">Ніша <em>· за бажанням</em></label><input class="inp" id="lni" placeholder="Наприклад: евакуатор, стоматологія">
       <div class="err" id="lerr" role="alert"></div>
       <button class="btn btn-o btn-w" type="submit"><span>Надіслати заявку</span><span class="ar"><svg><use href="#i-arr"/></svg></span></button>
-      <p class="fine">Без спаму. Один дзвінок щодо вашого проєкту.</p>
+      <p class="fine">Без спаму. Передзвонимо або напишемо в Telegram.</p>
     </div>
     <div class="done" id="ldone" hidden><div class="ok"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></div><h4>Дякуємо, заявку прийнято!</h4><p>Передзвонимо в робочий час. Хочете швидше — напишіть у Telegram або подзвоніть.</p><div class="done-row"><a class="btn btn-o" href="#" data-c="tg-link" target="_blank" rel="noopener"><span>Написати в Telegram</span><span class="ar"><svg><use href="#i-tg"/></svg></span></a><a class="btn btn-g" href="#" data-c="phone-link"><span data-c="phone">+38 (063) 207-2000</span><span class="ar"><svg><use href="#i-phone"/></svg></span></a></div></div>
   </form>
@@ -1370,9 +1349,7 @@ var CONTACTS={
     if(LEAD.botToken&&LEAD.chatId)ps.push(fetch('https://api.telegram.org/bot'+LEAD.botToken+'/sendMessage',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:LEAD.chatId,text:txt})}));
     return Promise.all(ps.map(function(p){return p.catch(function(){})}));
   }
-  var lead=$('#lead'),leadf=$('#leadf'),lnBox=$('#ln'),lniche='',leadLast=null;
-  Object.keys(N).concat(['other']).forEach(function(k){var b=document.createElement('button');b.type='button';b.textContent=k==='other'?'Інша ніша':N[k].name;b.dataset.v=k==='other'?'Інша':N[k].name;b.setAttribute('aria-pressed','false');lnBox.appendChild(b)});
-  lnBox.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;lniche=b.dataset.v;$$('button',lnBox).forEach(function(x){x.setAttribute('aria-pressed',x===b)})});
+  var lead=$('#lead'),leadf=$('#leadf'),leadLast=null;
   function openLead(src){leadLast=document.activeElement;lead.classList.add('on');lead.setAttribute('aria-hidden','false');document.body.classList.add('lock');conv('lead_open',{place:src||''});if(fine)setTimeout(function(){$('#lph').focus({preventScroll:true})},500)}
   function closeLead(){lead.classList.remove('on');lead.setAttribute('aria-hidden','true');if(!$('#mnav').classList.contains('on'))document.body.classList.remove('lock');if(leadLast&&leadLast.focus)leadLast.focus({preventScroll:true})}
   $$('[data-lead]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();var sc=a.closest('section,header,.mnav,.mbar,footer');openLead(sc?(sc.id||sc.className.split(' ')[0]):'')})});
@@ -1382,7 +1359,7 @@ var CONTACTS={
     e.preventDefault();var err=$('#lerr');err.textContent='';
     var ph=normPhone($('#lph').value);
     if(!ph){err.textContent='Вкажіть номер телефону — наприклад, +380 63 207 20 00';$('#lph').focus();return}
-    var d={form:'modal',phone:ph,name:$('#lnm').value.trim(),tg:$('#ltg').value.trim(),niche:lniche};
+    var d={form:'modal',phone:ph,name:$('#lnm').value.trim(),tg:$('#ltg').value.trim(),niche:$('#lni').value.trim()};
     var btn=$('button[type=submit]',leadf);btn.disabled=true;
     sendLead(d).then(function(){$('#leadfields').hidden=true;$('#ldone').hidden=false;btn.disabled=false;$('#leadx').focus()});
   });
