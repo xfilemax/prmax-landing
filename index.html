@@ -11,6 +11,16 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700;800&family=Onest:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap">
+<!-- TikTok Pixel «PRMAX» (кабінет 7628542326444556304) -->
+<script>
+!function (w, d, t) {
+  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script");n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
+  ttq.load('DBDKFH3C77U4SEFNI86G');
+  ttq.page();
+  ttq.track('ViewContent',{content_name:'prmax_offer'});
+}(window, document, 'ttq');
+</script>
+<!-- TikTok Pixel End -->
 <style>
 /* ===== PRMAX · преміальна тема у стилі Best View: Cormorant + Manrope, скло, кнопки з кружком-стрілкою; кольори — чорний + помаранчевий ===== */
 @property --ang{syntax:'<angle>';initial-value:0deg;inherits:false}
@@ -1214,7 +1224,7 @@ var CONTACTS={
      Щоб підключити: вставити тег GA4/Google Ads або GTM у <head> — події call / telegram / lead з'являться самі. */
   window.dataLayer=window.dataLayer||[];
   var TTQ_EV={call:'Contact',telegram:'ClickButton',lead:'SubmitForm'};
-  function conv(name,extra){var d={event:'prmax_conv',conv:name};for(var k in (extra||{}))d[k]=extra[k];dataLayer.push(d);try{if(typeof gtag==='function')gtag('event',name,extra||{});if(typeof fbq==='function')fbq('trackCustom','PRMAX_'+name,extra||{});if(typeof ttq!=='undefined'&&TTQ_EV[name])ttq.track(TTQ_EV[name],extra||{});}catch(e){}}
+  function conv(name,extra){var d={event:'prmax_conv',conv:name};for(var k in (extra||{}))d[k]=extra[k];dataLayer.push(d);try{if(typeof gtag==='function')gtag('event',name,extra||{});if(typeof fbq==='function')fbq('trackCustom','PRMAX_'+name,extra||{});if(typeof ttq!=='undefined'&&TTQ_EV[name]){var te={content_name:name};for(var q in (extra||{}))te[q]=extra[q];ttq.track(TTQ_EV[name],te)}}catch(e){}}
   window.prmaxConv=conv;
 
   /* Contacts */
