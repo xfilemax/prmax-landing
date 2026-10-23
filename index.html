@@ -4,26 +4,26 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>PRMAX — вас вже шукають у Google. Сайт + реклама за 3 дні</title>
-<meta name="description" content="Люди вже шукають вашу послугу в Google. Ставимо вас першим: сайт $300 + реклама Google $200, запуск за 3 дні, бонус до 10 000 ₴ від Google. Вся Україна та Європа.">
+<meta name="description" content="Люди вже шукають вашу послугу в Google. Ставимо вас першим: сайт $300 + реклама Google $150, запуск за 3 дні, бонус до 10 000 ₴ від Google. Вся Україна та Європа.">
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#08080A">
 <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
 <link rel="preload" as="image" href="img/hero-phone.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Manrope:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700;800&family=Onest:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap">
 <style>
 /* ===== PRMAX · преміальна тема у стилі Best View: Cormorant + Manrope, скло, кнопки з кружком-стрілкою; кольори — чорний + помаранчевий ===== */
 @property --ang{syntax:'<angle>';initial-value:0deg;inherits:false}
 :root{
   --obs:#0B0A09;--obs2:#131110;--obs3:#1B1815;--bg:var(--obs);--card:rgba(255,255,255,.045);
-  --sand:#F4EFE7;--fg:var(--sand);--ink:#1A1007;--muted:rgba(244,239,231,.64);--dim:rgba(244,239,231,.42);
+  --sand:#F5F3EF;--fg:var(--sand);--ink:#1A1007;--muted:rgba(244,239,231,.64);--dim:rgba(244,239,231,.42);
   --line:rgba(244,239,231,.11);--line2:rgba(244,239,231,.2);
   --o1:#FFC97E;--o2:#FF8A1F;--o3:#F05E00;--o4:#B64200;--ol:#FFB056;
-  --grad:linear-gradient(115deg,#FFDCA3 0%,#FFA23F 28%,#F05E00 56%,#FFB85C 80%,#FFDCA3 100%);
+  --grad:linear-gradient(115deg,#FFD08A 0%,#FF8A1F 30%,#F05E00 58%,#FFB347 82%,#FFD08A 100%);--tgrad:linear-gradient(90deg,#FFC46A 0%,#FF8A1F 35%,#FF5A00 65%,#FFB347 100%);
   --green:#2BD46F;
-  --d:'Cormorant Garamond',Georgia,'Times New Roman',serif;--b:'Manrope',system-ui,-apple-system,'Segoe UI',sans-serif;
-  --disp:var(--d);--body:var(--b);--num:var(--d);
+  --d:'Jost',system-ui,sans-serif;--b:'Onest',system-ui,-apple-system,'Segoe UI',sans-serif;--n:'Oswald','Arial Narrow',Impact,sans-serif;
+  --disp:var(--d);--body:var(--b);--num:var(--n);
   --e:cubic-bezier(.19,1,.22,1);--ease:var(--e);
   --w:1400px;--gut:clamp(20px,4vw,56px);--mo:clamp(76px,9vw,130px);
   color-scheme:dark;
@@ -614,6 +614,35 @@ footer{border-top:1px solid var(--line);padding-block:34px 120px;color:var(--dim
 }
 @media (min-width:1800px){html{zoom:1.08}}
 @media (min-width:2300px){html{zoom:1.22}}
+
+/* ===== Читабельна типографіка PRMAX (жирний Jost, цифри Oswald, помаранчевий на чорному) ===== */
+h1,h2,h3,h4,.display,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h3,.wk .meta h3,.pc .lbl h3,.stp h3,.bonus-big h3,.princ b,.ph-frame .nm b,summary,.quiz .top b,.qstep h4,.done h4,.ad .title,.ps .body h4,.tb-top p b,.mnav nav a{font-family:var(--d);font-weight:700;font-style:normal;letter-spacing:-.015em}
+.og-text{font-style:normal;font-weight:inherit;background:var(--tgrad);background-size:220% auto;-webkit-background-clip:text;background-clip:text;color:transparent}
+.display{font-weight:800;font-size:clamp(34px,8.8vw,74px);line-height:1.02;letter-spacing:-.025em}
+.ln{padding-bottom:.08em;margin-bottom:-.04em}
+.sec-head h2{font-size:clamp(30px,5vw,60px);line-height:1.06}
+.founder h2{font-size:clamp(28px,3.6vw,50px);line-height:1.06}
+.final h2{font-size:clamp(32px,4.6vw,62px);line-height:1.04}
+.lead{color:rgba(245,243,239,.86)}
+.sec-head p{color:rgba(245,243,239,.72)}
+.rv-main blockquote,.rc p{font-family:var(--b);font-style:normal;font-weight:500;color:var(--sand)}
+.rv-main blockquote{font-size:21px;line-height:1.35}.rc p{font-size:15px;line-height:1.5}
+.stat b,.pc .am b,.pc .am s,.bonus b,.bonus-big .sum,.rv-main .big,.total p b,.total p s,.hw .n,.eyebrow i{font-family:var(--n);font-weight:700}
+.eyebrow i{font-weight:500;font-size:13px}
+.av{font-family:var(--d);font-weight:700}
+.mnav nav a{font-size:22px;font-weight:600}
+.ps .bar{font-family:var(--d);font-weight:700;font-size:13px}
+.map .city text{font-family:var(--d);font-weight:600;font-size:26px}
+.stat b{font-size:28px}.pc .am b{font-size:60px}.pc .am s{font-size:24px}.bonus b{font-size:26px}.bonus-big .sum{font-size:clamp(44px,12vw,96px)}.rv-main .big{font-size:60px}.total p b{font-size:36px}.total p s{font-size:20px}.hw .n{font-size:20px}
+.ad .title{font-size:20px;line-height:1.25}.ps .body h4{font-size:22px}.nc .cap h3{font-size:24px}.nc.cta h3{font-size:26px}.hw .cap h3{font-size:24px}.wk .meta h3{font-size:22px}.pc .lbl h3{font-size:21px}.stp h3{font-size:21px}.princ b{font-size:17px}.ph-frame .nm b{font-size:24px}summary{font-size:18px}.quiz .top b{font-size:21px}.qstep h4{font-size:19px}.done h4{font-size:24px}.bonus-big h3{font-size:20px}.tb-top p b{font-size:16px}
+.btn{font-family:var(--d);font-size:16px;letter-spacing:.01em}
+.btn-sm{font-size:14px}
+@media (min-width:700px){.stat b{font-size:32px}}
+@media (min-width:1100px){
+  .display{font-size:clamp(46px,min(4vw,8vh),76px)}
+  .pc .am b{font-size:76px}.rv-main .big{font-size:80px}.bonus-big h3{font-size:24px}summary{font-size:20px}
+}
+@media (min-width:1500px){.pc .am b{font-size:88px}.rv-main blockquote{font-size:24px}}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
   html.js .rv{opacity:1;transform:none}
@@ -679,7 +708,7 @@ footer{border-top:1px solid var(--line);padding-block:34px 120px;color:var(--dim
         <a class="btn btn-g" href="#roboty"><span>Наші роботи</span><span class="ar"><svg viewBox="0 0 10 12" class="play"><path d="M0 0l10 6-10 6z"/></svg></span></a>
         <a class="tg-round" href="#" data-c="tg-link" target="_blank" rel="noopener" aria-label="Написати в Telegram"><svg viewBox="0 0 24 24"><path d="M21.5 3.5L2.8 10.7c-1.3.5-1.2 1.3-.2 1.6l4.8 1.5 1.8 5.6c.2.7.6.8 1.1.3l2.6-2.4 5 3.7c.9.5 1.6.2 1.8-.9l3.2-15c.3-1.3-.5-1.9-1.4-1.6z"/></svg></a>
       </div>
-      <div class="stats"><div class="stat"><b>3 дні</b><span>від брифу до запуску</span></div><div class="stat"><b>$300</b><span>сайт під ключ · <s>$700</s></span></div><div class="stat"><b>$200</b><span>реклама Google · <s>$500</s></span></div><div class="stat"><b>+10 000 ₴</b><span>бонус від Google<sup>*</sup></span></div></div>
+      <div class="stats"><div class="stat"><b>3 дні</b><span>від брифу до запуску</span></div><div class="stat"><b>$300</b><span>сайт під ключ · <s>$700</s></span></div><div class="stat"><b>$150</b><span>реклама Google · <s>$300</s></span></div><div class="stat"><b>+10 000 ₴</b><span>бонус від Google<sup>*</sup></span></div></div>
     </div>
 
     <div class="demo" id="demo" aria-label="Приклад: пошук у Google, реклама, сайт і дзвінок">
@@ -787,12 +816,12 @@ footer{border-top:1px solid var(--line);padding-block:34px 120px;color:var(--dim
     <div class="price-cards">
       <div class="pc hot rv"><div class="lbl"><h3>Сайт під ключ</h3><em>−57%</em></div><div class="am"><s>$700</s><b class="og-text live">$300</b><small>разово</small></div>
         <ul><li><svg><use href="#i-check"/></svg>Дизайн і тексти під вашу нішу</li><li><svg><use href="#i-check"/></svg>Кнопки дзвінка, Telegram, Viber</li><li><svg><use href="#i-check"/></svg>Зручний з телефону</li><li><svg><use href="#i-check"/></svg>Домен, аналітика, форма заявки</li><li><svg><use href="#i-check"/></svg>Запуск за 3 дні</li></ul></div>
-      <div class="pc hot rv" style="--d:.08s"><div class="lbl"><h3>Реклама Google</h3><em>−60%</em></div><div class="am"><s>$500</s><b class="og-text live">$200</b><small>налаштування</small></div>
+      <div class="pc hot rv" style="--d:.08s"><div class="lbl"><h3>Реклама Google</h3><em>−50%</em></div><div class="am"><s>$300</s><b class="og-text live">$150</b><small>налаштування</small></div>
         <ul><li><svg><use href="#i-check"/></svg>Запити «послуга + місто»</li><li><svg><use href="#i-check"/></svg>Мінус-слова — бюджет не зливається</li><li><svg><use href="#i-check"/></svg>Показ тільки у вашому місті</li><li><svg><use href="#i-check"/></svg>Відстеження дзвінків і заявок</li></ul></div>
       <div class="pc rv" style="--d:.16s"><div class="lbl"><h3>Ведення реклами й сайту</h3><em class="g">за бажанням</em></div><div class="am"><b>$75</b><small>/ місяць</small></div>
         <ul><li><svg><use href="#i-check"/></svg>Стежимо за рекламою щотижня: мінус-слова, ставки, запити</li><li><svg><use href="#i-check"/></svg>Правки на сайті — без доплат</li><li><svg><use href="#i-check"/></svg>Короткий звіт щомісяця</li><li><svg><use href="#i-check"/></svg>Відмовитися можна будь-коли</li></ul></div>
     </div>
-    <div class="total rv"><p>Сайт + реклама разом: <b class="og-text live">$500</b><s>$1200</s></p><a class="btn btn-o" href="#zayavka"><span>Замовити</span><span class="ar"><svg><use href="#i-arr"/></svg></span></a></div>
+    <div class="total rv"><p>Сайт + реклама разом: <b class="og-text live">$450</b><s>$1000</s></p><a class="btn btn-o" href="#zayavka"><span>Замовити</span><span class="ar"><svg><use href="#i-arr"/></svg></span></a></div>
     <div class="bonus-big rv">
       <div class="coins" aria-hidden="true"><i style="right:8%;top:14%"></i><i style="right:20%;top:8%;animation-delay:1s;width:7px;height:7px"></i><i style="right:4%;top:40%;animation-delay:2s;width:6px;height:6px"></i></div>
       <div class="wrapc">
@@ -912,7 +941,7 @@ footer{border-top:1px solid var(--line);padding-block:34px 120px;color:var(--dim
       <h2>Коротко про головне</h2>
     </div>
     <div class="faq-list rv">
-      <details><summary>Чому так недорого?<i><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></i></summary><div class="ans"><div><p>Робимо за відпрацьованою структурою під кожну сферу, без великого офісу. Тому $300 за сайт і $200 за налаштування реклами, а не агентський цінник.</p></div></div></details>
+      <details><summary>Чому так недорого?<i><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></i></summary><div class="ans"><div><p>Робимо за відпрацьованою структурою під кожну сферу, без великого офісу. Тому $300 за сайт і $150 за налаштування реклами, а не агентський цінник.</p></div></div></details>
       <details><summary>Скільки коштуватиме сама реклама?<i><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></i></summary><div class="ans"><div><p>Бюджет визначаєте ви і платите напряму Google зі своєї картки. Порадимо стартову суму під ваше місто. Зупинити можна будь-коли.</p></div></div></details>
       <details><summary>Що за бонус 10&nbsp;000&nbsp;₴?<i><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></i></summary><div class="ans"><div><p>Google дає новим рекламним акаунтам промокод: після витрати визначеної суми нараховує бонус на покази. Допоможемо активувати й назвемо точні умови на момент запуску.</p></div></div></details>
       <details><summary>Скільки часу до запуску?<i><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></i></summary><div class="ans"><div><p>3 дні. Сайт — за 1–2 дні після того, як надішлете фото й контакти. На 3-й день реклама проходить модерацію Google і стартує.</p></div></div></details>
