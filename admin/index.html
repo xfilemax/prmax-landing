@@ -101,6 +101,26 @@ textarea.in{resize:vertical;min-height:80px}
 .empty{color:var(--mut);text-align:center;padding:40px}
 .links a{display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--line);text-decoration:none;color:var(--fg)}
 .links a:last-child{border-bottom:0}.links a span{color:var(--dim)}
+/* бот */
+.fun{display:grid;gap:10px}
+.fun .fr{display:grid;grid-template-columns:200px 1fr 90px;gap:12px;align-items:center}
+.fun .bar{height:30px;border-radius:9px;background:rgba(255,255,255,.05);overflow:hidden}
+.fun .bar i{display:block;height:100%;background:var(--grad);border-radius:9px;min-width:4px}
+.fun .fr b{text-align:right;font-family:Unbounded,sans-serif;font-size:15px}.fun .fr b small{display:block;font:600 11.5px Manrope,sans-serif;color:var(--dim)}
+.sub{display:grid;grid-template-columns:44px 1fr auto;gap:12px;align-items:center;padding:12px 14px;border:1px solid var(--line);border-radius:14px;background:var(--bg2);margin-bottom:8px;cursor:pointer;width:100%;text-align:left;color:inherit}
+.sub:hover{border-color:var(--line2)}.sub.test{opacity:.5}
+.av{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-weight:800;background:rgba(255,138,31,.15);color:var(--o1)}
+.sub .nm{font-weight:700}.sub .lm{color:var(--mut);font-size:13.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:560px}
+.sub .rt{text-align:right;font-size:12.5px;color:var(--dim);white-space:nowrap}
+.stp{display:inline-block;font-size:11.5px;font-weight:700;border-radius:999px;padding:2px 9px;margin-top:4px}
+.stp.p0{background:rgba(255,92,92,.13);color:#ff9a9a}.stp.p1{background:rgba(143,184,255,.14);color:#8fb8ff}.stp.p2{background:rgba(58,208,122,.14);color:var(--ok)}.stp.p3{background:rgba(255,255,255,.07);color:var(--dim)}
+.chat{display:flex;flex-direction:column;gap:8px;padding:18px;max-height:62vh;overflow:auto;background:var(--bg2);border:1px solid var(--line);border-radius:var(--r)}
+.msg{max-width:78%;padding:10px 14px;border-radius:16px;white-space:pre-wrap;word-wrap:break-word;font-size:14.5px;line-height:1.45}
+.msg small{display:block;font-size:11px;color:var(--dim);margin-top:4px}
+.msg.cl{align-self:flex-start;background:#26221e;border-bottom-left-radius:5px}
+.msg.bt{align-self:flex-end;background:rgba(255,138,31,.12);border-bottom-right-radius:5px}
+.msg.mx{align-self:flex-end;background:rgba(58,208,122,.16);border-bottom-right-radius:5px}
+.reply{display:flex;gap:10px;margin-top:12px;align-items:flex-end}.reply textarea{flex:1;min-height:52px}
 /* телефон */
 .mtop{display:none}
 @media (max-width:900px){
@@ -114,6 +134,9 @@ textarea.in{resize:vertical;min-height:80px}
   .lead{grid-template-columns:1fr}
   .price{grid-template-columns:1fr 1fr}.price>div:first-child{grid-column:1/-1}
   .work{grid-template-columns:1fr}
+  .fun .fr{grid-template-columns:1fr 70px}.fun .fr .bar{grid-column:1/-1;grid-row:2}
+  .sub{grid-template-columns:40px 1fr}.sub .rt{grid-column:2;text-align:left}.av{width:40px;height:40px}.sub .lm{max-width:calc(100vw - 120px)}
+  .msg{max-width:90%}.chat{max-height:58vh;padding:12px}
   .top .btn.p{position:fixed;left:16px;right:16px;bottom:max(16px,env(safe-area-inset-bottom));z-index:30;height:52px;box-shadow:0 10px 30px rgba(0,0,0,.5)}
 }
 </style>
@@ -158,7 +181,7 @@ textarea.in{resize:vertical;min-height:80px}
 const API = 'https://script.google.com/macros/s/AKfycbxn9Js2V9OAez1W_dnCpsALmJq8VQEIMTlX0h49e_ylNyuxowtP4bz_y5A8pGU8HRon/exec';
 const $ = (s, c = document) => c.querySelector(s);
 const esc = (t) => String(t == null ? '' : t).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
-const S = { token: '', login: '', view: 'home', leads: null, content: null, saved: '', filter: 'all', showTests: false, q: '' };
+const S = { token: '', login: '', view: 'home', leads: null, content: null, saved: '', filter: 'all', showTests: false, q: '', bot: null, chat: null, bq: '', bf: 'all', bp: 30 };
 try { S.token = localStorage.getItem('prmax_adm') || ''; } catch (e) {}
 
 async function api(action, data = {}) {
@@ -204,7 +227,7 @@ function logout(silent) {
 
 /* ---------- каркас ---------- */
 const VIEWS = [
-  ['home', '◎', 'Обзор'], ['leads', '☎', 'Заявки'], ['prices', '$', 'Цены'], ['texts', '✎', 'Тексты'],
+  ['home', '◎', 'Обзор'], ['leads', '☎', 'Заявки'], ['bot', '✈', 'Бот'], ['prices', '$', 'Цены'], ['texts', '✎', 'Тексты'],
   ['faq', '?', 'Вопросы'], ['works', '▣', 'Работы'], ['seo', '⌕', 'SEO'], ['settings', '⚙', 'Настройки'],
 ];
 function enter(login, last) {
@@ -224,11 +247,12 @@ $('#menuBtn').onclick = () => $('#side').classList.toggle('open');
 $('#side').addEventListener('click', (e) => { if (e.target === $('#side')) $('#side').classList.remove('open'); });
 function go(v) {
   if (!VIEWS.some((x) => x[0] === v)) v = 'home';
+  if (v !== 'bot') S.chat = null;
   S.view = v; history.replaceState(null, '', '#' + v);
   $('#pTitle').textContent = VIEWS.find((x) => x[0] === v)[2];
   buildNav(); render();
 }
-function render() { ({ home, leads, prices, texts, faq, works, seo, settings })[S.view](); }
+function render() { ({ home, leads, bot, prices, texts, faq, works, seo, settings })[S.view](); }
 const page = (h) => { $('#page').innerHTML = h; };
 const loading = '<div class="empty">Загружаю…</div>';
 
@@ -331,6 +355,83 @@ function leads() {
   $('#lf').querySelectorAll('button').forEach((b) => (b.onclick = () => { S.filter = b.dataset.f; leads(); }));
   $('#lt').onchange = (e) => { S.showTests = e.target.checked; leads(); };
   $('#lr').onclick = () => { S.leads = null; leads(); loadLeads(); };
+}
+
+/* ---------- бот: подписчики, воронка, переписка ---------- */
+const SRC_RU = { tiktok: 'TikTok', site: 'сайт', facebook: 'Facebook', instagram: 'Instagram', meta: 'Facebook' };
+function stage(b) {
+  if (b.stop) return ['p3', 'отписался от напоминаний'];
+  if (!b.phone) return ['p0', 'не дал номер'];
+  if (b.step === 'done') return ['p2', 'анкета заполнена'];
+  return ['p1', 'дал номер, не ответил на всё'];
+}
+const fmtT = (ms) => (ms ? new Date(ms).toLocaleString('ru-RU', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' }) : '');
+async function loadBot() { try { S.bot = (await api('bot')).bot; if (S.view === 'bot' && !S.chat) bot(); } catch (e) { toast(e.message, 'bad'); } }
+function bot() {
+  if (S.chat) return chatView();
+  if (!S.bot) { page(loading); return loadBot(); }
+  const now = Date.now(), d0 = new Date().setHours(0, 0, 0, 0);
+  const all = S.bot.filter((b) => !b.test), per = S.bp ? all.filter((b) => b.created >= now - S.bp * 864e5) : all;
+  const ph = per.filter((b) => b.phone).length, done = per.filter((b) => b.phone && b.step === 'done').length;
+  const pct = (n) => (per.length ? Math.round((n / per.length) * 100) : 0);
+  const bySrc = {}; per.forEach((b) => { const s = SRC_RU[b.src] || b.src || 'напрямую'; bySrc[s] = (bySrc[s] || 0) + 1; });
+  const q = S.bq.toLowerCase();
+  let L = S.bot.filter((b) => S.showTests || !b.test);
+  if (S.bf === 'nophone') L = L.filter((b) => !b.phone); else if (S.bf === 'phone') L = L.filter((b) => b.phone && b.step !== 'done'); else if (S.bf === 'done') L = L.filter((b) => b.phone && b.step === 'done');
+  if (q) L = L.filter((b) => JSON.stringify(b).toLowerCase().includes(q));
+  page(`<p class="hint">Все, кто нажал «Старт» в боте @prmax_agency_bot. Нажмите на человека — откроется вся переписка, и можно ответить ему от имени бота.</p>
+  <div class="grid g4">
+    <div class="card kpi"><b>${all.length}</b><span>подписчиков всего</span></div>
+    <div class="card kpi"><b>${all.filter((b) => b.created >= d0).length}</b><span>новых сегодня</span></div>
+    <div class="card kpi"><b>${all.filter((b) => b.created >= now - 7 * 864e5).length}</b><span>за 7 дней</span></div>
+    <div class="card kpi"><b>${all.filter((b) => b.phone).length}</b><span>оставили номер</span></div>
+  </div>
+  <div class="grid g2" style="margin-top:14px">
+    <div class="card"><div class="row" style="justify-content:space-between;margin-bottom:14px"><h3 style="font-size:15px">Воронка</h3>
+      <div class="seg" id="bp">${[[7, '7 дней'], [30, '30 дней'], [0, 'Всё время']].map(([k, n]) => `<button data-p="${k}" class="${S.bp === k ? 'on' : ''}">${n}</button>`).join('')}</div></div>
+      <div class="fun">${[['Нажали «Старт»', per.length], ['Оставили номер', ph], ['Ответили на все вопросы', done]].map(([n, v]) => `<div class="fr"><span>${n}</span><div class="bar"><i style="width:${pct(v)}%"></i></div><b>${v}<small>${pct(v)}%</small></b></div>`).join('')}</div>
+      <p class="hint" style="margin:12px 0 0">Если многие уходят на шаге номера — значит, кнопку номера стоит смягчить. Сравнивайте неделю к неделе.</p></div>
+    <div class="card"><h3 style="font-size:15px;margin-bottom:12px">Откуда пришли</h3>
+      ${Object.keys(bySrc).length ? Object.entries(bySrc).sort((a, b) => b[1] - a[1]).map(([s, n]) => `<div class="row" style="justify-content:space-between;padding:6px 0"><span class="tag ${esc(s.toLowerCase())}">${esc(s)}</span><b>${n}</b></div>`).join('') : '<div class="hint">Пока никого за этот период</div>'}</div>
+  </div>
+  <div class="toolbar" style="margin-top:22px"><input class="in" id="bq" placeholder="Поиск: имя, телефон, ниша, город" value="${esc(S.bq)}">
+    <div class="seg" id="bf">${[['all', 'Все'], ['nophone', 'Без номера'], ['phone', 'С номером'], ['done', 'Анкета заполнена']].map(([k, n]) => `<button data-f="${k}" class="${S.bf === k ? 'on' : ''}">${n}</button>`).join('')}</div>
+    <label class="row" style="color:var(--mut);font-size:13.5px"><input type="checkbox" id="bt" ${S.showTests ? 'checked' : ''}> показать мои тесты</label>
+    <button class="btn s g" id="br">Обновить</button></div>
+  ${L.map((b) => { const [c, n] = stage(b), nm = b.name || b.username || 'Без имени', lm = b.lastMsg; return `<button class="sub ${b.test ? 'test' : ''}" data-id="${esc(b.id)}"><span class="av">${esc(nm.trim()[0] || '?').toUpperCase()}</span>
+    <span style="min-width:0"><span class="nm">${esc(nm)}</span> ${b.username ? `<span style="color:var(--dim);font-size:13px">${esc(b.username)}</span>` : ''}
+      <span class="lm" style="display:block">${lm ? esc((lm.w === 'клієнт' ? '' : lm.w === 'Максим' ? 'Вы: ' : 'Бот: ') + lm.t) : esc([b.need, b.niche, b.city].filter(Boolean).join(' · ') || 'переписка начнёт сохраняться с сегодняшнего дня')}</span>
+      <span class="stp ${c}">${n}</span>${b.phone ? ` <span style="font-size:13px;font-weight:700;margin-left:6px">${esc(b.phone)}</span>` : ''}</span>
+    <span class="rt">${fmtT(b.last)}<br>${b.src ? `<span class="tag ${esc(b.src)}" style="margin-top:6px">${esc(SRC_RU[b.src] || b.src)}</span>` : ''}</span></button>`; }).join('') || '<div class="empty">Никого не найдено</div>'}`);
+  $('#bp').querySelectorAll('button').forEach((x) => (x.onclick = () => { S.bp = +x.dataset.p; bot(); }));
+  $('#bf').querySelectorAll('button').forEach((x) => (x.onclick = () => { S.bf = x.dataset.f; bot(); }));
+  $('#bt').onchange = (e) => { S.showTests = e.target.checked; bot(); };
+  $('#br').onclick = () => { S.bot = null; bot(); };
+  $('#bq').oninput = (e) => { S.bq = e.target.value; clearTimeout(bot.t); bot.t = setTimeout(() => { bot(); const i = $('#bq'); i.focus(); i.setSelectionRange(i.value.length, i.value.length); }, 300); };
+  $('#page').querySelectorAll('.sub').forEach((x) => (x.onclick = () => openChat(x.dataset.id)));
+}
+async function openChat(id) { S.chat = { id, loading: true }; chatView(); scrollTo(0, 0); try { S.chat = (await api('botChat', { id })).chat; if (S.view === 'bot') chatView(); } catch (e) { toast(e.message, 'bad'); S.chat = null; bot(); } }
+function chatView() {
+  const c = S.chat;
+  if (c.loading) return page(loading);
+  const [cl, st] = stage(c), d = phoneDigits(c.phone), info = [c.need, c.niche, c.city, c.when ? 'запуск: ' + c.when : '', c.site ? 'есть: ' + c.site : ''].filter(Boolean).map(esc).join(' · ');
+  page(`<button class="btn s g" id="cb">← Все подписчики</button>
+  <div class="card" style="margin:14px 0"><div class="row" style="justify-content:space-between">
+    <div><div style="font-weight:800;font-size:18px">${esc(c.name || 'Без имени')} ${c.username ? `<span style="color:var(--dim);font-size:14px;font-weight:600">${esc(c.username)}</span>` : ''}</div>
+      <span class="stp ${cl}">${st}</span>${c.src ? ` <span class="tag ${esc(c.src)}">${esc(SRC_RU[c.src] || c.src)}</span>` : ''}${info ? `<div class="meta" style="color:var(--mut);font-size:13.5px;margin-top:6px">${info}</div>` : ''}</div>
+    <div class="row">${c.phone ? `<a class="btn s p" href="tel:+${d}">Позвонить ${esc(c.phone)}</a><a class="btn s g" href="https://prmax.agency/v.html?n=${d}" target="_blank" rel="noopener">Viber</a>` : ''}${c.username ? `<a class="btn s g" href="https://t.me/${esc(c.username.replace('@', ''))}" target="_blank" rel="noopener">Написать лично</a>` : ''}<button class="btn s g" id="cr">Обновить</button></div></div></div>
+  <div class="chat" id="chat">${c.msgs.length ? c.msgs.map((m) => `<div class="msg ${m.w === 'клієнт' ? 'cl' : m.w === 'Максим' ? 'mx' : 'bt'}">${esc(m.t)}<small>${m.w === 'клієнт' ? 'клиент' : m.w === 'Максим' ? 'вы' : 'бот'}${m.d ? ' · ' + fmtT(m.d) : ''}</small></div>`).join('') : '<div class="empty">Переписки пока нет</div>'}</div>
+  <div class="reply"><textarea class="in" id="ct" placeholder="Ответ клиенту — придёт ему в Telegram от бота PRMAX"></textarea><button class="btn p" id="cs">Отправить</button></div>
+  <p class="hint" style="margin-top:8px">Ответ также появится в вашей группе «PRMAX Заявки». Отправленное сообщение удалить нельзя — проверьте текст.</p>`);
+  const ch = $('#chat'); ch.scrollTop = ch.scrollHeight;
+  $('#cb').onclick = () => { S.chat = null; S.bot = null; bot(); };
+  $('#cr').onclick = () => openChat(c.id);
+  $('#cs').onclick = async () => {
+    const t = $('#ct').value.trim(), b = $('#cs'); if (!t) return;
+    b.disabled = true; b.innerHTML = '<span class="spin"></span>';
+    try { await api('botSend', { id: c.id, text: t }); c.msgs.push({ d: Date.now(), w: 'Максим', t }); toast('Отправлено клиенту', 'good'); chatView(); }
+    catch (e) { toast(e.message, 'bad'); b.disabled = false; b.textContent = 'Отправить'; }
+  };
 }
 
 /* ---------- цены ---------- */
