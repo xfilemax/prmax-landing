@@ -501,7 +501,6 @@ details[open] .ans{grid-template-rows:1fr}
 @media (min-width:700px){
   .hs>*{flex-basis:46%}
   .price-cards{grid-template-columns:1fr 1fr}
-  .price-cards .pc:last-child{grid-column:1/-1}
   .rv-main{grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);align-items:center;padding:40px}
   .builder{grid-template-columns:minmax(0,1fr) minmax(0,1fr);padding:34px}
   .builder .nchips{flex-wrap:wrap;margin:0;padding:0;overflow:visible}
@@ -546,8 +545,9 @@ details[open] .ans{grid-template-rows:1fr}
   .nc{height:340px}
   .wk,.stp,.pc{transition:transform .6s var(--e),border-color .4s}
   .wk:hover,.stp:hover,.pc:hover{transform:translateY(-6px)}
-  .price-cards{grid-template-columns:repeat(3,1fr);gap:20px}
-  .price-cards .pc:last-child{grid-column:auto}
+  .price-cards{grid-template-columns:repeat(4,1fr);gap:16px}
+  .price-cards .pc{padding:24px 20px}
+  .price-cards .pc .lbl{flex-wrap:wrap}
   .pc{padding:34px}
   .pc .am b{font-size:80px}
   .bonus-big{padding:44px 48px}
@@ -1014,7 +1014,9 @@ footer{border-top:1px solid var(--line);background:var(--obs2);padding:40px 0 ca
         <ul><li><svg><use href="#i-check"/></svg>Дизайн і тексти під вашу нішу</li><li><svg><use href="#i-check"/></svg>Кнопки дзвінка, Telegram, Viber</li><li><svg><use href="#i-check"/></svg>Зручний з телефону</li><li><svg><use href="#i-check"/></svg>Домен, аналітика, форма заявки</li><li><svg><use href="#i-check"/></svg>Запуск за 3 дні</li></ul></div>
       <div class="pc hot rv" style="--d:.08s"><div class="lbl"><h3>Реклама Google</h3><em>−50%</em></div><div class="am"><s>$300</s><b class="og-text live">$150</b><small>налаштування</small></div>
         <ul><li><svg><use href="#i-check"/></svg>Запити «послуга + місто»</li><li><svg><use href="#i-check"/></svg>Мінус-слова — бюджет не зливається</li><li><svg><use href="#i-check"/></svg>Показ тільки у вашому місті</li><li><svg><use href="#i-check"/></svg>Відстеження дзвінків і заявок</li></ul></div>
-      <div class="pc rv" style="--d:.16s"><div class="lbl"><h3>Ведення реклами й сайту</h3><em class="g">за бажанням</em></div><div class="am"><b>$75</b><small>/ місяць</small></div>
+      <div class="pc hot rv" style="--d:.12s"><div class="lbl"><h3>Telegram-бот</h3><em>новинка</em></div><div class="am"><b class="og-text live">$200</b><small>разово</small></div>
+        <ul><li><svg><use href="#i-check"/></svg>Відповідає вашим клієнтам 24/7 — навіть уночі</li><li><svg><use href="#i-check"/></svg>Ставить питання й бере номер телефону</li><li><svg><use href="#i-check"/></svg>Заявки миттєво у ваш Telegram</li><li><svg><use href="#i-check"/></svg>Сам нагадує тим, хто не дописав</li><li><svg><use href="#i-check"/></svg>Знає ваші ціни й послуги</li></ul></div>
+      <div class="pc rv" style="--d:.18s"><div class="lbl"><h3>Ведення реклами й сайту</h3><em class="g">за бажанням</em></div><div class="am"><b>$75</b><small>/ місяць</small></div>
         <ul><li><svg><use href="#i-check"/></svg>Стежимо за рекламою щотижня: мінус-слова, ставки, запити</li><li><svg><use href="#i-check"/></svg>Правки на сайті — без доплат</li><li><svg><use href="#i-check"/></svg>Короткий звіт щомісяця</li><li><svg><use href="#i-check"/></svg>Відмовитися можна будь-коли</li></ul></div>
     </div>
     <div class="total rv"><p><span class="tl">Сайт + реклама разом</span><span class="tp"><b class="og-text live">$450</b><s>$1000</s></span></p><a class="btn btn-o" href="#zayavka" data-lead><span>Замовити</span><span class="ar"><svg><use href="#i-arr"/></svg></span></a></div>
