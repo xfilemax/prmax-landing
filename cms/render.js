@@ -24,6 +24,7 @@ var PRMAX_CMS = (function () {
     Object.keys(c.texts).forEach(function (k) { d.t[k] = typo(fill(c.texts[k], p)); });
     d.faq = c.faq.map(function (f) { return { q: typo(fill(f.q, p)), a: typo(fill(f.a, p)) }; });
     d.works = c.works.map(function (w) { return { name: w.name, tag: w.tag, poster: w.poster, video: w.video || '', yt: w.yt || '' }; });
+    d.seo = {}; Object.keys(c.seo || {}).forEach(function (k) { d.seo[k] = fill(c.seo[k], p); });
     d.disc = { site: pct(p.site, p.site_old), google: pct(p.google, p.google_old), bot: pct(p.bot, p.bot_old) };
     var mins = [p.site, p.google, p.bot, p.social, p.seo, p.maps, p.logo, p.lang].filter(function (x) { return x > 0; });
     function offer(name, price, desc) { return { '@type': 'Offer', price: String(price), priceCurrency: 'USD', itemOffered: { '@type': 'Service', name: name, description: desc } }; }

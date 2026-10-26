@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>PRMAX — админка</title>
+<link rel="icon" href="../img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@600;700&display=swap">
+<style>
+:root{--bg:#0B0A09;--bg2:#141210;--bg3:#1c1916;--line:rgba(255,255,255,.09);--line2:rgba(255,255,255,.16);--fg:#F5F3EF;--mut:rgba(245,243,239,.62);--dim:rgba(245,243,239,.4);--o1:#FFC37E;--o2:#FF8A1F;--o3:#FF6A00;--grad:linear-gradient(100deg,#FFC37E,#FF7A00);--ok:#3ad07a;--bad:#ff5c5c;--r:16px}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 Manrope,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,input,select,textarea{font:inherit;color:inherit}
+a{color:var(--o1)}
+h1,h2,h3{font-family:Unbounded,Manrope,sans-serif;font-weight:600;letter-spacing:-.01em;margin:0}
+.hide{display:none!important}
+/* вхід */
+.login{min-height:100vh;display:grid;place-items:center;padding:24px;background:radial-gradient(800px 500px at 20% 0,rgba(255,122,0,.18),transparent 70%),var(--bg)}
+.lbox{width:100%;max-width:380px;background:var(--bg2);border:1px solid var(--line2);border-radius:24px;padding:30px 26px}
+.lbox img{height:46px;width:auto;display:block;margin-bottom:18px}
+.lbox h1{font-size:22px;margin-bottom:6px}
+.lbox p{color:var(--mut);margin:0 0 18px;font-size:14px}
+label.f{display:block;margin:12px 0 0}
+label.f span{display:block;font-size:12.5px;color:var(--mut);margin-bottom:6px;font-weight:600;letter-spacing:.02em}
+.in,select.in,textarea.in{width:100%;background:var(--bg);border:1px solid var(--line2);border-radius:12px;padding:12px 14px;outline:none;transition:border-color .2s}
+.in:focus{border-color:var(--o2)}
+textarea.in{resize:vertical;min-height:80px}
+.btn{text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px;height:46px;padding:0 20px;border-radius:999px;border:0;cursor:pointer;font-weight:700;white-space:nowrap}
+.btn.p{background:var(--grad);color:#1A1007}
+.btn.g{background:rgba(255,255,255,.07);border:1px solid var(--line2)}
+.btn.s{height:36px;padding:0 14px;font-size:13.5px}
+.btn:disabled{opacity:.5;cursor:default}
+.btn.w{width:100%;margin-top:20px}
+.err{color:var(--bad);font-size:13.5px;min-height:20px;margin-top:10px}
+/* каркас */
+.app{display:grid;grid-template-columns:240px 1fr;min-height:100vh}
+.side{background:var(--bg2);border-right:1px solid var(--line);padding:22px 14px;position:sticky;top:0;height:100vh;display:flex;flex-direction:column;gap:4px}
+.side img{height:38px;width:auto;max-width:150px;object-fit:contain;align-self:flex-start;margin:0 8px 22px}
+.nav button{display:flex;align-items:center;gap:12px;width:100%;padding:11px 12px;border:0;background:none;border-radius:12px;cursor:pointer;color:var(--mut);font-weight:600;text-align:left}
+.nav button:hover{background:rgba(255,255,255,.04);color:var(--fg)}
+.nav button.on{background:rgba(255,138,31,.13);color:var(--o1)}
+.nav i{font-style:normal;width:22px;text-align:center}
+.nav b{margin-left:auto;background:var(--o3);color:#fff;font-size:11.5px;border-radius:999px;padding:1px 8px}
+.side .who{margin-top:auto;font-size:12.5px;color:var(--dim);padding:10px 12px}
+.main{min-width:0}
+.top{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:12px;padding:16px 28px;background:rgba(11,10,9,.86);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.top h2{font-size:19px}
+.top .sp{flex:1}
+.dirty{font-size:13px;color:var(--o1)}
+.page{padding:26px 28px 120px;max-width:1180px}
+.hint{color:var(--mut);font-size:14px;margin:4px 0 20px}
+.card{background:var(--bg2);border:1px solid var(--line);border-radius:var(--r);padding:20px}
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.kpi b{display:block;font:700 30px/1.1 Unbounded,sans-serif;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.kpi span{color:var(--mut);font-size:13px}
+.row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.tag{display:inline-block;font-size:12px;font-weight:700;border-radius:999px;padding:3px 10px;background:rgba(255,255,255,.07);color:var(--mut)}
+.tag.tiktok{background:rgba(37,244,238,.12);color:#6ff3ee}.tag.facebook,.tag.meta,.tag.instagram{background:rgba(24,119,242,.16);color:#8fb8ff}.tag.сайт,.tag.site{background:rgba(255,138,31,.14);color:var(--o1)}.tag.telegram{background:rgba(42,171,238,.16);color:#7fd0ff}
+.st-new{color:var(--o1)}.st-work{color:#8fb8ff}.st-client{color:var(--ok)}.st-lost{color:var(--dim)}
+/* заявки */
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.toolbar .in{width:auto;flex:1;min-width:180px}
+.seg{display:inline-flex;background:var(--bg2);border:1px solid var(--line2);border-radius:999px;padding:3px}
+.seg button{border:0;background:none;border-radius:999px;padding:7px 14px;cursor:pointer;color:var(--mut);font-weight:600;font-size:13.5px}
+.seg button.on{background:rgba(255,138,31,.16);color:var(--o1)}
+.lead{display:grid;grid-template-columns:150px 1fr 260px;gap:16px;align-items:start;padding:16px 18px;border:1px solid var(--line);border-radius:var(--r);background:var(--bg2);margin-bottom:10px}
+.lead.test{opacity:.55}
+.lead .d{font-size:13px;color:var(--mut)}
+.lead .nm{font-weight:700;font-size:16px}
+.lead .ph{font-size:16px;font-weight:700;color:var(--fg);text-decoration:none}
+.lead .meta{color:var(--mut);font-size:13.5px;margin-top:4px}
+.lead .act{display:flex;flex-direction:column;gap:8px}
+.lead .act .row .btn{flex:1}
+/* редактори */
+.fld{margin-bottom:14px}
+.fld>span{display:block;font-size:13px;color:var(--mut);font-weight:600;margin-bottom:6px}
+.price{display:grid;grid-template-columns:1fr 130px 130px;gap:12px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}
+.price:last-child{border-bottom:0}
+.price .nm{font-weight:700}.price small{display:block;color:var(--dim);font-size:12.5px;font-weight:500}
+.price .in{text-align:center;font-weight:700}
+.price .disc{font-size:12px;color:var(--o1);text-align:center}
+.item{border:1px solid var(--line);border-radius:var(--r);padding:16px;margin-bottom:12px;background:var(--bg2)}
+.item .hd{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.item .hd b{flex:1;color:var(--mut);font-size:13px}
+.ib{width:34px;height:34px;border-radius:10px;border:1px solid var(--line2);background:var(--bg);cursor:pointer;display:grid;place-items:center}
+.ib:hover{border-color:var(--o2)}
+.work{display:grid;grid-template-columns:220px 1fr;gap:16px}
+.work .pv{aspect-ratio:16/10;border-radius:12px;background:#000 center/cover no-repeat;border:1px solid var(--line2);position:relative;overflow:hidden}
+.work .pv label{position:absolute;inset:auto 8px 8px 8px}
+.counter{font-size:12px;color:var(--dim);float:right}.counter.over{color:var(--bad)}
+.snippet{background:#fff;color:#202124;border-radius:14px;padding:16px 18px;font-family:Arial,sans-serif;max-width:640px}
+.snippet .u{font-size:13px;color:#202124}.snippet .t{font-size:20px;color:#1a0dab;margin:4px 0;line-height:1.3}.snippet .ds{font-size:14px;color:#4d5156;line-height:1.5}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);opacity:0;background:#1f1b17;border:1px solid var(--line2);padding:12px 18px;border-radius:14px;transition:.3s;z-index:99;max-width:90vw}
+.toast.on{opacity:1;transform:translate(-50%,0)}.toast.bad{border-color:var(--bad)}.toast.good{border-color:var(--ok)}
+.spin{width:18px;height:18px;border-radius:50%;border:2px solid rgba(0,0,0,.25);border-top-color:#1A1007;animation:sp .8s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+.empty{color:var(--mut);text-align:center;padding:40px}
+.links a{display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--line);text-decoration:none;color:var(--fg)}
+.links a:last-child{border-bottom:0}.links a span{color:var(--dim)}
+/* телефон */
+.mtop{display:none}
+@media (max-width:900px){
+  .app{grid-template-columns:1fr}
+  .side{position:fixed;inset:0 auto 0 0;width:260px;z-index:50;transform:translateX(-100%);transition:transform .3s}
+  .side.open{transform:none;box-shadow:0 0 0 100vmax rgba(0,0,0,.55)}
+  .mtop{display:grid;place-items:center;width:42px;height:42px;border-radius:12px;border:1px solid var(--line2);background:var(--bg2);cursor:pointer}
+  .top{padding:12px 16px}.top h2{font-size:16px}
+  .page{padding:18px 16px 110px}
+  .g4{grid-template-columns:repeat(2,minmax(0,1fr))}.g2{grid-template-columns:1fr}
+  .lead{grid-template-columns:1fr}
+  .price{grid-template-columns:1fr 1fr}.price>div:first-child{grid-column:1/-1}
+  .work{grid-template-columns:1fr}
+  .top .btn.p{position:fixed;left:16px;right:16px;bottom:max(16px,env(safe-area-inset-bottom));z-index:30;height:52px;box-shadow:0 10px 30px rgba(0,0,0,.5)}
+}
+</style>
+</head>
+<body>
+
+<!-- вхід / перший пароль -->
+<section class="login" id="login">
+  <form class="lbox" id="loginForm" autocomplete="on">
+    <img src="../img/logo.webp" alt="PRMAX">
+    <h1 id="lTitle">Вход в админку</h1>
+    <p id="lText">Сайт prmax.agency: заявки, цены, тексты, работы, SEO.</p>
+    <label class="f"><span>Логин</span><input class="in" id="lLogin" name="username" autocomplete="username" required></label>
+    <label class="f"><span>Пароль</span><input class="in" id="lPass" name="password" type="password" autocomplete="current-password" required minlength="8"></label>
+    <label class="f hide" id="lPass2Wrap"><span>Пароль ещё раз</span><input class="in" id="lPass2" type="password" autocomplete="new-password" minlength="8"></label>
+    <button class="btn p w" id="lBtn">Войти</button>
+    <div class="err" id="lErr"></div>
+  </form>
+</section>
+
+<div class="app hide" id="app">
+  <aside class="side" id="side">
+    <img src="../img/logo.webp" alt="PRMAX">
+    <nav class="nav" id="nav"></nav>
+    <div class="who" id="who"></div>
+  </aside>
+  <main class="main">
+    <div class="top">
+      <button class="mtop" id="menuBtn" aria-label="Меню">☰</button>
+      <h2 id="pTitle">Обзор</h2>
+      <span class="sp"></span>
+      <span class="dirty hide" id="dirty">Есть несохранённые изменения</span>
+      <button class="btn p hide" id="saveBtn">Сохранить и опубликовать</button>
+    </div>
+    <div class="page" id="page"></div>
+  </main>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+/* Админка PRMAX. Сервер — Google Apps Script (тот же, что принимает заявки). Пароль хранится только в виде хеша на сервере. */
+const API = 'https://script.google.com/macros/s/AKfycbxn9Js2V9OAez1W_dnCpsALmJq8VQEIMTlX0h49e_ylNyuxowtP4bz_y5A8pGU8HRon/exec';
+const $ = (s, c = document) => c.querySelector(s);
+const esc = (t) => String(t == null ? '' : t).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const S = { token: '', login: '', view: 'home', leads: null, content: null, saved: '', filter: 'all', showTests: false, q: '' };
+try { S.token = localStorage.getItem('prmax_adm') || ''; } catch (e) {}
+
+async function api(action, data = {}) {
+  const r = await fetch(API, { method: 'POST', body: JSON.stringify(Object.assign({ admin: 1, action, token: S.token }, data)) });
+  const j = await r.json().catch(() => ({ ok: false, error: 'Сервер не ответил' }));
+  if (j.auth === false) { logout(true); throw new Error(j.error); }
+  if (!j.ok) throw new Error(j.error || 'Ошибка');
+  return j;
+}
+function toast(t, kind = '') { const el = $('#toast'); el.textContent = t; el.className = 'toast on ' + kind; clearTimeout(toast.t); toast.t = setTimeout(() => (el.className = 'toast ' + kind), kind === 'bad' ? 6000 : 3500); }
+
+/* ---------- вход ---------- */
+let SETUP = false;
+async function initLogin() {
+  if (S.token) { try { const me = await api('me'); return enter(me.login, me.lastPublish); } catch (e) {} }
+  $('#login').classList.remove('hide');
+  try {
+    const st = await api('state');
+    if (!st.hasPassword) {
+      SETUP = true; $('#lTitle').textContent = 'Создайте вход в админку';
+      $('#lText').textContent = 'Первый запуск: придумайте логин и пароль (от 8 символов). Пароль знаете только вы — на сервере хранится лишь его отпечаток.';
+      $('#lPass2Wrap').classList.remove('hide'); $('#lPass').autocomplete = 'new-password'; $('#lBtn').textContent = 'Создать и войти';
+    }
+  } catch (e) { $('#lErr').textContent = e.message; }
+}
+$('#loginForm').addEventListener('submit', async (e) => {
+  e.preventDefault(); $('#lErr').textContent = ''; const b = $('#lBtn'); b.disabled = true;
+  try {
+    const login = $('#lLogin').value.trim(), password = $('#lPass').value;
+    if (SETUP && password !== $('#lPass2').value) throw new Error('Пароли не совпадают');
+    const r = await api(SETUP ? 'setup' : 'login', { login, password });
+    S.token = r.token; try { localStorage.setItem('prmax_adm', r.token); } catch (e2) {}
+    enter(r.login, '');
+  } catch (err) { $('#lErr').textContent = err.message; }
+  b.disabled = false;
+});
+function logout(silent) {
+  if (!silent && S.token) api('logout').catch(() => {});
+  S.token = ''; try { localStorage.removeItem('prmax_adm'); } catch (e) {}
+  $('#app').classList.add('hide'); $('#login').classList.remove('hide');
+  if (silent) $('#lErr').textContent = 'Сессия завершилась — войдите снова';
+}
+
+/* ---------- каркас ---------- */
+const VIEWS = [
+  ['home', '◎', 'Обзор'], ['leads', '☎', 'Заявки'], ['prices', '$', 'Цены'], ['texts', '✎', 'Тексты'],
+  ['faq', '?', 'Вопросы'], ['works', '▣', 'Работы'], ['seo', '⌕', 'SEO'], ['settings', '⚙', 'Настройки'],
+];
+function enter(login, last) {
+  S.login = login; S.lastPublish = last;
+  $('#login').classList.add('hide'); $('#app').classList.remove('hide');
+  $('#who').innerHTML = 'Вы вошли как <b>' + esc(login) + '</b><br><a href="#" id="out">Выйти</a>';
+  $('#out').onclick = (e) => { e.preventDefault(); logout(); };
+  buildNav(); go(location.hash.slice(1) || 'home');
+  loadLeads(); loadContent();
+}
+function buildNav() {
+  const nNew = (S.leads || []).filter((l) => !l.test && l.status === 'new').length;
+  $('#nav').innerHTML = VIEWS.map(([k, i, t]) => `<button data-v="${k}" class="${S.view === k ? 'on' : ''}"><i>${i}</i>${t}${k === 'leads' && nNew ? `<b>${nNew}</b>` : ''}</button>`).join('');
+  $('#nav').querySelectorAll('button').forEach((b) => (b.onclick = () => { go(b.dataset.v); $('#side').classList.remove('open'); }));
+}
+$('#menuBtn').onclick = () => $('#side').classList.toggle('open');
+$('#side').addEventListener('click', (e) => { if (e.target === $('#side')) $('#side').classList.remove('open'); });
+function go(v) {
+  if (!VIEWS.some((x) => x[0] === v)) v = 'home';
+  S.view = v; history.replaceState(null, '', '#' + v);
+  $('#pTitle').textContent = VIEWS.find((x) => x[0] === v)[2];
+  buildNav(); render();
+}
+function render() { ({ home, leads, prices, texts, faq, works, seo, settings })[S.view](); }
+const page = (h) => { $('#page').innerHTML = h; };
+const loading = '<div class="empty">Загружаю…</div>';
+
+async function loadLeads() { try { S.leads = (await api('leads')).leads; buildNav(); if (['home', 'leads'].includes(S.view)) render(); } catch (e) { toast(e.message, 'bad'); } }
+async function loadContent() {
+  try { S.content = (await api('content')).content; S.content.seo = S.content.seo || {}; S.saved = JSON.stringify(S.content); markDirty(); if (!['home', 'leads', 'settings'].includes(S.view)) render(); }
+  catch (e) { toast('Не удалось загрузить сайт: ' + e.message, 'bad'); }
+}
+function markDirty() { const d = S.content && JSON.stringify(S.content) !== S.saved; $('#dirty').classList.toggle('hide', !d); $('#saveBtn').classList.toggle('hide', !d); }
+addEventListener('beforeunload', (e) => { if (S.content && JSON.stringify(S.content) !== S.saved) { e.preventDefault(); e.returnValue = ''; } });
+$('#saveBtn').onclick = async () => {
+  const b = $('#saveBtn'); b.disabled = true; b.innerHTML = '<span class="spin"></span> Публикую…';
+  try { const r = await api('save', { content: S.content }); S.saved = JSON.stringify(S.content); S.lastPublish = r.published; markDirty(); toast('Опубликовано ' + r.published + '. На сайте — через 1–2 минуты.', 'good'); }
+  catch (e) { toast('Не сохранилось: ' + e.message, 'bad'); }
+  b.disabled = false; b.textContent = 'Сохранить и опубликовать';
+};
+// поле ввода → значение в S.content по пути «a.b.c»
+function bind(root) {
+  root.querySelectorAll('[data-k]').forEach((el) => {
+    el.addEventListener('input', () => {
+      const path = el.dataset.k.split('.'); let o = S.content;
+      for (let i = 0; i < path.length - 1; i++) o = o[path[i]];
+      o[path.at(-1)] = el.type === 'number' ? Number(el.value) : el.value;
+      markDirty(); if (el.dataset.after) window[el.dataset.after](el);
+    });
+  });
+}
+const get = (path) => path.split('.').reduce((o, k) => (o == null ? o : o[k]), S.content);
+
+/* ---------- обзор ---------- */
+function realLeads() { return (S.leads || []).filter((l) => !l.test); }
+function parseD(s) { const m = /^(\d\d)\.(\d\d)\.(\d{4})/.exec(s || ''); return m ? new Date(+m[3], m[2] - 1, +m[1]) : null; }
+function home() {
+  if (!S.leads) return page(loading);
+  const L = realLeads(), now = new Date(), d0 = new Date(now.getFullYear(), now.getMonth(), now.getDate()), d7 = new Date(d0 - 6 * 864e5);
+  const today = L.filter((l) => +parseD(l.date) === +d0).length, week = L.filter((l) => parseD(l.date) >= d7).length;
+  const bySrc = {}; L.filter((l) => parseD(l.date) >= d7).forEach((l) => (bySrc[l.source] = (bySrc[l.source] || 0) + 1));
+  const nNew = L.filter((l) => l.status === 'new').length;
+  page(`<p class="hint">Главное за неделю. Тестовые заявки (ваши проверки) не считаются.</p>
+  <div class="grid g4">
+    <div class="card kpi"><b>${today}</b><span>заявок сегодня</span></div>
+    <div class="card kpi"><b>${week}</b><span>за 7 дней</span></div>
+    <div class="card kpi"><b>${nNew}</b><span>ещё не обработаны</span></div>
+    <div class="card kpi"><b>${L.length}</b><span>всего заявок</span></div>
+  </div>
+  <div class="grid g2" style="margin-top:14px">
+    <div class="card"><h3 style="font-size:15px;margin-bottom:12px">Откуда заявки (7 дней)</h3>
+      ${Object.keys(bySrc).length ? Object.entries(bySrc).sort((a, b) => b[1] - a[1]).map(([s, n]) => `<div class="row" style="justify-content:space-between;padding:6px 0"><span class="tag ${esc(s)}">${esc(s)}</span><b>${n}</b></div>`).join('') : '<div class="hint">Пока нет заявок за неделю</div>'}
+      <p class="hint" style="margin:12px 0 0">Последняя публикация сайта: <b>${esc(S.lastPublish || '—')}</b></p></div>
+    <div class="card links"><h3 style="font-size:15px;margin-bottom:6px">Аналитика и реклама</h3>
+      <a href="https://search.google.com/search-console?resource_id=https%3A%2F%2Fprmax.agency%2F" target="_blank" rel="noopener">Google Search Console — как вас находят в Google <span>↗</span></a>
+      <a href="https://clarity.microsoft.com/projects/view/z2nkewuu0z/dashboard" target="_blank" rel="noopener">Microsoft Clarity — записи визитов <span>↗</span></a>
+      <a href="https://ads.tiktok.com/i18n/dashboard?aadvid=7628542326444556304" target="_blank" rel="noopener">TikTok Ads — кабинет PRMAX <span>↗</span></a>
+      <a href="https://adsmanager.facebook.com/" target="_blank" rel="noopener">Meta Ads — Facebook и Instagram <span>↗</span></a>
+      <a href="https://prmax.agency/" target="_blank" rel="noopener">Открыть сайт <span>↗</span></a>
+    </div>
+  </div>
+  <h3 style="font-size:15px;margin:22px 0 12px">Последние заявки</h3>${L.slice(0, 5).map(leadCard).join('') || '<div class="empty">Заявок пока нет</div>'}
+  <button class="btn g" onclick="go('leads')">Все заявки →</button>`);
+  bindLeads();
+}
+
+/* ---------- заявки ---------- */
+const STATUS = [['new', 'Новая'], ['work', 'В работе'], ['client', 'Клиент'], ['lost', 'Отказ']];
+function phoneDigits(p) { let d = String(p || '').replace(/\D/g, ''); if (d.length === 10 && d[0] === '0') d = '38' + d; return d; }
+function leadCard(l) {
+  const d = phoneDigits(l.phone), tg = String(l.tg || '').replace(/^@+|\s|@/g, '');
+  const meta = [l.need, l.niche, l.city].filter(Boolean).map(esc).join(' · ');
+  return `<div class="lead ${l.test ? 'test' : ''}" data-key="${esc(l.key)}">
+    <div><div class="d">${esc(l.date)}</div><div class="row" style="margin-top:6px"><span class="tag ${esc(l.source)}">${esc(l.source)}</span>${l.test ? '<span class="tag">тест</span>' : ''}</div></div>
+    <div><div class="nm">${esc(l.name || 'Без имени')}</div><a class="ph" href="tel:+${d}">${esc(l.phone)}</a>
+      ${meta ? `<div class="meta">${meta}</div>` : ''}${l.note ? `<div class="meta">${esc(l.note)}</div>` : ''}${tg ? `<div class="meta">Telegram: @${esc(tg)}</div>` : ''}</div>
+    <div class="act">
+      <div class="row"><a class="btn s p" href="tel:+${d}">Позвонить</a><a class="btn s g" href="https://prmax.agency/v.html?n=${d}" target="_blank" rel="noopener">Viber</a>${tg && /^[A-Za-z]\w{3,}$/.test(tg) ? `<a class="btn s g" href="https://t.me/${esc(tg)}" target="_blank" rel="noopener">Telegram</a>` : ''}</div>
+      <select class="in st" aria-label="Статус">${STATUS.map(([k, t]) => `<option value="${k}" ${l.status === k ? 'selected' : ''}>${t}</option>`).join('')}</select>
+      <input class="in cm" placeholder="Комментарий (видите только вы)" value="${esc(l.comment)}">
+    </div></div>`;
+}
+function bindLeads() {
+  $('#page').querySelectorAll('.lead').forEach((el) => {
+    const l = S.leads.find((x) => x.key === el.dataset.key);
+    const save = async () => { l.status = el.querySelector('.st').value; l.comment = el.querySelector('.cm').value; try { await api('leadSave', { key: l.key, status: l.status, comment: l.comment }); toast('Сохранено', 'good'); buildNav(); } catch (e) { toast(e.message, 'bad'); } };
+    el.querySelector('.st').onchange = save; el.querySelector('.cm').onchange = save;
+  });
+}
+function leads() {
+  if (!S.leads) return page(loading);
+  const f = S.filter, q = S.q.toLowerCase();
+  let L = S.leads.filter((l) => S.showTests || !l.test);
+  if (f !== 'all') L = L.filter((l) => l.status === f);
+  if (q) L = L.filter((l) => JSON.stringify(l).toLowerCase().includes(q));
+  page(`<p class="hint">Заявки с сайта и из Telegram-бота. Эта база закрыта: её видите только вы. Статус и комментарий сохраняются сразу.</p>
+  <div class="toolbar"><input class="in" id="lq" placeholder="Поиск: имя, телефон, ниша, город" value="${esc(S.q)}">
+    <div class="seg" id="lf">${[['all', 'Все'], ...STATUS].map(([k, t]) => `<button data-f="${k}" class="${f === k ? 'on' : ''}">${t}</button>`).join('')}</div>
+    <label class="row" style="color:var(--mut);font-size:13.5px"><input type="checkbox" id="lt" ${S.showTests ? 'checked' : ''}> показать тесты</label>
+    <button class="btn s g" id="lr">Обновить</button></div>
+  ${L.map(leadCard).join('') || '<div class="empty">Ничего не найдено</div>'}`);
+  bindLeads();
+  $('#lq').oninput = (e) => { S.q = e.target.value; clearTimeout(leads.t); leads.t = setTimeout(() => { leads(); const i = $('#lq'); i.focus(); i.setSelectionRange(i.value.length, i.value.length); }, 300); };
+  $('#lf').querySelectorAll('button').forEach((b) => (b.onclick = () => { S.filter = b.dataset.f; leads(); }));
+  $('#lt').onchange = (e) => { S.showTests = e.target.checked; leads(); };
+  $('#lr').onclick = () => { S.leads = null; leads(); loadLeads(); };
+}
+
+/* ---------- цены ---------- */
+const PRICES = [
+  ['site', 'site_old', 'Сайт под ключ', 'одностраничный сайт за 3 дня'],
+  ['google', 'google_old', 'Реклама Google', 'настройка'],
+  ['bot', 'bot_old', 'Telegram-бот', 'для бизнеса клиента'],
+  ['total', 'total_old', 'Сайт + реклама вместе', 'итоговая плашка под ценами'],
+  ['vedennya', '', 'Ведение рекламы и сайта', 'в месяц'],
+  ['social', '', 'TikTok / Facebook + Instagram', 'с видео клиента'],
+  ['social_creo', '', 'TikTok / Facebook + Instagram', 'с 3 нашими креативами'],
+  ['seo', '', 'SEO', ''], ['maps', '', 'Google Карты', 'профиль компании'], ['logo', '', 'Логотип', ''], ['lang', '', 'Ещё один язык сайта', ''],
+];
+function discRefresh() { document.querySelectorAll('[data-disc]').forEach((el) => { const [a, b] = el.dataset.disc.split(','), p = S.content.prices, v = p[b] ? Math.round((1 - p[a] / p[b]) * 100) : 0; el.textContent = p[b] ? 'скидка на сайте: −' + v + '%' : ''; }); }
+function prices() {
+  if (!S.content) return page(loading);
+  page(`<p class="hint">Цены в долларах. Меняются сразу везде: карточки, вопросы, Google, и бот начинает называть новые цены. Перечёркнутая цена — «было».</p>
+  <div class="card">
+    <div class="price" style="padding-top:0"><div></div><div class="hint" style="margin:0;text-align:center">Цена, $</div><div class="hint" style="margin:0;text-align:center">Было (зачёркнуто)</div></div>
+    ${PRICES.map(([k, o, n, s]) => `<div class="price"><div><span class="nm">${n}</span><small>${s}</small></div>
+      <input class="in" type="number" min="0" step="1" data-k="prices.${k}" value="${esc(get('prices.' + k))}" data-after="discRefresh">
+      <div>${o ? `<input class="in" type="number" min="0" step="1" data-k="prices.${o}" value="${esc(get('prices.' + o))}" data-after="discRefresh"><div class="disc" data-disc="${k},${o}"></div>` : ''}</div></div>`).join('')}
+  </div>`);
+  bind($('#page')); discRefresh();
+}
+
+/* ---------- тексты ---------- */
+const TEXTS = [['h1a', 'Главный заголовок — начало (белым)'], ['h1b', 'Главный заголовок — конец (оранжевым)'], ['h1c', 'Вторая строка под заголовком'], ['lead_a', 'Текст под заголовком — 1-е предложение (на телефоне скрыто)'], ['lead_b', 'Текст под заголовком — 2-е предложение']];
+function texts() {
+  if (!S.content) return page(loading);
+  page(`<p class="hint">Первый экран сайта. В любом тексте можно написать {site}, {google}, {bot} — подставится актуальная цена.</p>
+  <div class="card">${TEXTS.map(([k, n]) => `<label class="fld"><span>${n}</span><textarea class="in" rows="2" data-k="texts.${k}">${esc(get('texts.' + k))}</textarea></label>`).join('')}</div>`);
+  bind($('#page'));
+}
+
+/* ---------- вопросы ---------- */
+function faq() {
+  if (!S.content) return page(loading);
+  const F = S.content.faq;
+  page(`<p class="hint">Блок «Коротко про головне» внизу сайта. Эти же вопросы видит Google. Можно писать {site}, {google} — подставится цена.</p>
+  ${F.map((f, i) => `<div class="item"><div class="hd"><b>Вопрос ${i + 1}</b>
+    <button class="ib" title="Выше" onclick="mv('faq',${i},-1)">↑</button><button class="ib" title="Ниже" onclick="mv('faq',${i},1)">↓</button><button class="ib" title="Удалить" onclick="del('faq',${i})">✕</button></div>
+    <label class="fld"><span>Вопрос</span><input class="in" data-k="faq.${i}.q" value="${esc(f.q)}"></label>
+    <label class="fld" style="margin:0"><span>Ответ</span><textarea class="in" rows="3" data-k="faq.${i}.a">${esc(f.a)}</textarea></label></div>`).join('')}
+  <button class="btn g" onclick="S.content.faq.push({q:'',a:''});markDirty();faq()">+ Добавить вопрос</button>`);
+  bind($('#page'));
+}
+function mv(list, i, d) { const a = S.content[list], j = i + d; if (j < 0 || j >= a.length) return; [a[i], a[j]] = [a[j], a[i]]; markDirty(); render(); }
+function del(list, i) { if (!confirm('Удалить этот пункт?')) return; S.content[list].splice(i, 1); markDirty(); render(); }
+
+/* ---------- работы ---------- */
+function works() {
+  if (!S.content) return page(loading);
+  const W = S.content.works;
+  page(`<p class="hint">Блок «Наші роботи». Картинку можно загрузить с телефона или компьютера — она сама уменьшится. Ролик — ссылка на YouTube (кнопка «Відео сайту»).</p>
+  ${W.map((w, i) => `<div class="item"><div class="hd"><b>Работа ${i + 1}</b>
+    <button class="ib" title="Выше" onclick="mv('works',${i},-1)">↑</button><button class="ib" title="Ниже" onclick="mv('works',${i},1)">↓</button><button class="ib" title="Удалить" onclick="del('works',${i})">✕</button></div>
+    <div class="work"><div class="pv" style="background-image:url('../${esc(w.poster)}')"><label class="btn s g">Заменить фото<input type="file" accept="image/*" hidden onchange="upload(${i},this)"></label></div>
+    <div><label class="fld"><span>Название</span><input class="in" data-k="works.${i}.name" value="${esc(w.name)}"></label>
+      <label class="fld"><span>Ниша · город</span><input class="in" data-k="works.${i}.tag" value="${esc(w.tag)}"></label>
+      <label class="fld" style="margin:0"><span>YouTube — ссылка или ID ролика</span><input class="in" data-k="works.${i}.yt" value="${esc(w.yt)}" placeholder="https://youtu.be/..."></label></div></div></div>`).join('')}
+  <label class="btn g">+ Добавить работу с фото<input type="file" accept="image/*" hidden onchange="upload(-1,this)"></label>`);
+  bind($('#page'));
+}
+// фото → webp до 1280 px → на сервер → путь в работу
+async function upload(i, input) {
+  const file = input.files[0]; if (!file) return;
+  toast('Загружаю фото…');
+  try {
+    const img = await createImageBitmap(file), sc = Math.min(1, 1280 / img.width), c = document.createElement('canvas');
+    c.width = Math.round(img.width * sc); c.height = Math.round(img.height * sc); c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
+    const b64 = c.toDataURL('image/webp', 0.82);
+    const name = i >= 0 ? S.content.works[i].name : (prompt('Название работы', '') || 'work');
+    const r = await api('upload', { name, ext: 'webp', b64 });
+    if (i >= 0) S.content.works[i].poster = r.path; else S.content.works.push({ name, tag: '', poster: r.path, video: '', yt: '' });
+    markDirty(); works(); toast('Фото загружено. Нажмите «Сохранить и опубликовать».', 'good');
+  } catch (e) { toast('Фото не загрузилось: ' + e.message, 'bad'); }
+}
+
+/* ---------- SEO ---------- */
+function fillP(t) { const p = S.content.prices; return String(t || '').replace(/{(\w+)}/g, (m, k) => (p[k] != null ? '$' + p[k] : m)); }
+function seoPrev() {
+  const s = S.content.seo, t = fillP(s.title), d = fillP(s.description);
+  $('#snT').textContent = t; $('#snD').textContent = d;
+  [['title', t, 60], ['description', d, 155], ['og_title', fillP(s.og_title), 70], ['og_desc', fillP(s.og_desc), 200]].forEach(([k, v, max]) => { const c = $('#c_' + k); if (c) { c.textContent = v.length + ' / ' + max; c.classList.toggle('over', v.length > max); } });
+}
+function seo() {
+  if (!S.content) return page(loading);
+  const F = [['title', 'Заголовок в Google (title)', 'до 60 символов, главные слова в начале', 1], ['description', 'Описание в Google (description)', 'до 155 символов, с ценой и выгодой', 3], ['og_title', 'Заголовок при отправке ссылки (Viber, Telegram, Facebook)', '', 1], ['og_desc', 'Описание при отправке ссылки', '', 2]];
+  page(`<p class="hint">Как сайт выглядит в поиске Google и в превью ссылки. {site}, {google}, {bot} — подставятся цены. Ключевые слова, по которым ищут: «сайт під ключ», «створення сайту ціна», «налаштування Google Ads», «телеграм бот ціна», «розробка лендінгу».</p>
+  <div class="card" style="margin-bottom:14px"><div class="hint" style="margin:0 0 10px">Так вас увидят в Google:</div>
+    <div class="snippet"><div class="u">prmax.agency</div><div class="t" id="snT"></div><div class="ds" id="snD"></div></div></div>
+  <div class="card">${F.map(([k, n, h, rows]) => `<label class="fld"><span>${n} <i class="counter" id="c_${k}"></i></span><textarea class="in" rows="${rows}" data-k="seo.${k}" data-after="seoPrev">${esc(get('seo.' + k))}</textarea>${h ? `<small style="color:var(--dim)">${h}</small>` : ''}</label>`).join('')}
+    <p class="hint" style="margin:6px 0 0">Сайт подключён к Google Search Console, карта сайта отправлена. Ссылка — в «Обзоре».</p></div>`);
+  bind($('#page')); seoPrev();
+}
+
+/* ---------- настройки ---------- */
+function settings() {
+  page(`<div class="card" style="max-width:460px"><h3 style="font-size:16px;margin-bottom:6px">Сменить пароль</h3>
+    <label class="f"><span>Текущий пароль</span><input class="in" type="password" id="pOld" autocomplete="current-password"></label>
+    <label class="f"><span>Новый пароль (от 8 символов)</span><input class="in" type="password" id="pNew" autocomplete="new-password"></label>
+    <button class="btn p w" id="pBtn">Сменить пароль</button><div class="err" id="pErr"></div></div>
+    <div class="card" style="max-width:460px;margin-top:14px"><h3 style="font-size:16px;margin-bottom:6px">Выйти</h3><p class="hint">Вход хранится на этом устройстве 6 часов.</p><button class="btn g" onclick="logout()">Выйти из админки</button></div>`);
+  $('#pBtn').onclick = async () => { $('#pErr').textContent = ''; try { await api('password', { old: $('#pOld').value, password: $('#pNew').value }); toast('Пароль изменён', 'good'); $('#pOld').value = $('#pNew').value = ''; } catch (e) { $('#pErr').textContent = e.message; } };
+}
+
+initLogin();
+</script>
+</body>
+</html>

@@ -85,5 +85,11 @@
    "video": "video/tawwersecy.mp4",
    "yt": "TA9GnZlAEPA"
   }
- ]
+ ],
+ "seo": {
+  "title": "Створення сайту під ключ від {site} за 3 дні | PRMAX",
+  "description": "Сайт під ключ {site} за 3 дні, налаштування реклами Google Ads {google}, Telegram-бот {bot}. Заявки одразу в Telegram. Працюємо онлайн по всій Україні.",
+  "og_title": "Сайт під ключ за 3 дні + реклама Google | PRMAX",
+  "og_desc": "Сайт {site}, Google Ads {google}, Telegram-бот {bot}. Заявки одразу в Telegram. Вся Україна."
+ }
 }
