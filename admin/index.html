@@ -379,7 +379,7 @@ function bot() {
   let L = S.bot.filter((b) => S.showTests || !b.test);
   if (S.bf === 'nophone') L = L.filter((b) => !b.phone); else if (S.bf === 'phone') L = L.filter((b) => b.phone && b.step !== 'done'); else if (S.bf === 'done') L = L.filter((b) => b.phone && b.step === 'done');
   if (q) L = L.filter((b) => JSON.stringify(b).toLowerCase().includes(q));
-  page(`<p class="hint">Все, кто нажал «Старт» в боте @prmax_agency_bot. Нажмите на человека — откроется вся переписка, и можно ответить ему от имени бота.</p>
+  page(`<p class="hint">Все, кто нажал «Старт» в боте @prmaxagency_bot. Нажмите на человека — откроется вся переписка, и можно ответить ему от имени бота.</p>
   <div class="grid g4">
     <div class="card kpi"><b>${all.length}</b><span>подписчиков всего</span></div>
     <div class="card kpi"><b>${all.filter((b) => b.created >= d0).length}</b><span>новых сегодня</span></div>
