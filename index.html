@@ -22,7 +22,7 @@
 <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700&display=swap">
 <!-- Meta Pixel «PRMAX» (набір даних 567372494317796) -->
 <script>
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
@@ -52,7 +52,7 @@ fbq('track','ViewContent',{content_name:'prmax_offer'});
   --o1:#FFC97E;--o2:#FF8A1F;--o3:#F05E00;--o4:#B64200;--ol:#FFB056;
   --grad:linear-gradient(115deg,#FFD08A 0%,#FF8A1F 30%,#F05E00 58%,#FFB347 82%,#FFD08A 100%);--tgrad:linear-gradient(90deg,#FFC46A 0%,#FF8A1F 35%,#FF5A00 65%,#FFB347 100%);
   --green:#2BD46F;
-  --d:'Manrope',system-ui,sans-serif;--b:'Manrope',system-ui,-apple-system,'Segoe UI',sans-serif;--n:'Manrope',system-ui,sans-serif;
+  --d:'Unbounded',system-ui,sans-serif;--b:'Manrope',system-ui,-apple-system,'Segoe UI',sans-serif;--n:'Unbounded',system-ui,sans-serif;
   --disp:var(--d);--body:var(--b);--num:var(--n);
   --e:cubic-bezier(.19,1,.22,1);--ease:var(--e);
   --w:1480px;--gut:clamp(20px,4vw,56px);--mo:clamp(76px,9vw,130px);
@@ -578,7 +578,7 @@ details[open] .ans{grid-template-rows:1fr}
 @media (min-width:1800px){html{zoom:1.08}}
 @media (min-width:2300px){html{zoom:1.22}}
 
-/* ===== Читабельна типографіка PRMAX (Manrope — обрав Максим 26.10, помаранчевий на чорному) ===== */
+/* ===== Читабельна типографіка PRMAX (заголовки й цифри Unbounded, текст Manrope — обрав Максим 26.10) ===== */
 h1,h2,h3,h4,.display,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h3,.wk .meta h3,.pc .lbl h3,.stp h3,.bonus-big h3,.princ b,.ph-frame .nm b,summary,.quiz .top b,.qstep h4,.done h4,.ad .title,.ps .body h4,.tb-top p b,.mnav nav a{font-family:var(--d);font-weight:700;font-style:normal;letter-spacing:-.015em}
 .og-text{font-style:normal;font-weight:inherit;background:var(--tgrad);background-size:220% auto;-webkit-background-clip:text;background-clip:text;color:transparent}
 .display{font-weight:800;font-size:clamp(34px,8.8vw,74px);line-height:1.1;letter-spacing:-.035em}
@@ -866,6 +866,27 @@ footer{border-top:1px solid var(--line);background:var(--obs2);padding:40px 0 ca
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
   html.js .rv{opacity:1;transform:none}
 }
+/* ===== Unbounded — широкий шрифт: заголовки, кнопки й цифри трохи менші, щоб не вилазили (26.10) ===== */
+h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h3,.wk .meta h3,.pc .lbl h3,.stp h3,.bonus-big h3,.ph-frame .nm b,summary,.quiz .top b,.qstep h4,.done h4,.ps .body h4{font-weight:600;letter-spacing:-.02em}
+.display{font-weight:700;font-size:clamp(28px,7.4vw,54px);line-height:1.14;letter-spacing:-.03em}
+.sec-head h2{font-size:clamp(25px,4.4vw,50px);line-height:1.14}
+.founder h2{font-size:clamp(24px,3vw,42px);line-height:1.14}
+.final h2{font-size:clamp(27px,3.9vw,52px);line-height:1.12}
+.pc .lbl h3{font-size:18px}.stp h3,.qstep h4,.quiz .top b{font-size:17px}.nc .cap h3,.hw .cap h3,.done h4{font-size:20px}.wk .meta h3,.ps .body h4{font-size:18px}summary{font-size:16px;line-height:1.35}.ph-frame .nm b{font-size:20px}.bonus-big h3{font-size:18px}
+.btn{font-size:14.5px;font-weight:600;letter-spacing:0}
+.mbar .btn{font-size:13px}
+.mnav nav a{font-size:19px}
+.pc .am b{font-size:50px}.pc .am s{font-size:20px}.total p b{font-size:44px}.total p s{font-size:20px}
+.rv-main .big{font-size:50px}.stat b{font-size:22px}
+.bonus-big .sum{font-size:clamp(22px,7vw,32px)}.bonus-big .tier b{font-size:18px}
+@media (max-width:380px){.bonus-big .tier b{font-size:15px}.bonus-big .sum{font-size:21px}.stat b{font-size:18px}.btn{font-size:13px;padding-left:22px;gap:10px}.mbar .btn{font-size:12px;padding-left:16px}}
+@media (min-width:700px){.bonus-big .sum{font-size:50px}.bonus-big .tier b{font-size:20px}}
+@media (min-width:1100px){.bonus-big .sum{font-size:54px}.bonus-big .tier b{font-size:19px}}
+@media (min-width:700px){.pc .am b{font-size:58px}}
+@media (min-width:1100px){.display{font-size:clamp(38px,3.3vw,62px)}.pc .am b{font-size:52px}.pc .am s{font-size:18px}.rv-main .big{font-size:64px}}
+@media (min-width:1500px){.pc .am b{font-size:64px}}
+@media (min-width:700px) and (max-width:1199px){.hdr-cta{font-size:12px;padding-left:18px;gap:10px}.menu{gap:14px;font-size:13px}}
+@media (min-width:700px) and (max-width:1099px){.f-contact .btn{max-width:100%;font-size:11.5px;padding-left:14px;gap:8px}}
 </style>
 <!-- Microsoft Clarity (теплові карти й записи сеансів) -->
 <script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","z2nkewuu0z");</script>
@@ -1014,7 +1035,7 @@ footer{border-top:1px solid var(--line);background:var(--obs2);padding:40px 0 ca
         <ul><li><svg><use href="#i-check"/></svg>Дизайн і тексти під вашу нішу</li><li><svg><use href="#i-check"/></svg>Кнопки дзвінка, Telegram, Viber</li><li><svg><use href="#i-check"/></svg>Зручний з телефону</li><li><svg><use href="#i-check"/></svg>Домен, аналітика, форма заявки</li><li><svg><use href="#i-check"/></svg>Запуск за 3 дні</li></ul></div>
       <div class="pc hot rv" style="--d:.08s"><div class="lbl"><h3>Реклама Google</h3><em>−50%</em></div><div class="am"><s>$300</s><b class="og-text live">$150</b><small>налаштування</small></div>
         <ul><li><svg><use href="#i-check"/></svg>Запити «послуга + місто»</li><li><svg><use href="#i-check"/></svg>Мінус-слова — бюджет не зливається</li><li><svg><use href="#i-check"/></svg>Показ тільки у вашому місті</li><li><svg><use href="#i-check"/></svg>Відстеження дзвінків і заявок</li></ul></div>
-      <div class="pc hot rv" style="--d:.12s"><div class="lbl"><h3>Telegram-бот</h3><em>новинка</em></div><div class="am"><b class="og-text live">$200</b><small>разово</small></div>
+      <div class="pc hot rv" style="--d:.12s"><div class="lbl"><h3>Telegram-бот</h3><em>−50%</em></div><div class="am"><s>$300</s><b class="og-text live">$150</b><small>разово</small></div>
         <ul><li><svg><use href="#i-check"/></svg>Відповідає вашим клієнтам 24/7 — навіть уночі</li><li><svg><use href="#i-check"/></svg>Ставить питання й бере номер телефону</li><li><svg><use href="#i-check"/></svg>Заявки миттєво у ваш Telegram</li><li><svg><use href="#i-check"/></svg>Сам нагадує тим, хто не дописав</li><li><svg><use href="#i-check"/></svg>Знає ваші ціни й послуги</li></ul></div>
       <div class="pc rv" style="--d:.18s"><div class="lbl"><h3>Ведення реклами й сайту</h3><em class="g">за бажанням</em></div><div class="am"><b>$75</b><small>/ місяць</small></div>
         <ul><li><svg><use href="#i-check"/></svg>Стежимо за рекламою щотижня: мінус-слова, ставки, запити</li><li><svg><use href="#i-check"/></svg>Правки на сайті — без доплат</li><li><svg><use href="#i-check"/></svg>Короткий звіт щомісяця</li><li><svg><use href="#i-check"/></svg>Відмовитися можна будь-коли</li></ul></div>
