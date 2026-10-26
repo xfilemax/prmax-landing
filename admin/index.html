@@ -419,7 +419,7 @@ function seoPrev() {
 }
 function seo() {
   if (!S.content) return page(loading);
-  const F = [['title', 'Заголовок в Google (title)', 'до 60 символов, главные слова в начале', 1], ['description', 'Описание в Google (description)', 'до 155 символов, с ценой и выгодой', 3], ['og_title', 'Заголовок при отправке ссылки (Viber, Telegram, Facebook)', '', 1], ['og_desc', 'Описание при отправке ссылки', '', 2]];
+  const F = [['title', 'Заголовок в Google (title)', 'до 60 символов, главные слова в начале', 1], ['description', 'Описание в Google (description)', 'до 155 символов, с ценой и выгодой', 3], ['og_title', 'Заголовок при отправке ссылки (Viber, Telegram, Facebook)', '', 1], ['og_desc', 'Описание при отправке ссылки', '', 2], ['keywords', 'Ключевые слова (через запятую)', 'по каким запросам вас ищут; главное — чтобы эти слова были и в текстах сайта', 3]];
   page(`<p class="hint">Как сайт выглядит в поиске Google и в превью ссылки. {site}, {google}, {bot} — подставятся цены. Ключевые слова, по которым ищут: «сайт під ключ», «створення сайту ціна», «налаштування Google Ads», «телеграм бот ціна», «розробка лендінгу».</p>
   <div class="card" style="margin-bottom:14px"><div class="hint" style="margin:0 0 10px">Так вас увидят в Google:</div>
     <div class="snippet"><div class="u">prmax.agency</div><div class="t" id="snT"></div><div class="ds" id="snD"></div></div></div>
