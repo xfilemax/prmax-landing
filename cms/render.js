@@ -14,11 +14,15 @@ var PRMAX_CMS = (function () {
   }
   // {site}, {google}… у текстах із таблиці → актуальні ціни
   function fill(t, p) { return String(t == null ? '' : t).replace(/{(\w+)}/g, function (m, k) { return p[k] != null ? '$' + p[k] : m; }); }
+  // типографіка: короткі слова й тире не відриваються, «10 000 ₴» не розривається (у таблиці пишемо звичайні пробіли)
+  function typo(t) {
+    return String(t).replace(/(^|[\s(«])([уівзаоякУІВЗАОЯК]|та|до|на|не|по|за|що|як|й)\s+/g, '$1$2\u00a0').replace(/(\d)\s(?=\d{3}\b)/g, '$1\u00a0').replace(/(\d)\s+(₴|грн|\$)/g, '$1\u00a0$2').replace(/\s+—/g, '\u00a0—');
+  }
   function pct(a, b) { return b ? Math.round((1 - a / b) * 100) : 0; }
   function prepare(c) {
     var p = c.prices, d = { p: p, t: {}, faq: [], works: [] };
-    Object.keys(c.texts).forEach(function (k) { d.t[k] = fill(c.texts[k], p); });
-    d.faq = c.faq.map(function (f) { return { q: fill(f.q, p), a: fill(f.a, p) }; });
+    Object.keys(c.texts).forEach(function (k) { d.t[k] = typo(fill(c.texts[k], p)); });
+    d.faq = c.faq.map(function (f) { return { q: typo(fill(f.q, p)), a: typo(fill(f.a, p)) }; });
     d.works = c.works.map(function (w) { return { name: w.name, tag: w.tag, poster: w.poster, video: w.video || '', yt: w.yt || '' }; });
     d.disc = { site: pct(p.site, p.site_old), google: pct(p.google, p.google_old), bot: pct(p.bot, p.bot_old) };
     var mins = [p.site, p.google, p.bot, p.social, p.seo, p.maps, p.logo, p.lang].filter(function (x) { return x > 0; });
