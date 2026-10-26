@@ -1312,8 +1312,11 @@ var CONTACTS={
   $$('[data-c=phone]').forEach(function(e){e.textContent=CONTACTS.phone});
   $$('[data-c=phone-link]').forEach(function(e){e.href='tel:'+CONTACTS.phoneTel;e.addEventListener('click',function(){conv('call',{place:e.closest('section,header,.mnav,.mbar,footer')?(e.closest('section,header,.mnav,.mbar,footer').id||e.closest('section,header,.mnav,.mbar,footer').className.split(' ')[0]):''})})});
   var SRC='';try{var us=(new URLSearchParams(location.search).get('utm_source')||'').toLowerCase().replace(/[^a-z0-9_-]/g,'').slice(0,30);if(us)sessionStorage.setItem('prmax_src',us);SRC=us||sessionStorage.getItem('prmax_src')||'';}catch(e){}
-  var TG_URL='https://t.me/'+CONTACTS.telegram+'?start='+(SRC||'site');
-  $$('[data-c=tg-link]').forEach(function(e){e.href=TG_URL;e.addEventListener('click',function(){conv('telegram',{place:e.closest('section,header,.mnav,.mbar,footer')?(e.closest('section,header,.mnav,.mbar,footer').id||e.closest('section,header,.mnav,.mbar,footer').className.split(' ')[0]):''})})});
+  /* TikTok: мітку кліку (ttclid) і cookie _ttp зберігаємо на сервері під коротким номером візиту → бот, отримавши телефон, повідомить TikTok про справжню заявку */
+  var TTCLID='',SID='';try{var tc=new URLSearchParams(location.search).get('ttclid');if(tc)sessionStorage.setItem('prmax_ttclid',tc.slice(0,500));TTCLID=sessionStorage.getItem('prmax_ttclid')||'';if(TTCLID){SID=sessionStorage.getItem('prmax_sid');if(!SID){SID=Math.random().toString(36).slice(2,10);sessionStorage.setItem('prmax_sid',SID)}}}catch(e){}
+  function ttSave(){if(!SID||!CONTACTS.lead.endpoint)return;try{var m=document.cookie.match(/(?:^|;\s*)_ttp=([^;]+)/);navigator.sendBeacon(CONTACTS.lead.endpoint,JSON.stringify({tt:1,sid:SID,ttclid:TTCLID,ttp:m?decodeURIComponent(m[1]):'',ua:navigator.userAgent,url:location.href.slice(0,300)}))}catch(e){}}
+  var TG_URL='https://t.me/'+CONTACTS.telegram+'?start='+(SRC||'site')+(SID?'-'+SID:'');
+  $$('[data-c=tg-link]').forEach(function(e){e.href=TG_URL;e.addEventListener('click',function(){ttSave();conv('telegram',{place:e.closest('section,header,.mnav,.mbar,footer')?(e.closest('section,header,.mnav,.mbar,footer').id||e.closest('section,header,.mnav,.mbar,footer').className.split(' ')[0]):''})})});
 
   /* Preloader */
   var pre=$('#pre');
@@ -1517,7 +1520,7 @@ var CONTACTS={
   function openLead(src){leadLast=document.activeElement;lead.classList.add('on');lead.setAttribute('aria-hidden','false');document.body.classList.add('lock');conv('lead_open',{place:src||''});if(fine)setTimeout(function(){$('#lph').focus({preventScroll:true})},500)}
   function closeLead(){lead.classList.remove('on');lead.setAttribute('aria-hidden','true');if(!$('#mnav').classList.contains('on'))document.body.classList.remove('lock');if(leadLast&&leadLast.focus)leadLast.focus({preventScroll:true})}
   /* Максим 26.10: усі кнопки заявки ведуть у Telegram-бота (клік = Contact у пікселях); форма лишається для тих, у кого немає Telegram */
-  $$('[data-lead]').forEach(function(a){var sc=a.closest('section,header,.mnav,.mbar,footer'),pl=sc?(sc.id||sc.className.split(' ')[0]):'';a.href=TG_URL;a.target='_blank';a.rel='noopener';a.addEventListener('click',function(){conv('telegram',{place:pl})})});
+  $$('[data-lead]').forEach(function(a){var sc=a.closest('section,header,.mnav,.mbar,footer'),pl=sc?(sc.id||sc.className.split(' ')[0]):'';a.href=TG_URL;a.target='_blank';a.rel='noopener';a.addEventListener('click',function(){ttSave();conv('telegram',{place:pl})})});
   $$('[data-form]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();openLead('no_telegram')})});
   $('#leadx').addEventListener('click',closeLead);$('#leadbg').addEventListener('click',closeLead);
   addEventListener('keydown',function(e){if(e.key==='Escape'&&lead.classList.contains('on'))closeLead()});
