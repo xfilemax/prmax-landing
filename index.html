@@ -5,6 +5,18 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>PRMAX — вас вже шукають у Google. Сайт + реклама за 3 дні</title>
 <meta name="description" content="Люди вже шукають вашу послугу в Google. Ставимо вас першим — дзвінки та заявки в Telegram. Сайт $300 + реклама Google $150, запуск за 3 дні, бонус до 90 000 ₴ від Google. Вся Україна та Європа.">
+<!-- превʼю посилання у Viber / Telegram / Facebook: логотип PRMAX, а не фото зі сторінки -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PRMAX">
+<meta property="og:url" content="https://prmax.agency/">
+<meta property="og:title" content="PRMAX — сайт + реклама Google за 3 дні">
+<meta property="og:description" content="Люди вже шукають вашу послугу в Google. Ставимо вас першим — дзвінки та заявки в Telegram.">
+<meta property="og:image" content="https://prmax.agency/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="PRMAX Digital Agency — сайт + реклама Google за 3 дні">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://prmax.agency/img/og.jpg">
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#08080A">
 <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
@@ -164,8 +176,11 @@ html.js .rv.in{opacity:1;transform:none}
 .lead b{color:#fff}
 .more{display:none}
 @keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
-.h-cta{display:grid;grid-template-columns:minmax(0,1fr) 58px;gap:10px;margin-top:22px;animation:fadeUp 1.2s var(--e) .5s both}
+.h-cta{display:grid;grid-template-columns:minmax(0,1fr);gap:10px;margin-top:22px;animation:fadeUp 1.2s var(--e) .5s both}
 .h-cta .btn-g{display:none}
+.h-tg{grid-column:1/-1;order:3;display:flex;align-items:center;justify-content:center;text-align:center;gap:8px;padding:4px 2px;color:rgba(255,255,255,.82);font-size:14.5px;line-height:1.35;text-decoration:none}
+.h-tg b{white-space:nowrap;color:var(--o1);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.btn .ar .tgi{width:20px;height:20px;fill:#2AABEE;stroke:none;margin-left:-2px}
 .tg-round{position:relative;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:rgba(11,10,9,.6);border:1px solid rgba(42,171,238,.7)}
 .tg-round svg{width:26px;height:26px;fill:#2AABEE}
 .tg-round::before,.tg-round::after{content:"";position:absolute;inset:-2px;border-radius:50%;border:1px solid #2AABEE;animation:ringOut 2.4s ease-out infinite}
@@ -469,6 +484,8 @@ details[open] .ans{grid-template-rows:1fr}
 .mbar{position:fixed;left:10px;right:10px;bottom:max(10px,env(safe-area-inset-bottom,0px));z-index:55;display:flex;gap:8px;padding:7px;border-radius:999px;background:rgba(19,17,16,.88);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 20px 50px rgba(0,0,0,.6);transform:translateY(150%);transition:transform .6s var(--e)}
 .mbar.on{transform:none}
 .mbar .icbtn{width:52px;height:52px}
+.mbar .icbtn[data-c=tg-link]{background:#2AABEE;border-color:#2AABEE}
+.mbar .icbtn[data-c=tg-link] svg{stroke:#fff}
 .mbar .btn{flex:1;--h:52px;padding:0 6px 0 22px;font-size:14.5px}
 .mbar .btn .ar{width:40px;height:40px}
 .modal{position:fixed;inset:0;z-index:90;display:grid;place-items:center;padding:16px;background:rgba(0,0,0,.86);backdrop-filter:blur(8px);opacity:0;visibility:hidden;transition:opacity .4s,visibility .4s}
@@ -703,6 +720,15 @@ h1,h2,h3,h4,.display,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,
 .mini-row .btn{width:100%}
 .mini .fine a{color:var(--ol);text-decoration:underline;text-underline-offset:3px}
 .mini .done,.ldm .done{padding-top:8px}
+.extras{margin-top:14px;padding:22px 18px;border-radius:28px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.03)}
+.extras h3{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-align:center;margin:0 0 14px}
+.ex-grid{display:grid;gap:8px}
+.ex{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 16px;border-radius:16px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+.ex span{font-weight:700;font-size:15px;line-height:1.3}
+.ex small{display:block;font-weight:400;font-size:12.5px;color:var(--muted);margin-top:2px}
+.ex b{white-space:nowrap;font-size:17px;color:var(--o1)}
+@media (min-width:700px){.ex-grid{grid-template-columns:1fr 1fr}}
+@media (min-width:1100px){.ex-grid{grid-template-columns:repeat(3,1fr)}}
 .total{display:grid;gap:16px;margin-top:14px;padding:22px 20px 20px;border-radius:28px;text-align:center}
 .total p{display:block;padding:0;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:700}
 .total p .tl{display:block}
@@ -900,9 +926,9 @@ footer{border-top:1px solid var(--line);background:var(--obs2);padding:40px 0 ca
     <h1 class="display"><span class="ln"><span class="lni">Вас вже шукають <span class="og-text live">у&nbsp;Google.</span></span></span><span class="ln"><span class="lni">Зробимо, щоб дзвонили й писали.</span></span></h1>
     <p class="lead">Люди щодня гуглять вашу послугу у вашому місті. Ми ставимо вас першим&nbsp;— і ви отримуєте дзвінки та заявки в Telegram.</p>
     <div class="h-cta">
-      <a class="btn btn-o" href="#zayavka" data-lead><span>Залишити заявку</span><span class="ar"><svg><use href="#i-arr"/></svg></span></a>
+      <a class="btn btn-o" href="#zayavka" data-lead><span>Написати в Telegram</span><span class="ar"><svg class="tgi" viewBox="0 0 24 24"><path d="M21.5 3.5L2.8 10.7c-1.3.5-1.2 1.3-.2 1.6l4.8 1.5 1.8 5.6c.2.7.6.8 1.1.3l2.6-2.4 5 3.7c.9.5 1.6.2 1.8-.9l3.2-15c.3-1.3-.5-1.9-1.4-1.6z"/></svg></span></a>
       <a class="btn btn-g" href="#roboty"><span>Наші роботи</span><span class="ar"><svg viewBox="0 0 10 12" class="play"><path d="M0 0l10 6-10 6z"/></svg></span></a>
-      <a class="tg-round" href="#" data-c="tg-link" target="_blank" rel="noopener" aria-label="Написати в Telegram"><svg viewBox="0 0 24 24"><path d="M21.5 3.5L2.8 10.7c-1.3.5-1.2 1.3-.2 1.6l4.8 1.5 1.8 5.6c.2.7.6.8 1.1.3l2.6-2.4 5 3.7c.9.5 1.6.2 1.8-.9l3.2-15c.3-1.3-.5-1.9-1.4-1.6z"/></svg></a>
+      <a class="h-tg" href="#zayavka" data-form><span>Немає Telegram? <b>Залиште номер</b> — передзвонимо</span></a>
     </div>
   </div>
   <div class="wrap">
@@ -994,6 +1020,17 @@ footer{border-top:1px solid var(--line);background:var(--obs2);padding:40px 0 ca
         <ul><li><svg><use href="#i-check"/></svg>Стежимо за рекламою щотижня: мінус-слова, ставки, запити</li><li><svg><use href="#i-check"/></svg>Правки на сайті — без доплат</li><li><svg><use href="#i-check"/></svg>Короткий звіт щомісяця</li><li><svg><use href="#i-check"/></svg>Відмовитися можна будь-коли</li></ul></div>
     </div>
     <div class="total rv"><p><span class="tl">Сайт + реклама разом</span><span class="tp"><b class="og-text live">$450</b><s>$1000</s></span></p><a class="btn btn-o" href="#zayavka" data-lead><span>Замовити</span><span class="ar"><svg><use href="#i-arr"/></svg></span></a></div>
+    <div class="extras rv">
+      <h3>Додатково — за бажанням</h3>
+      <div class="ex-grid">
+        <div class="ex"><span>Реклама TikTok<small>з вашими відео / з 3 нашими креативами</small></span><b>$100 / $150</b></div>
+        <div class="ex"><span>Реклама Facebook + Instagram<small>з вашими відео / з 3 нашими креативами</small></span><b>$100 / $150</b></div>
+        <div class="ex"><span>SEO<small>щоб Google показував сайт без реклами</small></span><b>$150</b></div>
+        <div class="ex"><span>Google Карти<small>профіль компанії: адреса, фото, кнопка дзвінка</small></span><b>$100</b></div>
+        <div class="ex"><span>Логотип</span><b>$30</b></div>
+        <div class="ex"><span>Ще одна мова сайту</span><b>$50</b></div>
+      </div>
+    </div>
     <div class="bonus-big rv">
       <div class="coins" aria-hidden="true"><i style="right:8%;top:14%"></i><i style="right:20%;top:8%;animation-delay:1s;width:7px;height:7px"></i><i style="right:4%;top:40%;animation-delay:2s;width:6px;height:6px"></i></div>
       <div class="wrapc">
@@ -1010,7 +1047,7 @@ footer{border-top:1px solid var(--line);background:var(--obs2);padding:40px 0 ca
     </div>
     <div class="pay-notes">
       <span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Передоплата 50%. Решта — перед запуском, коли ви побачили готовий сайт і рекламу.</span>
-      <span><svg viewBox="0 0 24 24"><path d="M3 7h18v10H3zM3 11h18"/></svg>Рекламний бюджет платите Google напряму. Наша комісія — 0%.</span>
+      <span><svg viewBox="0 0 24 24"><path d="M3 7h18v10H3zM3 11h18"/></svg>Рекламний бюджет платите площадці (Google, TikTok, Meta) напряму. Наша комісія — 0%.</span>
     </div>
   </div>
 </section>
@@ -1217,7 +1254,7 @@ footer{border-top:1px solid var(--line);background:var(--obs2);padding:40px 0 ca
   </form>
 </div>
 <div class="fab" id="fab" aria-label="Швидкий зв'язок"><a class="ph" href="#" data-c="phone-link" data-l="Подзвонити" aria-label="Подзвонити"><svg><use href="#i-phone"/></svg></a><a class="tg" href="#" data-c="tg-link" target="_blank" rel="noopener" data-l="Написати в Telegram" aria-label="Telegram"><svg viewBox="0 0 24 24"><path d="M21.5 3.5L2.8 10.7c-1.3.5-1.2 1.3-.2 1.6l4.8 1.5 1.8 5.6c.2.7.6.8 1.1.3l2.6-2.4 5 3.7c.9.5 1.6.2 1.8-.9l3.2-15c.3-1.3-.5-1.9-1.4-1.6z"/></svg></a></div>
-<div class="mbar" id="mbar"><a class="icbtn" href="#" data-c="phone-link" aria-label="Подзвонити"><svg><use href="#i-phone"/></svg></a><a class="icbtn" href="#" data-c="tg-link" target="_blank" rel="noopener" aria-label="Telegram"><svg><use href="#i-tg"/></svg></a><a class="btn btn-o" href="#zayavka" data-lead><span>Залишити заявку</span><span class="ar"><svg><use href="#i-arr"/></svg></span></a></div>
+<div class="mbar" id="mbar"><a class="icbtn" href="#" data-c="phone-link" aria-label="Подзвонити"><svg><use href="#i-phone"/></svg></a><a class="icbtn" href="#" data-c="tg-link" target="_blank" rel="noopener" aria-label="Telegram"><svg><use href="#i-tg"/></svg></a><a class="btn btn-o" href="#zayavka" data-lead><span>Написати в Telegram</span><span class="ar"><svg class="tgi" viewBox="0 0 24 24"><path d="M21.5 3.5L2.8 10.7c-1.3.5-1.2 1.3-.2 1.6l4.8 1.5 1.8 5.6c.2.7.6.8 1.1.3l2.6-2.4 5 3.7c.9.5 1.6.2 1.8-.9l3.2-15c.3-1.3-.5-1.9-1.4-1.6z"/></svg></span></a></div>
 
 <div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Перегляд"><div class="box" id="mbox"><button class="x" type="button" id="mx" aria-label="Закрити"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button><div id="mc"></div></div></div>
 
@@ -1253,7 +1290,9 @@ var CONTACTS={
   /* Contacts */
   $$('[data-c=phone]').forEach(function(e){e.textContent=CONTACTS.phone});
   $$('[data-c=phone-link]').forEach(function(e){e.href='tel:'+CONTACTS.phoneTel;e.addEventListener('click',function(){conv('call',{place:e.closest('section,header,.mnav,.mbar,footer')?(e.closest('section,header,.mnav,.mbar,footer').id||e.closest('section,header,.mnav,.mbar,footer').className.split(' ')[0]):''})})});
-  $$('[data-c=tg-link]').forEach(function(e){e.href='https://t.me/'+CONTACTS.telegram;e.addEventListener('click',function(){conv('telegram',{place:e.closest('section,header,.mnav,.mbar,footer')?(e.closest('section,header,.mnav,.mbar,footer').id||e.closest('section,header,.mnav,.mbar,footer').className.split(' ')[0]):''})})});
+  var SRC='';try{var us=(new URLSearchParams(location.search).get('utm_source')||'').toLowerCase().replace(/[^a-z0-9_-]/g,'').slice(0,30);if(us)sessionStorage.setItem('prmax_src',us);SRC=us||sessionStorage.getItem('prmax_src')||'';}catch(e){}
+  var TG_URL='https://t.me/'+CONTACTS.telegram+'?start='+(SRC||'site');
+  $$('[data-c=tg-link]').forEach(function(e){e.href=TG_URL;e.addEventListener('click',function(){conv('telegram',{place:e.closest('section,header,.mnav,.mbar,footer')?(e.closest('section,header,.mnav,.mbar,footer').id||e.closest('section,header,.mnav,.mbar,footer').className.split(' ')[0]):''})})});
 
   /* Preloader */
   var pre=$('#pre');
@@ -1456,7 +1495,9 @@ var CONTACTS={
   lneed.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;needV=b.dataset.v;$$('button',lneed).forEach(function(x){x.setAttribute('aria-pressed',x===b)})});
   function openLead(src){leadLast=document.activeElement;lead.classList.add('on');lead.setAttribute('aria-hidden','false');document.body.classList.add('lock');conv('lead_open',{place:src||''});if(fine)setTimeout(function(){$('#lph').focus({preventScroll:true})},500)}
   function closeLead(){lead.classList.remove('on');lead.setAttribute('aria-hidden','true');if(!$('#mnav').classList.contains('on'))document.body.classList.remove('lock');if(leadLast&&leadLast.focus)leadLast.focus({preventScroll:true})}
-  $$('[data-lead]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();var sc=a.closest('section,header,.mnav,.mbar,footer');openLead(sc?(sc.id||sc.className.split(' ')[0]):'')})});
+  /* Максим 26.10: усі кнопки заявки ведуть у Telegram-бота (клік = Contact у пікселях); форма лишається для тих, у кого немає Telegram */
+  $$('[data-lead]').forEach(function(a){var sc=a.closest('section,header,.mnav,.mbar,footer'),pl=sc?(sc.id||sc.className.split(' ')[0]):'';a.href=TG_URL;a.target='_blank';a.rel='noopener';a.addEventListener('click',function(){conv('telegram',{place:pl})})});
+  $$('[data-form]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();openLead('no_telegram')})});
   $('#leadx').addEventListener('click',closeLead);$('#leadbg').addEventListener('click',closeLead);
   addEventListener('keydown',function(e){if(e.key==='Escape'&&lead.classList.contains('on'))closeLead()});
   leadf.addEventListener('submit',function(e){
