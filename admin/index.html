@@ -235,9 +235,15 @@ function enter(login, last) {
   $('#login').classList.add('hide'); $('#app').classList.remove('hide');
   $('#who').innerHTML = 'Вы вошли как <b>' + esc(login) + '</b><br><a href="#" id="out">Выйти</a>';
   $('#out').onclick = (e) => { e.preventDefault(); logout(); };
-  buildNav(); go(location.hash.slice(1) || 'home');
+  buildNav(); route();
   loadLeads(); loadContent();
 }
+// #chat/123 — кнопка «Відповісти в боті» з групи заявок відкриває одразу переписку з цим клієнтом
+function route() {
+  const h = location.hash.slice(1), m = /^chat\/(\d+)$/.exec(h);
+  if (m) { go('bot'); openChat(m[1]); } else go(h || 'home');
+}
+addEventListener('hashchange', () => { if (S.token && /^#chat\/\d+$/.test(location.hash) && !(S.chat && location.hash === '#chat/' + S.chat.id)) route(); });
 function buildNav() {
   const nNew = (S.leads || []).filter((l) => !l.test && l.status === 'new').length;
   $('#nav').innerHTML = VIEWS.map(([k, i, t]) => `<button data-v="${k}" class="${S.view === k ? 'on' : ''}"><i>${i}</i>${t}${k === 'leads' && nNew ? `<b>${nNew}</b>` : ''}</button>`).join('');
@@ -410,7 +416,7 @@ function bot() {
   $('#bq').oninput = (e) => { S.bq = e.target.value; clearTimeout(bot.t); bot.t = setTimeout(() => { bot(); const i = $('#bq'); i.focus(); i.setSelectionRange(i.value.length, i.value.length); }, 300); };
   $('#page').querySelectorAll('.sub').forEach((x) => (x.onclick = () => openChat(x.dataset.id)));
 }
-async function openChat(id) { S.chat = { id, loading: true }; chatView(); scrollTo(0, 0); try { S.chat = (await api('botChat', { id })).chat; if (S.view === 'bot') chatView(); } catch (e) { toast(e.message, 'bad'); S.chat = null; bot(); } }
+async function openChat(id) { S.chat = { id, loading: true }; history.replaceState(null, '', '#chat/' + id); chatView(); scrollTo(0, 0); try { S.chat = (await api('botChat', { id })).chat; if (S.view === 'bot') chatView(); } catch (e) { toast(e.message, 'bad'); S.chat = null; bot(); } }
 function chatView() {
   const c = S.chat;
   if (c.loading) return page(loading);
@@ -419,12 +425,12 @@ function chatView() {
   <div class="card" style="margin:14px 0"><div class="row" style="justify-content:space-between">
     <div><div style="font-weight:800;font-size:18px">${esc(c.name || 'Без имени')} ${c.username ? `<span style="color:var(--dim);font-size:14px;font-weight:600">${esc(c.username)}</span>` : ''}</div>
       <span class="stp ${cl}">${st}</span>${c.src ? ` <span class="tag ${esc(c.src)}">${esc(SRC_RU[c.src] || c.src)}</span>` : ''}${info ? `<div class="meta" style="color:var(--mut);font-size:13.5px;margin-top:6px">${info}</div>` : ''}</div>
-    <div class="row">${c.phone ? `<a class="btn s p" href="tel:+${d}">Позвонить ${esc(c.phone)}</a><a class="btn s g" href="https://prmax.agency/v.html?n=${d}" target="_blank" rel="noopener">Viber</a>` : ''}${c.username ? `<a class="btn s g" href="https://t.me/${esc(c.username.replace('@', ''))}" target="_blank" rel="noopener">Написать лично</a>` : ''}<button class="btn s g" id="cr">Обновить</button></div></div></div>
+    <div class="row">${c.phone ? `<a class="btn s p" href="tel:+${d}">Позвонить ${esc(c.phone)}</a><a class="btn s g" href="https://prmax.agency/v.html?n=${d}" target="_blank" rel="noopener">Viber</a><a class="btn s g" href="https://wa.me/${d}" target="_blank" rel="noopener">WhatsApp</a>` : ''}${c.username ? `<a class="btn s g" href="https://t.me/${esc(c.username.replace('@', ''))}" target="_blank" rel="noopener">Написать лично</a>` : ''}<button class="btn s g" id="cr">Обновить</button></div></div></div>
   <div class="chat" id="chat">${c.msgs.length ? c.msgs.map((m) => `<div class="msg ${m.w === 'клієнт' ? 'cl' : m.w === 'Максим' ? 'mx' : 'bt'}">${esc(m.t)}<small>${m.w === 'клієнт' ? 'клиент' : m.w === 'Максим' ? 'вы' : 'бот'}${m.d ? ' · ' + fmtT(m.d) : ''}</small></div>`).join('') : '<div class="empty">Переписки пока нет</div>'}</div>
   <div class="reply"><textarea class="in" id="ct" placeholder="Ответ клиенту — придёт ему в Telegram от бота PRMAX"></textarea><button class="btn p" id="cs">Отправить</button></div>
   <p class="hint" style="margin-top:8px">Ответ также появится в вашей группе «PRMAX Заявки». Отправленное сообщение удалить нельзя — проверьте текст.</p>`);
   const ch = $('#chat'); ch.scrollTop = ch.scrollHeight;
-  $('#cb').onclick = () => { S.chat = null; S.bot = null; bot(); };
+  $('#cb').onclick = () => { S.chat = null; S.bot = null; history.replaceState(null, '', '#bot'); bot(); };
   $('#cr').onclick = () => openChat(c.id);
   $('#cs').onclick = async () => {
     const t = $('#ct').value.trim(), b = $('#cs'); if (!t) return;
@@ -535,7 +541,7 @@ function settings() {
     <label class="f"><span>Текущий пароль</span><input class="in" type="password" id="pOld" autocomplete="current-password"></label>
     <label class="f"><span>Новый пароль (от 8 символов)</span><input class="in" type="password" id="pNew" autocomplete="new-password"></label>
     <button class="btn p w" id="pBtn">Сменить пароль</button><div class="err" id="pErr"></div></div>
-    <div class="card" style="max-width:460px;margin-top:14px"><h3 style="font-size:16px;margin-bottom:6px">Выйти</h3><p class="hint">Вход хранится на этом устройстве 6 часов.</p><button class="btn g" onclick="logout()">Выйти из админки</button></div>`);
+    <div class="card" style="max-width:460px;margin-top:14px"><h3 style="font-size:16px;margin-bottom:6px">Выйти</h3><p class="hint">Вход хранится на этом устройстве 30 дней.</p><button class="btn g" onclick="logout()">Выйти из админки</button></div>`);
   $('#pBtn').onclick = async () => { $('#pErr').textContent = ''; try { await api('password', { old: $('#pOld').value, password: $('#pNew').value }); toast('Пароль изменён', 'good'); $('#pOld').value = $('#pNew').value = ''; } catch (e) { $('#pErr').textContent = e.message; } };
 }
 
