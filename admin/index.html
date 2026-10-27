@@ -6,6 +6,14 @@
 <meta name="robots" content="noindex,nofollow">
 <title>PRMAX — админка</title>
 <link rel="icon" href="../img/favicon.svg" type="image/svg+xml">
+<!-- як застосунок на екрані iPhone: «Поділитися» → «На екран Додому» -->
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="PRMAX">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#0B0A09">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@600;700&display=swap">
 <style>
@@ -121,6 +129,12 @@ textarea.in{resize:vertical;min-height:80px}
 .msg.bt{align-self:flex-end;background:rgba(255,138,31,.12);border-bottom-right-radius:5px}
 .msg.mx{align-self:flex-end;background:rgba(58,208,122,.16);border-bottom-right-radius:5px}
 .reply{display:flex;gap:10px;margin-top:12px;align-items:flex-end}.reply textarea{flex:1;min-height:52px}
+/* кнопки звʼязку з клієнтом */
+.cta{display:grid;grid-template-columns:repeat(auto-fit,minmax(92px,1fr));gap:8px}
+.cta a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;min-height:58px;border-radius:14px;text-decoration:none;font-weight:800;font-size:12.5px;color:var(--fg);background:rgba(255,255,255,.06);border:1px solid var(--line2)}
+.cta a i{font-style:normal;font-size:20px;line-height:1}
+.cta a.call{background:var(--grad);color:#1A1007;border:0}.cta a.wa{background:rgba(37,211,102,.14);border-color:rgba(37,211,102,.35)}.cta a.vb{background:rgba(115,96,242,.18);border-color:rgba(115,96,242,.4)}.cta a.tg{background:rgba(42,171,238,.16);border-color:rgba(42,171,238,.4)}.cta a.bt{background:rgba(255,138,31,.12);border-color:rgba(255,138,31,.4);color:var(--o1)}
+.tabbar{display:none}
 /* телефон */
 .mtop{display:none}
 @media (max-width:900px){
@@ -137,7 +151,18 @@ textarea.in{resize:vertical;min-height:80px}
   .fun .fr{grid-template-columns:1fr 70px}.fun .fr .bar{grid-column:1/-1;grid-row:2}
   .sub{grid-template-columns:40px 1fr}.sub .rt{grid-column:2;text-align:left}.av{width:40px;height:40px}.sub .lm{max-width:calc(100vw - 120px)}
   .msg{max-width:90%}.chat{max-height:58vh;padding:12px}
-  .top .btn.p{position:fixed;left:16px;right:16px;bottom:max(16px,env(safe-area-inset-bottom));z-index:30;height:52px;box-shadow:0 10px 30px rgba(0,0,0,.5)}
+  .top .btn.p{position:fixed;left:16px;right:16px;bottom:calc(84px + env(safe-area-inset-bottom));z-index:30;height:52px;box-shadow:0 10px 30px rgba(0,0,0,.5)}
+  .top{padding-top:max(12px,env(safe-area-inset-top))}
+  .page{padding-bottom:calc(120px + env(safe-area-inset-bottom))}
+  .tabbar{display:grid;grid-template-columns:repeat(4,1fr);position:fixed;left:0;right:0;bottom:0;z-index:40;background:rgba(20,18,16,.96);backdrop-filter:blur(16px);border-top:1px solid var(--line2);padding:6px 6px max(8px,env(safe-area-inset-bottom))}
+  .tabbar button{border:0;background:none;color:var(--mut);display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 0;font-weight:700;font-size:11.5px;position:relative;cursor:pointer}
+  .tabbar button i{font-style:normal;font-size:22px;line-height:1.1}
+  .tabbar button.on{color:var(--o1)}
+  .tabbar b{position:absolute;top:0;left:56%;background:var(--o3);color:#fff;font-size:10.5px;border-radius:999px;padding:0 6px;min-width:18px;text-align:center}
+  .lead .ph{font-size:20px}
+  .lead .act select,.lead .act input{font-size:16px}
+  .reply textarea{font-size:16px}
+  .toolbar .in{font-size:16px}
 }
 </style>
 </head>
@@ -174,6 +199,7 @@ textarea.in{resize:vertical;min-height:80px}
     <div class="page" id="page"></div>
   </main>
 </div>
+<nav class="tabbar" id="tabbar"></nav>
 <div class="toast" id="toast"></div>
 
 <script>
@@ -236,7 +262,7 @@ function enter(login, last) {
   $('#who').innerHTML = 'Вы вошли как <b>' + esc(login) + '</b><br><a href="#" id="out">Выйти</a>';
   $('#out').onclick = (e) => { e.preventDefault(); logout(); };
   buildNav(); route();
-  loadLeads(); loadContent();
+  loadLeads(); loadContent(); if (!S.bot) loadBot().then(() => { if (S.view === 'leads' || S.view === 'home') render(); });
 }
 // #chat/123 — кнопка «Відповісти в боті» з групи заявок відкриває одразу переписку з цим клієнтом
 function route() {
@@ -246,6 +272,8 @@ function route() {
 addEventListener('hashchange', () => { if (S.token && /^#chat\/\d+$/.test(location.hash) && !(S.chat && location.hash === '#chat/' + S.chat.id)) route(); });
 function buildNav() {
   const nNew = (S.leads || []).filter((l) => !l.test && l.status === 'new').length;
+  $('#tabbar').innerHTML = [['leads', '☎', 'Заявки'], ['bot', '✈', 'Бот'], ['home', '◎', 'Обзор'], ['more', '☰', 'Ещё']].map(([k, i, t]) => `<button data-v="${k}" class="${S.view === k || (k === 'more' && !['leads', 'bot', 'home'].includes(S.view)) ? 'on' : ''}"><i>${i}</i>${t}${k === 'leads' && nNew ? `<b>${nNew}</b>` : ''}</button>`).join('');
+  $('#tabbar').querySelectorAll('button').forEach((b) => (b.onclick = () => { if (b.dataset.v === 'more') return $('#side').classList.add('open'); if (b.dataset.v === 'bot') S.chat = null; go(b.dataset.v); scrollTo(0, 0); }));
   $('#nav').innerHTML = VIEWS.map(([k, i, t]) => `<button data-v="${k}" class="${S.view === k ? 'on' : ''}"><i>${i}</i>${t}${k === 'leads' && nNew ? `<b>${nNew}</b>` : ''}</button>`).join('');
   $('#nav').querySelectorAll('button').forEach((b) => (b.onclick = () => { go(b.dataset.v); $('#side').classList.remove('open'); }));
 }
@@ -323,6 +351,27 @@ function home() {
 
 /* ---------- заявки ---------- */
 const STATUS = [['new', 'Новая'], ['work', 'В работе'], ['client', 'Клиент'], ['lost', 'Отказ']];
+// готовий текст для клієнта (такий самий, як у кнопках у групі)
+function hello(l) {
+  const nm = String(l.name || '').trim().split(/\s+/)[0], where = l.chat ? 'Ви писали нашому Telegram-боту' : 'Ви залишили заявку на сайті';
+  const ask = l.niche && !/^(інша|інше)$/i.test(l.niche) ? `Підготував пропозицію для «${l.niche}»${l.city ? ' у місті ' + l.city : ''} — зручно зараз 5 хвилин поговорити?` : 'Підкажіть, будь ласка, чим займається ваш бізнес і в якому місті працюєте? Підготую пропозицію саме під вас 🙂';
+  return `Добрий день${nm ? ', ' + nm : ''}! 👋 Це Максим, PRMAX. ${where} — сайт + реклама Google.\n${ask}`;
+}
+// усі способи звʼязку одним рядком: дзвінок, WhatsApp, Viber, Telegram, переписка в боті
+function contactBtns(l) {
+  const d = phoneDigits(l.phone), u = String(l.tg || l.username || '').replace(/^https?:\/\/t\.me\//i, '').replace(/^@+/, '').trim(), q = encodeURIComponent(hello(l));
+  const okU = /^[A-Za-z][A-Za-z0-9_]{3,31}$/.test(u), b = [];
+  if (d.length >= 11) {
+    b.push(`<a class="call" href="tel:+${d}"><i>📞</i>Позвонить</a>`);
+    b.push(`<a class="wa" href="https://wa.me/${d}?text=${q}" target="_blank" rel="noopener"><i>🟢</i>WhatsApp</a>`);
+    b.push(`<a class="vb" href="viber://chat?number=%2B${d}&draft=${q}"><i>💜</i>Viber</a>`);
+  }
+  if (okU || d.length >= 11) b.push(`<a class="tg" href="${okU ? `https://t.me/${u}?text=${q}` : `https://t.me/+${d}`}" target="_blank" rel="noopener"><i>✈️</i>Telegram</a>`);
+  if (l.chat) b.push(`<a class="bt" href="#chat/${l.chat}"><i>💬</i>В боте</a>`);
+  return b.length ? `<div class="cta">${b.join('')}</div>` : '';
+}
+// заявка → переписка в боті (за номером телефону)
+function botIdByPhone(p) { const d = phoneDigits(p).slice(-9); if (d.length < 9 || !S.bot) return ''; const x = S.bot.find((b) => phoneDigits(b.phone).slice(-9) === d); return x ? x.id : ''; }
 function phoneDigits(p) { let d = String(p || '').replace(/\D/g, ''); if (d.length === 10 && d[0] === '0') d = '38' + d; return d; }
 function leadCard(l) {
   const d = phoneDigits(l.phone), tg = String(l.tg || '').replace(/^@+|\s|@/g, '');
@@ -332,7 +381,7 @@ function leadCard(l) {
     <div><div class="nm">${esc(l.name || 'Без имени')}</div><a class="ph" href="tel:+${d}">${esc(l.phone)}</a>
       ${meta ? `<div class="meta">${meta}</div>` : ''}${l.note ? `<div class="meta">${esc(l.note)}</div>` : ''}${tg ? `<div class="meta">Telegram: @${esc(tg)}</div>` : ''}</div>
     <div class="act">
-      <div class="row"><a class="btn s p" href="tel:+${d}">Позвонить</a><a class="btn s g" href="https://prmax.agency/v.html?n=${d}" target="_blank" rel="noopener">Viber</a>${tg && /^[A-Za-z]\w{3,}$/.test(tg) ? `<a class="btn s g" href="https://t.me/${esc(tg)}" target="_blank" rel="noopener">Telegram</a>` : ''}</div>
+      ${contactBtns(Object.assign({}, l, { chat: botIdByPhone(l.phone) }))}
       <select class="in st" aria-label="Статус">${STATUS.map(([k, t]) => `<option value="${k}" ${l.status === k ? 'selected' : ''}>${t}</option>`).join('')}</select>
       <input class="in cm" placeholder="Комментарий (видите только вы)" value="${esc(l.comment)}">
     </div></div>`;
@@ -425,7 +474,7 @@ function chatView() {
   <div class="card" style="margin:14px 0"><div class="row" style="justify-content:space-between">
     <div><div style="font-weight:800;font-size:18px">${esc(c.name || 'Без имени')} ${c.username ? `<span style="color:var(--dim);font-size:14px;font-weight:600">${esc(c.username)}</span>` : ''}</div>
       <span class="stp ${cl}">${st}</span>${c.src ? ` <span class="tag ${esc(c.src)}">${esc(SRC_RU[c.src] || c.src)}</span>` : ''}${info ? `<div class="meta" style="color:var(--mut);font-size:13.5px;margin-top:6px">${info}</div>` : ''}</div>
-    <div class="row">${c.phone ? `<a class="btn s p" href="tel:+${d}">Позвонить ${esc(c.phone)}</a><a class="btn s g" href="https://prmax.agency/v.html?n=${d}" target="_blank" rel="noopener">Viber</a><a class="btn s g" href="https://wa.me/${d}" target="_blank" rel="noopener">WhatsApp</a>` : ''}${c.username ? `<a class="btn s g" href="https://t.me/${esc(c.username.replace('@', ''))}" target="_blank" rel="noopener">Написать лично</a>` : ''}<button class="btn s g" id="cr">Обновить</button></div></div></div>
+    <button class="btn s g" id="cr">Обновить</button></div>${c.phone ? `<div style="font-size:20px;font-weight:800;margin:12px 0 10px">${esc(c.phone)}</div>` : ''}<div style="margin-top:10px">${contactBtns(Object.assign({}, c, { chat: '' }))}</div></div>
   <div class="chat" id="chat">${c.msgs.length ? c.msgs.map((m) => `<div class="msg ${m.w === 'клієнт' ? 'cl' : m.w === 'Максим' ? 'mx' : 'bt'}">${esc(m.t)}<small>${m.w === 'клієнт' ? 'клиент' : m.w === 'Максим' ? 'вы' : 'бот'}${m.d ? ' · ' + fmtT(m.d) : ''}</small></div>`).join('') : '<div class="empty">Переписки пока нет</div>'}</div>
   <div class="reply"><textarea class="in" id="ct" placeholder="Ответ клиенту — придёт ему в Telegram от бота PRMAX"></textarea><button class="btn p" id="cs">Отправить</button></div>
   <p class="hint" style="margin-top:8px">Ответ также появится в вашей группе «PRMAX Заявки». Отправленное сообщение удалить нельзя — проверьте текст.</p>`);
