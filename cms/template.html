@@ -1193,6 +1193,23 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
 /* шапка повністю прозора; при прокрутці вниз ховається, при прокрутці вгору повертається */
 .hdr{transition:transform .45s var(--e),background .5s!important}
 .hdr.hide{transform:translateY(-110%)}
+
+/* ===== шапка-капсула: скло, напівпрозора, завжди видима (як просив Максим, зразок onvit) ===== */
+.hdr,.hdr.sc,.hdr.on,.hdr.scrolled{background:transparent!important;border:0!important;padding-top:calc(10px + env(safe-area-inset-top,0px))!important;transform:none!important}
+.hdr .wrap{margin:0 12px;height:64px!important;padding:0 8px 0 18px;border-radius:999px;background:rgba(20,17,15,.55)!important;border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(22px) saturate(150%)!important;-webkit-backdrop-filter:blur(22px) saturate(150%)!important;box-shadow:0 10px 30px -14px rgba(0,0,0,.8),inset 0 1px 0 rgba(255,255,255,.1)}
+.hdr .logo img{height:40px;width:auto;filter:none}
+.hdr .icbtn,.hdr .burger{width:46px;height:46px}
+.hdr .icbtn{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.14)}
+@media(min-width:900px){.hdr .wrap{margin:0 auto;max-width:1240px!important;height:70px!important;padding:0 10px 0 22px}.hdr .logo img{height:46px}}
+.hero{padding-top:calc(118px + env(safe-area-inset-top,0px))!important}
+@media(min-width:900px){.hero{padding-top:calc(140px + env(safe-area-inset-top,0px))!important}}
+#hq,#tsiny,#dlya,#faq{scroll-margin-top:96px}
+/* хвиля-кільце біля «подзвонити» і Telegram: тонке кільце розходиться, без свічення */
+.hdr .call::after,.fab .ph::after,.fab .tg::after,.icbtn[data-c=phone-link]::after,.m-c3 a:first-child::after,.m-c3 a[data-c=tg-link]::after{content:"";display:block!important;position:absolute;inset:-2px;border-radius:inherit;border:1.5px solid rgba(255,140,60,.9);animation:wave 2.4s ease-out infinite;pointer-events:none}
+.fab .tg::after,.m-c3 a[data-c=tg-link]::after{border-color:rgba(42,171,238,.9)}
+.hdr .call,.fab .ph,.fab .tg,.icbtn[data-c=phone-link],.m-c3 a{position:relative}
+@keyframes wave{0%{transform:scale(1);opacity:.9}70%{transform:scale(1.45);opacity:0}100%{transform:scale(1.45);opacity:0}}
+@media(prefers-reduced-motion:reduce){.hdr .call::after,.fab .ph::after,.fab .tg::after,.icbtn[data-c=phone-link]::after,.m-c3 a::after{animation:none;display:none!important}}
 </style>
 <!-- Microsoft Clarity (теплові карти й записи сеансів) -->
 <script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];__late(function(){document.head.appendChild(t)});})(window,document,"clarity","script","z2nkewuu0z");</script>
@@ -1739,7 +1756,7 @@ var CONTACTS={
   var fab=$('#fab');
   function onScroll(){
     var y=scrollY,h=document.documentElement,max=h.scrollHeight-h.clientHeight;
-    hdr.classList.toggle('sc',y>20);hdr.classList.toggle('hide',y>120&&y>(onScroll.ly||0)&&!document.getElementById('mnav').classList.contains('on'));onScroll.ly=y;
+    hdr.classList.toggle('sc',y>20);
     prog.style.transform='scaleX('+(max>0?y/max:0)+')';
     mbar.classList.toggle('on',y>hero.offsetHeight*.7&&fin.getBoundingClientRect().top>innerHeight*.6);
     fab.classList.toggle('on',y>hero.offsetHeight*.45&&fin.getBoundingClientRect().top>innerHeight*.55);
