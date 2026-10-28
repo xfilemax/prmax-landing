@@ -3,6 +3,5 @@ Allow: /
 Disallow: /_
 Disallow: /v.html
 Disallow: /cms/
-Disallow: /draft.html
 Disallow: /admin/
 Sitemap: https://prmax.agency/sitemap.xml

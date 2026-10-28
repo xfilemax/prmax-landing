@@ -53,6 +53,32 @@ fbq('track','ViewContent',{content_name:'prmax_offer'});
 </script>
 <!-- TikTok Pixel End -->
 <style>
+/* ===== перший екран з опитуванням (чернетка 28.10) ===== */
+.pill{cursor:pointer;color:inherit}.pill-go{color:var(--o1);font-weight:800;margin-left:2px}
+.hq{width:100%;max-width:480px;margin:18px auto 0;padding:16px;border-radius:26px;text-align:left;background:linear-gradient(160deg,rgba(255,255,255,.10),rgba(255,255,255,.03));border:1px solid rgba(255,201,126,.32);box-shadow:0 24px 60px -30px rgba(240,110,0,.55);position:relative}
+.hq.pulse{animation:hqPulse 1s ease 2}@keyframes hqPulse{50%{box-shadow:0 0 0 6px rgba(255,138,31,.35)}}
+.hq-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px}.hq-top b{font-family:var(--d);font-weight:600;font-size:16px}.hq-top span{font-size:12.5px;color:var(--muted);font-weight:700;white-space:nowrap}
+.hq-bar{height:4px;border-radius:9px;background:rgba(255,255,255,.08);margin:10px 0 12px;overflow:hidden}.hq-bar i{display:block;height:100%;width:33%;background:var(--grad);border-radius:9px;transition:width .4s var(--e)}
+.hq-s{display:none}.hq-s.on{display:block;animation:fadeUp .45s var(--e) both}
+.hq-q{font-weight:800;font-size:17px;margin:0 0 10px}.hq-q.sm{font-size:15px;margin:14px 0 8px}
+.hq-ch{display:grid;grid-template-columns:1fr 1fr;gap:8px}.hq-ch.one{grid-template-columns:1fr}
+.hq-ch button{min-height:50px;padding:10px 12px;border-radius:16px;border:1px solid var(--line2);background:rgba(0,0,0,.28);color:var(--sand);font:700 15px/1.2 var(--b);text-align:left;cursor:pointer;transition:border-color .2s,background .2s,transform .15s}
+.hq-ch button:active{transform:scale(.97)}.hq-ch button.sel,.hq-ch button:hover{border-color:var(--o2);background:rgba(255,138,31,.14)}
+.hq-ch button small{display:inline-block;margin-left:6px;font-size:11px;color:#1A1007;background:var(--grad);border-radius:999px;padding:2px 8px;vertical-align:2px}
+.hq-ch .wide{grid-column:1/-1}
+.hq-city{display:flex;gap:8px;margin-top:10px}.hq-city .inp{flex:1}.hq-ok{border:0;border-radius:999px;padding:0 18px;background:var(--grad);color:#1A1007;font-weight:800;cursor:pointer}
+.hq-res{border-radius:18px;padding:14px;background:rgba(0,0,0,.3);border:1px solid var(--line);font-size:15px;line-height:1.5}
+.hq-res b.big{display:block;font-family:var(--d);font-size:20px;margin:2px 0 6px}.hq-res s{color:var(--dim)}.hq-res ul{list-style:none;padding:0;margin:8px 0 0;display:grid;gap:4px}
+#hqf .inp{margin-bottom:10px;font-size:18px;letter-spacing:.02em}.hq-send{width:100%}
+.hq-err{color:#ff8a8a;font-size:13.5px;margin:6px 0 0;min-height:0}
+.hq-tg{display:flex;justify-content:center;align-items:center;text-align:center;gap:6px;margin-top:10px;padding:12px;border-radius:999px;border:1px solid rgba(42,171,238,.5);color:#9bd8ff;font-weight:700;font-size:14.5px;text-decoration:none}
+.hq-fine{text-align:center;font-size:12.5px;color:var(--muted);margin:10px 0 0}
+.hq-done{display:grid;gap:6px;text-align:center;padding:10px 4px}.hq-done b{font-family:var(--d);font-size:19px}.hq-done span{color:var(--muted)}
+.hq-back{margin-top:10px;border:0;background:none;color:var(--muted);font-weight:700;font-size:13.5px;cursor:pointer;padding:4px 0}
+.hq-trust{display:flex;align-items:center;gap:12px;justify-content:center;margin:14px auto 0;max-width:480px;text-align:left;font-size:14px;line-height:1.35;color:rgba(245,243,239,.85)}
+.hero .hq-trust img{width:40px!important;height:40px!important;max-width:40px!important;aspect-ratio:1;margin:0;position:static;border-radius:50%;object-fit:cover;border:2px solid rgba(255,201,126,.6);flex:0 0 auto}.hq-trust small{color:var(--muted);font-size:12.5px}.hq-trust a{color:var(--o1)}
+.stage{cursor:pointer}.st-want{position:absolute;right:14px;bottom:14px;z-index:6;padding:7px 13px;border-radius:999px;background:var(--grad);color:#1A1007;font:800 12.5px/1 var(--b);box-shadow:0 10px 24px -8px rgba(240,110,0,.8)}
+@media (max-width:560px){.hero .lead{display:none}.hero .display{margin-top:14px}}
 /* ===== PRMAX · преміальна тема у стилі Best View: Cormorant + Manrope, скло, кнопки з кружком-стрілкою; кольори — чорний + помаранчевий ===== */
 @property --ang{syntax:'<angle>';initial-value:0deg;inherits:false}
 :root{
@@ -935,9 +961,9 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
 <header class="hdr" id="hdr">
   <div class="wrap">
     <a class="logo" href="#top" aria-label="PRMAX — на початок"><img src="img/logo.webp" alt="PRMAX Digital Agency" width="520" height="338"></a>
-    <nav class="menu" aria-label="Розділи"><a href="#yak">Як це працює</a><a href="#roboty">Роботи</a><a href="#tsiny">Ціни</a><a href="#vidguky">Відгуки</a><a href="#etapy">Етапи</a><a href="#faq">Питання</a></nav>
+    <nav class="menu" aria-label="Розділи"><a href="#stage">Як це працює</a><a href="#roboty">Роботи</a><a href="#tsiny">Ціни</a><a href="#vidguky">Відгуки</a><a href="#etapy">Етапи</a><a href="#faq">Питання</a></nav>
     <a class="hdr-ph" data-c="phone-link" href="#"><svg><use href="#i-phone"/></svg><span data-c="phone">+38 (063) 207-2000</span></a>
-    <a class="btn btn-o btn-sm hdr-cta" href="#zayavka" data-lead><span>Отримати клієнтів</span><span class="ar"><svg><use href="#i-arr"/></svg></span></a>
+    <a class="btn btn-o btn-sm hdr-cta" href="#zayavka" data-goq><span>Отримати клієнтів</span><span class="ar"><svg><use href="#i-arr"/></svg></span></a>
     <a class="icbtn call" data-c="phone-link" href="#" aria-label="Подзвонити"><svg><use href="#i-phone"/></svg></a>
     <button class="burger" id="burger" type="button" aria-label="Меню" aria-expanded="false" aria-controls="mnav"><i></i><i></i><i></i></button>
     <div class="prog" id="prog"></div>
@@ -948,17 +974,17 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
   <a class="m-logo" href="#top" aria-label="PRMAX — на початок"><img src="img/logo.webp" alt="PRMAX" width="520" height="338" loading="lazy"></a>
   <button class="m-close" type="button" aria-label="Закрити меню"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
   <nav aria-label="Меню">
-    <a href="#yak"><i>01</i>Як це працює<svg><use href="#i-arr"/></svg></a>
+    <a href="#stage"><i>01</i>Як це працює<svg><use href="#i-arr"/></svg></a>
     <a href="#roboty"><i>02</i>Наші роботи<svg><use href="#i-arr"/></svg></a>
     <a href="#tsiny"><i>03</i>Ціни і бонус<svg><use href="#i-arr"/></svg></a>
     <a href="#vidguky"><i>04</i>Відгуки<svg><use href="#i-arr"/></svg></a>
     <a href="#etapy"><i>05</i>Етапи роботи<svg><use href="#i-arr"/></svg></a>
     <a href="#faq"><i>06</i>Питання<svg><use href="#i-arr"/></svg></a>
-    <a href="#zayavka" data-lead><i>07</i>Залишити заявку<svg><use href="#i-arr"/></svg></a>
+    <a href="#zayavka" data-goq><i>07</i>Залишити заявку<svg><use href="#i-arr"/></svg></a>
   </nav>
   <a class="bonus m-bonus" href="#tsiny"><span class="gift"><svg><use href="#i-gift"/></svg></span><div><b>до 90&nbsp;000&nbsp;₴</b><span>бонус від Google на рекламу<sup>*</sup></span></div></a>
   <div class="m-foot">
-    <a class="btn btn-o btn-w" href="#zayavka" data-lead><span>Отримати клієнтів</span><span class="ar"><svg><use href="#i-arr"/></svg></span></a>
+    <a class="btn btn-o btn-w" href="#zayavka" data-goq><span>Отримати клієнтів</span><span class="ar"><svg><use href="#i-arr"/></svg></span></a>
     <div class="m-row"><a href="#" data-c="phone-link"><svg><use href="#i-phone"/></svg>Подзвонити</a><a href="#" data-c="tg-link" target="_blank" rel="noopener"><svg><use href="#i-tg"/></svg>Telegram</a></div>
   </div>
 </div>
@@ -967,19 +993,46 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
 <section class="hero" id="hero">
   <div class="aur" aria-hidden="true"><i class="a1"></i><i class="a2"></i><i class="a3"></i><i class="grid"></i><i class="noise"></i><i class="spot"></i></div>
   <div class="wrap h-top">
-    <span class="pill"><i class="dot"></i><span>Сайт + реклама Google · <span class="more">запуск </span>за 3 дні</span></span>
-    <h1 class="display"><span class="ln"><span class="lni">Вас вже шукають <span class="og-text live">у Google.</span></span></span><span class="ln"><span class="lni">Зробимо, щоб дзвонили й писали.</span></span></h1>
+    <button type="button" class="pill" data-goq><i class="dot"></i><span>Сайт + реклама Google · <span class="more">запуск </span>за 3 дні</span><span class="pill-go">→</span></button>
+    <h1 class="display"><span class="ln"><span class="lni">Вас вже шукають <span class="og-text live">у Google.</span></span></span><span class="ln"><span class="lni">Зробимо, щоб знаходили вас, а не конкурентів.</span></span></h1>
     <p class="lead"><span class="lead-a">Люди щодня гуглять вашу послугу у вашому місті. </span>Ми ставимо вас першим — і ви отримуєте дзвінки та заявки в Telegram.</p>
-    <div class="h-cta">
-      <a class="btn btn-o" href="#zayavka" data-lead><span>Написати в Telegram</span><span class="ar"><svg class="tgi" viewBox="0 0 24 24"><path d="M21.5 3.5L2.8 10.7c-1.3.5-1.2 1.3-.2 1.6l4.8 1.5 1.8 5.6c.2.7.6.8 1.1.3l2.6-2.4 5 3.7c.9.5 1.6.2 1.8-.9l3.2-15c.3-1.3-.5-1.9-1.4-1.6z"/></svg></span></a>
-      <a class="btn btn-g" href="#roboty"><span>Наші роботи</span><span class="ar"><svg viewBox="0 0 10 12" class="play"><path d="M0 0l10 6-10 6z"/></svg></span></a>
-      <a class="h-tg" href="#zayavka" data-form><span>Немає Telegram? <b>Залиште номер</b> — передзвонимо</span></a>
+    <!-- 28.10: опитування прямо на першому екрані (у браузері TikTok посилання на Telegram часто не відкривається) -->
+    <div class="hq" id="hq" aria-live="polite">
+      <div class="hq-top"><b>Порахуємо за 30 секунд</b><span id="hqn">Крок 1 з 3</span></div>
+      <div class="hq-bar"><i id="hqbar"></i></div>
+      <div class="hq-s on" data-s="1"><p class="hq-q">Яка у вас ніша?</p><div class="hq-ch" data-k="n">
+        <button type="button" data-i="0" data-v="Стоматологія">🦷 Стоматологія</button><button type="button" data-i="3" data-v="Автосервіс">🚗 Автосервіс</button>
+        <button type="button" data-i="7" data-v="Салон краси">💅 Салон краси</button><button type="button" data-i="1" data-v="Юрист">⚖️ Юрист</button>
+        <button type="button" data-i="4" data-v="Ремонт квартир">🛠 Ремонт</button><button type="button" data-i="2" data-v="Евакуатор">🚚 Евакуатор</button>
+        <button type="button" data-i="6" data-v="Доставка їжі">🍕 Доставка їжі</button><button type="button" data-i="11" data-v="Інше">✨ Інше</button></div></div>
+      <div class="hq-s" data-s="2"><p class="hq-q">У якому місті працюєте?</p><div class="hq-ch" data-k="c">
+        <button type="button" data-i="0" data-v="Київ">Київ</button><button type="button" data-i="1" data-v="Львів">Львів</button>
+        <button type="button" data-i="2" data-v="Одеса">Одеса</button><button type="button" data-i="3" data-v="Дніпро">Дніпро</button>
+        <button type="button" data-i="4" data-v="Харків">Харків</button><button type="button" data-i="5" data-v="Вся Україна">Вся Україна</button>
+        <button type="button" data-i="9" data-v="" class="wide">📍 Інше місто</button></div>
+        <div class="hq-city" id="hqcityw" hidden><input class="inp" id="hqcity" placeholder="Ваше місто" autocomplete="address-level2"><button type="button" class="hq-ok" id="hqcityok">Далі →</button></div></div>
+      <div class="hq-s" data-s="3"><p class="hq-q">Що потрібно?</p><div class="hq-ch one" data-k="w">
+        <button type="button" data-i="2" data-v="Сайт + реклама">🚀 Сайт + реклама Google <small>найчастіше</small></button><button type="button" data-i="0" data-v="Сайт">🌐 Тільки сайт</button>
+        <button type="button" data-i="1" data-v="Реклама Google">📈 Тільки реклама Google</button><button type="button" data-i="4" data-v="Реклама TikTok / Instagram">📱 Реклама TikTok / Instagram</button></div></div>
+      <div class="hq-s" data-s="4"><div class="hq-res" id="hqres"></div>
+        <form id="hqf" novalidate><p class="hq-q sm">Куди передзвонити з розрахунком?</p>
+          <input class="inp" id="hqph" type="tel" inputmode="tel" autocomplete="tel" placeholder="+380 __ ___ __ __" aria-label="Ваш номер телефону">
+          <button class="btn btn-o hq-send" type="submit"><span>Передзвоніть мені за 15 хв</span><span class="ar"><svg><use href="#i-phone"/></svg></span></button>
+          <p class="hq-err" id="hqerr"></p></form>
+        <a class="hq-tg" id="hqtg" href="#" target="_blank" rel="noopener">✈️ Або отримати розрахунок у Telegram</a>
+        <p class="hq-fine">🔒 Номер бачить лише Максим. Без спаму й розсилок.</p></div>
+      <div class="hq-s" data-s="5"><div class="hq-done"><b>✅ Дякуємо! Заявку прийнято.</b><span>Максим передзвонить протягом 15 хвилин у робочий час.</span></div>
+        <a class="hq-tg" id="hqtg2" href="#" target="_blank" rel="noopener">✈️ Поки чекаєте — поставте питання в Telegram</a></div>
+      <button type="button" class="hq-back" id="hqback" hidden>← Назад</button>
+    </div>
+    <div class="hq-trust"><img src="img/maxim.webp" alt="Максим, засновник PRMAX" width="40" height="40"><span><b>250+ бізнесів</b> уже з нами · запуск за 3 дні<br><small>або <a href="#" data-lead>напишіть у Telegram</a> · <a href="#roboty">наші роботи</a></small></span></div>
     </div>
   </div>
   <div class="wrap">
-    <div class="stage" id="stage" aria-label="Приклад: людина шукає в Google, бачить вашу рекламу першою і телефонує">
+    <div class="stage" id="stage" role="button" tabindex="0" data-goq aria-label="Приклад: людина шукає в Google, бачить вашу рекламу першою і телефонує. Натисніть, щоб порахувати для свого бізнесу">
       <div class="st-in" id="stin">
         <span class="tag-ex st-cap">Приклад, як це працює</span>
+        <span class="st-want">Хочу так само →</span>
         <div class="st-google">
           <div class="st-bar"><svg><use href="#i-search"/></svg><span class="q" id="dq">евакуатор київ</span><span class="caret"></span><span class="st-go">Пошук</span></div>
           <div class="ad st-ad" id="dad">
@@ -1004,39 +1057,10 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
   </div>
 </section>
 
-<section class="trustbar" aria-label="Нам довіряють">
-  <div class="wrap"><p class="tb-cap">Нам довіряють</p></div>
-  <div class="marq"><div class="track" id="track">
-    <img src="img/logos/sensei.webp" alt="Сенсей Суші" loading="lazy"><img src="img/logos/potolok.webp" alt="Potolok 101" loading="lazy"><img src="img/logos/prokatka.webp" alt="Prokatka" loading="lazy"><img src="img/logos/tower.webp" alt="Tower Security" loading="lazy"><img src="img/logos/autoclimat.webp" alt="Авто Клімат" loading="lazy"><img src="img/logos/videomarketing.webp" alt="Video маркетинг" loading="lazy"><img src="img/logos/sporkl.svg" alt="Sporkl" loading="lazy"><img src="img/logos/logo46.svg" alt="Логотип клієнта" loading="lazy"><img src="img/logos/logo47.svg" alt="Логотип клієнта" loading="lazy">
-  </div></div>
-</section>
-
-<section class="sec" id="yak">
+<section class="sec" id="roboty">
   <div class="wrap">
     <div class="sec-head rv">
-      <div class="eyebrow"><i>01</i>Чому Google</div>
-      <h2>Вас не треба нав'язувати. <span class="og-text">Вас вже шукають.</span></h2>
-      <p>У Google людина сама шукає «послуга + місто» і готова платити зараз. Ми робимо так, щоб вона побачила вас першим.</p>
-    </div>
-    <div class="hs-wrap"><div class="hs" data-hs>
-      <article class="hw"><img src="img/how-search.webp" alt="" loading="lazy"><span class="n">1</span>
-        <div class="mock"><div class="srch"><svg><use href="#i-search"/></svg><span id="hwq">евакуатор київ</span><span class="caret"></span></div></div>
-        <div class="cap"><h3>Людина вже шукає вас</h3><p>Вводить «послуга + місто». Їй потрібно сьогодні — це не нав'язана реклама.</p><span class="chip">90,67% пошуку в Україні — Google<sup>1</sup></span></div></article>
-      <article class="hw"><img src="img/niche/tow.webp" alt="" loading="lazy"><span class="n">2</span>
-        <div class="mock"><div class="mini-ad"><b>Спонсоровано</b><div class="tt">Евакуатор Київ | Приїдемо за 30 хв</div><div class="ds">Цілодобово. Ціна по телефону одразу.</div></div></div>
-        <div class="cap"><h3>Бачить вас першим</h3><p>Ваша реклама — над усією видачею. Клік — і людина на вашому сайті.</p></div></article>
-      <article class="hw"><img src="img/how-call.webp" alt="" loading="lazy"><span class="n">3</span>
-        <div class="mock"><div class="call-card"><span class="ic"><svg><use href="#i-phone"/></svg></span><div><b>Вхідний дзвінок</b><span>з реклами Google</span></div><span class="acc"><svg><use href="#i-phone"/></svg></span></div></div>
-        <div class="cap"><h3>Дзвонить або пише вам</h3><p>Кнопки «Подзвонити» і Telegram на першому екрані. Без посередників.</p></div></article>
-    </div><div class="hs-nav"><button type="button" class="hs-arr prev" aria-label="Назад"><svg viewBox="0 0 24 24"><path d="M19 12H5M11 18l-6-6 6-6"/></svg></button><button type="button" class="hs-arr next" aria-label="Далі"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div></div>
-    <div class="hs-bar"><i></i></div>
-  </div>
-</section>
-
-<section class="sec" id="roboty" style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <div class="eyebrow"><i>02</i>Наші роботи</div>
+      <div class="eyebrow"><i>01</i>Наші роботи</div>
       <h2>Сайти, які ми <span class="og-text">вже запустили</span></h2>
     </div>
     <div class="hs-wrap"><div class="hs" data-hs>
@@ -1046,6 +1070,39 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
       <article class="wk"><div class="frame"><div class="tb"><i></i><i></i><i></i></div><video muted loop playsinline preload="none" data-poster="img/potolok-poster.webp" data-src="video/potolok.mp4"></video></div><div class="meta"><div><small>Натяжні стелі · Харків</small><h3>Potolok 101</h3><button class="vbtn" data-yt="blUqbF-Fi24"><i><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z"/></svg></i>Відео сайту</button></div></div></article>
       <article class="wk"><div class="frame"><div class="tb"><i></i><i></i><i></i></div><video muted loop playsinline preload="none" data-poster="img/tawwersecy-poster.webp" data-src="video/tawwersecy.mp4"></video></div><div class="meta"><div><small>Охоронні системи</small><h3>Tawwersecy</h3><button class="vbtn" data-yt="TA9GnZlAEPA"><i><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z"/></svg></i>Відео сайту</button></div></div></article>
       
+    </div><div class="hs-nav"><button type="button" class="hs-arr prev" aria-label="Назад"><svg viewBox="0 0 24 24"><path d="M19 12H5M11 18l-6-6 6-6"/></svg></button><button type="button" class="hs-arr next" aria-label="Далі"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div></div>
+    <div class="hs-bar"><i></i></div>
+  </div>
+</section>
+
+<section class="trustbar" aria-label="Нам довіряють">
+  <div class="wrap"><p class="tb-cap">Нам довіряють</p></div>
+  <div class="marq"><div class="track" id="track">
+    <img src="img/logos/sensei.webp" alt="Сенсей Суші" loading="lazy"><img src="img/logos/potolok.webp" alt="Potolok 101" loading="lazy"><img src="img/logos/prokatka.webp" alt="Prokatka" loading="lazy"><img src="img/logos/tower.webp" alt="Tower Security" loading="lazy"><img src="img/logos/autoclimat.webp" alt="Авто Клімат" loading="lazy"><img src="img/logos/videomarketing.webp" alt="Video маркетинг" loading="lazy"><img src="img/logos/sporkl.svg" alt="Sporkl" loading="lazy"><img src="img/logos/logo46.svg" alt="Логотип клієнта" loading="lazy"><img src="img/logos/logo47.svg" alt="Логотип клієнта" loading="lazy">
+  </div></div>
+</section>
+
+<section class="sec" id="vidguky" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="eyebrow"><i>02</i>Відгуки</div>
+      <h2>Що пишуть <span class="og-text">клієнти</span></h2>
+    </div>
+    <div class="rv-main rv">
+      <div>
+        <div class="big og-text live">72 заявки</div><small>за перший тиждень після запуску</small>
+        <blockquote>«Замовляла у вас сайт і налаштування контекстної реклами. Ми повністю окупились».</blockquote>
+        <div class="who"><span class="av">НХ</span><div><b>Наташа Хоменко</b><span>сайт + реклама Google</span></div></div>
+        <p class="tr-note">Слова клієнтки, скорочено й перекладено з російської. Оригінал — на скриншоті.</p>
+      </div>
+      <div class="shot" data-img="img/reviews/natasha.webp" role="button" tabindex="0" aria-label="Відкрити скриншот відгуку"><img src="img/reviews/natasha.webp" alt="Скриншот відгуку Наташі Хоменко" loading="lazy" width="620" height="1072"></div>
+    </div>
+    <div class="hs-wrap">    <div class="hs" data-hs>
+      <div class="rc"><div class="shot" data-img="img/reviews/nikita.webp" role="button" tabindex="0" aria-label="Відкрити скриншот"><img src="img/reviews/nikita.webp" alt="Скриншот відгуку Нікіти Барі" loading="lazy" width="620" height="1070"></div><p>«Замовляв сайт і налаштування реклами. Я і вся команда дуже задоволені».</p><div class="who"><span class="av">НБ</span><div><b>Нікіта Барі</b><span>сайт + реклама</span></div></div></div>
+      <div class="rc"><div class="shot" data-img="img/reviews/svetlana.webp" role="button" tabindex="0" aria-label="Відкрити скриншот"><img src="img/reviews/svetlana.webp" alt="Скриншот відгуку Світлани" loading="lazy" width="620" height="1072"></div><p>«Роботу отримали завчасно, ще й у свята. Тепер PRMAX — наше спасіння».</p><div class="who"><span class="av">С</span><div><b>Світлана</b><span>сайт і просування</span></div></div></div>
+      <div class="rc"><div class="shot" data-img="img/reviews/natalia.webp" role="button" tabindex="0" aria-label="Відкрити скриншот"><img src="img/reviews/natalia.webp" alt="Скриншот відгуку Наталії Пан" loading="lazy" width="620" height="1072"></div><p>«Детально пояснили, як керувати сайтом. Дуже комфортно працювати».</p><div class="who"><span class="av">НП</span><div><b>Наталія Пан</b><span>складний проєкт</span></div></div></div>
+      <div class="rc"><div class="shot" data-img="img/reviews/edik.webp" role="button" tabindex="0" aria-label="Відкрити скриншот"><img src="img/reviews/edik.webp" alt="Скриншот відгуку Едіка Ляшена" loading="lazy" width="620" height="1072"></div><p>«Комфортно й ефективно. Задоволений візуалом, проєкт зданий вчасно».</p><div class="who"><span class="av">ЕЛ</span><div><b>Едік Ляшен</b><span>редизайн</span></div></div></div>
+      <div class="rc"><div class="shot" data-img="img/reviews/katya.webp" role="button" tabindex="0" aria-label="Відкрити скриншот"><img src="img/reviews/katya.webp" alt="Скриншот відгуку Каті Чумак" loading="lazy" width="620" height="1072"></div><p>«Справжній професіонал. Одразу хочу друге замовлення — рекламу».</p><div class="who"><span class="av">КЧ</span><div><b>Катя Чумак</b><span>повторне замовлення</span></div></div></div>
     </div><div class="hs-nav"><button type="button" class="hs-arr prev" aria-label="Назад"><svg viewBox="0 0 24 24"><path d="M19 12H5M11 18l-6-6 6-6"/></svg></button><button type="button" class="hs-arr next" aria-label="Далі"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div></div>
     <div class="hs-bar"><i></i></div>
   </div>
@@ -1067,7 +1124,7 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
       <div class="pc rv" style="--d:.18s"><div class="lbl"><h3>Ведення реклами й сайту</h3><em class="g">за бажанням</em></div><div class="am"><b>$75</b><small>/ місяць</small></div>
         <ul><li><svg><use href="#i-check"/></svg>Стежимо за рекламою щотижня: мінус-слова, ставки, запити</li><li><svg><use href="#i-check"/></svg>Правки на сайті — без доплат</li><li><svg><use href="#i-check"/></svg>Короткий звіт щомісяця</li><li><svg><use href="#i-check"/></svg>Відмовитися можна будь-коли</li></ul></div>
     </div>
-    <div class="total rv"><p><span class="tl">Сайт + реклама разом</span><span class="tp"><b class="og-text live">$450</b><s>$1000</s></span></p><a class="btn btn-o" href="#zayavka" data-lead><span>Замовити</span><span class="ar"><svg><use href="#i-arr"/></svg></span></a></div>
+    <div class="total rv"><p><span class="tl">Сайт + реклама разом</span><span class="tp"><b class="og-text live">$450</b><s>$1000</s></span></p><a class="btn btn-o" href="#zayavka" data-goq><span>Замовити</span><span class="ar"><svg><use href="#i-arr"/></svg></span></a></div>
     <div class="extras rv">
       <h3>Додатково — за бажанням</h3>
       <div class="ex-grid">
@@ -1100,33 +1157,108 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
   </div>
 </section>
 
-<section class="sec" id="vidguky" style="padding-top:0">
+<section class="sec" id="etapy" style="padding-top:0">
   <div class="wrap">
     <div class="sec-head rv">
-      <div class="eyebrow"><i>04</i>Відгуки</div>
-      <h2>Що пишуть <span class="og-text">клієнти</span></h2>
+      <div class="eyebrow"><i>04</i>Етапи</div>
+      <h2>Запуск <span class="og-text">за 3 дні</span></h2>
+      <p>Від вас — 10 хвилин розмови, фото і номер телефону. Решту робимо ми.</p>
     </div>
-    <div class="rv-main rv">
-      <div>
-        <div class="big og-text live">72 заявки</div><small>за перший тиждень після запуску</small>
-        <blockquote>«Замовляла у вас сайт і налаштування контекстної реклами. Ми повністю окупились».</blockquote>
-        <div class="who"><span class="av">НХ</span><div><b>Наташа Хоменко</b><span>сайт + реклама Google</span></div></div>
-        <p class="tr-note">Слова клієнтки, скорочено й перекладено з російської. Оригінал — на скриншоті.</p>
-      </div>
-      <div class="shot" data-img="img/reviews/natasha.webp" role="button" tabindex="0" aria-label="Відкрити скриншот відгуку"><img src="img/reviews/natasha.webp" alt="Скриншот відгуку Наташі Хоменко" loading="lazy" width="620" height="1072"></div>
-    </div>
-    <div class="hs-wrap">    <div class="hs" data-hs>
-      <div class="rc"><div class="shot" data-img="img/reviews/nikita.webp" role="button" tabindex="0" aria-label="Відкрити скриншот"><img src="img/reviews/nikita.webp" alt="Скриншот відгуку Нікіти Барі" loading="lazy" width="620" height="1070"></div><p>«Замовляв сайт і налаштування реклами. Я і вся команда дуже задоволені».</p><div class="who"><span class="av">НБ</span><div><b>Нікіта Барі</b><span>сайт + реклама</span></div></div></div>
-      <div class="rc"><div class="shot" data-img="img/reviews/svetlana.webp" role="button" tabindex="0" aria-label="Відкрити скриншот"><img src="img/reviews/svetlana.webp" alt="Скриншот відгуку Світлани" loading="lazy" width="620" height="1072"></div><p>«Роботу отримали завчасно, ще й у свята. Тепер PRMAX — наше спасіння».</p><div class="who"><span class="av">С</span><div><b>Світлана</b><span>сайт і просування</span></div></div></div>
-      <div class="rc"><div class="shot" data-img="img/reviews/natalia.webp" role="button" tabindex="0" aria-label="Відкрити скриншот"><img src="img/reviews/natalia.webp" alt="Скриншот відгуку Наталії Пан" loading="lazy" width="620" height="1072"></div><p>«Детально пояснили, як керувати сайтом. Дуже комфортно працювати».</p><div class="who"><span class="av">НП</span><div><b>Наталія Пан</b><span>складний проєкт</span></div></div></div>
-      <div class="rc"><div class="shot" data-img="img/reviews/edik.webp" role="button" tabindex="0" aria-label="Відкрити скриншот"><img src="img/reviews/edik.webp" alt="Скриншот відгуку Едіка Ляшена" loading="lazy" width="620" height="1072"></div><p>«Комфортно й ефективно. Задоволений візуалом, проєкт зданий вчасно».</p><div class="who"><span class="av">ЕЛ</span><div><b>Едік Ляшен</b><span>редизайн</span></div></div></div>
-      <div class="rc"><div class="shot" data-img="img/reviews/katya.webp" role="button" tabindex="0" aria-label="Відкрити скриншот"><img src="img/reviews/katya.webp" alt="Скриншот відгуку Каті Чумак" loading="lazy" width="620" height="1072"></div><p>«Справжній професіонал. Одразу хочу друге замовлення — рекламу».</p><div class="who"><span class="av">КЧ</span><div><b>Катя Чумак</b><span>повторне замовлення</span></div></div></div>
+    <div class="hs-wrap"><div class="hs c4" data-hs>
+      <article class="stp"><div class="im"><img src="img/step-talk.webp" alt="" loading="lazy"><span class="n">День 1</span></div><div class="tx"><h3>Розмова 10 хвилин</h3><p>Ніша, місто, ціни, куди дзвонити.</p></div></article>
+      <article class="stp"><div class="im"><img src="img/step-design.webp" alt="" loading="lazy"><span class="n">Дні 1–2</span></div><div class="tx"><h3>Робимо сайт</h3><p>Показуємо до запуску, вносимо правки.</p></div></article>
+      <article class="stp"><div class="im"><img src="img/step-ads.webp" alt="" loading="lazy"><span class="n">Дні 2–3</span></div><div class="tx"><h3>Налаштовуємо рекламу</h3><p>Запити, оголошення, гео. Модерація Google.</p></div></article>
+      <article class="stp"><div class="im"><img src="img/craftsman.webp" alt="" loading="lazy"><span class="n">День 3</span></div><div class="tx"><h3>Старт: дзвінки та заявки</h3><p>Запускаємо і тиждень стежимо за результатом.</p></div></article>
     </div><div class="hs-nav"><button type="button" class="hs-arr prev" aria-label="Назад"><svg viewBox="0 0 24 24"><path d="M19 12H5M11 18l-6-6 6-6"/></svg></button><button type="button" class="hs-arr next" aria-label="Далі"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div></div>
     <div class="hs-bar"><i></i></div>
   </div>
 </section>
 
-<section class="sec" id="kviz" style="padding-top:0">
+<section class="sec" id="pro-nas" style="padding-top:0">
+  <div class="wrap founder">
+    <div class="ph-frame rv"><img src="img/maxim.webp" alt="Максим, засновник PRMAX" loading="lazy" width="1000" height="1000"><div class="nm"><b>Максим</b><span>засновник PRMAX</span></div></div>
+    <div class="txt rv">
+      <div class="eyebrow"><i>05</i>Про нас</div>
+      <h2>Ми робимо не просто гарний сайт. <span class="og-text">Ми робимо так, щоб вам дзвонили й писали.</span></h2>
+      <p>Сайт сам по собі клієнтів не приносить. Приносить зв'язка: реклама на тих, хто вже шукає, + сайт, який переконує подзвонити або написати в Telegram. Її ми налаштовуємо за 3 дні.</p>
+      <div class="princ">
+        <div><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18"/></svg><b>Без абонплати</b><span>Платите один раз</span></div>
+        <div><svg viewBox="0 0 24 24"><path d="M12 3l8 4v6c0 4-3.5 7-8 8-4.5-1-8-4-8-8V7z"/></svg><b>Доступи ваші</b><span>Сайт і кабінет на вас</span></div>
+        <div><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12h8"/></svg><b>0% комісії</b><span>Бюджет — напряму Google</span></div>
+        <div><svg viewBox="0 0 24 24"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg><b>Без сюрпризів</b><span>Показуємо до запуску</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="faq" style="padding-top:0">
+  <div class="wrap faq-wrap">
+    <div class="sec-head rv">
+      <div class="eyebrow"><i>06</i>Питання</div>
+      <h2>Коротко про головне</h2>
+    </div>
+    <div class="faq-list rv">
+      <details><summary>Чому так недорого?<i><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></i></summary><div class="ans"><div><p>Робимо за відпрацьованою структурою під кожну сферу, без великого офісу. Тому $300 за сайт і $150 за налаштування реклами, а не агентський цінник.</p></div></div></details>
+      <details><summary>Скільки коштує створення сайту під ключ?<i><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></i></summary><div class="ans"><div><p>Односторінковий сайт під ключ — $300 замість $700: дизайн і тексти під вашу нішу, кнопки дзвінка, Telegram і Viber, форма заявки. Запуск за 3 дні, домен і хостинг оформлюються на вас.</p></div></div></details>
+      <details><summary>Скільки коштує налаштування реклами Google Ads?<i><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></i></summary><div class="ans"><div><p>Налаштування контекстної реклами Google Ads — $150 замість $300. Реклама показується тим, хто вже шукає вашу послугу у вашому місті. Рекламний бюджет — від 5 000 ₴ на місяць, платите Google напряму, наша комісія 0%.</p></div></div></details>
+      <details><summary>Чи робите Telegram-бота для бізнесу?<i><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></i></summary><div class="ans"><div><p>Так, Telegram-бот під ключ — $150. Він відповідає вашим клієнтам 24/7, ставить питання, бере номер телефону і надсилає заявки вам у Telegram.</p></div></div></details>
+      <details><summary>Чи налаштовуєте рекламу в TikTok, Facebook та Instagram?<i><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></i></summary><div class="ans"><div><p>Так: $100 — з вашими відео, $150 — разом із 3 нашими креативами. Бюджет на рекламу — від 3 000 ₴ на місяць, платите площадці напряму.</p></div></div></details>
+      <details><summary>Чи робите SEO і профіль у Google Картах?<i><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></i></summary><div class="ans"><div><p>Так. SEO-налаштування сайту — $150, щоб Google показував вас без реклами. Профіль компанії в Google Картах — $100: адреса, фото, години роботи, кнопка дзвінка.</p></div></div></details>
+      <details><summary>Скільки коштуватиме сама реклама?<i><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></i></summary><div class="ans"><div><p>Бюджет визначаєте ви і платите напряму Google зі своєї картки. Порадимо стартову суму під ваше місто. Зупинити можна будь-коли.</p></div></div></details>
+      <details><summary>Що за бонус від Google?<i><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></i></summary><div class="ans"><div><p>Google дає новим рекламним акаунтам бонус на покази: витратили 10 000 ₴ протягом перших 60 днів — отримали 10 000 ₴, витратили 30 000 — отримали 40 000, витратили 60 000 — отримали 90 000 ₴. Допоможемо активувати й назвемо точні умови на момент запуску.</p></div></div></details>
+      <details><summary>Скільки часу до запуску?<i><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></i></summary><div class="ans"><div><p>3 дні. Сайт — за 1–2 дні після того, як надішлете фото й контакти. На 3-й день реклама проходить модерацію Google і стартує.</p></div></div></details>
+      <details><summary>Ви працюєте в моєму місті?<i><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></i></summary><div class="ans"><div><p>Так. Працюємо дистанційно по всій Україні і для бізнесу в Європі. Реклама показується саме у вашому місті чи області.</p></div></div></details>
+      <details><summary>Що потрібно від мене?<i><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></i></summary><div class="ans"><div><p>10 хвилин розмови, фото робіт і номер телефону. Решту робимо ми. Ваше завдання — брати трубку.</p></div></div></details>
+      </div>
+  </div>
+</section>
+
+<section class="sec final" id="zayavka">
+  <div class="wrap final-grid">
+    <div class="rv">
+      <div class="eyebrow"><i>07</i>Заявка</div>
+      <h2>Почнімо з <span class="og-text">10&#8209;хвилинної</span> розмови</h2>
+      <p class="sub">Залиште номер — передзвонимо в робочий час, розповімо, скільки людей шукають вас у Google, і запустимо за 3 дні.</p>
+      <div class="contacts">
+        <a href="#" data-c="phone-link"><i><svg><use href="#i-phone"/></svg></i><span><small>Телефон</small><span data-c="phone">+38 (063) 207-2000</span></span></a>
+        <a href="#" data-c="tg-link" target="_blank" rel="noopener"><i><svg><use href="#i-tg"/></svg></i><span><small>Telegram</small><span>Написати нам</span></span></a>
+      </div>
+    </div>
+    <form class="mini rv" id="minif" novalidate>
+      <div id="minifields">
+        <div class="mini-top"><b>Передзвоніть мені</b><span>10 секунд</span></div>
+        <div class="mini-row"><input class="inp" id="mph" type="tel" inputmode="tel" placeholder="+380 __ ___ __ __" autocomplete="tel" aria-label="Телефон"><button class="btn btn-o" type="submit"><span>Надіслати</span><span class="ar"><svg><use href="#i-arr"/></svg></span></button></div>
+        <div class="err" id="merr" role="alert"></div>
+        <p class="fine">Або <a href="#zayavka" data-goq>повна заявка</a>. Надсилаючи, ви погоджуєтесь з <a href="privacy.html" target="_blank" rel="noopener">політикою</a>.</p>
+      </div>
+      <div class="done" id="mdone" hidden><div class="ok"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></div><h3>Дякуємо!</h3><p>Передзвонимо в робочий час. Хочете швидше — продовжіть у Telegram: бот уже знає вашу заявку.</p><a class="btn btn-o" href="#" data-c="tg-link" target="_blank" rel="noopener"><span>Продовжити в Telegram</span><span class="ar"><svg><use href="#i-arr"/></svg></span></a></div>
+    </form>
+  </div>
+</section>
+<!-- приховані блоки (28.10): як це працює, другий квіз, конструктор, карта -->
+<section hidden class="sec" id="yak">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="eyebrow"><i>01</i>Чому Google</div>
+      <h2>Вас не треба нав'язувати. <span class="og-text">Вас вже шукають.</span></h2>
+      <p>У Google людина сама шукає «послуга + місто» і готова платити зараз. Ми робимо так, щоб вона побачила вас першим.</p>
+    </div>
+    <div class="hs-wrap"><div class="hs" data-hs>
+      <article class="hw"><img src="img/how-search.webp" alt="" loading="lazy"><span class="n">1</span>
+        <div class="mock"><div class="srch"><svg><use href="#i-search"/></svg><span id="hwq">евакуатор київ</span><span class="caret"></span></div></div>
+        <div class="cap"><h3>Людина вже шукає вас</h3><p>Вводить «послуга + місто». Їй потрібно сьогодні — це не нав'язана реклама.</p><span class="chip">90,67% пошуку в Україні — Google<sup>1</sup></span></div></article>
+      <article class="hw"><img src="img/niche/tow.webp" alt="" loading="lazy"><span class="n">2</span>
+        <div class="mock"><div class="mini-ad"><b>Спонсоровано</b><div class="tt">Евакуатор Київ | Приїдемо за 30 хв</div><div class="ds">Цілодобово. Ціна по телефону одразу.</div></div></div>
+        <div class="cap"><h3>Бачить вас першим</h3><p>Ваша реклама — над усією видачею. Клік — і людина на вашому сайті.</p></div></article>
+      <article class="hw"><img src="img/how-call.webp" alt="" loading="lazy"><span class="n">3</span>
+        <div class="mock"><div class="call-card"><span class="ic"><svg><use href="#i-phone"/></svg></span><div><b>Вхідний дзвінок</b><span>з реклами Google</span></div><span class="acc"><svg><use href="#i-phone"/></svg></span></div></div>
+        <div class="cap"><h3>Дзвонить або пише вам</h3><p>Кнопки «Подзвонити» і Telegram на першому екрані. Без посередників.</p></div></article>
+    </div><div class="hs-nav"><button type="button" class="hs-arr prev" aria-label="Назад"><svg viewBox="0 0 24 24"><path d="M19 12H5M11 18l-6-6 6-6"/></svg></button><button type="button" class="hs-arr next" aria-label="Далі"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div></div>
+    <div class="hs-bar"><i></i></div>
+  </div>
+</section>
+
+<section hidden class="sec" id="kviz" style="padding-top:0">
   <div class="wrap qz-grid">
     <div class="rv">
       <div class="eyebrow"><i>05</i>Квіз</div>
@@ -1148,7 +1280,7 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
   </div>
 </section>
 
-<section class="sec" id="konstruktor" style="padding-top:0">
+<section hidden class="sec" id="konstruktor" style="padding-top:0">
   <div class="wrap">
     <div class="sec-head rv">
       <div class="eyebrow"><i>06</i>Спробуйте</div>
@@ -1172,24 +1304,7 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
   </div>
 </section>
 
-<section class="sec" id="etapy" style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <div class="eyebrow"><i>07</i>Етапи</div>
-      <h2>Запуск <span class="og-text">за 3 дні</span></h2>
-      <p>Від вас — 10 хвилин розмови, фото і номер телефону. Решту робимо ми.</p>
-    </div>
-    <div class="hs-wrap"><div class="hs c4" data-hs>
-      <article class="stp"><div class="im"><img src="img/step-talk.webp" alt="" loading="lazy"><span class="n">День 1</span></div><div class="tx"><h3>Розмова 10 хвилин</h3><p>Ніша, місто, ціни, куди дзвонити.</p></div></article>
-      <article class="stp"><div class="im"><img src="img/step-design.webp" alt="" loading="lazy"><span class="n">Дні 1–2</span></div><div class="tx"><h3>Робимо сайт</h3><p>Показуємо до запуску, вносимо правки.</p></div></article>
-      <article class="stp"><div class="im"><img src="img/step-ads.webp" alt="" loading="lazy"><span class="n">Дні 2–3</span></div><div class="tx"><h3>Налаштовуємо рекламу</h3><p>Запити, оголошення, гео. Модерація Google.</p></div></article>
-      <article class="stp"><div class="im"><img src="img/craftsman.webp" alt="" loading="lazy"><span class="n">День 3</span></div><div class="tx"><h3>Старт: дзвінки та заявки</h3><p>Запускаємо і тиждень стежимо за результатом.</p></div></article>
-    </div><div class="hs-nav"><button type="button" class="hs-arr prev" aria-label="Назад"><svg viewBox="0 0 24 24"><path d="M19 12H5M11 18l-6-6 6-6"/></svg></button><button type="button" class="hs-arr next" aria-label="Далі"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div></div>
-    <div class="hs-bar"><i></i></div>
-  </div>
-</section>
-
-<section class="sec" id="geo" style="padding-top:0">
+<section hidden class="sec" id="geo" style="padding-top:0">
   <div class="wrap">
     <div class="sec-head rv">
       <div class="eyebrow"><i>08</i>Географія</div>
@@ -1203,67 +1318,6 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
   </div>
 </section>
 
-<section class="sec" id="pro-nas" style="padding-top:0">
-  <div class="wrap founder">
-    <div class="ph-frame rv"><img src="img/maxim.webp" alt="Максим, засновник PRMAX" loading="lazy" width="1000" height="1000"><div class="nm"><b>Максим</b><span>засновник PRMAX</span></div></div>
-    <div class="txt rv">
-      <div class="eyebrow"><i>09</i>Про нас</div>
-      <h2>Ми робимо не просто гарний сайт. <span class="og-text">Ми робимо так, щоб вам дзвонили й писали.</span></h2>
-      <p>Сайт сам по собі клієнтів не приносить. Приносить зв'язка: реклама на тих, хто вже шукає, + сайт, який переконує подзвонити або написати в Telegram. Її ми налаштовуємо за 3 дні.</p>
-      <div class="princ">
-        <div><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18"/></svg><b>Без абонплати</b><span>Платите один раз</span></div>
-        <div><svg viewBox="0 0 24 24"><path d="M12 3l8 4v6c0 4-3.5 7-8 8-4.5-1-8-4-8-8V7z"/></svg><b>Доступи ваші</b><span>Сайт і кабінет на вас</span></div>
-        <div><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12h8"/></svg><b>0% комісії</b><span>Бюджет — напряму Google</span></div>
-        <div><svg viewBox="0 0 24 24"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg><b>Без сюрпризів</b><span>Показуємо до запуску</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="sec" id="faq" style="padding-top:0">
-  <div class="wrap faq-wrap">
-    <div class="sec-head rv">
-      <div class="eyebrow"><i>10</i>Питання</div>
-      <h2>Коротко про головне</h2>
-    </div>
-    <div class="faq-list rv">
-      <details><summary>Чому так недорого?<i><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></i></summary><div class="ans"><div><p>Робимо за відпрацьованою структурою під кожну сферу, без великого офісу. Тому $300 за сайт і $150 за налаштування реклами, а не агентський цінник.</p></div></div></details>
-      <details><summary>Скільки коштує створення сайту під ключ?<i><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></i></summary><div class="ans"><div><p>Односторінковий сайт під ключ — $300 замість $700: дизайн і тексти під вашу нішу, кнопки дзвінка, Telegram і Viber, форма заявки. Запуск за 3 дні, домен і хостинг оформлюються на вас.</p></div></div></details>
-      <details><summary>Скільки коштує налаштування реклами Google Ads?<i><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></i></summary><div class="ans"><div><p>Налаштування контекстної реклами Google Ads — $150 замість $300. Реклама показується тим, хто вже шукає вашу послугу у вашому місті. Рекламний бюджет — від 5 000 ₴ на місяць, платите Google напряму, наша комісія 0%.</p></div></div></details>
-      <details><summary>Чи робите Telegram-бота для бізнесу?<i><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></i></summary><div class="ans"><div><p>Так, Telegram-бот під ключ — $150. Він відповідає вашим клієнтам 24/7, ставить питання, бере номер телефону і надсилає заявки вам у Telegram.</p></div></div></details>
-      <details><summary>Чи налаштовуєте рекламу в TikTok, Facebook та Instagram?<i><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></i></summary><div class="ans"><div><p>Так: $100 — з вашими відео, $150 — разом із 3 нашими креативами. Бюджет на рекламу — від 3 000 ₴ на місяць, платите площадці напряму.</p></div></div></details>
-      <details><summary>Чи робите SEO і профіль у Google Картах?<i><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></i></summary><div class="ans"><div><p>Так. SEO-налаштування сайту — $150, щоб Google показував вас без реклами. Профіль компанії в Google Картах — $100: адреса, фото, години роботи, кнопка дзвінка.</p></div></div></details>
-      <details><summary>Скільки коштуватиме сама реклама?<i><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></i></summary><div class="ans"><div><p>Бюджет визначаєте ви і платите напряму Google зі своєї картки. Порадимо стартову суму під ваше місто. Зупинити можна будь-коли.</p></div></div></details>
-      <details><summary>Що за бонус від Google?<i><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></i></summary><div class="ans"><div><p>Google дає новим рекламним акаунтам бонус на покази: витратили 10 000 ₴ протягом перших 60 днів — отримали 10 000 ₴, витратили 30 000 — отримали 40 000, витратили 60 000 — отримали 90 000 ₴. Допоможемо активувати й назвемо точні умови на момент запуску.</p></div></div></details>
-      <details><summary>Скільки часу до запуску?<i><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></i></summary><div class="ans"><div><p>3 дні. Сайт — за 1–2 дні після того, як надішлете фото й контакти. На 3-й день реклама проходить модерацію Google і стартує.</p></div></div></details>
-      <details><summary>Ви працюєте в моєму місті?<i><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></i></summary><div class="ans"><div><p>Так. Працюємо дистанційно по всій Україні і для бізнесу в Європі. Реклама показується саме у вашому місті чи області.</p></div></div></details>
-      <details><summary>Що потрібно від мене?<i><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></i></summary><div class="ans"><div><p>10 хвилин розмови, фото робіт і номер телефону. Решту робимо ми. Ваше завдання — брати трубку.</p></div></div></details>
-      </div>
-  </div>
-</section>
-
-<section class="sec final" id="zayavka">
-  <div class="wrap final-grid">
-    <div class="rv">
-      <div class="eyebrow"><i>11</i>Заявка</div>
-      <h2>Почнімо з <span class="og-text">10&#8209;хвилинної</span> розмови</h2>
-      <p class="sub">Залиште номер — передзвонимо в робочий час, розповімо, скільки людей шукають вас у Google, і запустимо за 3 дні.</p>
-      <div class="contacts">
-        <a href="#" data-c="phone-link"><i><svg><use href="#i-phone"/></svg></i><span><small>Телефон</small><span data-c="phone">+38 (063) 207-2000</span></span></a>
-        <a href="#" data-c="tg-link" target="_blank" rel="noopener"><i><svg><use href="#i-tg"/></svg></i><span><small>Telegram</small><span>Написати нам</span></span></a>
-      </div>
-    </div>
-    <form class="mini rv" id="minif" novalidate>
-      <div id="minifields">
-        <div class="mini-top"><b>Передзвоніть мені</b><span>10 секунд</span></div>
-        <div class="mini-row"><input class="inp" id="mph" type="tel" inputmode="tel" placeholder="+380 __ ___ __ __" autocomplete="tel" aria-label="Телефон"><button class="btn btn-o" type="submit"><span>Надіслати</span><span class="ar"><svg><use href="#i-arr"/></svg></span></button></div>
-        <div class="err" id="merr" role="alert"></div>
-        <p class="fine">Або <a href="#zayavka" data-lead>повна заявка</a>. Надсилаючи, ви погоджуєтесь з <a href="privacy.html" target="_blank" rel="noopener">політикою</a>.</p>
-      </div>
-      <div class="done" id="mdone" hidden><div class="ok"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></div><h3>Дякуємо!</h3><p>Передзвонимо в робочий час. Хочете швидше — продовжіть у Telegram: бот уже знає вашу заявку.</p><a class="btn btn-o" href="#" data-c="tg-link" target="_blank" rel="noopener"><span>Продовжити в Telegram</span><span class="ar"><svg><use href="#i-arr"/></svg></span></a></div>
-    </form>
-  </div>
-</section>
 </main>
 
 <footer>
@@ -1273,11 +1327,11 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
         <img src="img/logo.webp" alt="PRMAX Digital Agency" loading="lazy" width="520" height="338">
         <p>Сайт + реклама Google для локального бізнесу. Запуск за 3 дні — дзвінки та заявки в Telegram.</p>
       </div>
-      <nav class="f-nav" aria-label="Нижнє меню"><a href="#yak">Як це працює</a><a href="#roboty">Роботи</a><a href="#tsiny">Ціни</a><a href="#vidguky">Відгуки</a><a href="#etapy">Етапи</a><a href="#faq">Питання</a></nav>
+      <nav class="f-nav" aria-label="Нижнє меню"><a href="#stage">Як це працює</a><a href="#roboty">Роботи</a><a href="#tsiny">Ціни</a><a href="#vidguky">Відгуки</a><a href="#etapy">Етапи</a><a href="#faq">Питання</a></nav>
       <div class="f-contact">
         <a href="#" data-c="phone-link"><i><svg><use href="#i-phone"/></svg></i><span data-c="phone">+38 (063) 207-2000</span></a>
         <a href="#" data-c="tg-link" target="_blank" rel="noopener"><i><svg><use href="#i-tg"/></svg></i><span>Написати в Telegram</span></a>
-        <a class="btn btn-o btn-sm" href="#zayavka" data-lead><span>Отримати клієнтів</span><span class="ar"><svg><use href="#i-arr"/></svg></span></a>
+        <a class="btn btn-o btn-sm" href="#zayavka" data-goq><span>Отримати клієнтів</span><span class="ar"><svg><use href="#i-arr"/></svg></span></a>
       </div>
     </div>
     <div class="f-bottom">
@@ -1307,7 +1361,7 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
   </form>
 </div>
 <div class="fab" id="fab" aria-label="Швидкий зв'язок"><a class="ph" href="#" data-c="phone-link" data-l="Подзвонити" aria-label="Подзвонити"><svg><use href="#i-phone"/></svg></a><a class="tg" href="#" data-c="tg-link" target="_blank" rel="noopener" data-l="Написати в Telegram" aria-label="Telegram"><svg viewBox="0 0 24 24"><path d="M21.5 3.5L2.8 10.7c-1.3.5-1.2 1.3-.2 1.6l4.8 1.5 1.8 5.6c.2.7.6.8 1.1.3l2.6-2.4 5 3.7c.9.5 1.6.2 1.8-.9l3.2-15c.3-1.3-.5-1.9-1.4-1.6z"/></svg></a></div>
-<div class="mbar" id="mbar"><a class="icbtn" href="#" data-c="phone-link" aria-label="Подзвонити"><svg><use href="#i-phone"/></svg></a><a class="btn btn-o" href="#zayavka" data-lead><span>Написати в Telegram</span><span class="ar"><svg class="tgi" viewBox="0 0 24 24"><path d="M21.5 3.5L2.8 10.7c-1.3.5-1.2 1.3-.2 1.6l4.8 1.5 1.8 5.6c.2.7.6.8 1.1.3l2.6-2.4 5 3.7c.9.5 1.6.2 1.8-.9l3.2-15c.3-1.3-.5-1.9-1.4-1.6z"/></svg></span></a></div>
+<div class="mbar" id="mbar"><a class="icbtn" href="#" data-c="phone-link" aria-label="Подзвонити"><svg><use href="#i-phone"/></svg></a><a class="btn btn-o" href="#hq" data-goq><span>Порахувати за 30 сек</span><span class="ar"><svg viewBox="0 0 10 12" class="play"><path d="M0 0l10 6-10 6z"/></svg></span></a></div>
 
 <div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Перегляд"><div class="box" id="mbox"><button class="x" type="button" id="mx" aria-label="Закрити"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button><div id="mc"></div></div></div>
 
@@ -1348,6 +1402,44 @@ var CONTACTS={
   var TTCLID='',SID='';try{var tc=new URLSearchParams(location.search).get('ttclid');if(tc)sessionStorage.setItem('prmax_ttclid',tc.slice(0,500));TTCLID=sessionStorage.getItem('prmax_ttclid')||'';if(TTCLID){SID=sessionStorage.getItem('prmax_sid');if(!SID){SID=Math.random().toString(36).slice(2,10);sessionStorage.setItem('prmax_sid',SID)}}}catch(e){}
   function ttSave(){if(!SID||!CONTACTS.lead.endpoint)return;try{var m=document.cookie.match(/(?:^|;\s*)_ttp=([^;]+)/);navigator.sendBeacon(CONTACTS.lead.endpoint,JSON.stringify({tt:1,sid:SID,ttclid:TTCLID,ttp:m?decodeURIComponent(m[1]):'',ua:navigator.userAgent,url:location.href.slice(0,300)}))}catch(e){}}
   var TG_URL='https://t.me/'+CONTACTS.telegram+'?start='+(SRC||'site')+(SID?'-'+SID:'');
+  /* 28.10 опитування на першому екрані: ніша → місто → що потрібно → ціна → номер (або Telegram з уже готовими відповідями) */
+  (function(){
+    var hq=document.getElementById('hq');if(!hq)return;
+    var A={n:null,c:null,w:null},step=1,started=false,PR={site:300,site_old:700,google:150,google_old:300,total:450,total_old:1000,social:100,social_creo:150};
+    function q(s){return hq.querySelector(s)}
+    function show(n){step=n;[].forEach.call(hq.querySelectorAll('.hq-s'),function(s){s.classList.toggle('on',+s.dataset.s===n)});q('#hqbar').style.width=Math.min(100,n/3*100)+'%';q('#hqn').textContent=n<=3?'Крок '+n+' з 3':(n===4?'Ваш розрахунок':'Готово');q('#hqback').hidden=n===1||n===5;if(n===4)res()}
+    function code(){return 'n'+A.n.i+'c'+(A.c?A.c.i:9)+'w'+A.w.i}
+    function tgLink(){return 'https://t.me/'+CONTACTS.telegram+'?start='+(SRC||'site')+'-'+(SID||'')+'-'+code()}
+    function res(){
+      var w=A.w.v,top;
+      if(/TikTok/.test(w))top='📱 <b class="big">Реклама TikTok / Instagram — $'+PR.social+'</b>з нашими креативами — $'+PR.social_creo;
+      else if(w==='Реклама Google')top='📈 <b class="big">Реклама Google — $'+PR.google+' <s>$'+PR.google_old+'</s></b>';
+      else if(w==='Сайт')top='🌐 <b class="big">Сайт під ключ — $'+PR.site+' <s>$'+PR.site_old+'</s></b>';
+      else top='🚀 <b class="big">Сайт + реклама Google — $'+PR.total+' <s>$'+PR.total_old+'</s></b>';
+      var nn=A.n.v==='Інше'?'вашу послугу':'«'+A.n.v.toLowerCase()+(A.c&&A.c.v&&A.c.v!=='Вся Україна'?' '+A.c.v.toLowerCase():'')+'»';
+      q('#hqres').innerHTML='🎯 Для вашого бізнесу:'+top+'<ul><li>🔍 Реклама на тих, хто шукає '+nn.replace(/[<>&]/g,'')+'</li><li>⏱ Запуск за 3 дні · правки без доплат</li><li>🎁 Бонус Google до 90 000 ₴ на рекламу</li></ul>';
+      q('#hqtg').href=tgLink();
+    }
+    hq.addEventListener('click',function(e){
+      var b=e.target.closest('.hq-ch button');if(!b)return;var k=b.parentNode.dataset.k;
+      [].forEach.call(b.parentNode.children,function(x){x.classList.toggle('sel',x===b)});
+      if(!started){started=true;conv('hero_quiz',{step:1})}
+      if(k==='c'&&+b.dataset.i===9){q('#hqcityw').hidden=false;q('#hqcity').focus();return}
+      A[k]={i:+b.dataset.i,v:b.dataset.v};setTimeout(function(){show(step+1)},160);
+    });
+    q('#hqcityok').addEventListener('click',function(){var v=q('#hqcity').value.trim();if(!v){q('#hqcity').focus();return}A.c={i:9,v:v.slice(0,40)};show(3)});
+    q('#hqcity').addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();q('#hqcityok').click()}});
+    q('#hqback').addEventListener('click',function(){show(Math.max(1,step-1))});
+    q('#hqtg').addEventListener('click',function(){ttSave();conv('telegram',{place:'hero_quiz'})});
+    q('#hqf').addEventListener('submit',function(e){
+      e.preventDefault();var err=q('#hqerr'),ph=normPhone(q('#hqph').value);err.textContent='';
+      if(!ph){err.textContent='Вкажіть номер — наприклад, +380 63 207 20 00';q('#hqph').focus();return}
+      var d={form:'hero-quiz',phone:ph,niche:A.n.v,city:A.c?A.c.v:'',need:A.w.v};var bt=q('.hq-send');bt.disabled=true;
+      sendLead(d).then(function(){bt.disabled=false;q('#hqtg2').href='https://t.me/'+CONTACTS.telegram+'?start=l_'+d.lid;show(5)});
+    });
+    function goQ(e){if(e&&e.preventDefault)e.preventDefault();try{if(document.getElementById('mnav').classList.contains('on'))setMenu(false)}catch(x){}hq.scrollIntoView({behavior:'smooth',block:'center'});hq.classList.remove('pulse');void hq.offsetWidth;hq.classList.add('pulse');conv('hero_quiz_tap',{})}
+    [].forEach.call(document.querySelectorAll('[data-goq]'),function(el){el.addEventListener('click',goQ);el.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();goQ()}})});
+  })();
   $$('[data-c=tg-link]').forEach(function(e){e.href=TG_URL;e.addEventListener('click',function(){ttSave();conv('telegram',{place:e.closest('section,header,.mnav,.mbar,footer')?(e.closest('section,header,.mnav,.mbar,footer').id||e.closest('section,header,.mnav,.mbar,footer').className.split(' ')[0]):''})})});
 
   /* Preloader */
