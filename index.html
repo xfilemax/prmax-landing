@@ -1090,6 +1090,9 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
 @media(prefers-reduced-motion:reduce){.quiz::before,.h-proof .btn-o,.hq-ok,#mbar .btn-o{animation:none}.par{transform:none!important}}
 
 .hq-ch.one button{justify-content:flex-start;text-align:left}.hq-ch.one button small{margin-left:auto}
+
+.hq-chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}.hq-chips span{font:700 12px/1 var(--b);padding:7px 10px;border-radius:999px;background:rgba(230,92,0,.14);border:1px solid rgba(230,92,0,.4);color:#FFC48A}
+.hq-res .hq-note{margin:10px 0 0;font-size:13px;line-height:1.5;color:var(--muted)}
 </style>
 <!-- Microsoft Clarity (теплові карти й записи сеансів) -->
 <script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];__late(function(){document.head.appendChild(t)});})(window,document,"clarity","script","z2nkewuu0z");</script>
@@ -1155,7 +1158,8 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
         <button type="button" data-i="3" data-v="Автосервіс"><svg class="ic"><use href="#ic-car"/></svg> Автосервіс</button><button type="button" data-i="4" data-v="Ремонт квартир"><svg class="ic"><use href="#ic-wrench"/></svg> Ремонт</button>
         <button type="button" data-i="1" data-v="Юрист"><svg class="ic"><use href="#ic-scales"/></svg> Юрист</button><button type="button" data-i="12" data-v="Курси / навчання"><svg class="ic"><use href="#ic-grad"/></svg> Курси</button>
         <button type="button" data-i="9" data-v="Клінінг"><svg class="ic"><use href="#ic-clean"/></svg> Клінінг</button><button type="button" data-i="13" data-v="Перевезення"><svg class="ic"><use href="#ic-truck"/></svg> Перевезення</button>
-        <button type="button" data-i="11" data-v="Інше" class="wide"><svg class="ic"><use href="#ic-sparkle"/></svg> Інша ніша</button></div></div>
+        <button type="button" data-i="11" data-v="Інше" class="wide"><svg class="ic"><use href="#ic-sparkle"/></svg> Інша ніша — напишу свою</button></div>
+        <div class="hq-city" id="hqnichew" hidden><input class="inp" id="hqniche" placeholder="Напишіть вашу нішу, напр. сантехнік" maxlength="40"><button type="button" class="hq-ok" id="hqnicheok">Далі →</button></div></div>
       <div class="hq-s" data-s="2"><p class="hq-q">У якому місті працюєте?</p><div class="hq-ch" data-k="c">
         <button type="button" data-i="0" data-v="Київ">Київ</button><button type="button" data-i="1" data-v="Львів">Львів</button>
         <button type="button" data-i="2" data-v="Одеса">Одеса</button><button type="button" data-i="3" data-v="Дніпро">Дніпро</button>
@@ -1169,11 +1173,11 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
         <button type="button" data-i="1" data-v="Реклама Google"><svg class="ic"><use href="#ic-chart"/></svg> Тільки реклама Google</button>
         <button type="button" data-i="4" data-v="Реклама TikTok / Instagram"><svg class="ic"><use href="#ic-film"/></svg> Тільки реклама TikTok / Instagram</button></div></div>
       <div class="hq-s" data-s="4"><div class="hq-res" id="hqres"></div>
-        <form id="hqf" novalidate><p class="hq-q sm">Куди передзвонити з розрахунком?</p>
+        <form id="hqf" novalidate><p class="hq-q sm">Куди надіслати розрахунок?</p>
           <input class="inp" id="hqph" type="tel" inputmode="tel" autocomplete="tel" placeholder="+380 __ ___ __ __" aria-label="Ваш номер телефону">
-          <button class="btn btn-o hq-send" type="submit"><span>Передзвоніть мені за 15 хв</span><span class="ar"><svg><use href="#i-phone"/></svg></span></button>
+          <button class="btn btn-o hq-send" type="submit"><span>Отримати розрахунок за 15 хв</span><span class="ar"><svg><use href="#i-phone"/></svg></span></button>
           <p class="hq-err" id="hqerr"></p></form>
-        <a class="hq-tg" id="hqtg" href="#" target="_blank" rel="noopener"><svg class="ic"><use href="#ic-send"/></svg> Або отримати розрахунок у Telegram</a>
+        <a class="hq-tg" id="hqtg" href="#" target="_blank" rel="noopener"><svg class="ic"><use href="#ic-send"/></svg> Або продовжити в Telegram — розрахунок прийде туди</a>
         <p class="hq-fine"><svg class="ic"><use href="#ic-lock"/></svg> Номер бачить лише Максим. Без спаму й розсилок.</p></div>
       <div class="hq-s" data-s="5"><div class="hq-done"><b><svg class="ic"><use href="#ic-check"/></svg> Дякуємо! Заявку прийнято.</b><span>Максим передзвонить протягом 15 хвилин у робочий час.</span></div>
         <a class="hq-tg" id="hqtg2" href="#" target="_blank" rel="noopener"><svg class="ic"><use href="#ic-send"/></svg> Поки чекаєте — поставте питання в Telegram</a></div>
@@ -1581,7 +1585,7 @@ var CONTACTS={
   var SRC='';try{var us=(new URLSearchParams(location.search).get('utm_source')||'').toLowerCase().replace(/[^a-z0-9_-]/g,'').slice(0,30);if(us)sessionStorage.setItem('prmax_src',us);SRC=us||sessionStorage.getItem('prmax_src')||'';}catch(e){}
   /* TikTok: мітку кліку (ttclid) і cookie _ttp зберігаємо на сервері під коротким номером візиту → бот, отримавши телефон, повідомить TikTok про справжню заявку */
   var TTCLID='',SID='';try{var tc=new URLSearchParams(location.search).get('ttclid');if(tc)sessionStorage.setItem('prmax_ttclid',tc.slice(0,500));TTCLID=sessionStorage.getItem('prmax_ttclid')||'';if(TTCLID){SID=sessionStorage.getItem('prmax_sid');if(!SID){SID=Math.random().toString(36).slice(2,10);sessionStorage.setItem('prmax_sid',SID)}}}catch(e){}
-  function ttSave(){if(!SID||!CONTACTS.lead.endpoint)return;try{var m=document.cookie.match(/(?:^|;\s*)_ttp=([^;]+)/);navigator.sendBeacon(CONTACTS.lead.endpoint,JSON.stringify({tt:1,sid:SID,ttclid:TTCLID,ttp:m?decodeURIComponent(m[1]):'',ua:navigator.userAgent,url:location.href.slice(0,300)}))}catch(e){}}
+  function ttSave(){if(!SID||!CONTACTS.lead.endpoint)return;try{var m=document.cookie.match(/(?:^|;\s*)_ttp=([^;]+)/);navigator.sendBeacon(CONTACTS.lead.endpoint,JSON.stringify({tt:1,sid:SID,ttclid:TTCLID,qn:(window.__q&&window.__q.n)||'',qc:(window.__q&&window.__q.c)||'',ttp:m?decodeURIComponent(m[1]):'',ua:navigator.userAgent,url:location.href.slice(0,300)}))}catch(e){}}
   var TG_URL='https://t.me/'+CONTACTS.telegram+'?start='+(SRC||'site')+(SID?'-'+SID:'');
   try{if(matchMedia('(min-width:900px)').matches)document.querySelectorAll('details.extras').forEach(function(d){d.open=true})}catch(e){}
   /* 28.10 опитування на першому екрані: ніша → місто → що потрібно → ціна → номер (або Telegram з уже готовими відповідями) */
@@ -1593,23 +1597,27 @@ var CONTACTS={
     function code(){return 'n'+A.n.i+'c'+(A.c?A.c.i:9)+'w'+A.w.i}
     function tgLink(){return 'https://t.me/'+CONTACTS.telegram+'?start='+(SRC||'site')+'-'+(SID||'')+'-'+code()}
     function res(){
-      var w=A.w.v,top;
-      if(w==='Сайт + TikTok / Instagram')top='<svg class="ic"><use href="#ic-rocket"/></svg> <b class="big">Сайт + реклама TikTok / Instagram — від $'+PR.total+'</b>разом вигідніше, ніж окремо · точну ціну скажемо під вашу нішу';
-      else if(/TikTok/.test(w))top='<svg class="ic"><use href="#ic-film"/></svg> <b class="big">Реклама TikTok / Instagram — від $'+PR.social+'</b>з 3 нашими креативами — від $'+PR.social_creo;
-      else if(w==='Реклама Google')top='<svg class="ic"><use href="#ic-chart"/></svg> <b class="big">Реклама Google — від $'+PR.google+'</b>налаштування під ваше місто';
-      else if(w==='Сайт')top='<svg class="ic"><use href="#ic-globe"/></svg> <b class="big">Сайт під ключ — від $'+PR.site+'</b>запуск за 3 дні';
-      else top='<svg class="ic"><use href="#ic-rocket"/></svg> <b class="big">Сайт + реклама Google — від $'+PR.total+'</b>разом вигідніше, ніж окремо · точну ціну скажемо під вашу нішу';
-      var nn=A.n.v==='Інше'?'вашу послугу':'«'+A.n.v.toLowerCase()+(A.c&&A.c.v&&A.c.v!=='Вся Україна'?' '+A.c.v.toLowerCase():'')+'»';
-      q('#hqres').innerHTML='<svg class="ic"><use href="#ic-target"/></svg> Для вашого бізнесу:'+top+'<ul><li><svg class="ic"><use href="#ic-search"/></svg> Реклама на тих, хто шукає '+nn.replace(/[<>&]/g,'')+'</li><li><svg class="ic"><use href="#ic-clock"/></svg> Запуск за 3 дні · правки без доплат</li><li><svg class="ic"><use href="#ic-gift"/></svg> Бонус Google до 90 000 ₴ на рекламу</li></ul>';
-      q('#hqtg').href=tgLink();
+      var w=A.w.v,inc;
+      if(w==='Сайт + TikTok / Instagram')inc=['Сайт під вашу нішу за 3 дні','Реклама у TikTok та Instagram на людей у вашому місті','3 креативи з вашими фото — за нас'];
+      else if(/TikTok/.test(w))inc=['Рекламний кабінет TikTok / Meta під ваше місто','Креативи з вашими відео або нашими','Заявки одразу у ваш Telegram'];
+      else if(w==='Реклама Google')inc=['Реклама на тих, хто вже шукає вашу послугу','Показ тільки у вашому місті','Бонус Google до 90 000 ₴ на рекламу'];
+      else if(w==='Сайт')inc=['Дизайн і тексти під вашу нішу','Кнопки дзвінка, Telegram, Viber, форма заявки','Запуск за 3 дні, домен і хостинг на вас'];
+      else inc=['Сайт під вашу нішу за 3 дні','Реклама Google на тих, хто вже шукає','Бонус Google до 90 000 ₴ на рекламу'];
+      var esc=function(s){return String(s).replace(/[<>&]/g,'')};
+      var chips='<span>'+esc(A.n.v)+'</span>'+(A.c&&A.c.v?'<span>'+esc(A.c.v)+'</span>':'')+'<span>'+esc(w)+'</span>';
+      q('#hqres').innerHTML='<div class="hq-chips">'+chips+'</div><b class="big"><svg class="ic"><use href="#ic-check"/></svg> Розрахунок майже готовий</b><ul>'+inc.map(function(x){return '<li><svg class="ic"><use href="#ic-check"/></svg> '+x+'</li>'}).join('')+'</ul><p class="hq-note">Точну вартість, пораховану під ваш бізнес, надішлемо за 15 хвилин. Чим більше послуг разом — тим вигідніше.</p>';
+      q('#hqtg').href=tgLink();window.__q={n:A.n.i===11?A.n.v:'',c:(A.c&&A.c.i===9)?A.c.v:''};
     }
     hq.addEventListener('click',function(e){
       var b=e.target.closest('.hq-ch button');if(!b)return;var k=b.parentNode.dataset.k;
       [].forEach.call(b.parentNode.children,function(x){x.classList.toggle('sel',x===b)});
       if(!started){started=true;conv('hero_quiz',{step:1})}
       if(k==='c'&&+b.dataset.i===9){q('#hqcityw').hidden=false;q('#hqcity').focus();return}
+      if(k==='n'&&+b.dataset.i===11){q('#hqnichew').hidden=false;q('#hqniche').focus();return}
       A[k]={i:+b.dataset.i,v:b.dataset.v};setTimeout(function(){show(step+1)},160);
     });
+    q('#hqnicheok').addEventListener('click',function(){var v=q('#hqniche').value.trim();if(v.length<2){q('#hqniche').focus();q('#hqniche').placeholder='Напишіть, чим займаєтесь — 1–2 слова';return}A.n={i:11,v:v.slice(0,40)};show(2)});
+    q('#hqniche').addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();q('#hqnicheok').click()}});
     q('#hqcityok').addEventListener('click',function(){var v=q('#hqcity').value.trim();if(!v){q('#hqcity').focus();return}A.c={i:9,v:v.slice(0,40)};show(3)});
     q('#hqcity').addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();q('#hqcityok').click()}});
     q('#hqback').addEventListener('click',function(){show(Math.max(1,step-1))});
