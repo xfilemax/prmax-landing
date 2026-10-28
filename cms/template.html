@@ -1128,6 +1128,29 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
 .aur .grid{opacity:.3;-webkit-mask:radial-gradient(70% 60% at 50% 40%,#000 30%,transparent 100%);mask:radial-gradient(70% 60% at 50% 40%,#000 30%,transparent 100%)}
 @media(max-width:899px){.aur .sun{width:120vw;height:120vw;right:-40%;top:-28%}.aur .orb{width:150vw;right:-45%;top:-18%}.aur .s1{width:90vw;left:-20vw;top:52%}.aur .s2{display:none}}
 @media(prefers-reduced-motion:reduce){.aur .sun,.aur .orb i,.aur .streak{animation:none}}
+
+/* ===== КОСМОС: зоряне небо на весь сайт + планети, що з'являються при прокрутці ===== */
+#space{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden;background:radial-gradient(120% 80% at 70% -10%,#1C1008 0%,#0B0A09 45%,#070608 100%)}
+#space i{position:absolute;inset:-12%;will-change:transform}
+#space .neb{background:radial-gradient(45% 35% at 20% 30%,rgba(232,92,0,.12),transparent 70%),radial-gradient(40% 30% at 85% 70%,rgba(120,70,160,.14),transparent 70%),radial-gradient(35% 25% at 60% 110%,rgba(240,160,60,.1),transparent 70%)}
+#space .st1{background:url(img/stars.png) 0 0/640px 640px repeat;opacity:.55}
+#space .st2{background:url(img/stars.png) 200px 140px/1040px 1040px repeat;opacity:.9;animation:twinkle 6s ease-in-out infinite alternate}
+@keyframes twinkle{0%{opacity:.55}100%{opacity:1}}
+.sec,.hero{isolation:isolate}
+.cosmos{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:-1}
+.planet{position:absolute;width:var(--s);height:var(--s);border-radius:50%;pointer-events:none;background:radial-gradient(circle at 32% 28%,var(--c1) 0%,var(--c2) 40%,var(--c3) 74%,#050302 100%);box-shadow:inset -14px -10px 36px rgba(0,0,0,.65),0 0 70px -10px color-mix(in srgb,var(--c2) 45%,transparent);opacity:0;transform:scale(.7) translateY(30px);transition:opacity 1.3s ease,transform 1.8s var(--e)}
+.planet.in{opacity:1;transform:none}
+.planet::before{content:"";position:absolute;inset:0;border-radius:50%;background:repeating-linear-gradient(-9deg,rgba(255,255,255,.09) 0 3%,transparent 3% 8%,rgba(0,0,0,.16) 8% 11%,transparent 11% 17%,rgba(255,255,255,.05) 17% 19%,transparent 19% 26%);background-size:200% 100%;animation:planetSpin var(--t,50s) linear infinite;mix-blend-mode:overlay}
+.planet::after{content:"";position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 30% 26%,rgba(255,255,255,.28),transparent 42%),radial-gradient(circle at 78% 80%,rgba(0,0,0,.55),transparent 55%)}
+@keyframes planetSpin{to{background-position:-200% 0}}
+.planet .ring{position:absolute;left:50%;top:50%;width:176%;height:176%;border-radius:50%;transform:translate(-50%,-50%) rotateX(74deg) rotate(-14deg);border:calc(var(--s) * .035) solid rgba(255,205,150,.32);border-top-color:rgba(255,205,150,.12);border-left-color:rgba(255,205,150,.2);box-shadow:inset 0 0 0 calc(var(--s) * .012) rgba(255,160,70,.22),0 0 0 calc(var(--s) * .01) rgba(255,160,70,.1)}
+.aur .p-hero{right:-6%;top:-18%;z-index:0}.aur .p-moon{left:4%;top:9%}.aur .sun{opacity:.55}
+@media(max-width:899px){.aur .p-hero{right:-26%;top:-6%;--s:78vw!important}.aur .p-moon{left:-4%;top:46%;--s:16vw!important}.cosmos .planet{--s:calc(var(--s) * 1.3)}}
+@media(prefers-reduced-motion:reduce){.planet::before,#space .st2{animation:none}.planet{opacity:1;transform:none}}
+
+/* картки щільніші, щоб зірки не заважали читати */
+.pr,.pl,#faq details,.wk,.stp,.rc,.nc,.hq-res,.hq-ch button,.m-grid a{background-color:rgba(17,15,13,.82)}
+.quiz,.ad,.st-google{background-color:rgba(14,12,11,.72)}
 </style>
 <!-- Microsoft Clarity (теплові карти й записи сеансів) -->
 <script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];__late(function(){document.head.appendChild(t)});})(window,document,"clarity","script","z2nkewuu0z");</script>
@@ -1177,9 +1200,10 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
   </div>
 </div>
 
+<div id="space" aria-hidden="true"><i class="neb"></i><i class="st1"></i><i class="st2"></i></div>
 <main id="top">
 <section class="hero" id="hero">
-  <div class="aur" aria-hidden="true"><i class="sun"></i><div class="orb"><i></i><i></i><i></i></div><i class="streak s1"></i><i class="streak s2"></i><i class="a1"></i><i class="a2"></i><i class="a3"></i><i class="grid"></i><i class="noise"></i><i class="spot"></i></div>
+  <div class="aur" aria-hidden="true"><i class="sun"></i><div class="planet p-hero" style="--s:min(62vw,640px);--c1:#FFC489;--c2:#F07214;--c3:#5A1E05;--t:70s"><i class="ring"></i></div><div class="planet p-moon" style="--s:min(14vw,120px);--c1:#CFC6BC;--c2:#8E857B;--c3:#2A2521;--t:50s"></div><i class="a1"></i><i class="a2"></i><i class="a3"></i><i class="grid"></i><i class="noise"></i><i class="spot"></i></div>
   <div class="wrap h-top">
     <button type="button" class="pill" data-goq><i class="dot"></i><span>Сайт + реклама Google · <span class="more">запуск </span>за 3 дні</span><span class="pill-go">→</span></button>
     <h1 class="display"><span class="ln"><span class="lni">{{t.h1a}} <span class="og-text live">{{t.h1b}}</span></span></span><span class="ln"><span class="lni">{{t.h1c}}</span></span></h1>
@@ -1259,6 +1283,7 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
 </section>
 
 <section class="sec" id="roboty">
+  <div class="cosmos" aria-hidden="true"><div class="planet" style="--s:min(22vw,220px);--c1:#F5B48A;--c2:#B8441A;--c3:#3A0E05;--t:45s;left:-6%;top:12%"></div></div>
   <div class="wrap">
     <div class="sec-head rv">
       <div class="eyebrow"><i>01</i>Наші роботи</div>
@@ -1273,6 +1298,7 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
 </section>
 
 <section class="sec" id="dlya">
+  <div class="cosmos" aria-hidden="true"><div class="planet" style="--s:min(30vw,300px);--c1:#B9D6F2;--c2:#3C6FA8;--c3:#0B1A33;--t:60s;right:-8%;top:8%"><i class="ring"></i></div><div class="planet" style="--s:min(8vw,70px);--c1:#FFE2B8;--c2:#C98B3C;--c3:#3B2306;--t:30s;left:6%;bottom:10%"></div></div>
   <div class="wrap">
     <div class="sec-head rv">
       <div class="eyebrow"><i>02</i>Для кого</div>
@@ -1293,6 +1319,7 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
   </div>
 </section>
 <section class="sec" id="tsiny">
+  <div class="cosmos" aria-hidden="true"><div class="planet" style="--s:min(26vw,260px);--c1:#FFE6A8;--c2:#D9962E;--c3:#4A2A05;--t:55s;left:-7%;bottom:-6%"></div></div>
   <div class="wrap">
     <div class="sec-head rv">
       <div class="eyebrow"><i>03</i>Ціни</div>
@@ -1328,6 +1355,7 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
 </section>
 
 <section class="sec" id="etapy">
+  <div class="cosmos" aria-hidden="true"><div class="planet" style="--s:min(12vw,110px);--c1:#E8E3DD;--c2:#8F8A84;--c3:#23201D;--t:35s;right:4%;top:6%"></div></div>
   <div class="wrap">
     <div class="sec-head rv">
       <div class="eyebrow"><i>04</i>Етапи</div>
@@ -1345,6 +1373,7 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
 </section>
 
 <section class="sec" id="bot">
+  <div class="cosmos" aria-hidden="true"><div class="planet" style="--s:min(40vw,420px);--c1:#FF9A4A;--c2:#7A2A08;--c3:#160602;--t:80s;right:-14%;bottom:-18%"><i class="ring"></i></div></div>
   <div class="wrap">
     <div class="botc rv">
       <div class="botc-tx">
@@ -1364,6 +1393,7 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
   </div>
 </section>
 <section class="sec" id="pro-nas">
+  <div class="cosmos" aria-hidden="true"><div class="planet" style="--s:min(16vw,150px);--c1:#F7C9B0;--c2:#A64B2E;--c3:#2E0E06;--t:40s;left:-4%;top:10%"></div></div>
   <div class="wrap founder">
     <div class="ph-frame rv"><img src="img/maxim.webp" alt="Максим, засновник PRMAX" loading="lazy" width="1000" height="1000"><div class="nm"><b>Максим</b><span>засновник PRMAX</span></div></div>
     <div class="txt rv">
@@ -1381,6 +1411,7 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
 </section>
 
 <section class="sec" id="vidguky">
+  <div class="cosmos" aria-hidden="true"><div class="planet" style="--s:min(10vw,90px);--c1:#D7E7FF;--c2:#5F86B8;--c3:#101E36;--t:28s;right:6%;top:4%"></div></div>
   <div class="wrap">
     <div class="sec-head rv">
       <div class="eyebrow"><i>07</i>Відгуки</div>
@@ -1407,6 +1438,7 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
 </section>
 
 <section class="sec" id="faq">
+  <div class="cosmos" aria-hidden="true"><div class="planet" style="--s:min(28vw,280px);--c1:#FFD7A8;--c2:#E0691C;--c3:#3F1404;--t:65s;left:-9%;bottom:-8%"><i class="ring"></i></div></div>
   <div class="wrap faq-wrap">
     <div class="sec-head rv">
       <div class="eyebrow"><i>08</i>Питання</div>
@@ -1420,6 +1452,7 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
 </section>
 
 <section class="sec final" id="zayavka">
+  <div class="cosmos" aria-hidden="true"><div class="planet" style="--s:min(48vw,520px);--c1:#FFB36B;--c2:#C7500E;--c3:#2A0C03;--t:90s;right:-16%;top:-30%"></div></div>
   <div class="wrap final-grid">
     <div class="rv">
       <div class="eyebrow"><i>09</i>Заявка</div>
@@ -1884,14 +1917,15 @@ var CONTACTS={
 <script>(function(){var g=document.querySelector('.pl-grid');if(!g||matchMedia('(prefers-reduced-motion:reduce)').matches)return;var cards=[].slice.call(g.querySelectorAll('.pl'));var ev=[['<svg class="ic"><use href="#ic-phone"/></svg> Дзвінок','#3ad07a','#08210f'],['<svg class="ic"><use href="#ic-send"/></svg> Заявка в Telegram','#2AABEE','#fff'],['<svg class="ic"><use href="#ic-chat"/></svg> Написали у WhatsApp','#25D366','#062b14'],['<svg class="ic"><use href="#ic-viber"/></svg> Повідомлення у Viber','#7360F2','#fff'],['<svg class="ic"><use href="#ic-calendar"/></svg> Новий запис','#FFB020','#2a1800'],['<svg class="ic"><use href="#ic-phone"/></svg> Дзвінок з Google','#3ad07a','#08210f'],['<svg class="ic"><use href="#ic-cart"/></svg> Замовлення онлайн','#FF6A00','#fff']];var ci=0,ei=0,order=cards.map(function(_,i){return i}).sort(function(){return Math.random()-.5});function tick(){var c=cards[order[ci%order.length]],e=ev[ei%ev.length];ci++;ei++;var em=c.querySelector('em');em.innerHTML=e[0];c.style.setProperty('--pc',e[1]);c.style.setProperty('--pk',e[2]);em.classList.remove('pop');c.classList.remove('pop');void em.offsetWidth;em.classList.add('pop');c.classList.add('pop');setTimeout(function(){c.classList.remove('pop')},2100)}var on=false,timer;new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting&&!on){on=true;tick();timer=setInterval(tick,850)}else if(!x.isIntersecting&&on){on=false;clearInterval(timer)}})},{threshold:.2}).observe(g)})();</script>
 <script>(function(){var rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
 /* каскадна поява карток */
-var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{rootMargin:'0px 0px -8% 0px'});document.querySelectorAll('.pl-grid,.pr-grid,.wk-grid,.steps,.rv-grid').forEach(function(g){[].forEach.call(g.children,function(c,i){if(!c.classList.contains('rv')){c.classList.add('rv');c.style.setProperty('--d',(i*.07)+'s');io.observe(c)}})});
+var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{rootMargin:'0px 0px -8% 0px'});document.querySelectorAll('.planet').forEach(function(p){io.observe(p)});
+document.querySelectorAll('.pl-grid,.pr-grid,.wk-grid,.steps,.rv-grid').forEach(function(g){[].forEach.call(g.children,function(c,i){if(!c.classList.contains('rv')){c.classList.add('rv');c.style.setProperty('--d',(i*.07)+'s');io.observe(c)}})});
 if(rm||innerWidth<900)return;
 /* паралакс: шари фону й демо рухаються з різною швидкістю */
-var L=[['.aur .sun',.25],['.aur .orb',.18],['.aur .s1',.35],['.aur .s2',.28],['.aur .a1',.18],['.aur .a2',-.12],['.aur .a3',.08],['#stage',-.06],['.bonus-big .coins',.15],['#dlya .sec-head',-.05],['#tsiny .sec-head',-.05],['#bot .botc-ph',-.08]].map(function(x){var e=document.querySelector(x[0]);if(e)e.classList.add('par');return e&&[e,x[1]]}).filter(Boolean),tk=false;
+var L=[['.aur .sun',.25],['.p-hero',.14],['.p-moon',.3],['#space .st1',.08],['#space .st2',.16],['.aur .a1',.18],['.aur .a2',-.12],['.aur .a3',.08],['#stage',-.06],['.bonus-big .coins',.15],['#dlya .sec-head',-.05],['#tsiny .sec-head',-.05],['#bot .botc-ph',-.08]].map(function(x){var e=document.querySelector(x[0]);if(e)e.classList.add('par');return e&&[e,x[1]]}).filter(Boolean),tk=false;
 function par(){tk=false;var y=scrollY;L.forEach(function(x){var r=x[0].getBoundingClientRect();if(r.bottom<0||r.top>innerHeight)return;x[0].style.transform='translate3d(var(--mx,0px),calc('+(y*x[1]).toFixed(1)+'px + var(--my,0px)),0)'})}
 addEventListener('scroll',function(){if(!tk){tk=true;requestAnimationFrame(par)}},{passive:true});par();
 /* фон першого екрана ледь рухається за курсором */
-var ph=document.querySelector('.aur .orb'),hero=document.getElementById('hero');if(ph&&hero){hero.addEventListener('mousemove',function(e){var x=(e.clientX/innerWidth-.5),y=(e.clientY/innerHeight-.5);ph.style.setProperty('--mx',(x*-14).toFixed(1)+'px');ph.style.setProperty('--my',(y*-10).toFixed(1)+'px')})}
+var ph=document.querySelector('.p-hero'),hero=document.getElementById('hero');if(ph&&hero){hero.addEventListener('mousemove',function(e){var x=(e.clientX/innerWidth-.5),y=(e.clientY/innerHeight-.5);ph.style.setProperty('--mx',(x*-14).toFixed(1)+'px');ph.style.setProperty('--my',(y*-10).toFixed(1)+'px')})}
 /* 3D-нахил картки опитування за курсором */
 var q=document.querySelector('.quiz');if(q){q.style.transition='transform .4s var(--e)';q.addEventListener('mousemove',function(e){var r=q.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;q.style.transform='perspective(1200px) rotateX('+(-y*4).toFixed(2)+'deg) rotateY('+(x*5).toFixed(2)+'deg)'});q.addEventListener('mouseleave',function(){q.style.transform=''})}
 })();</script>
