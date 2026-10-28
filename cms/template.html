@@ -1167,6 +1167,28 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
 @keyframes shoot{0%,80%{opacity:0;translate:0 0}81%{opacity:1}88%{opacity:1;translate:36vw 26vw}89%,100%{opacity:0;translate:36vw 26vw}}
 @media(max-width:899px){#space .sh{width:110px}@keyframes shoot{0%,80%{opacity:0;translate:0 0}81%{opacity:1}89%{opacity:1;translate:60vw 50vw}90%,100%{opacity:0;translate:60vw 50vw}}}
 @media(prefers-reduced-motion:reduce){#space .st1 b,#space .st2 b,#space .bs,#space .sh,.planet.in{animation:none}}
+
+/* Максим 28.10: без ореолу й «дихання» навколо кнопок та круглих іконок — чіткі кнопки */
+:root{--glass:inset 0 1px 0 rgba(255,255,255,.16),inset 0 -2px 0 rgba(70,20,0,.45),0 6px 16px -8px rgba(0,0,0,.7)}
+.btn-o,.btn-o:hover,.btn-tg,.btn-tg:hover,.burger,.m-cta,.pk-tag,.st-want,.hq-ok,.callb,.m-c3 a:first-child,.contacts i,.fab .ph,.done .ok,.gift,.av,.fab a{box-shadow:var(--glass)!important}
+.btn-tg,.btn-tg:hover{box-shadow:inset 0 1px 0 rgba(255,255,255,.16),inset 0 -2px 0 rgba(0,50,90,.45),0 6px 16px -8px rgba(0,0,0,.7)!important}
+.h-proof .btn-o,.hq-ok,#mbar .btn-o,.gift{animation:none!important}
+.hdr .call::after,.tg-round::before,.tg-round::after,.fab .tg::after,.st-ev.call .av::before,.st-ev.call .av::after{display:none!important}
+.btn-o:hover,.btn-tg:hover{filter:brightness(1.06);transform:translateY(-1px)}
+
+/* свічення прибрано ВСЮДИ (Максим 29.10): лише м'яка нейтральна тінь */
+.pk-hot,.m-cta,.hq,.hq.pulse,.st-want,.btn-o,.btn-o:hover,.burger,.phone,.pc.hot,.ph-frame,.done .ok,.st-in,.st-rank,.ldm-box,.btn-tg,.btn-tg:hover,.quiz,.callb,.hq-ok,.fab a,.fab .ph,.fab .tg,.contacts i,.gift,.av,.nc .cap span,.vbtn i,.ps .bar i,.stat,.bonus-big,.pk,.pr,.pl,.wk,.stp,.rc,.nc,.ad,.hs-arr{box-shadow:0 8px 22px -10px rgba(0,0,0,.75)!important}
+.btn-o,.btn-o:hover,.burger,.m-cta,.st-want,.hq-ok,.callb,.m-c3 a:first-child,.pk-tag,.contacts i,.fab .ph,.done .ok,.gift,.av{box-shadow:inset 0 1px 0 rgba(255,255,255,.16),inset 0 -2px 0 rgba(70,20,0,.45),0 8px 22px -10px rgba(0,0,0,.75)!important}
+.btn-tg,.btn-tg:hover{box-shadow:inset 0 1px 0 rgba(255,255,255,.16),inset 0 -2px 0 rgba(0,50,90,.45),0 8px 22px -10px rgba(0,0,0,.75)!important}
+.pr:hover,.pl:hover,.wk:hover,.stp:hover,.rc:hover,.nc:hover{box-shadow:0 18px 36px -18px rgba(0,0,0,.9)!important}
+.inp:focus{box-shadow:none!important;border-color:var(--o2)!important}
+.hq.pulse{animation:none!important}
+
+/* шапка: прозора вгорі, «скло» при прокрутці (без чорної плашки) */
+.hdr,.hdr.sc,.hdr.on,.hdr.scrolled{background:transparent!important;border-color:transparent!important}
+.hdr.sc,.hdr.scrolled{background:rgba(11,10,9,.5)!important;backdrop-filter:blur(18px) saturate(140%)!important;-webkit-backdrop-filter:blur(18px) saturate(140%)!important;border-color:rgba(255,255,255,.08)!important}
+.hdr .logo img{filter:drop-shadow(0 2px 6px rgba(0,0,0,.5))}
+.hq-ch button{white-space:normal;line-height:1.15}
 </style>
 <!-- Microsoft Clarity (теплові карти й записи сеансів) -->
 <script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];__late(function(){document.head.appendChild(t)});})(window,document,"clarity","script","z2nkewuu0z");</script>
