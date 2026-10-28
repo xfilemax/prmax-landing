@@ -7,7 +7,7 @@
   "bot": 150,
   "bot_old": 300,
   "vedennya": 75,
-  "total": 420,
+  "total": 450,
   "total_old": 1000,
   "social": 100,
   "social_creo": 150,
@@ -116,6 +116,6 @@
   "og_desc": "Сайт {site}, Google Ads {google}, Telegram-бот {bot}. Заявки одразу в Telegram. Вся Україна.",
   "keywords": "створення сайту під ключ, сайт під ключ ціна, розробка лендінгу, односторінковий сайт, замовити сайт, налаштування Google Ads, контекстна реклама Google, реклама в Google ціна, Telegram-бот для бізнесу, створення телеграм бота, таргетована реклама TikTok, реклама Instagram Facebook, SEO просування сайту, Google Карти для бізнесу, сайт для бізнесу Київ Львів Одеса Харків Дніпро"
  },
- "description": "Сайт під ключ за 3 дні + реклама Google, TikTok, Instagram — від {site} разово. Заявки одразу в Telegram. Вся Україна.",
- "og_desc": "Сайт + реклама від {site} за 3 дні. Заявки одразу в Telegram. Вся Україна."
+ "description": "Сайт під ключ за 3 дні — від {site}. Сайт + реклама Google, TikTok, Instagram — від {total}. Заявки одразу в Telegram. Вся Україна.",
+ "og_desc": "Сайт — від {site}, сайт + реклама — від {total}. Запуск за 3 дні, заявки в Telegram."
 }
