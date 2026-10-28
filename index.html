@@ -47,7 +47,7 @@
 @media(min-width:900px){#faq .faq-list{grid-template-columns:1fr 1fr;gap:12px 16px;align-items:start}#faq summary{font-size:16px;padding:18px 0}.faq-more{display:none}}
 
 /* стеклянні кнопки: суцільний темний помаранчевий + блик */
-.burger,.m-cta,.pk-tag,.st-want,.hq-ok,.callb,.m-c3 a:first-child,.contacts i,.fab .ph,.done .ok,.gift,.av{box-shadow:var(--glass)!important;border:1px solid rgba(255,255,255,.3);background-image:var(--sheen),var(--grad)!important}.m-cta,.st-want,.pk-tag,.hq-ok,.callb{text-shadow:0 1px 0 rgba(90,30,0,.7);font-weight:800;-webkit-font-smoothing:antialiased}
+.burger,.m-cta,.pk-tag,.st-want,.hq-ok,.callb,.m-c3 a:first-child,.contacts i,.fab .ph,.done .ok,.gift,.av{box-shadow:var(--glass)!important;border:1px solid rgba(255,255,255,.3);background-image:var(--grad)!important}.m-cta,.st-want,.pk-tag,.hq-ok,.callb{text-shadow:0 1px 0 rgba(90,30,0,.7);font-weight:800;-webkit-font-smoothing:antialiased}
 .btn-o:hover{background:#E06A10}
 </style>
 <!-- пікселі реклами завантажуються після показу сторінки (перша дія людини або 3 с після завантаження) — події ті самі, сторінка відкривається швидше -->
@@ -141,7 +141,7 @@ details.extras[open] .ex-more{opacity:.6}details.extras .ex-grid{margin-top:14px
 .pl{position:relative;display:flex;align-items:center;gap:10px;padding:10px;border-radius:18px;background:rgba(255,255,255,.04);border:1px solid var(--line2);min-width:0}
 .pl img{width:44px;height:44px;border-radius:50%;object-fit:cover;flex:0 0 auto;border:2px solid rgba(241,211,160,.55)}
 .pl div{min-width:0}.pl b{display:block;font:700 13.5px/1.2 var(--b)}.pl span{display:block;font-size:11.5px;line-height:1.25;color:var(--muted);margin-top:2px}
-.pl em{position:absolute;right:8px;top:-10px;display:flex;align-items:center;gap:5px;font:800 10.5px/1 var(--b);font-style:normal;padding:5px 9px;border-radius:999px;background:var(--pc,#3ad07a);color:var(--pk,#08210f);opacity:0;transform:translateY(6px) scale(.9);box-shadow:0 8px 20px -8px rgba(0,0,0,.6);white-space:nowrap}.pl em.pop{animation:plPop 2.6s ease-in-out 1 both}.pl em{z-index:5}.pl.pop{border-color:var(--pc,#3ad07a);z-index:3}.pl.pop img{box-shadow:0 0 0 2px var(--pc,#3ad07a)}
+.pl em{position:absolute;right:8px;top:-10px;display:flex;align-items:center;gap:5px;font:800 10.5px/1 var(--b);font-style:normal;padding:5px 9px;border-radius:999px;background:var(--pc,#3ad07a);color:var(--pk,#08210f);opacity:0;transform:translateY(6px) scale(.9);box-shadow:0 8px 20px -8px rgba(0,0,0,.6);white-space:nowrap}.pl em.pop{animation:plPop 2.6s ease-in-out 1 both}.pl{z-index:1}.pl.pop{border-color:var(--pc,#3ad07a);z-index:3}.pl.pop img{box-shadow:0 0 0 2px var(--pc,#3ad07a)}
 @keyframes plPop{0%{opacity:0;transform:translateY(6px) scale(.9)}12%,78%{opacity:1;transform:none}100%{opacity:0;transform:translateY(-4px) scale(.95)}}
 @media (prefers-reduced-motion:reduce){.pl em{animation:none!important;opacity:1}}
 @media (min-width:900px){.pl-grid{grid-template-columns:repeat(4,1fr);gap:12px;max-width:1100px;margin-inline:auto}.pl{padding:12px}.pl img{width:56px;height:56px}.pl b{font-size:15px}}
@@ -199,7 +199,7 @@ details.extras[open] .ex-more{opacity:.6}details.extras .ex-grid{margin-top:14px
   --sand:#F5F3EF;--fg:var(--sand);--ink:#1A1007;--muted:rgba(244,239,231,.64);--dim:rgba(244,239,231,.42);
   --line:rgba(244,239,231,.11);--line2:rgba(244,239,231,.2);
   --o1:#F1D3A0;--o2:#E2AA5C;--o3:#C98B3C;--o4:#94642A;--ol:#E8C283;
-  --org:#E65C00;--grad:linear-gradient(180deg,#EE6304 0%,#E65C00 60%,#DA5500 100%);--glass:inset 0 1px 0 rgba(255,255,255,.62),inset 0 -1px 0 rgba(70,20,0,.55),inset 0 0 0 1px rgba(255,255,255,.12),0 0 0 1px rgba(255,120,30,.45),0 10px 24px -8px rgba(230,92,0,.6);--sheen:linear-gradient(180deg,rgba(255,255,255,.14) 0,rgba(255,255,255,.14) 50%,rgba(255,255,255,0) 50%);--ggrad:linear-gradient(120deg,#F7E4BC 0%,#EDC98C 42%,#DFA960 100%);--tgrad:linear-gradient(90deg,#F7DCA8 0%,#F2AE5A 48%,#F07C1E 100%);
+  --org:#E65C00;--grad:linear-gradient(180deg,#EE6304 0%,#E65C00 60%,#DA5500 100%);--glass:inset 0 1px 0 rgba(255,255,255,.45),inset 0 -1px 0 rgba(70,20,0,.6),inset 0 0 0 1px rgba(255,255,255,.1),0 0 0 1px rgba(255,120,30,.5),0 0 0 4px rgba(230,92,0,.12),0 12px 28px -8px rgba(230,92,0,.65);--sheen:none;--ggrad:linear-gradient(120deg,#F7E4BC 0%,#EDC98C 42%,#DFA960 100%);--tgrad:linear-gradient(90deg,#F7DCA8 0%,#F2AE5A 48%,#F07C1E 100%);
   --green:#2BD46F;
   --d:'Unbounded',system-ui,sans-serif;--b:'Manrope',system-ui,-apple-system,'Segoe UI',sans-serif;--n:'Unbounded',system-ui,sans-serif;
   --disp:var(--d);--body:var(--b);--num:var(--n);
@@ -242,7 +242,7 @@ s{text-decoration-color:var(--o3);text-decoration-thickness:1.5px}
 .btn:hover .ar svg{transform:rotate(-45deg)}
 .btn:hover .ar svg.play{transform:none}
 .btn:active{transform:scale(.98)}
-.btn-o{color:#fff;font-weight:800;text-shadow:0 1px 0 rgba(90,30,0,.7);-webkit-font-smoothing:antialiased;background:var(--sheen),var(--grad);border:1px solid rgba(255,255,255,.34);box-shadow:var(--glass)}
+.btn-o{color:#fff;font-weight:800;text-shadow:0 1px 0 rgba(90,30,0,.7);-webkit-font-smoothing:antialiased;background:var(--grad);border:1px solid rgba(255,255,255,.28);box-shadow:var(--glass)}
 .btn-o .ar{background:var(--ink);color:#fff}
 .btn-o::before{content:none;position:absolute;inset:0;z-index:-1;background:linear-gradient(105deg,transparent 30%,rgba(255,255,255,.55) 48%,rgba(255,255,255,.15) 52%,transparent 70%);transform:translateX(-120%);animation:sweep 4.2s var(--e) infinite 1.2s}
 @keyframes sweep{0%{transform:translateX(-120%)}40%,100%{transform:translateX(120%)}}
@@ -1064,6 +1064,32 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
 .pr b{font:700 16px/1.25 var(--b)}.pr span{font-size:13.5px;line-height:1.5;color:var(--muted)}
 #tsiny .cta-c{margin-top:18px}#tsiny .pk-note{text-align:center;margin-top:14px}
 @media(min-width:900px){.pr-grid{grid-template-columns:repeat(3,1fr);gap:14px;max-width:1100px;margin-inline:auto}.pr{padding:20px}}
+
+/* іконки замість емодзі */
+.ic{width:1.15em;height:1.15em;display:inline-block;vertical-align:-.2em;flex:none;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.m-grid a i,.pr i{display:grid;place-items:center;color:var(--o2)!important;background:linear-gradient(160deg,rgba(255,255,255,.1),rgba(255,255,255,.03));border:1px solid rgba(255,255,255,.12);box-shadow:inset 0 1px 0 rgba(255,255,255,.14)}
+.m-grid a i{width:34px!important;height:34px;border-radius:11px;flex:none}.m-grid a i .ic{width:18px;height:18px}
+.pr i{border-radius:14px}.pr i .ic{width:22px;height:22px}
+.m-c3 a .ic{width:22px;height:22px;display:block;margin:0 auto 6px}
+.hq-ch button .ic{margin-right:7px;color:var(--o2)}.hq-ch button.sel .ic{color:#fff}
+.hq-res .ic,.hq-done .ic{color:var(--o2)}.hq-tg .ic{color:#2AABEE}.hq-fine .ic{width:1em;height:1em}
+.botc ul li .ic{color:var(--o2);margin-right:6px}.h-proof .ic{color:var(--o2)}
+.pl em .ic{width:13px;height:13px;stroke-width:2.2}
+/* wow: картки оживають при наведенні */
+.pr,.pl,.wk,.stp,.rc,.nc{transition:transform .5s var(--e),border-color .5s,box-shadow .5s var(--e)}
+@media(hover:hover){.pr:hover,.pl:hover,.wk:hover,.stp:hover,.rc:hover,.nc:hover{transform:translateY(-5px);border-color:rgba(230,92,0,.55);box-shadow:0 24px 48px -26px rgba(230,92,0,.7),inset 0 1px 0 rgba(255,255,255,.1)}}
+/* сяюча рамка опитування */
+.quiz{overflow:hidden}.quiz::before{content:"";position:absolute;inset:-1px;border-radius:inherit;padding:1px;background:conic-gradient(from var(--qa,0deg),transparent 0 70%,rgba(255,150,70,.95) 85%,transparent 100%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;animation:qspin 6s linear infinite}
+@property --qa{syntax:"<angle>";inherits:false;initial-value:0deg}
+@keyframes qspin{to{--qa:360deg}}
+/* головна кнопка — пульс світіння */
+.h-proof .btn-o,.hq-ok,#mbar .btn-o{animation:ctaPulse 3.2s ease-in-out infinite}
+@keyframes ctaPulse{0%,100%{box-shadow:var(--glass)}50%{box-shadow:inset 0 1px 0 rgba(255,255,255,.45),inset 0 -1px 0 rgba(70,20,0,.6),0 0 0 1px rgba(255,120,30,.6),0 0 0 8px rgba(230,92,0,.08),0 18px 40px -8px rgba(230,92,0,.9)}}
+/* паралакс-шари */
+.par{will-change:transform}
+@media(prefers-reduced-motion:reduce){.quiz::before,.h-proof .btn-o,.hq-ok,#mbar .btn-o{animation:none}.par{transform:none!important}}
+
+.hq-ch.one button{justify-content:flex-start;text-align:left}.hq-ch.one button small{margin-left:auto}
 </style>
 <!-- Microsoft Clarity (теплові карти й записи сеансів) -->
 <script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];__late(function(){document.head.appendChild(t)});})(window,document,"clarity","script","z2nkewuu0z");</script>
@@ -1074,6 +1100,7 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
   <svg viewBox="0 0 120 100"><defs><linearGradient id="pg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E8C283"/><stop offset=".5" stop-color="#D79F55"/><stop offset="1" stop-color="#FF4D00"/></linearGradient></defs><path class="t1" fill="url(#pg)" d="M108 8c4-2 8 1 8 5v74c0 4-4 7-8 5L22 56c-4-2-4-8 0-10z"/><path class="t2" fill="url(#pg)" d="M4 62c0-3 3-5 6-3l30 17c2 1 2 4 0 5L10 98c-3 2-6 0-6-3z"/></svg>
 </div>
 
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="ic-target" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/></symbol><symbol id="ic-monitor" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2.5"/><path d="M8 20h8M12 16v4"/></symbol><symbol id="ic-briefcase" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2.5"/><path d="M9 7V5.5A1.5 1.5 0 0 1 10.5 4h3A1.5 1.5 0 0 1 15 5.5V7M3 12h18"/></symbol><symbol id="ic-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/></symbol><symbol id="ic-bot" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3.5"/><circle cx="9" cy="14" r="1.2" fill="currentColor"/><circle cx="15" cy="14" r="1.2" fill="currentColor"/><path d="M12 4v4M2 13v3M22 13v3"/><circle cx="12" cy="3" r="1"/></symbol><symbol id="ic-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.2 3.6-7 8-7s8 2.8 8 7"/></symbol><symbol id="ic-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.1 1.1 5.9L12 16.9l-5.3 2.8 1.1-5.9-4.3-4.1 5.9-.8z"/></symbol><symbol id="ic-question" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.6a2.5 2.5 0 1 1 3.6 2.3c-.8.4-1.2 1-1.2 1.8"/><circle cx="12" cy="17" r=".8" fill="currentColor"/></symbol><symbol id="ic-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h3.5l1.5 4-2 1.5a11 11 0 0 0 6.5 6.5l1.5-2 4 1.5V19a2 2 0 0 1-2 2A15 15 0 0 1 3 6a2 2 0 0 1 2-2z"/></symbol><symbol id="ic-send" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 3L3.5 10.3l7 2.6 2.6 7.1L21 3zM10.5 12.9L21 3"/></symbol><symbol id="ic-viber" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A3.5 3.5 0 0 1 7.5 2h9A3.5 3.5 0 0 1 20 5.5v7a3.5 3.5 0 0 1-3.5 3.5H11l-4.5 4v-4A3.5 3.5 0 0 1 4 12.5z"/><path d="M9 6.5h1.6l.8 2-1 .8a5 5 0 0 0 3 3l.8-1 2 .8V13a1 1 0 0 1-1 1A7 7 0 0 1 8 7a1 1 0 0 1 1-.5z"/></symbol><symbol id="ic-scissors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2.5"/><circle cx="6" cy="18" r="2.5"/><path d="M20 4L8.2 15.8M14.5 14.5L20 20M8.2 8.2L12 12"/></symbol><symbol id="ic-tooth" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3c1.5 0 2.5 1 4 1s2.5-1 4-1c2.5 0 4 2 4 5 0 2.5-1.5 5-1.8 8-.2 2.5-1 5-2.2 5-1.5 0-2-6-4-6s-2.5 6-4 6c-1.2 0-2-2.5-2.2-5C5.5 13 4 10.5 4 8c0-3 1.5-5 4-5z"/></symbol><symbol id="ic-car" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13l2-5a2 2 0 0 1 1.9-1.3h8.2A2 2 0 0 1 18 8l2 5v5H4z M4 13h16M8 17h.01M16 17h.01"/></symbol><symbol id="ic-wrench" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 7.5a5 5 0 0 1-6.8 4.7L7.6 18.8a2.1 2.1 0 0 1-3-3l6.6-6.6A5 5 0 0 1 16 3.2L13.2 6l1.7 3.1 3.1 1.7L21 8z"/></symbol><symbol id="ic-scales" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 21h14M12 6l-6 1.5M12 6l6 1.5M6 7.5l-3 7a3 3 0 0 0 6 0zM18 7.5l-3 7a3 3 0 0 0 6 0z"/></symbol><symbol id="ic-grad" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9l10-5 10 5-10 5zM6 11.2V16c0 1.8 2.7 3 6 3s6-1.2 6-3v-4.8M22 9v6"/></symbol><symbol id="ic-clean" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21l6-6M10 13l-1.5-1.5 7.5-7.5 3 3-7.5 7.5zM16 4l2-2 4 4-2 2M4 16l4 4"/></symbol><symbol id="ic-truck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h12v10H2zM14 10h4.5l3.5 3.5V16h-8z"/><circle cx="6" cy="18.5" r="2"/><circle cx="17.5" cy="18.5" r="2"/></symbol><symbol id="ic-sparkle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 3l1.9 5.6L18.5 10.5l-5.6 1.9L11 18l-1.9-5.6L3.5 10.5l5.6-1.9zM19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></symbol><symbol id="ic-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21.5s7-6.4 7-11.5a7 7 0 1 0-14 0c0 5.1 7 11.5 7 11.5z"/><circle cx="12" cy="10" r="2.5"/></symbol><symbol id="ic-rocket" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 15l-1.8 5.8L9 19M14.5 4.5c2.7-1.3 5.5-.5 5.5-.5s.8 2.8-.5 5.5C18 12.5 13 17 13 17l-4-4s4.5-5 5.5-8.5z"/><circle cx="15.5" cy="8.5" r="1.4"/></symbol><symbol id="ic-mobile" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2.5"/><path d="M11 18h2"/></symbol><symbol id="ic-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></symbol><symbol id="ic-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5.5-5.5 4 4L21 7M15 7h6v6"/></symbol><symbol id="ic-film" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="12" rx="2.5"/><path d="M3 8l2.5-4h13L21 8M8 4l2 4M14 4l2 4"/></symbol><symbol id="ic-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2.5"/><path d="M8 11V7.5a4 4 0 0 1 8 0V11"/></symbol><symbol id="ic-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.2l2.8 2.8L16.5 9"/></symbol><symbol id="ic-hands" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 10.5l4-4h4.5L13 9M22 10.5l-4-4h-3M8.5 9l-2 2a1.8 1.8 0 0 0 2.6 2.6l1-1M12 12.5l3 3a1.8 1.8 0 0 0 2.6-2.6l-3-3M5.5 14l3 3a1.8 1.8 0 0 0 2.6-2.6"/></symbol><symbol id="ic-bell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16v-5a6 6 0 0 1 12 0v5l2 2H4zM10 21h4"/></symbol><symbol id="ic-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 21l1.9-5.3A8 8 0 1 1 21 12z"/></symbol><symbol id="ic-bolt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></symbol><symbol id="ic-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="M16 16l5 5"/></symbol><symbol id="ic-gift" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h18v4H3zM5 12h14v9H5zM12 8v13M12 8c-2-4-6-4-6-1.5S10 8 12 8zm0 0c2-4 6-4 6-1.5S14 8 12 8z"/></symbol><symbol id="ic-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2.5"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol><symbol id="ic-cart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2l2.4 11h11l2.1-7H7"/><circle cx="9" cy="20" r="1.3"/><circle cx="17" cy="20" r="1.3"/></symbol></defs></svg>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></symbol>
   <symbol id="i-arr" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
@@ -1100,14 +1127,14 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
   <button class="m-close" type="button" aria-label="Закрити меню"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
   <a class="m-cta" href="#hq" data-goq><span><b>Порахувати вартість</b><small>3 питання · 30 секунд · безкоштовно</small></span><span class="m-cta-ar"><svg><use href="#i-arr"/></svg></span></a>
   <nav class="m-grid" aria-label="Меню">
-    <a href="#stage"><i>🎯</i>Як це працює</a><a href="#roboty"><i>🖥</i>Наші роботи</a>
-    <a href="#tsiny"><i>💼</i>Ціни · від $300</a><a href="#etapy"><i>⏱</i>Запуск за 3 дні</a>
-    <a href="#bot"><i>🤖</i>Telegram-бот</a><a href="#pro-nas"><i>👤</i>Про нас</a>
-    <a href="#vidguky"><i>⭐</i>Відгуки</a><a href="#faq"><i>❓</i>Питання</a>
+    <a href="#stage"><i><svg class="ic"><use href="#ic-target"/></svg></i>Як це працює</a><a href="#roboty"><i><svg class="ic"><use href="#ic-monitor"/></svg></i>Наші роботи</a>
+    <a href="#tsiny"><i><svg class="ic"><use href="#ic-briefcase"/></svg></i>Ціни · від $300</a><a href="#etapy"><i><svg class="ic"><use href="#ic-clock"/></svg></i>Запуск за 3 дні</a>
+    <a href="#bot"><i><svg class="ic"><use href="#ic-bot"/></svg></i>Telegram-бот</a><a href="#pro-nas"><i><svg class="ic"><use href="#ic-user"/></svg></i>Про нас</a>
+    <a href="#vidguky"><i><svg class="ic"><use href="#ic-star"/></svg></i>Відгуки</a><a href="#faq"><i><svg class="ic"><use href="#ic-question"/></svg></i>Питання</a>
   </nav>
   <div class="m-contact">
     <small>Зв'язатися з Максимом напряму</small>
-    <div class="m-c3"><a href="#" data-c="phone-link"><i>📞</i>Подзвонити</a><a href="#" data-c="tg-link" target="_blank" rel="noopener"><i>✈️</i>Telegram</a><a href="https://prmax.agency/v.html?n=380632072000" target="_blank" rel="noopener"><i>💜</i>Viber</a></div>
+    <div class="m-c3"><a href="#" data-c="phone-link"><i><svg class="ic"><use href="#ic-phone"/></svg></i>Подзвонити</a><a href="#" data-c="tg-link" target="_blank" rel="noopener"><i><svg class="ic"><use href="#ic-send"/></svg></i>Telegram</a><a href="https://prmax.agency/v.html?n=380632072000" target="_blank" rel="noopener"><i><svg class="ic"><use href="#ic-viber"/></svg></i>Viber</a></div>
     <p><span data-c="phone">+38 (063) 207-2000</span> · пн–сб 9:00–20:00</p>
   </div>
 </div>
@@ -1124,32 +1151,32 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
       <div class="hq-top"><b>Порахуємо за 30 секунд</b><span id="hqn">Крок 1 з 3</span></div>
       <div class="hq-bar"><i id="hqbar"></i></div>
       <div class="hq-s on" data-s="1"><p class="hq-q">Яка у вас ніша?</p><div class="hq-ch" data-k="n">
-        <button type="button" data-i="7" data-v="Салон краси">💅 Салон краси</button><button type="button" data-i="0" data-v="Стоматологія">🦷 Стоматологія</button>
-        <button type="button" data-i="3" data-v="Автосервіс">🚗 Автосервіс</button><button type="button" data-i="4" data-v="Ремонт квартир">🛠 Ремонт</button>
-        <button type="button" data-i="1" data-v="Юрист">⚖️ Юрист</button><button type="button" data-i="12" data-v="Курси / навчання">🎓 Курси</button>
-        <button type="button" data-i="9" data-v="Клінінг">🧹 Клінінг</button><button type="button" data-i="13" data-v="Перевезення">🚚 Перевезення</button>
-        <button type="button" data-i="11" data-v="Інше" class="wide">✨ Інша ніша</button></div></div>
+        <button type="button" data-i="7" data-v="Салон краси"><svg class="ic"><use href="#ic-scissors"/></svg> Салон краси</button><button type="button" data-i="0" data-v="Стоматологія"><svg class="ic"><use href="#ic-tooth"/></svg> Стоматологія</button>
+        <button type="button" data-i="3" data-v="Автосервіс"><svg class="ic"><use href="#ic-car"/></svg> Автосервіс</button><button type="button" data-i="4" data-v="Ремонт квартир"><svg class="ic"><use href="#ic-wrench"/></svg> Ремонт</button>
+        <button type="button" data-i="1" data-v="Юрист"><svg class="ic"><use href="#ic-scales"/></svg> Юрист</button><button type="button" data-i="12" data-v="Курси / навчання"><svg class="ic"><use href="#ic-grad"/></svg> Курси</button>
+        <button type="button" data-i="9" data-v="Клінінг"><svg class="ic"><use href="#ic-clean"/></svg> Клінінг</button><button type="button" data-i="13" data-v="Перевезення"><svg class="ic"><use href="#ic-truck"/></svg> Перевезення</button>
+        <button type="button" data-i="11" data-v="Інше" class="wide"><svg class="ic"><use href="#ic-sparkle"/></svg> Інша ніша</button></div></div>
       <div class="hq-s" data-s="2"><p class="hq-q">У якому місті працюєте?</p><div class="hq-ch" data-k="c">
         <button type="button" data-i="0" data-v="Київ">Київ</button><button type="button" data-i="1" data-v="Львів">Львів</button>
         <button type="button" data-i="2" data-v="Одеса">Одеса</button><button type="button" data-i="3" data-v="Дніпро">Дніпро</button>
         <button type="button" data-i="4" data-v="Харків">Харків</button><button type="button" data-i="5" data-v="Вся Україна">Вся Україна</button>
-        <button type="button" data-i="9" data-v="" class="wide">📍 Інше місто</button></div>
+        <button type="button" data-i="9" data-v="" class="wide"><svg class="ic"><use href="#ic-pin"/></svg> Інше місто</button></div>
         <div class="hq-city" id="hqcityw" hidden><input class="inp" id="hqcity" placeholder="Ваше місто" autocomplete="address-level2"><button type="button" class="hq-ok" id="hqcityok">Далі →</button></div></div>
       <div class="hq-s" data-s="3"><p class="hq-q">Що потрібно?</p><div class="hq-ch one" data-k="w">
-        <button type="button" data-i="2" data-v="Сайт + реклама">🚀 Сайт + реклама Google <small>найчастіше</small></button>
-        <button type="button" data-i="5" data-v="Сайт + TikTok / Instagram">📱 Сайт + реклама TikTok / Instagram</button>
-        <button type="button" data-i="0" data-v="Сайт">🌐 Тільки сайт</button>
-        <button type="button" data-i="1" data-v="Реклама Google">📈 Тільки реклама Google</button>
-        <button type="button" data-i="4" data-v="Реклама TikTok / Instagram">🎬 Тільки реклама TikTok / Instagram</button></div></div>
+        <button type="button" data-i="2" data-v="Сайт + реклама"><svg class="ic"><use href="#ic-rocket"/></svg> Сайт + реклама Google <small>найчастіше</small></button>
+        <button type="button" data-i="5" data-v="Сайт + TikTok / Instagram"><svg class="ic"><use href="#ic-mobile"/></svg> Сайт + реклама TikTok / Instagram</button>
+        <button type="button" data-i="0" data-v="Сайт"><svg class="ic"><use href="#ic-globe"/></svg> Тільки сайт</button>
+        <button type="button" data-i="1" data-v="Реклама Google"><svg class="ic"><use href="#ic-chart"/></svg> Тільки реклама Google</button>
+        <button type="button" data-i="4" data-v="Реклама TikTok / Instagram"><svg class="ic"><use href="#ic-film"/></svg> Тільки реклама TikTok / Instagram</button></div></div>
       <div class="hq-s" data-s="4"><div class="hq-res" id="hqres"></div>
         <form id="hqf" novalidate><p class="hq-q sm">Куди передзвонити з розрахунком?</p>
           <input class="inp" id="hqph" type="tel" inputmode="tel" autocomplete="tel" placeholder="+380 __ ___ __ __" aria-label="Ваш номер телефону">
           <button class="btn btn-o hq-send" type="submit"><span>Передзвоніть мені за 15 хв</span><span class="ar"><svg><use href="#i-phone"/></svg></span></button>
           <p class="hq-err" id="hqerr"></p></form>
-        <a class="hq-tg" id="hqtg" href="#" target="_blank" rel="noopener">✈️ Або отримати розрахунок у Telegram</a>
-        <p class="hq-fine">🔒 Номер бачить лише Максим. Без спаму й розсилок.</p></div>
-      <div class="hq-s" data-s="5"><div class="hq-done"><b>✅ Дякуємо! Заявку прийнято.</b><span>Максим передзвонить протягом 15 хвилин у робочий час.</span></div>
-        <a class="hq-tg" id="hqtg2" href="#" target="_blank" rel="noopener">✈️ Поки чекаєте — поставте питання в Telegram</a></div>
+        <a class="hq-tg" id="hqtg" href="#" target="_blank" rel="noopener"><svg class="ic"><use href="#ic-send"/></svg> Або отримати розрахунок у Telegram</a>
+        <p class="hq-fine"><svg class="ic"><use href="#ic-lock"/></svg> Номер бачить лише Максим. Без спаму й розсилок.</p></div>
+      <div class="hq-s" data-s="5"><div class="hq-done"><b><svg class="ic"><use href="#ic-check"/></svg> Дякуємо! Заявку прийнято.</b><span>Максим передзвонить протягом 15 хвилин у робочий час.</span></div>
+        <a class="hq-tg" id="hqtg2" href="#" target="_blank" rel="noopener"><svg class="ic"><use href="#ic-send"/></svg> Поки чекаєте — поставте питання в Telegram</a></div>
       <button type="button" class="hq-back" id="hqback" hidden>← Назад</button>
     </div>
     <div class="hq-trust"><img src="img/maxim-96.webp" alt="Максим, засновник PRMAX" width="40" height="40" decoding="async"><span><b>250+ бізнесів</b> уже з нами · запуск за 3 дні<br><small>або <a href="#" data-lead>напишіть у Telegram</a> · <a href="#roboty">наші роботи</a></small></span></div>
@@ -1180,7 +1207,7 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
         <span class="st-want">Хочу так само — порахувати для мене →</span>
       </div>
     </div>
-    <div class="h-proof"><span><b>🤝 250+ бізнесів</b> уже отримують клієнтів з Google</span><a class="btn btn-o h-proof-btn" href="#zayavka" data-form><span>Залишити номер</span><span class="ar"><svg><use href="#i-phone"/></svg></span></a></div>
+    <div class="h-proof"><span><b><svg class="ic"><use href="#ic-hands"/></svg> 250+ бізнесів</b> уже отримують клієнтів з Google</span><a class="btn btn-o h-proof-btn" href="#zayavka" data-form><span>Залишити номер</span><span class="ar"><svg><use href="#i-phone"/></svg></span></a></div>
     <div class="stats"><div class="stat"><b>3 дні</b><span>від брифу до запуску</span></div><div class="stat"><b>від $300</b><span>сайт + реклама · разово</span></div><div class="stat"><b>0%</b><span>комісії з рекламного бюджету</span></div><div class="stat"><b>до 90 000 ₴</b><span>бонус від Google<sup>*</sup></span></div></div>
   </div>
 </section>
@@ -1218,14 +1245,14 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
       <p>Ви знайшли нас у TikTok чи Google. Так само вас знайдуть ваші клієнти — а заявки прийдуть одразу у ваш телефон.</p>
     </div>
     <div class="pl-grid" aria-label="Ніші, для яких ми працюємо">
-      <div class="pl" style="--i:0"><img src="img/people/s-nails.webp" alt="" width="56" height="56" loading="lazy"><div><b>Салони краси</b><span>записи в Telegram</span></div><em>📲 нова заявка</em></div>
-      <div class="pl" style="--i:1"><img src="img/people/s-dentist.webp" alt="" width="56" height="56" loading="lazy"><div><b>Стоматології</b><span>запис на прийом</span></div><em>📲 нова заявка</em></div>
-      <div class="pl" style="--i:2"><img src="img/people/s-sto.webp" alt="" width="56" height="56" loading="lazy"><div><b>Автосервіси</b><span>дзвінки з Google</span></div><em>📲 нова заявка</em></div>
-      <div class="pl" style="--i:3"><img src="img/people/s-repair.webp" alt="" width="56" height="56" loading="lazy"><div><b>Ремонт квартир</b><span>замовлення з району</span></div><em>📲 нова заявка</em></div>
-      <div class="pl" style="--i:4"><img src="img/people/s-cleaning.webp" alt="" width="56" height="56" loading="lazy"><div><b>Клінінг</b><span>заявки щодня</span></div><em>📲 нова заявка</em></div>
-      <div class="pl" style="--i:5"><img src="img/people/s-moving.webp" alt="" width="56" height="56" loading="lazy"><div><b>Перевезення</b><span>замовлення з міста</span></div><em>📲 нова заявка</em></div>
-      <div class="pl" style="--i:6"><img src="img/people/s-cafe.webp" alt="" width="56" height="56" loading="lazy"><div><b>Кав'ярні й доставка</b><span>замовлення онлайн</span></div><em>📲 нова заявка</em></div>
-      <div class="pl" style="--i:7"><img src="img/people/s-flowers.webp" alt="" width="56" height="56" loading="lazy"><div><b>Квіти й подарунки</b><span>замовлення на свята</span></div><em>📲 нова заявка</em></div>
+      <div class="pl" style="--i:0"><img src="img/people/s-nails.webp" alt="" width="56" height="56" loading="lazy"><div><b>Салони краси</b><span>записи в Telegram</span></div><em><svg class="ic"><use href="#ic-bell"/></svg> нова заявка</em></div>
+      <div class="pl" style="--i:1"><img src="img/people/s-dentist.webp" alt="" width="56" height="56" loading="lazy"><div><b>Стоматології</b><span>запис на прийом</span></div><em><svg class="ic"><use href="#ic-bell"/></svg> нова заявка</em></div>
+      <div class="pl" style="--i:2"><img src="img/people/s-sto.webp" alt="" width="56" height="56" loading="lazy"><div><b>Автосервіси</b><span>дзвінки з Google</span></div><em><svg class="ic"><use href="#ic-bell"/></svg> нова заявка</em></div>
+      <div class="pl" style="--i:3"><img src="img/people/s-repair.webp" alt="" width="56" height="56" loading="lazy"><div><b>Ремонт квартир</b><span>замовлення з району</span></div><em><svg class="ic"><use href="#ic-bell"/></svg> нова заявка</em></div>
+      <div class="pl" style="--i:4"><img src="img/people/s-cleaning.webp" alt="" width="56" height="56" loading="lazy"><div><b>Клінінг</b><span>заявки щодня</span></div><em><svg class="ic"><use href="#ic-bell"/></svg> нова заявка</em></div>
+      <div class="pl" style="--i:5"><img src="img/people/s-moving.webp" alt="" width="56" height="56" loading="lazy"><div><b>Перевезення</b><span>замовлення з міста</span></div><em><svg class="ic"><use href="#ic-bell"/></svg> нова заявка</em></div>
+      <div class="pl" style="--i:6"><img src="img/people/s-cafe.webp" alt="" width="56" height="56" loading="lazy"><div><b>Кав'ярні й доставка</b><span>замовлення онлайн</span></div><em><svg class="ic"><use href="#ic-bell"/></svg> нова заявка</em></div>
+      <div class="pl" style="--i:7"><img src="img/people/s-flowers.webp" alt="" width="56" height="56" loading="lazy"><div><b>Квіти й подарунки</b><span>замовлення на свята</span></div><em><svg class="ic"><use href="#ic-bell"/></svg> нова заявка</em></div>
     </div>
     <div class="cta-c"><a class="btn btn-o" href="#hq" data-goq><span>Порахувати для моєї ніші</span><span class="ar"><svg><use href="#i-arr"/></svg></span></a></div>
   </div>
@@ -1238,9 +1265,9 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
       <p>Разова оплата, без абонплати. Точна ціна залежить від ніші, міста й того, що саме потрібно — тому рахуємо індивідуально під ваш бізнес.</p>
     </div>
     <div class="pr-grid">
-      <div class="pr rv"><i>🌐</i><b>Сайт під ключ</b><span>Дизайн і тексти під вашу нішу, кнопки дзвінка, Telegram і Viber, форма заявки. Запуск за 3 дні.</span></div>
-      <div class="pr rv" style="--d:.08s"><i>📈</i><b>Реклама Google · TikTok · Instagram</b><span>Показ тільки у вашому місті тим, хто шукає послугу. Бюджет платите площадці напряму, наша комісія — 0%.</span></div>
-      <div class="pr rv" style="--d:.16s"><i>🤖</i><b>Telegram-бот, як наш</b><span>Відповідає клієнтам 24/7, бере номер і надсилає заявки вам у Telegram.</span></div>
+      <div class="pr rv"><i><svg class="ic"><use href="#ic-globe"/></svg></i><b>Сайт під ключ</b><span>Дизайн і тексти під вашу нішу, кнопки дзвінка, Telegram і Viber, форма заявки. Запуск за 3 дні.</span></div>
+      <div class="pr rv" style="--d:.08s"><i><svg class="ic"><use href="#ic-chart"/></svg></i><b>Реклама Google · TikTok · Instagram</b><span>Показ тільки у вашому місті тим, хто шукає послугу. Бюджет платите площадці напряму, наша комісія — 0%.</span></div>
+      <div class="pr rv" style="--d:.16s"><i><svg class="ic"><use href="#ic-bot"/></svg></i><b>Telegram-бот, як наш</b><span>Відповідає клієнтам 24/7, бере номер і надсилає заявки вам у Telegram.</span></div>
     </div>
     <div class="cta-c rv"><a class="btn btn-o" href="#hq" data-goq><span>Порахувати для мене</span><span class="ar"><svg><use href="#i-arr"/></svg></span></a></div>
     <p class="pk-note">Чим більше послуг разом — тим вигідніше. Сайт і реклама залишаються вашими — усі доступи передаємо.</p>
@@ -1289,13 +1316,13 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
         <div class="eyebrow"><i>05</i>Telegram-бот</div>
         <h2>Бот, який продає <span class="og-text">за вас 24/7</span></h2>
         <ul class="botc-l">
-          <li>💬 Відповідає вашим клієнтам навіть уночі</li>
-          <li>📞 Ставить питання й бере номер телефону</li>
-          <li>🔔 Сам нагадує тим, хто не дописав</li>
-          <li>⚡️ Заявки — одразу у ваш Telegram</li>
+          <li><svg class="ic"><use href="#ic-chat"/></svg> Відповідає вашим клієнтам навіть уночі</li>
+          <li><svg class="ic"><use href="#ic-phone"/></svg> Ставить питання й бере номер телефону</li>
+          <li><svg class="ic"><use href="#ic-bell"/></svg> Сам нагадує тим, хто не дописав</li>
+          <li><svg class="ic"><use href="#ic-bolt"/></svg> Заявки — одразу у ваш Telegram</li>
         </ul>
         <div class="botc-p"><span>Такий самий, як наш · у пакеті з сайтом — вигідніше. Ціну порахуємо під ваш бізнес.</span></div>
-        <div class="botc-b"><a class="btn btn-o" href="#hq" data-goq><span>Хочу такого бота</span><span class="ar"><svg><use href="#i-arr"/></svg></span></a><a class="botc-try" href="#" data-lead>✈️ Спробувати нашого бота</a></div>
+        <div class="botc-b"><a class="btn btn-o" href="#hq" data-goq><span>Хочу такого бота</span><span class="ar"><svg><use href="#i-arr"/></svg></span></a><a class="botc-try" href="#" data-lead><svg class="ic"><use href="#ic-send"/></svg> Спробувати нашого бота</a></div>
       </div>
       <div class="botc-im"><img src="img/bot/bot-24-7.jpg" alt="Приклад: Telegram-бот відповідає клієнту вночі й записує на прийом" loading="lazy" width="1200" height="900"></div>
     </div>
@@ -1567,13 +1594,13 @@ var CONTACTS={
     function tgLink(){return 'https://t.me/'+CONTACTS.telegram+'?start='+(SRC||'site')+'-'+(SID||'')+'-'+code()}
     function res(){
       var w=A.w.v,top;
-      if(w==='Сайт + TikTok / Instagram')top='🚀 <b class="big">Сайт + реклама TikTok / Instagram — від $'+PR.total+'</b>разом вигідніше, ніж окремо · точну ціну скажемо під вашу нішу';
-      else if(/TikTok/.test(w))top='🎬 <b class="big">Реклама TikTok / Instagram — від $'+PR.social+'</b>з 3 нашими креативами — від $'+PR.social_creo;
-      else if(w==='Реклама Google')top='📈 <b class="big">Реклама Google — від $'+PR.google+'</b>налаштування під ваше місто';
-      else if(w==='Сайт')top='🌐 <b class="big">Сайт під ключ — від $'+PR.site+'</b>запуск за 3 дні';
-      else top='🚀 <b class="big">Сайт + реклама Google — від $'+PR.total+'</b>разом вигідніше, ніж окремо · точну ціну скажемо під вашу нішу';
+      if(w==='Сайт + TikTok / Instagram')top='<svg class="ic"><use href="#ic-rocket"/></svg> <b class="big">Сайт + реклама TikTok / Instagram — від $'+PR.total+'</b>разом вигідніше, ніж окремо · точну ціну скажемо під вашу нішу';
+      else if(/TikTok/.test(w))top='<svg class="ic"><use href="#ic-film"/></svg> <b class="big">Реклама TikTok / Instagram — від $'+PR.social+'</b>з 3 нашими креативами — від $'+PR.social_creo;
+      else if(w==='Реклама Google')top='<svg class="ic"><use href="#ic-chart"/></svg> <b class="big">Реклама Google — від $'+PR.google+'</b>налаштування під ваше місто';
+      else if(w==='Сайт')top='<svg class="ic"><use href="#ic-globe"/></svg> <b class="big">Сайт під ключ — від $'+PR.site+'</b>запуск за 3 дні';
+      else top='<svg class="ic"><use href="#ic-rocket"/></svg> <b class="big">Сайт + реклама Google — від $'+PR.total+'</b>разом вигідніше, ніж окремо · точну ціну скажемо під вашу нішу';
       var nn=A.n.v==='Інше'?'вашу послугу':'«'+A.n.v.toLowerCase()+(A.c&&A.c.v&&A.c.v!=='Вся Україна'?' '+A.c.v.toLowerCase():'')+'»';
-      q('#hqres').innerHTML='🎯 Для вашого бізнесу:'+top+'<ul><li>🔍 Реклама на тих, хто шукає '+nn.replace(/[<>&]/g,'')+'</li><li>⏱ Запуск за 3 дні · правки без доплат</li><li>🎁 Бонус Google до 90 000 ₴ на рекламу</li></ul>';
+      q('#hqres').innerHTML='<svg class="ic"><use href="#ic-target"/></svg> Для вашого бізнесу:'+top+'<ul><li><svg class="ic"><use href="#ic-search"/></svg> Реклама на тих, хто шукає '+nn.replace(/[<>&]/g,'')+'</li><li><svg class="ic"><use href="#ic-clock"/></svg> Запуск за 3 дні · правки без доплат</li><li><svg class="ic"><use href="#ic-gift"/></svg> Бонус Google до 90 000 ₴ на рекламу</li></ul>';
       q('#hqtg').href=tgLink();
     }
     hq.addEventListener('click',function(e){
@@ -1825,6 +1852,17 @@ var CONTACTS={
 })();
 </script>
 <script>(function(){var b=document.getElementById('faqm'),l=document.getElementById('faql');if(b&&l){if(l.children.length<7)b.style.display='none';b.addEventListener('click',function(){l.classList.add('all');b.style.display='none'})}})();</script>
-<script>(function(){var g=document.querySelector('.pl-grid');if(!g||matchMedia('(prefers-reduced-motion:reduce)').matches)return;var cards=[].slice.call(g.querySelectorAll('.pl'));var ev=[['📞 Дзвінок','#3ad07a','#08210f'],['✈️ Заявка в Telegram','#2AABEE','#fff'],['💬 Написали у WhatsApp','#25D366','#062b14'],['💜 Повідомлення у Viber','#7360F2','#fff'],['📅 Новий запис','#FFB020','#2a1800'],['📞 Дзвінок з Google','#3ad07a','#08210f'],['🛒 Замовлення онлайн','#FF6A00','#fff']];var ci=0,ei=0,order=cards.map(function(_,i){return i}).sort(function(){return Math.random()-.5});function tick(){var c=cards[order[ci%order.length]],e=ev[ei%ev.length];ci++;ei++;var em=c.querySelector('em');em.textContent=e[0];c.style.setProperty('--pc',e[1]);c.style.setProperty('--pk',e[2]);em.classList.remove('pop');c.classList.remove('pop');void em.offsetWidth;em.classList.add('pop');c.classList.add('pop');setTimeout(function(){c.classList.remove('pop')},2600)}var on=false,timer;new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting&&!on){on=true;tick();timer=setInterval(tick,1500)}else if(!x.isIntersecting&&on){on=false;clearInterval(timer)}})},{threshold:.2}).observe(g)})();</script>
+<script>(function(){var g=document.querySelector('.pl-grid');if(!g||matchMedia('(prefers-reduced-motion:reduce)').matches)return;var cards=[].slice.call(g.querySelectorAll('.pl'));var ev=[['<svg class="ic"><use href="#ic-phone"/></svg> Дзвінок','#3ad07a','#08210f'],['<svg class="ic"><use href="#ic-send"/></svg> Заявка в Telegram','#2AABEE','#fff'],['<svg class="ic"><use href="#ic-chat"/></svg> Написали у WhatsApp','#25D366','#062b14'],['<svg class="ic"><use href="#ic-viber"/></svg> Повідомлення у Viber','#7360F2','#fff'],['<svg class="ic"><use href="#ic-calendar"/></svg> Новий запис','#FFB020','#2a1800'],['<svg class="ic"><use href="#ic-phone"/></svg> Дзвінок з Google','#3ad07a','#08210f'],['<svg class="ic"><use href="#ic-cart"/></svg> Замовлення онлайн','#FF6A00','#fff']];var ci=0,ei=0,order=cards.map(function(_,i){return i}).sort(function(){return Math.random()-.5});function tick(){var c=cards[order[ci%order.length]],e=ev[ei%ev.length];ci++;ei++;var em=c.querySelector('em');em.innerHTML=e[0];c.style.setProperty('--pc',e[1]);c.style.setProperty('--pk',e[2]);em.classList.remove('pop');c.classList.remove('pop');void em.offsetWidth;em.classList.add('pop');c.classList.add('pop');setTimeout(function(){c.classList.remove('pop')},2750)}var on=false,timer;new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting&&!on){on=true;tick();timer=setInterval(tick,1500)}else if(!x.isIntersecting&&on){on=false;clearInterval(timer)}})},{threshold:.2}).observe(g)})();</script>
+<script>(function(){var rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+/* каскадна поява карток */
+var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{rootMargin:'0px 0px -8% 0px'});document.querySelectorAll('.pl-grid,.pr-grid,.wk-grid,.steps,.rv-grid').forEach(function(g){[].forEach.call(g.children,function(c,i){if(!c.classList.contains('rv')){c.classList.add('rv');c.style.setProperty('--d',(i*.07)+'s');io.observe(c)}})});
+if(rm||innerWidth<900)return;
+/* паралакс: шари фону й демо рухаються з різною швидкістю */
+var L=[['.aur .a1',.18],['.aur .a2',-.12],['.aur .a3',.08],['#stage',-.06],['.bonus-big .coins',.15]].map(function(x){var e=document.querySelector(x[0]);if(e)e.classList.add('par');return e&&[e,x[1]]}).filter(Boolean),tk=false;
+function par(){tk=false;var y=scrollY;L.forEach(function(x){var r=x[0].getBoundingClientRect();if(r.bottom<0||r.top>innerHeight)return;x[0].style.transform='translate3d(0,'+(y*x[1]).toFixed(1)+'px,0)'})}
+addEventListener('scroll',function(){if(!tk){tk=true;requestAnimationFrame(par)}},{passive:true});par();
+/* 3D-нахил картки опитування за курсором */
+var q=document.querySelector('.quiz');if(q){q.style.transition='transform .4s var(--e)';q.addEventListener('mousemove',function(e){var r=q.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;q.style.transform='perspective(1200px) rotateX('+(-y*4).toFixed(2)+'deg) rotateY('+(x*5).toFixed(2)+'deg)'});q.addEventListener('mouseleave',function(){q.style.transform=''})}
+})();</script>
 </body>
 </html>
