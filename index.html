@@ -1139,18 +1139,34 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
 .sec,.hero{isolation:isolate}
 .cosmos{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:-1}
 .planet{position:absolute;width:var(--s);height:var(--s);border-radius:50%;pointer-events:none;background:radial-gradient(circle at 32% 28%,var(--c1) 0%,var(--c2) 40%,var(--c3) 74%,#050302 100%);box-shadow:inset -14px -10px 36px rgba(0,0,0,.65),0 0 70px -10px color-mix(in srgb,var(--c2) 45%,transparent);opacity:0;transform:scale(.7) translateY(30px);transition:opacity 1.3s ease,transform 1.8s var(--e)}
-.planet.in{opacity:1;transform:none}
+.planet.in{opacity:1;transform:none;animation:planetFloat var(--f,9s) ease-in-out infinite alternate}@keyframes planetFloat{0%{translate:0 0}100%{translate:0 -14px}}
 .planet::before{content:"";position:absolute;inset:0;border-radius:50%;background:repeating-linear-gradient(-9deg,rgba(255,255,255,.09) 0 3%,transparent 3% 8%,rgba(0,0,0,.16) 8% 11%,transparent 11% 17%,rgba(255,255,255,.05) 17% 19%,transparent 19% 26%);background-size:200% 100%;animation:planetSpin var(--t,50s) linear infinite;mix-blend-mode:overlay}
 .planet::after{content:"";position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 30% 26%,rgba(255,255,255,.28),transparent 42%),radial-gradient(circle at 78% 80%,rgba(0,0,0,.55),transparent 55%)}
 @keyframes planetSpin{to{background-position:-200% 0}}
 .planet .ring{position:absolute;left:50%;top:50%;width:176%;height:176%;border-radius:50%;transform:translate(-50%,-50%) rotateX(74deg) rotate(-14deg);border:calc(var(--s) * .035) solid rgba(255,205,150,.32);border-top-color:rgba(255,205,150,.12);border-left-color:rgba(255,205,150,.2);box-shadow:inset 0 0 0 calc(var(--s) * .012) rgba(255,160,70,.22),0 0 0 calc(var(--s) * .01) rgba(255,160,70,.1)}
-.aur .p-hero{right:-6%;top:-18%;z-index:0}.aur .p-moon{left:4%;top:9%}.aur .sun{opacity:.55}
-@media(max-width:899px){.aur .p-hero{right:-26%;top:-6%;--s:78vw!important}.aur .p-moon{left:-4%;top:46%;--s:16vw!important}.cosmos .planet{--s:calc(var(--s) * 1.3)}}
+.aur .p-hero{right:-16%;top:-30%;z-index:0;opacity:.9}.aur .p-hero.in{opacity:.9}.aur::after{content:"";position:absolute;inset:0;background:radial-gradient(60% 70% at 72% 40%,rgba(11,10,9,.35),transparent 70%);pointer-events:none}.aur .p-moon{left:4%;top:9%}.aur .sun{opacity:.55}
+@media(max-width:899px){.aur .p-hero{right:-40%;top:-14%;--s:80vw!important}.aur .p-moon{left:-4%;top:46%;--s:16vw!important}.cosmos .planet{--s:calc(var(--s) * 1.3)}}
 @media(prefers-reduced-motion:reduce){.planet::before,#space .st2{animation:none}.planet{opacity:1;transform:none}}
 
 /* картки щільніші, щоб зірки не заважали читати */
 .pr,.pl,#faq details,.wk,.stp,.rc,.nc,.hq-res,.hq-ch button,.m-grid a{background-color:rgba(17,15,13,.82)}
 .quiz,.ad,.st-google{background-color:rgba(14,12,11,.72)}
+
+/* ===== живий космос ===== */
+#space .st1,#space .st2{background:none;overflow:hidden}
+#space .st1 b,#space .st2 b{position:absolute;inset:-10%;display:block;background:url(img/stars.png) 0 0/640px 640px repeat;animation:drift 140s linear infinite}
+#space .st2 b{background-size:1040px 1040px;background-position:200px 140px;animation-duration:95s;animation-direction:reverse}
+#space .st1{opacity:.55;transform:translate3d(calc(var(--sx,0px) * .4),calc(var(--sy,0px) * .4 + var(--py,0px) * .08),0)}
+#space .st2{opacity:.9;transform:translate3d(var(--sx,0px),calc(var(--sy,0px) + var(--py,0px) * .16),0)}
+@keyframes drift{0%{transform:translate3d(0,0,0)}100%{transform:translate3d(-640px,-320px,0)}}
+#space .bs{inset:auto;left:var(--x);top:var(--y);width:6px;height:6px;border-radius:50%;background:#fff;box-shadow:0 0 10px 2px rgba(255,255,255,.9),0 0 28px 8px rgba(255,200,140,.45);animation:bstar 3.6s ease-in-out infinite;animation-delay:var(--d);transform:scale(var(--k,1))}
+#space .bs::before,#space .bs::after{content:"";position:absolute;left:50%;top:50%;width:46px;height:1.5px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.85),transparent);transform:translate(-50%,-50%)}
+#space .bs::after{transform:translate(-50%,-50%) rotate(90deg)}
+@keyframes bstar{0%,100%{opacity:.25;transform:scale(calc(var(--k,1) * .6))}50%{opacity:1;transform:scale(var(--k,1))}}
+#space .sh{inset:auto;left:var(--sx);top:var(--sy);width:160px;height:2px;border-radius:999px;background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,.95) 60%,#fff);filter:drop-shadow(0 0 6px rgba(255,255,255,.8));opacity:0;transform:rotate(32deg);animation:shoot 9s linear infinite;animation-delay:var(--d)}
+@keyframes shoot{0%,80%{opacity:0;translate:0 0}81%{opacity:1}88%{opacity:1;translate:36vw 26vw}89%,100%{opacity:0;translate:36vw 26vw}}
+@media(max-width:899px){#space .sh{width:110px}@keyframes shoot{0%,80%{opacity:0;translate:0 0}81%{opacity:1}89%{opacity:1;translate:60vw 50vw}90%,100%{opacity:0;translate:60vw 50vw}}}
+@media(prefers-reduced-motion:reduce){#space .st1 b,#space .st2 b,#space .bs,#space .sh,.planet.in{animation:none}}
 </style>
 <!-- Microsoft Clarity (теплові карти й записи сеансів) -->
 <script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];__late(function(){document.head.appendChild(t)});})(window,document,"clarity","script","z2nkewuu0z");</script>
@@ -1200,10 +1216,10 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
   </div>
 </div>
 
-<div id="space" aria-hidden="true"><i class="neb"></i><i class="st1"></i><i class="st2"></i></div>
+<div id="space" aria-hidden="true"><i class="neb"></i><i class="st1"><b></b></i><i class="st2"><b></b></i><i class="bs" style="--x:12%;--y:22%;--d:0s"></i><i class="bs" style="--x:78%;--y:14%;--d:1.3s;--k:.7"></i><i class="bs" style="--x:56%;--y:62%;--d:2.1s;--k:.55"></i><i class="bs" style="--x:30%;--y:78%;--d:3.4s;--k:.8"></i><i class="bs" style="--x:90%;--y:48%;--d:.7s;--k:.6"></i><i class="sh" style="--sx:10%;--sy:8%;--d:2s"></i><i class="sh" style="--sx:60%;--sy:-4%;--d:7.5s"></i><i class="sh" style="--sx:35%;--sy:30%;--d:13s"></i></div>
 <main id="top">
 <section class="hero" id="hero">
-  <div class="aur" aria-hidden="true"><i class="sun"></i><div class="planet p-hero" style="--s:min(62vw,640px);--c1:#FFC489;--c2:#F07214;--c3:#5A1E05;--t:70s"><i class="ring"></i></div><div class="planet p-moon" style="--s:min(14vw,120px);--c1:#CFC6BC;--c2:#8E857B;--c3:#2A2521;--t:50s"></div><i class="a1"></i><i class="a2"></i><i class="a3"></i><i class="grid"></i><i class="noise"></i><i class="spot"></i></div>
+  <div class="aur" aria-hidden="true"><i class="sun"></i><div class="planet p-hero" style="--s:min(56vw,600px);--c1:#E89A5C;--c2:#9A3E0C;--c3:#2A0C03;--t:16s"><i class="ring"></i></div><div class="planet p-moon" style="--s:min(14vw,120px);--c1:#CFC6BC;--c2:#8E857B;--c3:#2A2521;--t:20s"></div><i class="a1"></i><i class="a2"></i><i class="a3"></i><i class="grid"></i><i class="noise"></i><i class="spot"></i></div>
   <div class="wrap h-top">
     <button type="button" class="pill" data-goq><i class="dot"></i><span>Сайт + реклама Google · <span class="more">запуск </span>за 3 дні</span><span class="pill-go">→</span></button>
     <h1 class="display"><span class="ln"><span class="lni">Вас вже шукають <span class="og-text live">у Google.</span></span></span><span class="ln"><span class="lni">Зробимо, щоб знаходили вас, а не конкурентів.</span></span></h1>
@@ -1283,7 +1299,7 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
 </section>
 
 <section class="sec" id="roboty">
-  <div class="cosmos" aria-hidden="true"><div class="planet" style="--s:min(22vw,220px);--c1:#F5B48A;--c2:#B8441A;--c3:#3A0E05;--t:45s;left:-6%;top:12%"></div></div>
+  <div class="cosmos" aria-hidden="true"><div class="planet" style="--s:min(22vw,220px);--c1:#F5B48A;--c2:#B8441A;--c3:#3A0E05;--t:18s;left:-6%;top:12%"></div></div>
   <div class="wrap">
     <div class="sec-head rv">
       <div class="eyebrow"><i>01</i>Наші роботи</div>
@@ -1302,7 +1318,7 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
 </section>
 
 <section class="sec" id="dlya">
-  <div class="cosmos" aria-hidden="true"><div class="planet" style="--s:min(30vw,300px);--c1:#B9D6F2;--c2:#3C6FA8;--c3:#0B1A33;--t:60s;right:-8%;top:8%"><i class="ring"></i></div><div class="planet" style="--s:min(8vw,70px);--c1:#FFE2B8;--c2:#C98B3C;--c3:#3B2306;--t:30s;left:6%;bottom:10%"></div></div>
+  <div class="cosmos" aria-hidden="true"><div class="planet" style="--s:min(30vw,300px);--c1:#B9D6F2;--c2:#3C6FA8;--c3:#0B1A33;--t:24s;right:-8%;top:8%"><i class="ring"></i></div><div class="planet" style="--s:min(8vw,70px);--c1:#FFE2B8;--c2:#C98B3C;--c3:#3B2306;--t:14s;left:6%;bottom:10%"></div></div>
   <div class="wrap">
     <div class="sec-head rv">
       <div class="eyebrow"><i>02</i>Для кого</div>
@@ -1323,7 +1339,7 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
   </div>
 </section>
 <section class="sec" id="tsiny">
-  <div class="cosmos" aria-hidden="true"><div class="planet" style="--s:min(26vw,260px);--c1:#FFE6A8;--c2:#D9962E;--c3:#4A2A05;--t:55s;left:-7%;bottom:-6%"></div></div>
+  <div class="cosmos" aria-hidden="true"><div class="planet" style="--s:min(26vw,260px);--c1:#FFE6A8;--c2:#D9962E;--c3:#4A2A05;--t:22s;left:-7%;bottom:-6%"></div></div>
   <div class="wrap">
     <div class="sec-head rv">
       <div class="eyebrow"><i>03</i>Ціни</div>
@@ -1359,7 +1375,7 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
 </section>
 
 <section class="sec" id="etapy">
-  <div class="cosmos" aria-hidden="true"><div class="planet" style="--s:min(12vw,110px);--c1:#E8E3DD;--c2:#8F8A84;--c3:#23201D;--t:35s;right:4%;top:6%"></div></div>
+  <div class="cosmos" aria-hidden="true"><div class="planet" style="--s:min(12vw,110px);--c1:#E8E3DD;--c2:#8F8A84;--c3:#23201D;--t:14s;right:4%;top:6%"></div></div>
   <div class="wrap">
     <div class="sec-head rv">
       <div class="eyebrow"><i>04</i>Етапи</div>
@@ -1377,7 +1393,7 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
 </section>
 
 <section class="sec" id="bot">
-  <div class="cosmos" aria-hidden="true"><div class="planet" style="--s:min(40vw,420px);--c1:#FF9A4A;--c2:#7A2A08;--c3:#160602;--t:80s;right:-14%;bottom:-18%"><i class="ring"></i></div></div>
+  <div class="cosmos" aria-hidden="true"><div class="planet" style="--s:min(40vw,420px);--c1:#FF9A4A;--c2:#7A2A08;--c3:#160602;--t:32s;right:-14%;bottom:-18%"><i class="ring"></i></div></div>
   <div class="wrap">
     <div class="botc rv">
       <div class="botc-tx">
@@ -1397,7 +1413,7 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
   </div>
 </section>
 <section class="sec" id="pro-nas">
-  <div class="cosmos" aria-hidden="true"><div class="planet" style="--s:min(16vw,150px);--c1:#F7C9B0;--c2:#A64B2E;--c3:#2E0E06;--t:40s;left:-4%;top:10%"></div></div>
+  <div class="cosmos" aria-hidden="true"><div class="planet" style="--s:min(16vw,150px);--c1:#F7C9B0;--c2:#A64B2E;--c3:#2E0E06;--t:16s;left:-4%;top:10%"></div></div>
   <div class="wrap founder">
     <div class="ph-frame rv"><img src="img/maxim.webp" alt="Максим, засновник PRMAX" loading="lazy" width="1000" height="1000"><div class="nm"><b>Максим</b><span>засновник PRMAX</span></div></div>
     <div class="txt rv">
@@ -1415,7 +1431,7 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
 </section>
 
 <section class="sec" id="vidguky">
-  <div class="cosmos" aria-hidden="true"><div class="planet" style="--s:min(10vw,90px);--c1:#D7E7FF;--c2:#5F86B8;--c3:#101E36;--t:28s;right:6%;top:4%"></div></div>
+  <div class="cosmos" aria-hidden="true"><div class="planet" style="--s:min(10vw,90px);--c1:#D7E7FF;--c2:#5F86B8;--c3:#101E36;--t:14s;right:6%;top:4%"></div></div>
   <div class="wrap">
     <div class="sec-head rv">
       <div class="eyebrow"><i>07</i>Відгуки</div>
@@ -1442,7 +1458,7 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
 </section>
 
 <section class="sec" id="faq">
-  <div class="cosmos" aria-hidden="true"><div class="planet" style="--s:min(28vw,280px);--c1:#FFD7A8;--c2:#E0691C;--c3:#3F1404;--t:65s;left:-9%;bottom:-8%"><i class="ring"></i></div></div>
+  <div class="cosmos" aria-hidden="true"><div class="planet" style="--s:min(28vw,280px);--c1:#FFD7A8;--c2:#E0691C;--c3:#3F1404;--t:26s;left:-9%;bottom:-8%"><i class="ring"></i></div></div>
   <div class="wrap faq-wrap">
     <div class="sec-head rv">
       <div class="eyebrow"><i>08</i>Питання</div>
@@ -1466,7 +1482,7 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
 </section>
 
 <section class="sec final" id="zayavka">
-  <div class="cosmos" aria-hidden="true"><div class="planet" style="--s:min(48vw,520px);--c1:#FFB36B;--c2:#C7500E;--c3:#2A0C03;--t:90s;right:-16%;top:-30%"></div></div>
+  <div class="cosmos" aria-hidden="true"><div class="planet" style="--s:min(48vw,520px);--c1:#FFB36B;--c2:#C7500E;--c3:#2A0C03;--t:36s;right:-16%;top:-30%"></div></div>
   <div class="wrap final-grid">
     <div class="rv">
       <div class="eyebrow"><i>09</i>Заявка</div>
@@ -1935,7 +1951,7 @@ var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isInter
 document.querySelectorAll('.pl-grid,.pr-grid,.wk-grid,.steps,.rv-grid').forEach(function(g){[].forEach.call(g.children,function(c,i){if(!c.classList.contains('rv')){c.classList.add('rv');c.style.setProperty('--d',(i*.07)+'s');io.observe(c)}})});
 if(rm||innerWidth<900)return;
 /* паралакс: шари фону й демо рухаються з різною швидкістю */
-var L=[['.aur .sun',.25],['.p-hero',.14],['.p-moon',.3],['#space .st1',.08],['#space .st2',.16],['.aur .a1',.18],['.aur .a2',-.12],['.aur .a3',.08],['#stage',-.06],['.bonus-big .coins',.15],['#dlya .sec-head',-.05],['#tsiny .sec-head',-.05],['#bot .botc-ph',-.08]].map(function(x){var e=document.querySelector(x[0]);if(e)e.classList.add('par');return e&&[e,x[1]]}).filter(Boolean),tk=false;
+var L=[['.aur .sun',.25],['.p-hero',.14],['.p-moon',.3],['.aur .a1',.18],['.aur .a2',-.12],['.aur .a3',.08],['#stage',-.06],['.bonus-big .coins',.15],['#dlya .sec-head',-.05],['#tsiny .sec-head',-.05],['#bot .botc-ph',-.08]].map(function(x){var e=document.querySelector(x[0]);if(e)e.classList.add('par');return e&&[e,x[1]]}).filter(Boolean),tk=false;
 function par(){tk=false;var y=scrollY;L.forEach(function(x){var r=x[0].getBoundingClientRect();if(r.bottom<0||r.top>innerHeight)return;x[0].style.transform='translate3d(var(--mx,0px),calc('+(y*x[1]).toFixed(1)+'px + var(--my,0px)),0)'})}
 addEventListener('scroll',function(){if(!tk){tk=true;requestAnimationFrame(par)}},{passive:true});par();
 /* фон першого екрана ледь рухається за курсором */
@@ -1947,5 +1963,9 @@ var q=document.querySelector('.quiz');if(q){q.style.transition='transform .4s va
 <script>(function(){/* лічильники цифр у статистиці */if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;var els=document.querySelectorAll('.stat b');if(!els.length)return;
 var io=new IntersectionObserver(function(es){es.forEach(function(x){if(!x.isIntersecting)return;io.unobserve(x.target);var el=x.target,txt=el.textContent,m=txt.match(/(\d[\d\s\u00a0]*)/);if(!m)return;var full=m[1],n=+full.replace(/\D/g,''),t0=performance.now(),dur=1300;
 function f(now){var k=Math.min(1,(now-t0)/dur),e=1-Math.pow(1-k,3),v=Math.round(n*e).toString().replace(/\B(?=(\d{3})+(?!\d))/g,'\u00a0');el.textContent=txt.replace(full,v+(/\s$/.test(full)?' ':''));if(k<1)requestAnimationFrame(f)}requestAnimationFrame(f)})},{threshold:.6});els.forEach(function(e){io.observe(e)})})();</script>
+<script>(function(){var sp=document.getElementById('space');if(!sp||matchMedia('(prefers-reduced-motion:reduce)').matches)return;var tk=false;
+addEventListener('scroll',function(){if(tk)return;tk=true;requestAnimationFrame(function(){sp.style.setProperty('--py',(-scrollY*0.5).toFixed(0)+'px');tk=false})},{passive:true});
+if(innerWidth>=900)addEventListener('mousemove',function(e){sp.style.setProperty('--sx',((e.clientX/innerWidth-.5)*-18).toFixed(1)+'px');sp.style.setProperty('--sy',((e.clientY/innerHeight-.5)*-12).toFixed(1)+'px')},{passive:true});
+})();</script>
 </body>
 </html>
