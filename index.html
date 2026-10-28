@@ -1186,9 +1186,13 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
 
 /* шапка: прозора вгорі, «скло» при прокрутці (без чорної плашки) */
 .hdr,.hdr.sc,.hdr.on,.hdr.scrolled{background:transparent!important;border-color:transparent!important}
-.hdr.sc,.hdr.scrolled{background:rgba(11,10,9,.5)!important;backdrop-filter:blur(18px) saturate(140%)!important;-webkit-backdrop-filter:blur(18px) saturate(140%)!important;border-color:rgba(255,255,255,.08)!important}
+.hdr.sc,.hdr.scrolled{background:transparent!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;border-color:transparent!important}.hdr .logo img,.hdr .menu a,.hdr-ph,.hdr .call{filter:drop-shadow(0 2px 6px rgba(0,0,0,.6))}
 .hdr .logo img{filter:drop-shadow(0 2px 6px rgba(0,0,0,.5))}
 .hq-ch button{white-space:normal;line-height:1.15}
+
+/* шапка повністю прозора; при прокрутці вниз ховається, при прокрутці вгору повертається */
+.hdr{transition:transform .45s var(--e),background .5s!important}
+.hdr.hide{transform:translateY(-110%)}
 </style>
 <!-- Microsoft Clarity (теплові карти й записи сеансів) -->
 <script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];__late(function(){document.head.appendChild(t)});})(window,document,"clarity","script","z2nkewuu0z");</script>
@@ -1749,7 +1753,7 @@ var CONTACTS={
   var fab=$('#fab');
   function onScroll(){
     var y=scrollY,h=document.documentElement,max=h.scrollHeight-h.clientHeight;
-    hdr.classList.toggle('sc',y>20);
+    hdr.classList.toggle('sc',y>20);hdr.classList.toggle('hide',y>120&&y>(onScroll.ly||0)&&!document.getElementById('mnav').classList.contains('on'));onScroll.ly=y;
     prog.style.transform='scaleX('+(max>0?y/max:0)+')';
     mbar.classList.toggle('on',y>hero.offsetHeight*.7&&fin.getBoundingClientRect().top>innerHeight*.6);
     fab.classList.toggle('on',y>hero.offsetHeight*.45&&fin.getBoundingClientRect().top>innerHeight*.55);
