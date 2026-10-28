@@ -7,7 +7,7 @@
   "bot": 150,
   "bot_old": 300,
   "vedennya": 75,
-  "total": 450,
+  "total": 420,
   "total_old": 1000,
   "social": 100,
   "social_creo": 150,
@@ -15,8 +15,9 @@
   "maps": 100,
   "logo": 30,
   "lang": 50,
-  "max": 600,
-  "max_old": 1300
+  "max": 640,
+  "total_sep": 450,
+  "max_sep": 750
  },
  "texts": {
   "h1a": "Вас вже шукають",
