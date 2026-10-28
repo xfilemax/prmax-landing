@@ -1210,6 +1210,13 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
 .hdr .call,.fab .ph,.fab .tg,.icbtn[data-c=phone-link],.m-c3 a{position:relative}
 @keyframes wave{0%{transform:scale(1);opacity:.9}70%{transform:scale(1.45);opacity:0}100%{transform:scale(1.45);opacity:0}}
 @media(prefers-reduced-motion:reduce){.hdr .call::after,.fab .ph::after,.fab .tg::after,.icbtn[data-c=phone-link]::after,.m-c3 a::after{animation:none;display:none!important}}
+
+/* логіка контактів на телефоні: угорі — подзвонити, внизу — Telegram + розрахунок; плаваючі кнопки прибрано */
+.fab{display:none!important}
+.mbar .mb-tg{background:#229ED9!important;border-color:rgba(255,255,255,.18)!important;color:#fff;position:relative}
+.mbar .mb-tg svg{width:22px;height:22px;fill:#fff;stroke:none}
+.mbar .mb-tg::after{content:"";position:absolute;inset:-2px;border-radius:50%;border:1.5px solid rgba(42,171,238,.9);animation:wave 2.4s ease-out infinite .6s;pointer-events:none}
+@media(prefers-reduced-motion:reduce){.mbar .mb-tg::after{display:none}}
 </style>
 <!-- Microsoft Clarity (теплові карти й записи сеансів) -->
 <script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];__late(function(){document.head.appendChild(t)});})(window,document,"clarity","script","z2nkewuu0z");</script>
@@ -1673,7 +1680,7 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
   </form>
 </div>
 <div class="fab" id="fab" aria-label="Швидкий зв'язок"><a class="ph" href="#" data-c="phone-link" data-l="Подзвонити" aria-label="Подзвонити"><svg><use href="#i-phone"/></svg></a><a class="tg" href="#" data-c="tg-link" target="_blank" rel="noopener" data-l="Написати в Telegram" aria-label="Telegram"><svg viewBox="0 0 24 24"><path d="M21.5 3.5L2.8 10.7c-1.3.5-1.2 1.3-.2 1.6l4.8 1.5 1.8 5.6c.2.7.6.8 1.1.3l2.6-2.4 5 3.7c.9.5 1.6.2 1.8-.9l3.2-15c.3-1.3-.5-1.9-1.4-1.6z"/></svg></a></div>
-<div class="mbar" id="mbar"><a class="icbtn" href="#" data-c="phone-link" aria-label="Подзвонити"><svg><use href="#i-phone"/></svg></a><a class="btn btn-o" href="#hq" data-goq><span>Порахувати за 30 сек</span><span class="ar"><svg><use href="#i-arr"/></svg></span></a></div>
+<div class="mbar" id="mbar"><a class="icbtn mb-tg" href="#" data-c="tg-link" target="_blank" rel="noopener" aria-label="Написати в Telegram"><svg viewBox="0 0 24 24"><path d="M21.5 3.5L2.8 10.7c-1.3.5-1.2 1.3-.2 1.6l4.8 1.5 1.8 5.6c.2.7.6.8 1.1.3l2.6-2.4 5 3.7c.9.5 1.6.2 1.8-.9l3.2-15c.3-1.3-.5-1.9-1.4-1.6z" fill="currentColor"/></svg></a><a class="btn btn-o" href="#hq" data-goq><span>Порахувати за 30 сек</span><span class="ar"><svg><use href="#i-arr"/></svg></span></a></div>
 
 <div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Перегляд"><div class="box" id="mbox"><button class="x" type="button" id="mx" aria-label="Закрити"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button><div id="mc"></div></div></div>
 
