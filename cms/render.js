@@ -27,10 +27,10 @@ var PRMAX_CMS = (function () {
     d.seo = {}; Object.keys(c.seo || {}).forEach(function (k) { d.seo[k] = fill(c.seo[k], p); });
     d.disc = { site: pct(p.site, p.site_old), google: pct(p.google, p.google_old), bot: pct(p.bot, p.bot_old) };
     var mins = [p.site, p.google, p.bot, p.social, p.seo, p.maps, p.logo, p.lang].filter(function (x) { return x > 0; });
-    function offer(name, price, desc) { return { '@type': 'Offer', price: String(price), priceCurrency: 'USD', itemOffered: { '@type': 'Service', name: name, description: desc } }; }
+    function offer(name, price, desc) { return { '@type': 'Offer', priceCurrency: 'USD', priceSpecification: { '@type': 'PriceSpecification', minPrice: String(price), priceCurrency: 'USD' }, itemOffered: { '@type': 'Service', name: name, description: desc } }; }
     var org = { '@context': 'https://schema.org', '@type': 'ProfessionalService', '@id': 'https://prmax.agency/#org', name: 'PRMAX', url: 'https://prmax.agency/', logo: 'https://prmax.agency/img/logo.webp', image: 'https://prmax.agency/img/og.jpg',
       description: 'Створення сайтів під ключ за 3 дні, налаштування реклами Google Ads, TikTok і Meta, Telegram-боти для бізнесу. Працюємо онлайн по всій Україні.',
-      telephone: '+380632072000', priceRange: '$' + Math.min.apply(null, mins) + '–$' + p.total, areaServed: { '@type': 'Country', name: 'Україна' }, address: { '@type': 'PostalAddress', addressCountry: 'UA' }, sameAs: ['https://t.me/prmaxagency_bot'],
+      telephone: '+380632072000', priceRange: '$' + p.site + '–$' + p.max, areaServed: { '@type': 'Country', name: 'Україна' }, address: { '@type': 'PostalAddress', addressCountry: 'UA' }, sameAs: ['https://t.me/prmaxagency_bot'],
       hasOfferCatalog: { '@type': 'OfferCatalog', name: 'Послуги PRMAX', itemListElement: [
         offer('Сайт під ключ', p.site, 'Односторінковий сайт під вашу послугу за 3 дні'),
         offer('Налаштування реклами Google Ads', p.google, 'Реклама на тих, хто вже шукає вашу послугу у вашому місті'),

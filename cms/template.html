@@ -47,7 +47,7 @@
 @media(min-width:900px){#faq .faq-list{grid-template-columns:1fr 1fr;gap:12px 16px;align-items:start}#faq summary{font-size:16px;padding:18px 0}.faq-more{display:none}}
 
 /* стеклянні кнопки: суцільний темний помаранчевий + блик */
-.burger,.m-cta,.pk-tag,.st-want,.hq-ok,.callb,.m-c3 a:first-child,.contacts i,.fab .ph,.done .ok,.gift,.av{box-shadow:var(--glass)!important;border:1px solid rgba(255,255,255,.2)}.m-cta,.st-want,.pk-tag,.hq-ok,.callb{text-shadow:0 1px 2px rgba(80,25,0,.6);font-weight:800}
+.burger,.m-cta,.pk-tag,.st-want,.hq-ok,.callb,.m-c3 a:first-child,.contacts i,.fab .ph,.done .ok,.gift,.av{box-shadow:var(--glass)!important;border:1px solid rgba(255,255,255,.3);background-image:var(--sheen),var(--grad)!important}.m-cta,.st-want,.pk-tag,.hq-ok,.callb{text-shadow:0 1px 0 rgba(90,30,0,.7);font-weight:800;-webkit-font-smoothing:antialiased}
 .btn-o:hover{background:#E06A10}
 </style>
 <!-- пікселі реклами завантажуються після показу сторінки (перша дія людини або 3 с після завантаження) — події ті самі, сторінка відкривається швидше -->
@@ -199,7 +199,7 @@ details.extras[open] .ex-more{opacity:.6}details.extras .ex-grid{margin-top:14px
   --sand:#F5F3EF;--fg:var(--sand);--ink:#1A1007;--muted:rgba(244,239,231,.64);--dim:rgba(244,239,231,.42);
   --line:rgba(244,239,231,.11);--line2:rgba(244,239,231,.2);
   --o1:#F1D3A0;--o2:#E2AA5C;--o3:#C98B3C;--o4:#94642A;--ol:#E8C283;
-  --org:#E65C00;--grad:linear-gradient(180deg,#EE6304 0%,#E65C00 60%,#DA5500 100%);--glass:inset 0 1px 0 rgba(255,255,255,.32),inset 0 0 0 1px rgba(255,255,255,.14),inset 0 -10px 18px rgba(110,35,0,.38),0 0 0 1px rgba(255,150,80,.28),0 14px 34px -10px rgba(230,92,0,.55);--ggrad:linear-gradient(120deg,#F7E4BC 0%,#EDC98C 42%,#DFA960 100%);--tgrad:linear-gradient(90deg,#F7DCA8 0%,#F2AE5A 48%,#F07C1E 100%);
+  --org:#E65C00;--grad:linear-gradient(180deg,#EE6304 0%,#E65C00 60%,#DA5500 100%);--glass:inset 0 1px 0 rgba(255,255,255,.62),inset 0 -1px 0 rgba(70,20,0,.55),inset 0 0 0 1px rgba(255,255,255,.12),0 0 0 1px rgba(255,120,30,.45),0 10px 24px -8px rgba(230,92,0,.6);--sheen:linear-gradient(180deg,rgba(255,255,255,.14) 0,rgba(255,255,255,.14) 50%,rgba(255,255,255,0) 50%);--ggrad:linear-gradient(120deg,#F7E4BC 0%,#EDC98C 42%,#DFA960 100%);--tgrad:linear-gradient(90deg,#F7DCA8 0%,#F2AE5A 48%,#F07C1E 100%);
   --green:#2BD46F;
   --d:'Unbounded',system-ui,sans-serif;--b:'Manrope',system-ui,-apple-system,'Segoe UI',sans-serif;--n:'Unbounded',system-ui,sans-serif;
   --disp:var(--d);--body:var(--b);--num:var(--n);
@@ -242,11 +242,11 @@ s{text-decoration-color:var(--o3);text-decoration-thickness:1.5px}
 .btn:hover .ar svg{transform:rotate(-45deg)}
 .btn:hover .ar svg.play{transform:none}
 .btn:active{transform:scale(.98)}
-.btn-o{color:#fff;font-weight:800;text-shadow:0 1px 2px rgba(80,25,0,.6);background:var(--grad);border:1px solid rgba(255,255,255,.22);box-shadow:var(--glass)}
+.btn-o{color:#fff;font-weight:800;text-shadow:0 1px 0 rgba(90,30,0,.7);-webkit-font-smoothing:antialiased;background:var(--sheen),var(--grad);border:1px solid rgba(255,255,255,.34);box-shadow:var(--glass)}
 .btn-o .ar{background:var(--ink);color:#fff}
 .btn-o::before{content:none;position:absolute;inset:0;z-index:-1;background:linear-gradient(105deg,transparent 30%,rgba(255,255,255,.55) 48%,rgba(255,255,255,.15) 52%,transparent 70%);transform:translateX(-120%);animation:sweep 4.2s var(--e) infinite 1.2s}
 @keyframes sweep{0%{transform:translateX(-120%)}40%,100%{transform:translateX(120%)}}
-.btn-o:hover{filter:brightness(1.06);transform:translateY(-1px);box-shadow:inset 0 1px 0 rgba(255,255,255,.4),inset 0 0 0 1px rgba(255,255,255,.16),inset 0 -10px 18px rgba(110,35,0,.38),0 0 0 1px rgba(255,150,80,.4),0 22px 44px -10px rgba(230,92,0,.75)}
+.btn-o:hover{filter:brightness(1.07);transform:translateY(-1px);box-shadow:inset 0 1px 0 rgba(255,255,255,.7),inset 0 -1px 0 rgba(70,20,0,.55),inset 0 0 0 1px rgba(255,255,255,.14),0 0 0 1px rgba(255,120,30,.6),0 16px 32px -8px rgba(230,92,0,.8)}
 .btn-g{color:#fff;background:linear-gradient(140deg,rgba(255,255,255,.16),rgba(255,255,255,.05)) padding-box,linear-gradient(120deg,rgba(241,211,160,.95),rgba(255,255,255,.12) 45%,rgba(232,112,26,.85)) border-box;backdrop-filter:blur(18px) saturate(140%);-webkit-backdrop-filter:blur(18px) saturate(140%);box-shadow:inset 0 1px 0 rgba(255,255,255,.3),0 20px 50px -25px rgba(0,0,0,.6)}
 .btn-g .ar{border:1px solid rgba(241,211,160,.6);color:var(--o1)}
 .btn-g:hover{background:linear-gradient(140deg,rgba(255,255,255,.22),rgba(255,255,255,.08)) padding-box,linear-gradient(120deg,rgba(241,211,160,1),rgba(255,255,255,.2) 45%,rgba(232,112,26,1)) border-box}
@@ -1056,6 +1056,14 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
 /* шапка: без размытия полупрозрачный фон просвечивал — делаем сплошной при прокрутке */
 .hdr.sc,.hdr.on,.hdr.scrolled{background:#0B0A09!important;border-color:var(--line)!important}
 @media(max-width:899px){.hdr{background:#0B0A09!important}}
+
+/* блок цін без цифр: три картки + кнопка розрахунку */
+.pr-grid{display:grid;grid-template-columns:1fr;gap:10px;margin-top:22px}
+.pr{display:grid;grid-template-columns:44px 1fr;gap:4px 12px;align-items:start;padding:16px;border-radius:20px;background:rgba(255,255,255,.04);border:1px solid var(--line2)}
+.pr i{grid-row:span 2;width:44px;height:44px;border-radius:14px;display:grid;place-items:center;font-style:normal;font-size:22px;background:rgba(255,255,255,.06)}
+.pr b{font:700 16px/1.25 var(--b)}.pr span{font-size:13.5px;line-height:1.5;color:var(--muted)}
+#tsiny .cta-c{margin-top:18px}#tsiny .pk-note{text-align:center;margin-top:14px}
+@media(min-width:900px){.pr-grid{grid-template-columns:repeat(3,1fr);gap:14px;max-width:1100px;margin-inline:auto}.pr{padding:20px}}
 </style>
 <!-- Microsoft Clarity (теплові карти й записи сеансів) -->
 <script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];__late(function(){document.head.appendChild(t)});})(window,document,"clarity","script","z2nkewuu0z");</script>
@@ -1093,7 +1101,7 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
   <a class="m-cta" href="#hq" data-goq><span><b>Порахувати вартість</b><small>3 питання · 30 секунд · безкоштовно</small></span><span class="m-cta-ar"><svg><use href="#i-arr"/></svg></span></a>
   <nav class="m-grid" aria-label="Меню">
     <a href="#stage"><i>🎯</i>Як це працює</a><a href="#roboty"><i>🖥</i>Наші роботи</a>
-    <a href="#tsiny"><i>💼</i>Пакети й ціни</a><a href="#etapy"><i>⏱</i>Запуск за 3 дні</a>
+    <a href="#tsiny"><i>💼</i>Ціни · від $300</a><a href="#etapy"><i>⏱</i>Запуск за 3 дні</a>
     <a href="#bot"><i>🤖</i>Telegram-бот</a><a href="#pro-nas"><i>👤</i>Про нас</a>
     <a href="#vidguky"><i>⭐</i>Відгуки</a><a href="#faq"><i>❓</i>Питання</a>
   </nav>
@@ -1173,7 +1181,7 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
       </div>
     </div>
     <div class="h-proof"><span><b>🤝 250+ бізнесів</b> уже отримують клієнтів з Google</span><a class="btn btn-o h-proof-btn" href="#zayavka" data-form><span>Залишити номер</span><span class="ar"><svg><use href="#i-phone"/></svg></span></a></div>
-    <div class="stats"><div class="stat"><b>3 дні</b><span>від брифу до запуску</span></div><div class="stat"><b>${{p.site}}</b><span>сайт під ключ · <s>${{p.site_old}}</s></span></div><div class="stat"><b>${{p.google}}</b><span>реклама Google · <s>${{p.google_old}}</s></span></div><div class="stat"><b>до 90 000 ₴</b><span>бонус від Google<sup>*</sup></span></div></div>
+    <div class="stats"><div class="stat"><b>3 дні</b><span>від брифу до запуску</span></div><div class="stat"><b>від ${{p.site}}</b><span>сайт + реклама · разово</span></div><div class="stat"><b>0%</b><span>комісії з рекламного бюджету</span></div><div class="stat"><b>до 90 000 ₴</b><span>бонус від Google<sup>*</sup></span></div></div>
   </div>
 </section>
 
@@ -1222,37 +1230,16 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
   <div class="wrap">
     <div class="sec-head rv">
       <div class="eyebrow"><i>03</i>Ціни</div>
-      <h2>Оберіть <span class="og-text">свій пакет</span></h2>
-      <p>Чесні ціни, разова оплата, без абонплати.</p>
+      <h2>Сайт + реклама — <span class="og-text">від ${{p.site}}</span></h2>
+      <p>Разова оплата, без абонплати. Точна ціна залежить від ніші, міста й того, що саме потрібно — тому рахуємо індивідуально під ваш бізнес.</p>
     </div>
-    <div class="pk-grid">
-      <div class="pk rv"><div class="pk-h"><b>Старт</b><span>сайт, щоб вас знаходили</span></div>
-        <div class="pk-p"><s>${{p.site_old}}</s><b>${{p.site}}</b><small>разово</small></div>
-        <ul><li><svg><use href="#i-check"/></svg>Сайт під ключ під вашу нішу</li><li><svg><use href="#i-check"/></svg>Кнопки дзвінка, Telegram, Viber</li><li><svg><use href="#i-check"/></svg>Форма заявки, домен, аналітика</li><li><svg><use href="#i-check"/></svg>Запуск за 3 дні</li></ul>
-        <a class="btn btn-g pk-b" href="#hq" data-goq><span>Обрати «Старт»</span><span class="ar"><svg><use href="#i-arr"/></svg></span></a></div>
-      <div class="pk pk-hot rv" style="--d:.08s"><span class="pk-tag">Рекомендуємо</span><div class="pk-h"><b>Клієнти</b><span>сайт + реклама, яка приводить людей</span></div>
-        <div class="pk-p"><s>${{p.total_sep}}</s><b class="og-text live">${{p.total}}</b><small>разово</small></div><div class="pk-save">вигідніше, ніж окремо</div>
-        <ul><li><svg><use href="#i-check"/></svg>Усе зі «Старт»</li><li><svg><use href="#i-check"/></svg>Реклама на вибір: Google або TikTok / Instagram</li><li><svg><use href="#i-check"/></svg>Показ тільки у вашому місті</li><li><svg><use href="#i-check"/></svg>Відстеження дзвінків і заявок</li><li><svg><use href="#i-check"/></svg>🎁 Бонус Google до 90&nbsp;000&nbsp;₴</li></ul>
-        <a class="btn btn-o pk-b" href="#hq" data-goq><span>Обрати «Клієнти»</span><span class="ar"><svg><use href="#i-arr"/></svg></span></a></div>
-      <div class="pk rv" style="--d:.16s"><div class="pk-h"><b>Максимум</b><span>усі канали + бот, що відповідає за вас</span></div>
-        <div class="pk-p"><s>${{p.max_sep}}</s><b>${{p.max}}</b><small>разово</small></div><div class="pk-save">найбільша економія</div>
-        <ul><li><svg><use href="#i-check"/></svg>Сайт + реклама Google</li><li><svg><use href="#i-check"/></svg>Реклама TikTok / Instagram з 3 нашими креативами</li><li><svg><use href="#i-check"/></svg>Telegram-бот 24/7 — бере номер і нагадує</li><li><svg><use href="#i-check"/></svg>Заявки одразу у ваш Telegram</li><li><svg><use href="#i-check"/></svg>Тиждень супроводу після старту</li></ul>
-        <a class="btn btn-g pk-b" href="#hq" data-goq><span>Обрати «Максимум»</span><span class="ar"><svg><use href="#i-arr"/></svg></span></a></div>
+    <div class="pr-grid">
+      <div class="pr rv"><i>🌐</i><b>Сайт під ключ</b><span>Дизайн і тексти під вашу нішу, кнопки дзвінка, Telegram і Viber, форма заявки. Запуск за 3 дні.</span></div>
+      <div class="pr rv" style="--d:.08s"><i>📈</i><b>Реклама Google · TikTok · Instagram</b><span>Показ тільки у вашому місті тим, хто шукає послугу. Бюджет платите площадці напряму, наша комісія — 0%.</span></div>
+      <div class="pr rv" style="--d:.16s"><i>🤖</i><b>Telegram-бот, як наш</b><span>Відповідає клієнтам 24/7, бере номер і надсилає заявки вам у Telegram.</span></div>
     </div>
-    <p class="pk-note">Сайт і реклама залишаються вашими — усі доступи передаємо.</p>
-    <details class="extras rv">
-      <summary><h3>Додатково — за бажанням</h3><span class="ex-more">8 послуг ↓</span></summary>
-      <div class="ex-grid">
-        <div class="ex"><span>Реклама TikTok<small>з вашими відео / з 3 нашими креативами</small></span><b>${{p.social}} / ${{p.social_creo}}</b></div>
-        <div class="ex"><span>Реклама Facebook + Instagram<small>з вашими відео / з 3 нашими креативами</small></span><b>${{p.social}} / ${{p.social_creo}}</b></div>
-        <div class="ex"><span>SEO<small>щоб Google показував сайт без реклами</small></span><b>${{p.seo}}</b></div>
-        <div class="ex"><span>Google Карти<small>профіль компанії: адреса, фото, кнопка дзвінка</small></span><b>${{p.maps}}</b></div>
-        <div class="ex"><span>Telegram-бот окремо<small>відповідає клієнтам 24/7, бере номер</small></span><b>${{p.bot}}</b></div>
-        <div class="ex"><span>Ведення реклами й сайту<small>щотижня стежимо, правки без доплат</small></span><b>${{p.vedennya}}/міс</b></div>
-        <div class="ex"><span>Логотип</span><b>${{p.logo}}</b></div>
-        <div class="ex"><span>Ще одна мова сайту</span><b>${{p.lang}}</b></div>
-      </div>
-    </details>
+    <div class="cta-c rv"><a class="btn btn-o" href="#hq" data-goq><span>Порахувати індивідуально · 30 сек</span><span class="ar"><svg><use href="#i-arr"/></svg></span></a></div>
+    <p class="pk-note">Чим більше послуг разом — тим вигідніше. Сайт і реклама залишаються вашими — усі доступи передаємо.</p>
     <div class="bonus-big rv">
       <div class="coins" aria-hidden="true"><i style="right:8%;top:14%"></i><i style="right:20%;top:8%;animation-delay:1s;width:7px;height:7px"></i><i style="right:4%;top:40%;animation-delay:2s;width:6px;height:6px"></i></div>
       <div class="wrapc">
@@ -1303,7 +1290,7 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
           <li>🔔 Сам нагадує тим, хто не дописав</li>
           <li>⚡️ Заявки — одразу у ваш Telegram</li>
         </ul>
-        <div class="botc-p"><b class="og-text">${{p.bot}}</b><s>${{p.bot_old}}</s><span>разово · такий самий, як наш</span></div>
+        <div class="botc-p"><span>Такий самий, як наш · у пакеті з сайтом — вигідніше. Ціну порахуємо під ваш бізнес.</span></div>
         <div class="botc-b"><a class="btn btn-o" href="#hq" data-goq><span>Хочу такого бота</span><span class="ar"><svg><use href="#i-arr"/></svg></span></a><a class="botc-try" href="#" data-lead>✈️ Спробувати нашого бота</a></div>
       </div>
       <div class="botc-im"><img src="img/bot/bot-24-7.jpg" alt="Приклад: Telegram-бот відповідає клієнту вночі й записує на прийом" loading="lazy" width="1200" height="900"></div>
@@ -1566,11 +1553,11 @@ var CONTACTS={
     function tgLink(){return 'https://t.me/'+CONTACTS.telegram+'?start='+(SRC||'site')+'-'+(SID||'')+'-'+code()}
     function res(){
       var w=A.w.v,top;
-      if(w==='Сайт + TikTok / Instagram')top='🚀 <b class="big">Сайт + реклама TikTok / Instagram — $'+PR.total+' <s>$'+PR.total_sep+'</s></b>з 3 нашими креативами · пакет «Клієнти»';
-      else if(/TikTok/.test(w))top='🎬 <b class="big">Реклама TikTok / Instagram — $'+PR.social+'</b>з нашими креативами — $'+PR.social_creo;
-      else if(w==='Реклама Google')top='📈 <b class="big">Реклама Google — $'+PR.google+' <s>$'+PR.google_old+'</s></b>';
-      else if(w==='Сайт')top='🌐 <b class="big">Сайт під ключ — $'+PR.site+' <s>$'+PR.site_old+'</s></b>пакет «Старт»';
-      else top='🚀 <b class="big">Сайт + реклама Google — $'+PR.total+' <s>$'+PR.total_sep+'</s></b>пакет «Клієнти» · економія $'+(PR.total_sep-PR.total);
+      if(w==='Сайт + TikTok / Instagram')top='🚀 <b class="big">Сайт + реклама TikTok / Instagram — від $'+PR.total+'</b>разом вигідніше, ніж окремо · точну ціну скажемо під вашу нішу';
+      else if(/TikTok/.test(w))top='🎬 <b class="big">Реклама TikTok / Instagram — від $'+PR.social+'</b>з 3 нашими креативами — від $'+PR.social_creo;
+      else if(w==='Реклама Google')top='📈 <b class="big">Реклама Google — від $'+PR.google+'</b>налаштування під ваше місто';
+      else if(w==='Сайт')top='🌐 <b class="big">Сайт під ключ — від $'+PR.site+'</b>запуск за 3 дні';
+      else top='🚀 <b class="big">Сайт + реклама Google — від $'+PR.total+'</b>разом вигідніше, ніж окремо · точну ціну скажемо під вашу нішу';
       var nn=A.n.v==='Інше'?'вашу послугу':'«'+A.n.v.toLowerCase()+(A.c&&A.c.v&&A.c.v!=='Вся Україна'?' '+A.c.v.toLowerCase():'')+'»';
       q('#hqres').innerHTML='🎯 Для вашого бізнесу:'+top+'<ul><li>🔍 Реклама на тих, хто шукає '+nn.replace(/[<>&]/g,'')+'</li><li>⏱ Запуск за 3 дні · правки без доплат</li><li>🎁 Бонус Google до 90 000 ₴ на рекламу</li></ul>';
       q('#hqtg').href=tgLink();
