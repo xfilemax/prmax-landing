@@ -1715,7 +1715,7 @@ var CONTACTS={
   var SRC='';try{var us=(new URLSearchParams(location.search).get('utm_source')||'').toLowerCase().replace(/[^a-z0-9_-]/g,'').slice(0,30);if(us)sessionStorage.setItem('prmax_src',us);SRC=us||sessionStorage.getItem('prmax_src')||'';}catch(e){}
   /* TikTok: мітку кліку (ttclid) і cookie _ttp зберігаємо на сервері під коротким номером візиту → бот, отримавши телефон, повідомить TikTok про справжню заявку */
   var TTCLID='',SID='';try{var tc=new URLSearchParams(location.search).get('ttclid');if(tc)sessionStorage.setItem('prmax_ttclid',tc.slice(0,500));TTCLID=sessionStorage.getItem('prmax_ttclid')||'';if(TTCLID){SID=sessionStorage.getItem('prmax_sid');if(!SID){SID=Math.random().toString(36).slice(2,10);sessionStorage.setItem('prmax_sid',SID)}}}catch(e){}
-  function ttSave(){if(!SID||!CONTACTS.lead.endpoint)return;try{var m=document.cookie.match(/(?:^|;\s*)_ttp=([^;]+)/);navigator.sendBeacon(CONTACTS.lead.endpoint,JSON.stringify({tt:1,sid:SID,ttclid:TTCLID,qn:(window.__q&&window.__q.n)||'',qc:(window.__q&&window.__q.c)||'',ttp:m?decodeURIComponent(m[1]):'',ua:navigator.userAgent,url:location.href.slice(0,300)}))}catch(e){}}
+  function ttSave(){if(!SID||!CONTACTS.lead.endpoint)return;try{var m=document.cookie.match(/(?:^|;\s*)_ttp=([^;]+)/);navigator.sendBeacon(CONTACTS.lead.endpoint,JSON.stringify({tt:1,sid:SID,ttclid:TTCLID,src:SRC||'site',fbp:(document.cookie.match(/(?:^|;\s*)_fbp=([^;]+)/)||[])[1]||'',fbc:(document.cookie.match(/(?:^|;\s*)_fbc=([^;]+)/)||[])[1]||'',qn:(window.__q&&window.__q.n)||'',qc:(window.__q&&window.__q.c)||'',ttp:m?decodeURIComponent(m[1]):'',ua:navigator.userAgent,url:location.href.slice(0,300)}))}catch(e){}}
   var TG_URL='https://t.me/'+CONTACTS.telegram+'?start='+(SRC||'site')+(SID?'-'+SID:'');
   try{if(matchMedia('(min-width:900px)').matches)document.querySelectorAll('details.extras').forEach(function(d){d.open=true})}catch(e){}
   /* 28.10 опитування на першому екрані: ніша → місто → що потрібно → ціна → номер (або Telegram з уже готовими відповідями) */
@@ -1955,7 +1955,7 @@ var CONTACTS={
   function leadText(d){return 'Нова заявка — сайт PRMAX\n'+(d.need?'Потрібно: '+d.need+'\n':'')+(d.name?"Ім'я: "+d.name+'\n':'')+'Телефон: '+d.phone+'\n'+(d.tg?'Telegram: '+d.tg+'\n':'')+(d.niche?'Ніша: '+d.niche+'\n':'')+(d.city?'Місто: '+d.city+'\n':'')+'Форма: '+d.form+'\nСторінка: '+location.href}
   function sendLead(d){
     conv('lead',{niche:d.niche||'',city:d.city||'',form:d.form});
-    d.page=location.href;d.ua=navigator.userAgent.slice(0,120);
+    d.page=location.href;d.ua=navigator.userAgent.slice(0,120);d.src=SRC||'site';try{var fm=document.cookie.match(/(?:^|;\s*)_fbp=([^;]+)/),fc=document.cookie.match(/(?:^|;\s*)_fbc=([^;]+)/);d.fbp=fm?fm[1]:'';d.fbc=fc?fc[1]:''}catch(e){}
     d.lid=Date.now().toString(36)+Math.random().toString(36).slice(2,6); /* номер заявки: бот у Telegram впізнає клієнта за ним */
     var tgl='https://t.me/'+CONTACTS.telegram+'?start=l_'+d.lid;$$('#ldone a[data-c=tg-link],#mdone a[data-c=tg-link],#qtg').forEach(function(a){a.href=tgl});
     try{localStorage.setItem('prmax_lead',JSON.stringify(d))}catch(e){}
