@@ -1227,6 +1227,12 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
 
 /* телефон: картка «вхідний дзвінок» під демо прибрана — лишаємо тільки пошук Google */
 @media(max-width:899px){#dev{display:none!important}.st-in{grid-template-columns:1fr;gap:0;padding:10px}.stage{margin-top:24px}}
+
+/* прайс-сітка (6 послуг) + умови */
+.pr-list{grid-template-columns:1fr;gap:10px;margin-top:22px}.pr-list .pr{display:grid;grid-template-columns:44px 1fr;gap:4px 12px}
+.pr-list .pr b{display:flex;justify-content:space-between;align-items:baseline;gap:10px}.pr-list .pr b em{font-style:normal;font-family:var(--d);font-weight:700;font-size:20px;color:var(--o1);white-space:nowrap}
+.pr-deal{display:grid;gap:10px;margin-top:14px}.pr-deal>div{padding:14px 16px;border-radius:18px;background:rgba(230,92,0,.1);border:1px solid rgba(230,92,0,.35)}.pr-deal b{display:block;font:700 15px/1.3 var(--b);color:#FFC48A}.pr-deal span{display:block;font-size:13.5px;line-height:1.45;color:var(--sand);margin-top:3px}.pr-deal strong{color:#fff}
+@media(min-width:900px){.pr-list{grid-template-columns:repeat(3,1fr);gap:14px;max-width:1100px;margin-inline:auto}.pr-deal{grid-template-columns:repeat(3,1fr);max-width:1100px;margin-inline:auto}}
 </style>
 <!-- Microsoft Clarity (теплові карти й записи сеансів) -->
 <script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];__late(function(){document.head.appendChild(t)});})(window,document,"clarity","script","z2nkewuu0z");</script>
@@ -1281,7 +1287,7 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
 <section class="hero" id="hero">
   <div class="aur" aria-hidden="true"><i class="sun"></i><div class="planet p-hero" style="--s:min(56vw,600px);--c1:#E89A5C;--c2:#9A3E0C;--c3:#2A0C03;--t:16s"><i class="ring"></i></div><div class="planet p-moon" style="--s:min(14vw,120px);--c1:#CFC6BC;--c2:#8E857B;--c3:#2A2521;--t:20s"></div><i class="a1"></i><i class="a2"></i><i class="a3"></i><i class="grid"></i><i class="noise"></i><i class="spot"></i></div>
   <div class="wrap h-top">
-    <button type="button" class="pill" data-goq><i class="dot"></i><span>Сайт + реклама Google · <span class="more">запуск </span>за 3 дні</span><span class="pill-go">→</span></button>
+    <button type="button" class="pill" data-goq><i class="dot"></i><span>Ціни нижчі за ринок · <span class="more">запуск </span>за 3 дні</span><span class="pill-go">→</span></button>
     <h1 class="display"><span class="ln"><span class="lni">{{t.h1a}} <span class="og-text live">{{t.h1b}}</span></span></span><span class="ln"><span class="lni">{{t.h1c}}</span></span></h1>
     <p class="lead"><span class="lead-a">{{t.lead_a}} </span>{{t.lead_b}}</p>
     <!-- 28.10: опитування прямо на першому екрані (у браузері TikTok посилання на Telegram часто не відкривається) -->
@@ -1399,16 +1405,24 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
   <div class="wrap">
     <div class="sec-head rv">
       <div class="eyebrow"><i>03</i>Ціни</div>
-      <h2>Сайт — <span class="og-text">від ${{p.site}}</span><br>Сайт + реклама — <span class="og-text">від ${{p.total}}</span></h2>
-      <p>Разова оплата, без абонплати. Точна ціна залежить від ніші, міста й того, що саме потрібно — тому рахуємо індивідуально під ваш бізнес.</p>
+      <h2>Ціни <span class="og-text">нижчі за ринок</span></h2>
+      <p>Разова оплата, без абонплати. Рекламний бюджет платите площадці напряму — наша комісія 0%.</p>
     </div>
-    <div class="pr-grid">
-      <div class="pr rv"><i><svg class="ic"><use href="#ic-globe"/></svg></i><b>Сайт під ключ</b><span>Дизайн і тексти під вашу нішу, кнопки дзвінка, Telegram і Viber, форма заявки. Запуск за 3 дні.</span></div>
-      <div class="pr rv" style="--d:.08s"><i><svg class="ic"><use href="#ic-chart"/></svg></i><b>Реклама Google · TikTok · Instagram</b><span>Показ тільки у вашому місті тим, хто шукає послугу. Бюджет платите площадці напряму, наша комісія — 0%.</span></div>
-      <div class="pr rv" style="--d:.16s"><i><svg class="ic"><use href="#ic-bot"/></svg></i><b>Telegram-бот, як наш</b><span>Відповідає клієнтам 24/7, бере номер і надсилає заявки вам у Telegram.</span></div>
+    <div class="pl-grid pr-list">
+      <div class="pr rv"><i><svg class="ic"><use href="#ic-globe"/></svg></i><b>Сайт під ключ<em>${{p.site}}</em></b><span>Дизайн і тексти під нішу, кнопки дзвінка, Telegram, Viber, форма заявки. За 3 дні.</span></div>
+      <div class="pr rv" style="--d:.05s"><i><svg class="ic"><use href="#ic-chart"/></svg></i><b>Реклама Google<em>${{p.google}}</em></b><span>Показ тим, хто вже шукає вашу послугу у вашому місті.</span></div>
+      <div class="pr rv" style="--d:.1s"><i><svg class="ic"><use href="#ic-mobile"/></svg></i><b>Facebook + Instagram<em>${{p.meta}}</em></b><span>З вашими відео або з нашими креативами — ціна та сама.</span></div>
+      <div class="pr rv" style="--d:.15s"><i><svg class="ic"><use href="#ic-film"/></svg></i><b>TikTok<em>${{p.tiktok}}</em></b><span>Так само знайшли нас і ви. З вашими відео або з нашими.</span></div>
+      <div class="pr rv" style="--d:.2s"><i><svg class="ic"><use href="#ic-bot"/></svg></i><b>Telegram-бот<em>${{p.bot}}</em></b><span>Відповідає клієнтам 24/7, бере номер, нагадує — як наш.</span></div>
+      <div class="pr rv" style="--d:.25s"><i><svg class="ic"><use href="#ic-pin"/></svg></i><b>Google Карти<em>${{p.maps}}</em></b><span>Профіль компанії: адреса, фото, години, кнопка «Подзвонити».</span></div>
+    </div>
+    <div class="pr-deal rv">
+      <div><b>3 послуги разом — знижка ${{p.disc3}}</b><span>Напр. сайт + Google + Facebook/Instagram: $600 → <strong>$550</strong></span></div>
+      <div><b>🎁 У подарунок при замовленні</b><span>домен на рік · логотип · тиждень правок і підтримки після запуску</span></div>
+      <div><b>Ведення — ${{p.vedennya}}/міс</b><span>за бажанням: стежимо за рекламою, правимо сайт, звіт щотижня</span></div>
     </div>
     <div class="cta-c rv"><a class="btn btn-o" href="#hq" data-goq><span>Порахувати для мене</span><span class="ar"><svg><use href="#i-arr"/></svg></span></a></div>
-    <p class="pk-note">Чим більше послуг разом — тим вигідніше. Сайт і реклама залишаються вашими — усі доступи передаємо.</p>
+    <p class="pk-note">Хостинг — орієнтовно $4–5/міс, оформлюємо на вас. Сайт і реклама залишаються вашими — усі доступи передаємо.</p>
     <div class="bonus-big rv">
       <div class="coins" aria-hidden="true"><i style="right:8%;top:14%"></i><i style="right:20%;top:8%;animation-delay:1s;width:7px;height:7px"></i><i style="right:4%;top:40%;animation-delay:2s;width:6px;height:6px"></i></div>
       <div class="wrapc">
@@ -1721,21 +1735,21 @@ var CONTACTS={
   /* 28.10 опитування на першому екрані: ніша → місто → що потрібно → ціна → номер (або Telegram з уже готовими відповідями) */
   (function(){
     var hq=document.getElementById('hq');if(!hq)return;
-    var A={n:null,c:null,w:null},step=1,started=false,PR={site:{{p.site}},site_old:{{p.site_old}},google:{{p.google}},google_old:{{p.google_old}},total:{{p.total}},total_old:{{p.total_old}},total_sep:{{p.total_sep}},social:{{p.social}},social_creo:{{p.social_creo}}};
+    var A={n:null,c:null,w:null},step=1,started=false,PR={site:{{p.site}},google:{{p.google}},meta:{{p.meta}},tiktok:{{p.tiktok}},bot:{{p.bot}},disc3:{{p.disc3}},total:{{p.total}},social:{{p.social}}};
     function q(s){return hq.querySelector(s)}
     function show(n){step=n;[].forEach.call(hq.querySelectorAll('.hq-s'),function(s){s.classList.toggle('on',+s.dataset.s===n)});q('#hqbar').style.width=Math.min(100,n/3*100)+'%';q('#hqn').textContent=n<=3?'Крок '+n+' з 3':(n===4?'Результат':'Готово');q('#hqback').hidden=n===1||n===5;if(n===4)res()}
     function code(){return 'n'+A.n.i+'c'+(A.c?A.c.i:9)+'w'+A.w.i}
     function tgLink(){return 'https://t.me/'+CONTACTS.telegram+'?start='+(SRC||'site')+'-'+(SID||'')+'-'+code()}
     function res(){
-      var w=A.w.v,inc;
-      if(w==='Сайт + TikTok / Instagram')inc=['Сайт під вашу нішу за 3 дні','Реклама у TikTok та Instagram на людей у вашому місті','3 креативи з вашими фото — за нас'];
-      else if(/TikTok/.test(w))inc=['Рекламний кабінет TikTok / Meta під ваше місто','Креативи з вашими відео або нашими','Заявки одразу у ваш Telegram'];
-      else if(w==='Реклама Google')inc=['Реклама на тих, хто вже шукає вашу послугу','Показ тільки у вашому місті','Бонус Google до 90 000 ₴ на рекламу'];
-      else if(w==='Сайт')inc=['Дизайн і тексти під вашу нішу','Кнопки дзвінка, Telegram, Viber, форма заявки','Запуск за 3 дні, домен і хостинг на вас'];
-      else inc=['Сайт під вашу нішу за 3 дні','Реклама Google на тих, хто вже шукає','Бонус Google до 90 000 ₴ на рекламу'];
+      var w=A.w.v,inc,sum,lines;
+      if(w==='Сайт + TikTok / Instagram'){inc=['Сайт під вашу нішу за 3 дні — $'+PR.site,'Реклама TikTok — $'+PR.tiktok+' або Facebook/Instagram — $'+PR.meta,'З вашими відео або з нашими креативами'];sum='від $'+(PR.site+PR.tiktok)}
+      else if(/TikTok/.test(w)){inc=['Реклама TikTok — $'+PR.tiktok,'Facebook + Instagram — $'+PR.meta,'З вашими відео або з нашими креативами'];sum='від $'+PR.tiktok}
+      else if(w==='Реклама Google'){inc=['Реклама Google — $'+PR.google,'Показ тільки у вашому місті тим, хто шукає','Бонус Google до 90 000 ₴ на рекламу'];sum='$'+PR.google}
+      else if(w==='Сайт'){inc=['Сайт під ключ — $'+PR.site,'Кнопки дзвінка, Telegram, Viber, форма заявки','Запуск за 3 дні, домен — у подарунок'];sum='$'+PR.site}
+      else{inc=['Сайт під вашу нішу за 3 дні — $'+PR.site,'Реклама Google — $'+PR.google,'Бонус Google до 90 000 ₴ на рекламу'];sum='$'+(PR.site+PR.google)}
       var esc=function(s){return String(s).replace(/[<>&]/g,'')};
       var chips='<span>'+esc(A.n.v)+'</span>'+(A.c&&A.c.v?'<span>'+esc(A.c.v)+'</span>':'')+'<span>'+esc(w)+'</span>';
-      q('#hqres').innerHTML='<div class="hq-chips">'+chips+'</div><b class="big"><svg class="ic"><use href="#ic-check"/></svg> Розрахунок майже готовий</b><ul>'+inc.map(function(x){return '<li><svg class="ic"><use href="#ic-check"/></svg> '+x+'</li>'}).join('')+'</ul><p class="hq-note">Точну вартість, пораховану під ваш бізнес, надішлемо за 15 хвилин. Чим більше послуг разом — тим вигідніше.</p>';
+      q('#hqres').innerHTML='<div class="hq-chips">'+chips+'</div><b class="big"><svg class="ic"><use href="#ic-check"/></svg> Ваш розрахунок: '+sum+'</b><ul>'+inc.map(function(x){return '<li><svg class="ic"><use href="#ic-check"/></svg> '+x+'</li>'}).join('')+'</ul><p class="hq-note">🎁 Домен на рік, логотип і тиждень правок — у подарунок. 3 послуги разом — знижка $'+PR.disc3+'. 50% — коли побачите готове.</p>';
       q('#hqtg').href=tgLink();window.__q={n:A.n.i===11?A.n.v:'',c:(A.c&&A.c.i===9)?A.c.v:''};
     }
     hq.addEventListener('click',function(e){

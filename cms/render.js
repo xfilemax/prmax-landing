@@ -25,7 +25,7 @@ var PRMAX_CMS = (function () {
     d.faq = c.faq.map(function (f) { return { q: typo(fill(f.q, p)), a: typo(fill(f.a, p)) }; });
     d.works = c.works.map(function (w) { return { name: w.name, tag: w.tag, poster: w.poster, video: w.video || '', yt: w.yt || '' }; });
     d.seo = {}; Object.keys(c.seo || {}).forEach(function (k) { d.seo[k] = fill(c.seo[k], p); });
-    d.disc = { site: pct(p.site, p.site_old), google: pct(p.google, p.google_old), bot: pct(p.bot, p.bot_old) };
+    d.disc = { site: 0, google: 0, bot: 0 };
     var mins = [p.site, p.google, p.bot, p.social, p.seo, p.maps, p.logo, p.lang].filter(function (x) { return x > 0; });
     function offer(name, price, desc) { return { '@type': 'Offer', priceCurrency: 'USD', priceSpecification: { '@type': 'PriceSpecification', minPrice: String(price), priceCurrency: 'USD' }, itemOffered: { '@type': 'Service', name: name, description: desc } }; }
     var org = { '@context': 'https://schema.org', '@type': 'ProfessionalService', '@id': 'https://prmax.agency/#org', name: 'PRMAX', url: 'https://prmax.agency/', logo: 'https://prmax.agency/img/logo.webp', image: 'https://prmax.agency/img/og.jpg',
