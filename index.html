@@ -1316,41 +1316,38 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
 .hdr-ph{align-items:center;gap:8px;padding:8px 14px 8px 10px;border-radius:999px;background:linear-gradient(180deg,#34C76A,#1FA653 60%,#17964A);color:#fff!important;font-weight:800;box-shadow:inset 0 1px 0 rgba(255,255,255,.18),inset 0 -2px 0 rgba(0,0,0,.3)}
 .hdr-ph svg{stroke:#fff}
 
-/* ГОЛОВНА ДІЯ — зелена, одна на сторінці; оранжевий лишається для бренду */
-.btn-go,.hdr-cta,.m-cta,.hq-send,#hqopen,.mbar .btn,#tsiny .cta-c .btn,#bot .botc-b .btn{background:linear-gradient(180deg,#36CC6E 0%,#20AB56 55%,#188F49 100%)!important;color:#fff!important;border:1px solid rgba(255,255,255,.18)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.22),inset 0 -2px 0 rgba(0,60,20,.45),0 10px 26px -10px rgba(32,171,86,.7)!important;text-shadow:0 1px 0 rgba(0,50,15,.5)}
-.btn-go:hover,.hdr-cta:hover,.hq-send:hover,.mbar .btn:hover{filter:brightness(1.06);transform:translateY(-1px)}
-.btn-go .ar,.hdr-cta .ar,.hq-send .ar,.mbar .btn .ar,#tsiny .cta-c .btn .ar,#bot .botc-b .btn .ar,.m-cta .ar{background:#0E4D28!important;color:#fff}
+/* ГОЛОВНА ДІЯ — фірмовий оранжевий (Максим: зелений = «райдуга») */
+.btn-go,.hdr-cta,.m-cta,.hq-send,.mbar .btn,#tsiny .cta-c .btn,#bot .botc-b .btn,#hqgo{background:var(--grad)!important;color:#fff!important;border:1px solid rgba(255,140,60,.35)!important;box-shadow:var(--glass)!important;text-shadow:0 1px 0 rgba(90,30,0,.7)}
+.btn-go .ar,.hdr-cta .ar,.hq-send .ar,.mbar .btn .ar,#tsiny .cta-c .btn .ar,#bot .botc-b .btn .ar,.m-cta .ar,#hqgo .ar{background:var(--ink)!important;color:#fff}
 .m-cta small{color:rgba(255,255,255,.85)}
-#hqopen{--h:64px;animation:none!important}
-#hqopen>span:first-child{display:flex;flex-direction:column;align-items:flex-start;line-height:1.1;gap:3px;overflow:visible}
-#hqopen small{font:600 12px/1 var(--b);color:rgba(255,255,255,.85);letter-spacing:.01em;text-shadow:none}
-.hq-ok{background:linear-gradient(180deg,#36CC6E,#20AB56 60%,#188F49)!important;color:#fff!important}
+#hqopen{animation:none!important}
+
 /* плитки: іконки темні скляні з золотим значком — без помаранчевих плям */
 .u i{background:linear-gradient(160deg,rgba(255,255,255,.12),rgba(255,255,255,.04))!important;border:1px solid rgba(255,255,255,.14);color:var(--o1)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.14)}
 .u.on i{background:linear-gradient(160deg,rgba(255,255,255,.12),rgba(255,255,255,.04))!important}
-.hq-bar i{background:linear-gradient(90deg,#36CC6E,#20AB56)!important}
+
 
 /* комп'ютер: шапка — логотип · меню по центру · телефон склом; без зеленої кнопки */
 @media(min-width:900px){.hdr-cta{display:none!important}.hdr .wrap{justify-content:space-between}.hdr .menu{margin:0 auto}.hdr-ph{background:rgba(255,255,255,.07)!important;border:1px solid rgba(255,255,255,.16)!important;color:var(--sand)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.1)!important;padding:10px 16px 10px 12px}.hdr-ph svg{stroke:var(--o1)}
   .hq-foot{margin-top:14px}.hq-go{width:100%;--h:60px}.hq-go>span:first-child{display:flex;flex-direction:column;align-items:flex-start;line-height:1.1;gap:3px;overflow:visible}.hq-go small{font:600 11.5px/1 var(--b);color:rgba(255,255,255,.85);text-shadow:none}
 }
 @media(max-width:899px){.hq-foot{display:none!important}}
-.hq-hint{margin:10px 0 0;text-align:center;font:700 14px/1.3 var(--b);color:#5EE49A;animation:hintIn .4s var(--e)}
+.hq-hint{margin:10px 0 0;text-align:center;font:700 14px/1.3 var(--b);color:#FFC48A;animation:hintIn .4s var(--e)}
 @keyframes hintIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 .hq.need-pick{animation:needPick 1.2s ease-in-out 2}
-@keyframes needPick{0%,100%{box-shadow:0 0 0 0 rgba(54,204,110,0)}50%{box-shadow:0 0 0 4px rgba(54,204,110,.55),0 0 40px rgba(54,204,110,.35)}}
+@keyframes needPick{0%,100%{box-shadow:0 0 0 0 rgba(248,122,30,0)}50%{box-shadow:0 0 0 4px rgba(248,122,30,.55),0 0 40px rgba(248,122,30,.35)}}
 .hq.need-pick .hq-ch[data-k=n] button{animation:btnBlink 1.2s ease-in-out 2}
-@keyframes btnBlink{50%{border-color:#36CC6E;background:rgba(54,204,110,.12)}}
+@keyframes btnBlink{50%{border-color:#F87A1E;background:rgba(248,122,30,.12)}}
 
-/* телефон: картка-квіз замість голого опитування */
+/* телефон: картка-квіз — фірмова оранжева «хмарка» */
 .qcard{display:none}
 @media(max-width:899px){
-.qcard{display:block;width:calc(100% - 32px);margin:18px 16px 0;padding:16px 16px 14px;border-radius:24px;text-align:left;cursor:pointer;color:#fff;background:linear-gradient(160deg,#2FBF66 0%,#1E9E50 55%,#167F42 100%);border:1px solid rgba(255,255,255,.22);box-shadow:inset 0 1px 0 rgba(255,255,255,.22),inset 0 -2px 0 rgba(0,60,20,.45),0 16px 40px -14px rgba(32,171,86,.75);animation:tileIn .7s cubic-bezier(.2,1.2,.3,1) 1.2s both;font-family:var(--b)}
-.qc-top{display:flex;align-items:center;gap:12px}
-.qc-gift{flex:none;width:46px;height:46px;border-radius:14px;display:grid;place-items:center;background:rgba(255,255,255,.18);box-shadow:inset 0 1px 0 rgba(255,255,255,.3)}.qc-gift .ic{width:24px;height:24px;stroke:#fff}
-.qc-t b{display:block;font:800 17px/1.2 var(--b);text-shadow:0 1px 0 rgba(0,50,15,.4)}.qc-t small{display:block;margin-top:3px;font:600 12.5px/1.3 var(--b);color:rgba(255,255,255,.9)}
-.qc-steps{display:flex;align-items:center;gap:6px;margin:12px 0 10px}.qc-steps i{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font:800 12px/1 var(--b);font-style:normal;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.35)}.qc-steps i:first-child{background:#fff;color:#167F42}.qc-steps em{margin-left:auto;font:700 12px/1 var(--b);font-style:normal;opacity:.9}
-.qc-btn{display:flex;align-items:center;justify-content:space-between;height:52px;padding:0 6px 0 20px;border-radius:999px;background:#fff;color:#167F42;font:800 16px/1 var(--b)}.qc-btn .ar{width:40px;height:40px;border-radius:50%;background:#167F42;color:#fff;display:grid;place-items:center}.qc-btn .ar svg{width:18px;height:18px;stroke:#fff}
+.qcard{position:relative;display:grid;grid-template-columns:64px 1fr;grid-template-areas:"g t" "s s" "b b";gap:6px 14px;align-items:center;width:calc(100% - 32px);margin:18px 16px 0;padding:18px 16px 16px;border-radius:28px;text-align:left;cursor:pointer;color:#fff;overflow:hidden;background:radial-gradient(120% 90% at 100% 0%,#FF9A3C 0%,#F4701A 42%,#D9560A 100%);border:1px solid rgba(255,200,150,.35);box-shadow:inset 0 1px 0 rgba(255,255,255,.28),inset 0 -3px 0 rgba(90,30,0,.35),0 18px 44px -16px rgba(248,122,30,.8);animation:tileIn .7s cubic-bezier(.2,1.2,.3,1) 1.2s both;font-family:var(--b)}
+.qc-glow{position:absolute;right:-40px;top:-50px;width:170px;height:170px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.35),rgba(255,255,255,0) 65%);pointer-events:none}
+.qc-gift{grid-area:g;width:64px;height:64px;border-radius:20px;display:grid;place-items:center;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.35);box-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 8px 20px -8px rgba(90,30,0,.6)}.qc-gift .ic{width:32px;height:32px;stroke:#fff;stroke-width:1.7}
+.qc-t{grid-area:t}.qc-t b{display:block;font:800 19px/1.15 var(--b);text-shadow:0 1px 0 rgba(90,30,0,.5);letter-spacing:-.01em}.qc-t small{display:block;margin-top:4px;font:600 12.5px/1.35 var(--b);color:rgba(255,255,255,.92)}
+.qc-steps{grid-area:s;display:flex;align-items:center;gap:6px;margin-top:6px}.qc-steps i{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font:800 11.5px/1 var(--b);font-style:normal;background:rgba(255,255,255,.22);border:1px solid rgba(255,255,255,.45);color:#fff}.qc-steps i:first-child{background:#fff;color:#D9560A}
+.qc-btn{grid-area:b;display:flex;align-items:center;justify-content:space-between;height:54px;padding:0 6px 0 22px;border-radius:999px;background:#fff;color:#1A1007;font:800 17px/1 var(--b);box-shadow:0 6px 16px -8px rgba(0,0,0,.5)}.qc-btn .ar{width:42px;height:42px;border-radius:50%;background:#1A1007;color:#fff;display:grid;place-items:center}.qc-btn .ar svg{width:18px;height:18px;stroke:#fff}
 .hero.hq-on .qcard{display:none}
 .hero .hq{display:none}.hero .hq.open{display:block}}
 </style>
@@ -1415,8 +1412,10 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
       <div class="u"><i><svg class="ic"><use href="#ic-bot"/></svg></i><b>Telegram-бот</b><span>відповідає 24/7</span></div>
     </div>
     <button type="button" class="qcard" id="hqopen">
-      <span class="qc-top"><span class="qc-gift"><svg class="ic"><use href="#ic-gift"/></svg></span><span class="qc-t"><b>Дайте відповідь на 3 питання</b><small>і отримайте подарунок + розрахунок під ваш бізнес</small></span></span>
-      <span class="qc-steps"><i>1</i><i>2</i><i>3</i><em>30 секунд</em></span>
+      <span class="qc-glow" aria-hidden="true"></span>
+      <span class="qc-gift" aria-hidden="true"><svg class="ic"><use href="#ic-gift"/></svg></span>
+      <span class="qc-t"><b>3 питання — і подарунок ваш</b><small>Домен на рік, логотип і розрахунок під ваш бізнес — за 30 секунд</small></span>
+      <span class="qc-steps"><i>1</i><i>2</i><i>3</i></span>
       <span class="qc-btn"><span>Почати</span><span class="ar"><svg><use href="#i-arr"/></svg></span></span>
     </button>
 
