@@ -1220,6 +1220,13 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
 
 .cta-link{text-align:center;margin:18px 0 0}.cta-link a{color:var(--o1);font:700 15px/1 var(--b);text-decoration:none;border-bottom:1px solid rgba(241,211,160,.4);padding-bottom:3px}
 .stat b{font-variant-numeric:tabular-nums}
+
+/* менше кнопок: прибрано «Хочу так само» і «Залишити номер» під демо; на комп'ютері — Telegram у кутку */
+.st-want,.h-proof{display:none!important}
+@media(min-width:900px){.fab{display:flex!important;flex-direction:row}.fab .ph{display:none!important}.fab .tg{width:60px;height:60px;border-radius:50%;background:#229ED9;display:grid;place-items:center;position:relative}.fab .tg svg{width:28px;height:28px;fill:#fff}.fab .tg::after{content:"";display:block!important;position:absolute;inset:-2px;border-radius:50%;border:1.5px solid rgba(42,171,238,.9);animation:wave 2.4s ease-out infinite}.hdr.hide{transform:none!important}}
+
+/* телефон: картка «вхідний дзвінок» під демо прибрана — лишаємо тільки пошук Google */
+@media(max-width:899px){#dev{display:none!important}.st-in{grid-template-columns:1fr;gap:0;padding:10px}.stage{margin-top:24px}}
 </style>
 <!-- Microsoft Clarity (теплові карти й записи сеансів) -->
 <script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];__late(function(){document.head.appendChild(t)});})(window,document,"clarity","script","z2nkewuu0z");</script>
@@ -1766,7 +1773,7 @@ var CONTACTS={
   var fab=$('#fab');
   function onScroll(){
     var y=scrollY,h=document.documentElement,max=h.scrollHeight-h.clientHeight;
-    hdr.classList.toggle('sc',y>20);var ly=onScroll.ly||0,open=document.getElementById('mnav').classList.contains('on');if(y<=140||open){hdr.classList.remove('hide');onScroll.up=0}else if(y>ly){hdr.classList.add('hide');onScroll.up=0}else{onScroll.up=(onScroll.up||0)+(ly-y);if(onScroll.up>=40)hdr.classList.remove('hide')}onScroll.ly=y;
+    hdr.classList.toggle('sc',y>20);var ly=onScroll.ly||0,open=document.getElementById('mnav').classList.contains('on');if(y<=140||open||innerWidth>=900){hdr.classList.remove('hide');onScroll.up=0}else if(y>ly){hdr.classList.add('hide');onScroll.up=0}else{onScroll.up=(onScroll.up||0)+(ly-y);if(onScroll.up>=40)hdr.classList.remove('hide')}onScroll.ly=y;
     prog.style.transform='scaleX('+(max>0?y/max:0)+')';
     mbar.classList.toggle('on',y>hero.offsetHeight*.7&&fin.getBoundingClientRect().top>innerHeight*.6);
     fab.classList.toggle('on',y>hero.offsetHeight*.45&&fin.getBoundingClientRect().top>innerHeight*.55);
