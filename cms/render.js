@@ -27,15 +27,15 @@ var PRMAX_CMS = (function () {
     d.seo = {}; Object.keys(c.seo || {}).forEach(function (k) { d.seo[k] = fill(c.seo[k], p); });
     d.disc = { site: 0, google: 0, bot: 0 };
     var mins = [p.site, p.google, p.bot, p.social, p.seo, p.maps, p.logo, p.lang].filter(function (x) { return x > 0; });
-    function offer(name, price, desc) { return { '@type': 'Offer', priceCurrency: 'USD', priceSpecification: { '@type': 'PriceSpecification', minPrice: String(price), priceCurrency: 'USD' }, itemOffered: { '@type': 'Service', name: name, description: desc } }; }
+    function offer(name, price, desc) { return { '@type': 'Offer', itemOffered: { '@type': 'Service', name: name, description: desc } }; }
     var org = { '@context': 'https://schema.org', '@type': 'ProfessionalService', '@id': 'https://prmax.agency/#org', name: 'PRMAX', url: 'https://prmax.agency/', logo: 'https://prmax.agency/img/logo.webp', image: 'https://prmax.agency/img/og.jpg',
       description: 'Створення сайтів під ключ за 3 дні, налаштування реклами Google Ads, TikTok і Meta, Telegram-боти для бізнесу. Працюємо онлайн по всій Україні.',
-      telephone: '+380632072000', priceRange: '$' + p.site + '–$' + p.max, areaServed: { '@type': 'Country', name: 'Україна' }, address: { '@type': 'PostalAddress', addressCountry: 'UA' }, sameAs: ['https://t.me/prmaxagency_bot'],
+      telephone: '+380632072000', priceRange: '$$', areaServed: { '@type': 'Country', name: 'Україна' }, address: { '@type': 'PostalAddress', addressCountry: 'UA' }, sameAs: ['https://t.me/prmaxagency_bot'],
       hasOfferCatalog: { '@type': 'OfferCatalog', name: 'Послуги PRMAX', itemListElement: [
         offer('Сайт під ключ', p.site, 'Односторінковий сайт під вашу послугу за 3 дні'),
         offer('Налаштування реклами Google Ads', p.google, 'Реклама на тих, хто вже шукає вашу послугу у вашому місті'),
         offer('Telegram-бот для бізнесу', p.bot, 'Бот відповідає клієнтам 24/7 і збирає заявки'),
-        { '@type': 'Offer', priceCurrency: 'USD', priceSpecification: { '@type': 'PriceSpecification', minPrice: String(p.social), maxPrice: String(p.social_creo), priceCurrency: 'USD' }, itemOffered: { '@type': 'Service', name: 'Реклама TikTok, Facebook та Instagram' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Реклама TikTok, Facebook та Instagram' } },
         offer('SEO-налаштування сайту', p.seo, 'Щоб Google показував сайт без реклами'),
         offer('Налаштування Google Карт (профіль компанії)', p.maps, 'Адреса, фото, кнопка дзвінка в Google Картах'),
         offer('Ведення реклами й сайту', p.vedennya, 'Щомісячний супровід реклами та правки сайту')] } };
