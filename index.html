@@ -1203,7 +1203,7 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
 @media(min-width:900px){.hdr .wrap{margin:0 auto;max-width:1240px!important;height:70px!important;padding:0 10px 0 22px}.hdr .logo img{height:46px}}
 .hero{padding-top:calc(118px + env(safe-area-inset-top,0px))!important}
 @media(min-width:900px){.hero{padding-top:calc(140px + env(safe-area-inset-top,0px))!important}}
-#hq,#tsiny,#dlya,#faq{scroll-margin-top:96px}
+.sec,#hq{scroll-margin-top:110px}@media(max-width:899px){.sec,#hq{scroll-margin-top:96px}}
 /* хвиля-кільце біля «подзвонити» і Telegram: тонке кільце розходиться, без свічення */
 .hdr .call::after,.fab .ph::after,.fab .tg::after,.icbtn[data-c=phone-link]::after,.m-c3 a:first-child::after,.m-c3 a[data-c=tg-link]::after{content:"";display:block!important;position:absolute;inset:-2px;border-radius:inherit;border:1.5px solid rgba(255,140,60,.9);animation:wave 2.4s ease-out infinite;pointer-events:none}
 .fab .tg::after,.m-c3 a[data-c=tg-link]::after{border-color:rgba(42,171,238,.9)}
@@ -1280,6 +1280,21 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
 .hq-open{animation:tileIn .7s cubic-bezier(.2,1.2,.3,1) 1.5s both}
 @media(max-width:899px){.hero .display{margin-top:8px}.usp{margin-top:22px}}
 @media(prefers-reduced-motion:reduce){.display .w,.usp .u,.usp .u i,.hq-open{animation:none!important;opacity:1!important;transform:none!important}}
+
+/* справжні планети: кожна — свої кольори й текстура */
+.planet.jupiter{--c1:#F3D7B0;--c2:#C9843E;--c3:#5A2E12}.planet.jupiter::before{background:repeating-linear-gradient(-6deg,rgba(255,255,255,.14) 0 4%,transparent 4% 9%,rgba(120,50,10,.35) 9% 13%,transparent 13% 18%,rgba(255,230,200,.1) 18% 21%,transparent 21% 27%,rgba(90,30,10,.3) 27% 30%,transparent 30% 36%);background-size:200% 100%}
+.planet.jupiter::after{background:radial-gradient(circle at 30% 26%,rgba(255,255,255,.22),transparent 42%),radial-gradient(circle at 66% 62%,rgba(200,70,30,.55) 0 6%,transparent 9%),radial-gradient(circle at 78% 80%,rgba(0,0,0,.55),transparent 55%)}
+.planet.mars{--c1:#F0A078;--c2:#B6421E;--c3:#4A1408}.planet.mars::before{background:radial-gradient(circle at 60% 40%,rgba(0,0,0,.18) 0 6%,transparent 8%),radial-gradient(circle at 30% 65%,rgba(0,0,0,.14) 0 5%,transparent 7%),radial-gradient(circle at 50% 12%,rgba(255,255,255,.45) 0 9%,transparent 12%);animation:none}
+.planet.venus{--c1:#FFF0C8;--c2:#E2B466;--c3:#6B4512}.planet.venus::before{background:repeating-linear-gradient(-12deg,rgba(255,255,255,.08) 0 5%,transparent 5% 12%);background-size:200% 100%;filter:blur(2px)}
+.planet.neptune{--c1:#9FD1FF;--c2:#2E63C9;--c3:#0A1E52}.planet.neptune::before{background:repeating-linear-gradient(-8deg,rgba(255,255,255,.1) 0 3%,transparent 3% 9%,rgba(0,0,60,.2) 9% 11%,transparent 11% 16%);background-size:200% 100%}
+.planet.uranus{--c1:#CFF6F2;--c2:#5FBFC4;--c3:#17505A}.planet.uranus::before{background:none}
+.planet.saturn{--c1:#F5DFB4;--c2:#CFA05E;--c3:#5A3A14}.planet.saturn::before{background:repeating-linear-gradient(-5deg,rgba(255,255,255,.1) 0 4%,transparent 4% 10%,rgba(90,50,10,.22) 10% 12%,transparent 12% 18%);background-size:200% 100%}
+.planet.saturn .ring{border-color:rgba(230,205,160,.5);border-top-color:rgba(230,205,160,.18);border-left-color:rgba(230,205,160,.3);box-shadow:inset 0 0 0 calc(var(--s) * .02) rgba(255,230,190,.35),inset 0 0 0 calc(var(--s) * .05) rgba(120,90,50,.3),0 0 0 calc(var(--s) * .015) rgba(255,230,190,.25)}
+.planet.moon{--c1:#E6E2DC;--c2:#9A948C;--c3:#2A2724}.planet.moon::before{background:radial-gradient(circle at 62% 38%,rgba(0,0,0,.22) 0 7%,transparent 9%),radial-gradient(circle at 34% 60%,rgba(0,0,0,.18) 0 5%,transparent 7%),radial-gradient(circle at 48% 78%,rgba(0,0,0,.15) 0 4%,transparent 6%),radial-gradient(circle at 72% 70%,rgba(0,0,0,.12) 0 3%,transparent 5%);animation:none}
+.planet.mercury{--c1:#D9D2C8;--c2:#8A7F72;--c3:#2D2620}.planet.mercury::before{background:radial-gradient(circle at 40% 45%,rgba(0,0,0,.2) 0 6%,transparent 8%),radial-gradient(circle at 70% 30%,rgba(0,0,0,.16) 0 4%,transparent 6%);animation:none}
+
+/* телефон: картки й секції з'являються одразу, без каскадної затримки (Максим бачив порожнє місце) */
+@media(max-width:899px){.rv,.rv.in{opacity:1!important;transform:none!important;transition:none!important}.planet{transition-duration:.9s}.sec{scroll-margin-top:90px}#dlya .pl-grid{margin-top:16px}.sec-head{margin-bottom:0}.pr-list{margin-top:16px}}
 </style>
 <!-- Microsoft Clarity (теплові карти й записи сеансів) -->
 <script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];__late(function(){document.head.appendChild(t)});})(window,document,"clarity","script","z2nkewuu0z");</script>
@@ -1418,7 +1433,7 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
 </section>
 
 <section class="sec" id="roboty">
-  <div class="cosmos" aria-hidden="true"><div class="planet" style="--s:min(22vw,220px);--c1:#F5B48A;--c2:#B8441A;--c3:#3A0E05;--t:18s;left:-6%;top:12%"></div></div>
+  <div class="cosmos" aria-hidden="true"><div class="planet mars" style="--s:min(18vw,180px);--t:26s;left:-5%;top:14%"></div></div>
   <div class="wrap">
     <div class="sec-head rv">
       <div class="eyebrow"><i>01</i>Наші роботи</div>
@@ -1437,7 +1452,7 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
 </section>
 
 <section class="sec" id="dlya">
-  <div class="cosmos" aria-hidden="true"><div class="planet" style="--s:min(30vw,300px);--c1:#B9D6F2;--c2:#3C6FA8;--c3:#0B1A33;--t:24s;right:-8%;top:8%"><i class="ring"></i></div><div class="planet" style="--s:min(8vw,70px);--c1:#FFE2B8;--c2:#C98B3C;--c3:#3B2306;--t:14s;left:6%;bottom:10%"></div></div>
+  <div class="cosmos" aria-hidden="true"><div class="planet neptune" style="--s:min(28vw,280px);--t:34s;right:-9%;top:10%"></div><div class="planet moon" style="--s:min(7vw,64px);--t:20s;left:7%;top:62%"></div></div>
   <div class="wrap">
     <div class="sec-head rv">
       <div class="eyebrow"><i>02</i>Для кого</div>
@@ -1458,7 +1473,7 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
   </div>
 </section>
 <section class="sec" id="tsiny">
-  <div class="cosmos" aria-hidden="true"><div class="planet" style="--s:min(26vw,260px);--c1:#FFE6A8;--c2:#D9962E;--c3:#4A2A05;--t:22s;left:-7%;bottom:-6%"></div></div>
+  <div class="cosmos" aria-hidden="true"><div class="planet venus" style="--s:min(22vw,220px);--t:30s;left:-7%;top:8%"></div></div>
   <div class="wrap">
     <div class="sec-head rv">
       <div class="eyebrow"><i>03</i>Ціни</div>
@@ -1502,7 +1517,7 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
 </section>
 
 <section class="sec" id="etapy">
-  <div class="cosmos" aria-hidden="true"><div class="planet" style="--s:min(12vw,110px);--c1:#E8E3DD;--c2:#8F8A84;--c3:#23201D;--t:14s;right:4%;top:6%"></div></div>
+  <div class="cosmos" aria-hidden="true"><div class="planet moon" style="--s:min(11vw,100px);--t:18s;right:5%;top:8%"></div></div>
   <div class="wrap">
     <div class="sec-head rv">
       <div class="eyebrow"><i>04</i>Етапи</div>
@@ -1520,7 +1535,7 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
 </section>
 
 <section class="sec" id="bot">
-  <div class="cosmos" aria-hidden="true"><div class="planet" style="--s:min(40vw,420px);--c1:#FF9A4A;--c2:#7A2A08;--c3:#160602;--t:32s;right:-14%;bottom:-18%"><i class="ring"></i></div></div>
+  <div class="cosmos" aria-hidden="true"><div class="planet saturn" style="--s:min(34vw,360px);--t:40s;right:-12%;top:10%"><i class="ring"></i></div></div>
   <div class="wrap">
     <div class="botc rv">
       <div class="botc-tx">
@@ -1540,7 +1555,7 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
   </div>
 </section>
 <section class="sec" id="pro-nas">
-  <div class="cosmos" aria-hidden="true"><div class="planet" style="--s:min(16vw,150px);--c1:#F7C9B0;--c2:#A64B2E;--c3:#2E0E06;--t:16s;left:-4%;top:10%"></div></div>
+  <div class="cosmos" aria-hidden="true"><div class="planet mars" style="--s:min(13vw,120px);--t:22s;left:-3%;top:12%"></div></div>
   <div class="wrap founder">
     <div class="ph-frame rv"><img src="img/maxim.webp" alt="Максим, засновник PRMAX" loading="lazy" width="1000" height="1000"><div class="nm"><b>Максим</b><span>засновник PRMAX</span></div></div>
     <div class="txt rv">
@@ -1558,7 +1573,7 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
 </section>
 
 <section class="sec" id="vidguky">
-  <div class="cosmos" aria-hidden="true"><div class="planet" style="--s:min(10vw,90px);--c1:#D7E7FF;--c2:#5F86B8;--c3:#101E36;--t:14s;right:6%;top:4%"></div></div>
+  <div class="cosmos" aria-hidden="true"><div class="planet uranus" style="--s:min(10vw,90px);--t:18s;right:6%;top:6%"></div></div>
   <div class="wrap">
     <div class="sec-head rv">
       <div class="eyebrow"><i>07</i>Відгуки</div>
@@ -1585,7 +1600,7 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
 </section>
 
 <section class="sec" id="faq">
-  <div class="cosmos" aria-hidden="true"><div class="planet" style="--s:min(28vw,280px);--c1:#FFD7A8;--c2:#E0691C;--c3:#3F1404;--t:26s;left:-9%;bottom:-8%"><i class="ring"></i></div></div>
+  <div class="cosmos" aria-hidden="true"><div class="planet jupiter" style="--s:min(30vw,300px);--t:44s;left:-10%;top:16%"></div></div>
   <div class="wrap faq-wrap">
     <div class="sec-head rv">
       <div class="eyebrow"><i>08</i>Питання</div>
@@ -1609,7 +1624,7 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
 </section>
 
 <section class="sec final" id="zayavka">
-  <div class="cosmos" aria-hidden="true"><div class="planet" style="--s:min(48vw,520px);--c1:#FFB36B;--c2:#C7500E;--c3:#2A0C03;--t:36s;right:-16%;top:-30%"></div></div>
+  <div class="cosmos" aria-hidden="true"><div class="planet mercury" style="--s:min(16vw,150px);--t:24s;right:6%;top:8%"></div></div>
   <div class="wrap final-grid">
     <div class="rv">
       <div class="eyebrow"><i>09</i>Заявка</div>
