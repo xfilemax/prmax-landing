@@ -421,7 +421,7 @@ function stage(b) {
   return ['p1', 'дал номер, не ответил на всё'];
 }
 const fmtT = (ms) => (ms ? new Date(ms).toLocaleString('ru-RU', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' }) : '');
-async function loadBot() { try { S.bot = (await api('bot')).bot; if (S.view === 'bot' && !S.chat) bot(); } catch (e) { toast(e.message, 'bad'); } }
+async function loadBot(bg) { try { const r = await api('bot', bg ? { fresh: 1 } : {}); S.bot = r.bot; if (S.view === 'bot' && !S.chat) bot(); } catch (e) { if (!bg) toast(e.message, 'bad'); } }
 function bot() {
   if (S.chat) return chatView();
   if (!S.bot) { page(loading); return loadBot(); }
@@ -461,7 +461,7 @@ function bot() {
   $('#bp').querySelectorAll('button').forEach((x) => (x.onclick = () => { S.bp = +x.dataset.p; bot(); }));
   $('#bf').querySelectorAll('button').forEach((x) => (x.onclick = () => { S.bf = x.dataset.f; bot(); }));
   $('#bt').onchange = (e) => { S.showTests = e.target.checked; bot(); };
-  $('#br').onclick = () => { S.bot = null; bot(); };
+  $('#br').onclick = () => { S.bot = null; bot(); loadBot(true); };
   $('#bq').oninput = (e) => { S.bq = e.target.value; clearTimeout(bot.t); bot.t = setTimeout(() => { bot(); const i = $('#bq'); i.focus(); i.setSelectionRange(i.value.length, i.value.length); }, 300); };
   $('#page').querySelectorAll('.sub').forEach((x) => (x.onclick = () => openChat(x.dataset.id)));
 }
@@ -479,7 +479,7 @@ function chatView() {
   <div class="reply"><textarea class="in" id="ct" placeholder="Ответ клиенту — придёт ему в Telegram от бота PRMAX"></textarea><button class="btn p" id="cs">Отправить</button></div>
   <p class="hint" style="margin-top:8px">Ответ также появится в вашей группе «PRMAX Заявки». Отправленное сообщение удалить нельзя — проверьте текст.</p>`);
   const ch = $('#chat'); ch.scrollTop = ch.scrollHeight;
-  $('#cb').onclick = () => { S.chat = null; S.bot = null; history.replaceState(null, '', '#bot'); bot(); };
+  $('#cb').onclick = () => { S.chat = null; history.replaceState(null, '', '#bot'); bot(); loadBot(true); };
   $('#cr').onclick = () => openChat(c.id);
   $('#cs').onclick = async () => {
     const t = $('#ct').value.trim(), b = $('#cs'); if (!t) return;
