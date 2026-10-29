@@ -1720,7 +1720,7 @@ var CONTACTS={
   var FB_EV={call:['Contact',{content_name:'call'}],telegram:['Contact',{content_name:'telegram'}],lead:['Lead',{content_name:'prmax_offer',value:450,currency:'USD'}]};
   /* TikTok Pixel: назви подій і формат з Events Manager (чат TikTok, 24.10.2026) */
   var TTQ_EV={call:[['Contact',{contents:[{content_id:'call',content_type:'product',content_name:'phone_click'}]}]],telegram:[['Contact',{contents:[{content_id:'telegram',content_type:'product',content_name:'telegram_click'}]}],['ClickButton',{contents:[{content_id:'telegram',content_type:'product',content_name:'telegram_click'}]}]],lead:[['Lead',{contents:[{content_id:'prmax_offer',content_type:'product',content_name:'site_300_ads_150'}],value:450,currency:'USD'}]]}; /* TikTok: одна подія на форму — код Lead (у нашому пікселі подія «Отправить форму» прив'язана саме до коду Lead, Events Manager 23.10); Contact — телефон і Telegram; ClickButton — додатково на Telegram */
-  function conv(name,extra){var d={event:'prmax_conv',conv:name};for(var k in (extra||{}))d[k]=extra[k];dataLayer.push(d);try{if(typeof gtag==='function')gtag('event',name,extra||{});if(typeof fbq==='function'){fbq('trackCustom','PRMAX_'+name,extra||{});if(FB_EV[name])fbq('track',FB_EV[name][0],FB_EV[name][1]);}if(typeof ttq!=='undefined'&&TTQ_EV[name])TTQ_EV[name].forEach(function(ev){ttq.track(ev[0],ev[1])});}catch(e){}}
+  function conv(name,extra){var d={event:'prmax_conv',conv:name};for(var k in (extra||{}))d[k]=extra[k];dataLayer.push(d);try{if(typeof gtag==='function')gtag('event',name,extra||{});if(typeof fbq==='function'){fbq('trackCustom','PRMAX_'+name,extra||{});if(FB_EV[name])fbq('track',FB_EV[name][0],FB_EV[name][1],extra&&extra.eid?{eventID:extra.eid}:undefined);}if(typeof ttq!=='undefined'&&TTQ_EV[name])TTQ_EV[name].forEach(function(ev){ttq.track(ev[0],ev[1])});}catch(e){}}
   window.prmaxConv=conv;
 
   /* Contacts */
@@ -1968,9 +1968,9 @@ var CONTACTS={
   function normPhone(v){var d=(v||'').replace(/\D/g,'');if(d.length===10&&d.charAt(0)==='0')d='38'+d;if(d.length===9)d='380'+d;if(d.length<11||d.length>13)return '';return d.length===12&&d.indexOf('380')===0?'+380 '+d.slice(3,5)+' '+d.slice(5,8)+' '+d.slice(8,10)+' '+d.slice(10):'+'+d}
   function leadText(d){return 'Нова заявка — сайт PRMAX\n'+(d.need?'Потрібно: '+d.need+'\n':'')+(d.name?"Ім'я: "+d.name+'\n':'')+'Телефон: '+d.phone+'\n'+(d.tg?'Telegram: '+d.tg+'\n':'')+(d.niche?'Ніша: '+d.niche+'\n':'')+(d.city?'Місто: '+d.city+'\n':'')+'Форма: '+d.form+'\nСторінка: '+location.href}
   function sendLead(d){
-    conv('lead',{niche:d.niche||'',city:d.city||'',form:d.form});
+    d.lid=Date.now().toString(36)+Math.random().toString(36).slice(2,6); /* номер заявки: бот у Telegram впізнає клієнта за ним; той самий — eventID для Meta */
+    conv('lead',{niche:d.niche||'',city:d.city||'',form:d.form,eid:'site_'+d.lid});
     d.page=location.href;d.ua=navigator.userAgent.slice(0,120);d.src=SRC||'site';try{var fm=document.cookie.match(/(?:^|;\s*)_fbp=([^;]+)/),fc=document.cookie.match(/(?:^|;\s*)_fbc=([^;]+)/);d.fbp=fm?fm[1]:'';d.fbc=fc?fc[1]:''}catch(e){}
-    d.lid=Date.now().toString(36)+Math.random().toString(36).slice(2,6); /* номер заявки: бот у Telegram впізнає клієнта за ним */
     var tgl='https://t.me/'+CONTACTS.telegram+'?start=l_'+d.lid;$$('#ldone a[data-c=tg-link],#mdone a[data-c=tg-link],#qtg').forEach(function(a){a.href=tgl});
     try{localStorage.setItem('prmax_lead',JSON.stringify(d))}catch(e){}
     var txt=leadText(d),ps=[];
