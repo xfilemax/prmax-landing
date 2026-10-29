@@ -1243,6 +1243,22 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
 .u.on{border-color:rgba(230,92,0,.6);background:rgba(230,92,0,.1);transform:translateX(4px)}.u.on i{background:var(--org);color:#fff}.u.on b em{color:#FFC48A}
 @media(min-width:900px){.usp{margin-top:22px}.u b{font-size:16px}.u span{font-size:13px}}
 @media(max-width:899px){.usp{max-width:none;gap:6px;margin-top:14px;grid-template-columns:1fr 1fr}.u{padding:9px 10px;text-align:left;grid-template-columns:30px 1fr;gap:0 8px}.u i{width:30px;height:30px;border-radius:9px}.u i .ic{width:16px;height:16px}.u b{font-size:12.5px;line-height:1.2}.u span{display:none}.u.on{transform:none}.hero .h1,.hero h1{text-align:center}}
+
+/* УТП: три короткі плитки, з'являються по черзі; без бігучої підсвітки */
+.usp{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:18px 0 0;max-width:560px}
+.u{display:grid;grid-template-columns:1fr;gap:4px;justify-items:center;text-align:center;padding:12px 8px;border-radius:16px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);transform:none!important}
+.u i{grid-row:auto;width:40px;height:40px;border-radius:12px;background:var(--org);color:#fff;display:grid;place-items:center}.u i .ic{width:20px;height:20px}
+.u b{font:700 15px/1.2 var(--b);color:var(--sand)}.u span{font-size:12px;line-height:1.3;color:var(--muted);display:block}
+.u.on{border-color:rgba(255,255,255,.1);background:rgba(255,255,255,.04)}.u.on i{background:var(--org)}
+.gift-line{margin:12px 0 0;max-width:560px;font-size:13px;line-height:1.5;color:var(--muted)}.gift-line b{color:#FFC48A}.gift-line .ic{color:var(--o2);vertical-align:-.15em}
+.hq-open{display:none}
+@media(max-width:899px){.usp{max-width:none;gap:6px;margin-top:14px}.u{padding:10px 6px}.u i{width:34px;height:34px;border-radius:10px}.u i .ic{width:17px;height:17px}.u b{font-size:13.5px}.u span{font-size:11px}
+  .gift-line{max-width:none;font-size:12.5px;text-align:center;margin-top:10px}
+  .hq-open{display:inline-flex;width:100%;margin-top:14px;--h:56px;font-size:16px}
+  .hero .hq{display:none}.hero .hq.open{display:block;animation:hqIn .5s var(--e)}
+  @keyframes hqIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+  .hero.hq-on .hq-open{display:none}}
+@media(min-width:900px){.hero h1{font-size:clamp(50px,5.2vw,74px)}.hero h1 .lni:last-child{font-size:.5em;line-height:1.2}}
 </style>
 <!-- Microsoft Clarity (теплові карти й записи сеансів) -->
 <script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];__late(function(){document.head.appendChild(t)});})(window,document,"clarity","script","z2nkewuu0z");</script>
@@ -1298,13 +1314,15 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
   <div class="aur" aria-hidden="true"><i class="sun"></i><div class="planet p-hero" style="--s:min(56vw,600px);--c1:#E89A5C;--c2:#9A3E0C;--c3:#2A0C03;--t:16s"><i class="ring"></i></div><div class="planet p-moon" style="--s:min(14vw,120px);--c1:#CFC6BC;--c2:#8E857B;--c3:#2A2521;--t:20s"></div><i class="a1"></i><i class="a2"></i><i class="a3"></i><i class="grid"></i><i class="noise"></i><i class="spot"></i></div>
   <div class="wrap h-top">
     <button type="button" class="pill" data-goq><i class="dot"></i><span>Найнижчі ціни в Україні · <span class="more">запуск </span>за 3 дні</span><span class="pill-go">→</span></button>
-    <h1 class="display"><span class="ln"><span class="lni">Вас вже шукають <span class="og-text live">у Google і соцмережах.</span></span></span><span class="ln"><span class="lni">Зробимо сайт і рекламу за 3 дні — за найнижчими цінами в Україні.</span></span></h1>
+    <h1 class="display"><span class="ln"><span class="lni">Вас вже шукають <span class="og-text live">у Google та соцмережах.</span></span></span><span class="ln"><span class="lni">Сайт і реклама за 3 дні. Найнижчі ціни в Україні.</span></span></h1>
     <div class="usp" aria-label="Що ви отримуєте">
-      <div class="u u1"><i><svg class="ic"><use href="#ic-search"/></svg></i><b>Сайт + реклама <em>Google</em></b><span>на тих, хто вже шукає вас</span></div>
-      <div class="u u2"><i><svg class="ic"><use href="#ic-mobile"/></svg></i><b>Реклама <em>TikTok · Instagram · Facebook</em></b><span>з вашими відео або нашими</span></div>
-      <div class="u u3"><i><svg class="ic"><use href="#ic-bot"/></svg></i><b><em>Telegram-бот</em> для вашого бізнесу</b><span>відповідає клієнтам 24/7 — як наш</span></div>
-      <div class="u u4"><i><svg class="ic"><use href="#ic-gift"/></svg></i><b>Домен, логотип, тиждень правок — <em>у подарунок</em></b><span>50% передоплата · решта перед запуском</span></div>
+      <div class="u"><i><svg class="ic"><use href="#ic-search"/></svg></i><b>Google</b><span>хто вже шукає</span></div>
+      <div class="u"><i><svg class="ic"><use href="#ic-mobile"/></svg></i><b>Соцмережі</b><span>TikTok · Instagram</span></div>
+      <div class="u"><i><svg class="ic"><use href="#ic-bot"/></svg></i><b>Telegram-бот</b><span>відповідає 24/7</span></div>
     </div>
+    <p class="gift-line"><svg class="ic"><use href="#ic-gift"/></svg> Домен, логотип і тиждень правок — <b>у подарунок</b> · 50% передоплата, решта перед запуском</p>
+    <button type="button" class="btn btn-o hq-open" id="hqopen"><span>Порахувати за 30 сек</span><span class="ar"><svg><use href="#i-arr"/></svg></span></button>
+
     <!-- 28.10: опитування прямо на першому екрані (у браузері TikTok посилання на Telegram часто не відкривається) -->
     <div class="hq" id="hq" aria-live="polite">
       <div class="hq-top"><b>Порахуємо за 30 секунд</b><span id="hqn">Крок 1 з 3</span></div>
@@ -1801,7 +1819,7 @@ var CONTACTS={
       var d={form:'hero-quiz',phone:ph,niche:A.n.v,city:A.c?A.c.v:'',need:A.w.v};var bt=q('.hq-send');bt.disabled=true;
       sendLead(d).then(function(){bt.disabled=false;q('#hqtg2').href='https://t.me/'+CONTACTS.telegram+'?start=l_'+d.lid;show(5)});
     });
-    function goQ(e){if(e&&e.preventDefault)e.preventDefault();try{if(document.getElementById('mnav').classList.contains('on'))setMenu(false)}catch(x){}hq.scrollIntoView({behavior:'smooth',block:'center'});hq.classList.remove('pulse');void hq.offsetWidth;hq.classList.add('pulse');conv('hero_quiz_tap',{})}
+    function goQ(e){if(e&&e.preventDefault)e.preventDefault();if(window.__hqOpen)window.__hqOpen();try{if(document.getElementById('mnav').classList.contains('on'))setMenu(false)}catch(x){}hq.scrollIntoView({behavior:'smooth',block:'center'});hq.classList.remove('pulse');void hq.offsetWidth;hq.classList.add('pulse');conv('hero_quiz_tap',{})}
     [].forEach.call(document.querySelectorAll('[data-goq]'),function(el){el.addEventListener('click',goQ);el.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();goQ()}})});
   })();
   $$('[data-c=tg-link]').forEach(function(e){e.href=TG_URL;e.addEventListener('click',function(){ttSave();conv('telegram',{place:e.closest('section,header,.mnav,.mbar,footer')?(e.closest('section,header,.mnav,.mbar,footer').id||e.closest('section,header,.mnav,.mbar,footer').className.split(' ')[0]):''})})});
@@ -2056,6 +2074,6 @@ function f(now){var k=Math.min(1,(now-t0)/dur),e=1-Math.pow(1-k,3),v=Math.round(
 addEventListener('scroll',function(){if(tk)return;tk=true;requestAnimationFrame(function(){sp.style.setProperty('--py',(-scrollY*0.5).toFixed(0)+'px');tk=false})},{passive:true});
 if(innerWidth>=900)addEventListener('mousemove',function(e){sp.style.setProperty('--sx',((e.clientX/innerWidth-.5)*-18).toFixed(1)+'px');sp.style.setProperty('--sy',((e.clientY/innerHeight-.5)*-12).toFixed(1)+'px')},{passive:true});
 })();</script>
-<script>(function(){var u=document.querySelectorAll('.usp .u');if(!u.length||matchMedia('(prefers-reduced-motion:reduce)').matches)return;var i=0;function tick(){u.forEach(function(x,k){x.classList.toggle('on',k===i%u.length)});i++}tick();setInterval(tick,2200)})();</script>
+<script>(function(){var b=document.getElementById('hqopen'),h=document.getElementById('hero'),q=document.getElementById('hq');if(!b)return;function open(){h.classList.add('hq-on');q.classList.add('open');setTimeout(function(){q.scrollIntoView({behavior:'smooth',block:'start'})},60);try{window.prmaxConv&&prmaxConv('hero_quiz_open',{})}catch(e){}}b.addEventListener('click',open);window.__hqOpen=open})();</script>
 </body>
 </html>
