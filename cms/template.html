@@ -1144,7 +1144,7 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
 .planet::after{content:"";position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 30% 26%,rgba(255,255,255,.28),transparent 42%),radial-gradient(circle at 78% 80%,rgba(0,0,0,.55),transparent 55%)}
 @keyframes planetSpin{to{background-position:-200% 0}}
 .planet .ring{position:absolute;left:50%;top:50%;width:176%;height:176%;border-radius:50%;transform:translate(-50%,-50%) rotateX(74deg) rotate(-14deg);border:calc(var(--s) * .035) solid rgba(255,205,150,.32);border-top-color:rgba(255,205,150,.12);border-left-color:rgba(255,205,150,.2);box-shadow:inset 0 0 0 calc(var(--s) * .012) rgba(255,160,70,.22),0 0 0 calc(var(--s) * .01) rgba(255,160,70,.1)}
-.aur .p-hero{right:-16%;top:-30%;z-index:0;opacity:.9}.aur .p-hero.in{opacity:.9}.aur::after{content:"";position:absolute;inset:0;background:radial-gradient(60% 70% at 72% 40%,rgba(11,10,9,.35),transparent 70%);pointer-events:none}.aur .p-moon{left:4%;top:9%}.aur .sun{opacity:.55}
+.aur .p-hero{right:-16%;top:-30%;z-index:0;opacity:.9}.aur .p-hero.in{opacity:.9}.aur::after{content:"";position:absolute;inset:0;background:radial-gradient(60% 70% at 72% 40%,rgba(11,10,9,.35),transparent 70%);pointer-events:none}.aur .p-moon{left:-3%;top:4%;opacity:.8}.aur .sun{opacity:.55}
 @media(max-width:899px){.aur .p-hero{right:-40%;top:-14%;--s:80vw!important}.aur .p-moon{left:-4%;top:46%;--s:16vw!important}.cosmos .planet{--s:calc(var(--s) * 1.3)}}
 @media(prefers-reduced-motion:reduce){.planet::before,#space .st2{animation:none}.planet{opacity:1;transform:none}}
 
@@ -1233,6 +1233,16 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
 .pr-list .pr b{display:flex;justify-content:space-between;align-items:baseline;gap:10px}.pr-list .pr b em{font-style:normal;font-family:var(--d);font-weight:700;font-size:20px;color:var(--o1);white-space:nowrap}
 .pr-deal{display:grid;gap:10px;margin-top:14px}.pr-deal>div{padding:14px 16px;border-radius:18px;background:rgba(230,92,0,.1);border:1px solid rgba(230,92,0,.35)}.pr-deal b{display:block;font:700 15px/1.3 var(--b);color:#FFC48A}.pr-deal span{display:block;font-size:13.5px;line-height:1.45;color:var(--sand);margin-top:3px}.pr-deal strong{color:#fff}
 @media(min-width:900px){.pr-list{grid-template-columns:repeat(3,1fr);gap:14px;max-width:1100px;margin-inline:auto}.pr-deal{grid-template-columns:repeat(3,1fr);max-width:1100px;margin-inline:auto}}
+
+/* УТП-плитки замість абзацу: мінімум слів, підсвітка по черзі */
+.usp{display:grid;gap:8px;margin:18px 0 0;max-width:560px}
+.u{display:grid;grid-template-columns:38px 1fr;gap:2px 12px;align-items:center;padding:10px 14px;border-radius:16px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);transition:border-color .6s,background .6s,transform .6s var(--e)}
+.u i{grid-row:span 2;width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:rgba(255,255,255,.06);color:var(--o2)}.u i .ic{width:20px;height:20px}
+.u{text-align:left}.u b{font:700 15px/1.25 var(--b);color:var(--sand)}.u b em{font-style:normal;color:var(--o1)}
+.u span{font-size:12.5px;line-height:1.3;color:var(--muted)}
+.u.on{border-color:rgba(230,92,0,.6);background:rgba(230,92,0,.1);transform:translateX(4px)}.u.on i{background:var(--org);color:#fff}.u.on b em{color:#FFC48A}
+@media(min-width:900px){.usp{margin-top:22px}.u b{font-size:16px}.u span{font-size:13px}}
+@media(max-width:899px){.usp{max-width:none;gap:6px;margin-top:14px;grid-template-columns:1fr 1fr}.u{padding:9px 10px;text-align:left;grid-template-columns:30px 1fr;gap:0 8px}.u i{width:30px;height:30px;border-radius:9px}.u i .ic{width:16px;height:16px}.u b{font-size:12.5px;line-height:1.2}.u span{display:none}.u.on{transform:none}.hero .h1,.hero h1{text-align:center}}
 </style>
 <!-- Microsoft Clarity (теплові карти й записи сеансів) -->
 <script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];__late(function(){document.head.appendChild(t)});})(window,document,"clarity","script","z2nkewuu0z");</script>
@@ -1289,7 +1299,12 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
   <div class="wrap h-top">
     <button type="button" class="pill" data-goq><i class="dot"></i><span>Найнижчі ціни в Україні · <span class="more">запуск </span>за 3 дні</span><span class="pill-go">→</span></button>
     <h1 class="display"><span class="ln"><span class="lni">{{t.h1a}} <span class="og-text live">{{t.h1b}}</span></span></span><span class="ln"><span class="lni">{{t.h1c}}</span></span></h1>
-    <p class="lead"><span class="lead-a">{{t.lead_a}} </span>{{t.lead_b}}</p>
+    <div class="usp" aria-label="Що ви отримуєте">
+      <div class="u u1"><i><svg class="ic"><use href="#ic-search"/></svg></i><b>Сайт + реклама <em>Google</em></b><span>на тих, хто вже шукає вас</span></div>
+      <div class="u u2"><i><svg class="ic"><use href="#ic-mobile"/></svg></i><b>Реклама <em>TikTok · Instagram · Facebook</em></b><span>з вашими відео або нашими</span></div>
+      <div class="u u3"><i><svg class="ic"><use href="#ic-bot"/></svg></i><b><em>Telegram-бот</em> для вашого бізнесу</b><span>відповідає клієнтам 24/7 — як наш</span></div>
+      <div class="u u4"><i><svg class="ic"><use href="#ic-gift"/></svg></i><b>Домен, логотип, тиждень правок — <em>у подарунок</em></b><span>50% передоплата · решта перед запуском</span></div>
+    </div>
     <!-- 28.10: опитування прямо на першому екрані (у браузері TikTok посилання на Telegram часто не відкривається) -->
     <div class="hq" id="hq" aria-live="polite">
       <div class="hq-top"><b>Порахуємо за 30 секунд</b><span id="hqn">Крок 1 з 3</span></div>
@@ -2027,5 +2042,6 @@ function f(now){var k=Math.min(1,(now-t0)/dur),e=1-Math.pow(1-k,3),v=Math.round(
 addEventListener('scroll',function(){if(tk)return;tk=true;requestAnimationFrame(function(){sp.style.setProperty('--py',(-scrollY*0.5).toFixed(0)+'px');tk=false})},{passive:true});
 if(innerWidth>=900)addEventListener('mousemove',function(e){sp.style.setProperty('--sx',((e.clientX/innerWidth-.5)*-18).toFixed(1)+'px');sp.style.setProperty('--sy',((e.clientY/innerHeight-.5)*-12).toFixed(1)+'px')},{passive:true});
 })();</script>
+<script>(function(){var u=document.querySelectorAll('.usp .u');if(!u.length||matchMedia('(prefers-reduced-motion:reduce)').matches)return;var i=0;function tick(){u.forEach(function(x,k){x.classList.toggle('on',k===i%u.length)});i++}tick();setInterval(tick,2200)})();</script>
 </body>
 </html>
