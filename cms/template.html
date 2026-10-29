@@ -1261,11 +1261,25 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
 .hero .display .ln{display:block}
 .hero .display .ln:nth-child(1),.hero .display .ln:nth-child(2){white-space:nowrap!important}
 .hero .display .ln:nth-child(1),.hero .display .ln:nth-child(1) .lni{font-size:clamp(28px,9.3vw,62px)!important;line-height:1.05}
-.hero .display .ln:nth-child(2),.hero .display .ln:nth-child(2) .lni{font-size:clamp(26px,8.8vw,56px)!important;line-height:1.08;margin-top:.06em}
+.hero .display .ln:nth-child(2),.hero .display .ln:nth-child(2) .lni{font-size:clamp(26px,8.8vw,56px)!important;line-height:1.08;margin-top:.22em}
 .hero .display{padding:0 4vw}
 .hero .display .ln:nth-child(1) .lni,.hero .display .ln:nth-child(2) .lni{display:inline!important;white-space:nowrap!important}
 .hero .display .ln3,.hero .display .ln3 .lni{white-space:normal!important;font-size:clamp(17px,4.6vw,24px)!important;line-height:1.3;margin-top:14px;letter-spacing:-.015em;font-weight:700}
 @media(min-width:900px){.hero .display{line-height:1.02;max-width:700px;width:100%;padding:0}.hero .display .ln:nth-child(1),.hero .display .ln:nth-child(1) .lni{font-size:clamp(48px,4.6vw,66px)!important}.hero .display .ln:nth-child(2),.hero .display .ln:nth-child(2) .lni{font-size:clamp(44px,4.2vw,60px)!important}.usp{margin-top:28px}}
+
+/* WOW-анімація першого екрана: слова вилітають по черзі, «3 дні» пульсує, плитки підстрибують */
+.display .w{display:inline-block;opacity:0;transform:translateY(.6em) rotate(2deg);animation:wordIn .7s cubic-bezier(.2,.9,.2,1) both;animation-delay:calc(.12s * var(--i))}
+@keyframes wordIn{to{opacity:1;transform:none}}
+.display .og-text .w{background:var(--ggrad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.display .w.hot{background:linear-gradient(90deg,#F59A3C,#FFE1B8 45%,#FFC48A 55%,#F59A3C);background-size:300% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:wordIn .7s cubic-bezier(.2,.9,.2,1) both,hotShine 2.4s linear infinite;animation-delay:calc(.12s * var(--i)),1.4s}
+@keyframes hotShine{to{background-position:-300% center}}
+.usp .u{opacity:0;transform:translateY(26px) scale(.94);animation:tileIn .7s cubic-bezier(.2,1.2,.3,1) both;animation-delay:calc(.9s + .14s * var(--i))}
+@keyframes tileIn{to{opacity:1;transform:none}}
+.usp .u i{animation:iconPop .6s cubic-bezier(.2,1.4,.3,1) both;animation-delay:calc(1.1s + .14s * var(--i))}
+@keyframes iconPop{from{transform:scale(.4) rotate(-12deg)}to{transform:none}}
+.hq-open{animation:tileIn .7s cubic-bezier(.2,1.2,.3,1) 1.5s both}
+@media(max-width:899px){.hero .display{margin-top:8px}.usp{margin-top:22px}}
+@media(prefers-reduced-motion:reduce){.display .w,.usp .u,.usp .u i,.hq-open{animation:none!important;opacity:1!important;transform:none!important}}
 </style>
 <!-- Microsoft Clarity (теплові карти й записи сеансів) -->
 <script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];__late(function(){document.head.appendChild(t)});})(window,document,"clarity","script","z2nkewuu0z");</script>
@@ -1321,7 +1335,7 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
   <div class="aur" aria-hidden="true"><i class="sun"></i><div class="planet p-hero" style="--s:min(56vw,600px);--c1:#E89A5C;--c2:#9A3E0C;--c3:#2A0C03;--t:16s"><i class="ring"></i></div><div class="planet p-moon" style="--s:min(14vw,120px);--c1:#CFC6BC;--c2:#8E857B;--c3:#2A2521;--t:20s"></div><i class="a1"></i><i class="a2"></i><i class="a3"></i><i class="grid"></i><i class="noise"></i><i class="spot"></i></div>
   <div class="wrap h-top">
     <button type="button" class="pill" data-goq><i class="dot"></i><span>Найнижчі ціни в Україні · <span class="more">запуск </span>за 3 дні</span><span class="pill-go">→</span></button>
-    <h1 class="display"><span class="ln"><span class="lni">{{t.h1a}}</span></span><span class="ln"><span class="lni og-text live">{{t.h1b}}</span></span></h1>
+    <h1 class="display" id="h1"><span class="ln"><span class="lni">{{t.h1a}}</span></span><span class="ln"><span class="lni og-text live">{{t.h1b}}</span></span></h1>
     <div class="usp" aria-label="Що ви отримуєте">
       <div class="u"><i><svg class="ic"><use href="#ic-search"/></svg></i><b>Google</b><span>хто вже шукає</span></div>
       <div class="u"><i><svg class="ic"><use href="#ic-mobile"/></svg></i><b>Соцмережі</b><span>TikTok · Instagram</span></div>
@@ -2067,5 +2081,6 @@ addEventListener('scroll',function(){if(tk)return;tk=true;requestAnimationFrame(
 if(innerWidth>=900)addEventListener('mousemove',function(e){sp.style.setProperty('--sx',((e.clientX/innerWidth-.5)*-18).toFixed(1)+'px');sp.style.setProperty('--sy',((e.clientY/innerHeight-.5)*-12).toFixed(1)+'px')},{passive:true});
 })();</script>
 <script>(function(){var b=document.getElementById('hqopen'),h=document.getElementById('hero'),q=document.getElementById('hq');if(!b)return;function open(){h.classList.add('hq-on');q.classList.add('open');setTimeout(function(){q.scrollIntoView({behavior:'smooth',block:'start'})},60);try{window.prmaxConv&&prmaxConv('hero_quiz_open',{})}catch(e){}}b.addEventListener('click',open);window.__hqOpen=open})();</script>
+<script>(function(){var h=document.getElementById('h1');if(!h)return;var n=0;h.querySelectorAll('.lni').forEach(function(l){var hot=l.classList.contains('og-text');var words=l.textContent.trim().split(/\s+/);l.textContent='';words.forEach(function(w,i){var s=document.createElement('span');s.className='w'+(hot&&/^(3|дні)$/.test(w.replace(/[.,!]/g,''))?' hot':'');s.style.setProperty('--i',n++);s.textContent=w;l.appendChild(s);if(i<words.length-1)l.appendChild(document.createTextNode(' '))})});document.querySelectorAll('.usp .u').forEach(function(u,i){u.style.setProperty('--i',i)})})();</script>
 </body>
 </html>
