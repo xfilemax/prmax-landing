@@ -207,7 +207,7 @@ textarea.in{resize:vertical;min-height:80px}
 const API = 'https://script.google.com/macros/s/AKfycbxn9Js2V9OAez1W_dnCpsALmJq8VQEIMTlX0h49e_ylNyuxowtP4bz_y5A8pGU8HRon/exec';
 const $ = (s, c = document) => c.querySelector(s);
 const esc = (t) => String(t == null ? '' : t).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
-const S = { token: '', login: '', view: 'home', leads: null, content: null, saved: '', filter: 'all', showTests: false, q: '', bot: null, chat: null, bq: '', bf: 'all', bp: 30 };
+const S = { token: '', login: '', view: 'home', leads: null, content: null, saved: '', filter: 'new', showTests: false, q: '', bot: null, chat: null, bq: '', bf: 'new', bp: 30 };
 try { S.token = localStorage.getItem('prmax_adm') || ''; } catch (e) {}
 
 async function api(action, data = {}) {
@@ -432,7 +432,7 @@ function bot() {
   const bySrc = {}; per.forEach((b) => { const s = SRC_RU[b.src] || b.src || 'напрямую'; bySrc[s] = (bySrc[s] || 0) + 1; });
   const q = S.bq.toLowerCase();
   let L = S.bot.filter((b) => S.showTests || !b.test);
-  if (S.bf === 'nophone') L = L.filter((b) => !b.phone); else if (S.bf === 'phone') L = L.filter((b) => b.phone && b.step !== 'done'); else if (S.bf === 'done') L = L.filter((b) => b.phone && b.step === 'done');
+  if (S.bf === 'new') L = L.filter((b) => !b.stop && !b.human && (b.created >= Date.now() - 7 * 864e5)); else if (S.bf === 'nophone') L = L.filter((b) => !b.phone); else if (S.bf === 'phone') L = L.filter((b) => b.phone && b.step !== 'done'); else if (S.bf === 'done') L = L.filter((b) => b.phone && b.step === 'done');
   if (q) L = L.filter((b) => JSON.stringify(b).toLowerCase().includes(q));
   page(`<p class="hint">Все, кто нажал «Старт» в боте @prmaxagency_bot. Нажмите на человека — откроется вся переписка, и можно ответить ему от имени бота.</p>
   <div class="grid g4">
@@ -450,7 +450,7 @@ function bot() {
       ${Object.keys(bySrc).length ? Object.entries(bySrc).sort((a, b) => b[1] - a[1]).map(([s, n]) => `<div class="row" style="justify-content:space-between;padding:6px 0"><span class="tag ${esc(s.toLowerCase())}">${esc(s)}</span><b>${n}</b></div>`).join('') : '<div class="hint">Пока никого за этот период</div>'}</div>
   </div>
   <div class="toolbar" style="margin-top:22px"><input class="in" id="bq" placeholder="Поиск: имя, телефон, ниша, город" value="${esc(S.bq)}">
-    <div class="seg" id="bf">${[['all', 'Все'], ['nophone', 'Без номера'], ['phone', 'С номером'], ['done', 'Анкета заполнена']].map(([k, n]) => `<button data-f="${k}" class="${S.bf === k ? 'on' : ''}">${n}</button>`).join('')}</div>
+    <div class="seg" id="bf">${[['new', 'Новые (7 дней)'], ['all', 'Все'], ['nophone', 'Без номера'], ['phone', 'С номером'], ['done', 'Анкета заполнена']].map(([k, n]) => `<button data-f="${k}" class="${S.bf === k ? 'on' : ''}">${n}</button>`).join('')}</div>
     <label class="row" style="color:var(--mut);font-size:13.5px"><input type="checkbox" id="bt" ${S.showTests ? 'checked' : ''}> показать мои тесты</label>
     <button class="btn s g" id="br">Обновить</button></div>
   ${L.map((b) => { const [c, n] = stage(b), nm = b.name || b.username || 'Без имени', lm = b.lastMsg; return `<button class="sub ${b.test ? 'test' : ''}" data-id="${esc(b.id)}"><span class="av">${esc(nm.trim()[0] || '?').toUpperCase()}</span>
