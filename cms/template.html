@@ -1766,7 +1766,7 @@ var CONTACTS={
   var fab=$('#fab');
   function onScroll(){
     var y=scrollY,h=document.documentElement,max=h.scrollHeight-h.clientHeight;
-    hdr.classList.toggle('sc',y>20);hdr.classList.toggle('hide',y>140&&y>(onScroll.ly||0)+2&&!document.getElementById('mnav').classList.contains('on'));onScroll.ly=y;
+    hdr.classList.toggle('sc',y>20);var ly=onScroll.ly||0,open=document.getElementById('mnav').classList.contains('on');if(y<=140||open){hdr.classList.remove('hide');onScroll.up=0}else if(y>ly){hdr.classList.add('hide');onScroll.up=0}else{onScroll.up=(onScroll.up||0)+(ly-y);if(onScroll.up>=40)hdr.classList.remove('hide')}onScroll.ly=y;
     prog.style.transform='scaleX('+(max>0?y/max:0)+')';
     mbar.classList.toggle('on',y>hero.offsetHeight*.7&&fin.getBoundingClientRect().top>innerHeight*.6);
     fab.classList.toggle('on',y>hero.offsetHeight*.45&&fin.getBoundingClientRect().top>innerHeight*.55);
