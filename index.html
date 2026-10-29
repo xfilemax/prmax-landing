@@ -1092,7 +1092,7 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
 .hq-ch.one button{justify-content:flex-start;text-align:left}.hq-ch.one button small{margin-left:auto}
 
 .hq-chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}.hq-chips span{font:700 12px/1 var(--b);padding:7px 10px;border-radius:999px;background:rgba(230,92,0,.14);border:1px solid rgba(230,92,0,.4);color:#FFC48A}
-.hq-res .hq-note{margin:10px 0 0;font-size:13px;line-height:1.5;color:var(--muted)}
+.hq-res .hq-note{margin:10px 0 0;font-size:13px;line-height:1.5;color:var(--muted);display:flex;align-items:center;gap:6px}.hq-res .hq-note .ic{width:15px;height:15px;flex:none}.hq-gifts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:8px}.hq-gifts span{display:grid;justify-items:center;align-content:start;gap:6px;padding:11px 6px 10px;border-radius:14px;border:1px solid rgba(230,92,0,.5);background:rgba(230,92,0,.1);font:700 12.5px/1.2 var(--b);text-align:center;color:#fff}.hq-gifts .ic{width:22px;height:22px;color:var(--o2)}@media(min-width:900px){.hq-gifts span{font-size:13.5px;padding:13px 8px 12px}.hq-gifts .ic{width:24px;height:24px}}@media(max-width:350px){#hq .hq-send,#hq .btn-tg{font-size:12.5px!important;padding:0 6px 0 10px!important;gap:4px!important;letter-spacing:0!important}#hq .hq-send .ar,#hq .btn-tg .ar{width:32px!important;height:32px!important;flex:none}#hq .hq-send>span:first-child,#hq .btn-tg>span:first-child{overflow:visible!important}.hq-gifts{gap:6px}.hq-gifts span{font-size:12px;padding:10px 4px 9px}}
 
 /* синя кнопка Telegram */
 .btn-tg{width:100%;margin-top:10px;color:#fff;font-weight:800;background:linear-gradient(180deg,#2FAEEF 0%,#1E97D4 60%,#1986C0 100%);border:1px solid rgba(60,170,240,.4);box-shadow:inset 0 1px 0 rgba(255,255,255,.16),inset 0 -2px 0 rgba(0,50,90,.45),0 0 0 3px rgba(42,171,238,.14),0 14px 30px -8px rgba(42,171,238,.7);text-shadow:0 1px 0 rgba(0,60,100,.5)}
@@ -1446,12 +1446,12 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
         <button type="button" data-i="1" data-v="Реклама Google"><svg class="ic"><use href="#ic-chart"/></svg> Тільки реклама Google</button>
         <button type="button" data-i="4" data-v="Реклама TikTok / Instagram"><svg class="ic"><use href="#ic-film"/></svg> Тільки реклама TikTok / Instagram</button></div></div>
       <div class="hq-s" data-s="4"><div class="hq-res" id="hqres"></div>
-        <form id="hqf" novalidate><p class="hq-q sm">Куди надіслати подарунок і розрахунок?</p>
+        <form id="hqf" novalidate><p class="hq-q sm">Куди надіслати розрахунок?</p>
           <input class="inp" id="hqph" type="tel" inputmode="tel" autocomplete="tel" placeholder="+380 __ ___ __ __" aria-label="Ваш номер телефону">
-          <button class="btn btn-o hq-send" type="submit"><span>Отримати подарунок</span><span class="ar"><svg><use href="#i-phone"/></svg></span></button>
+          <button class="btn btn-o hq-send" type="submit"><span>Отримати розрахунок</span><span class="ar"><svg><use href="#i-phone"/></svg></span></button>
           <p class="hq-err" id="hqerr"></p></form>
-        <a class="btn btn-tg" id="hqtg" href="#" target="_blank" rel="noopener"><span>Отримати в Telegram</span><span class="ar"><svg class="ic"><use href="#ic-send"/></svg></span></a>
-        <p class="hq-fine"><svg class="ic"><use href="#ic-lock"/></svg> Номер бачить лише Максим. Без спаму й розсилок.</p></div>
+        <a class="btn btn-tg" id="hqtg" href="#" target="_blank" rel="noopener"><span>Розрахунок у Telegram</span><span class="ar"><svg class="ic"><use href="#ic-send"/></svg></span></a>
+        <p class="hq-fine"><svg class="ic"><use href="#ic-lock"/></svg> Номер нікому не передаємо. Без спаму й розсилок.</p></div>
       <div class="hq-s" data-s="5"><div class="hq-done"><b><svg class="ic"><use href="#ic-check"/></svg> Дякуємо! Заявку прийнято.</b><span>Максим передзвонить протягом 15 хвилин у робочий час.</span></div>
         <a class="btn btn-tg" id="hqtg2" href="#" target="_blank" rel="noopener"><span>Питання в Telegram</span><span class="ar"><svg class="ic"><use href="#ic-send"/></svg></span></a></div>
       <button type="button" class="hq-back" id="hqback" hidden>← Назад</button>
@@ -1896,7 +1896,7 @@ var CONTACTS={
       else inc=['Сайт під вашу нішу за 3 дні','Реклама Google на тих, хто вже шукає','Бонус Google до 90 000 ₴ на рекламу'];
       var esc=function(s){return String(s).replace(/[<>&]/g,'')};
       var chips='<span>'+esc(A.n.v)+'</span>'+(A.c&&A.c.v?'<span>'+esc(A.c.v)+'</span>':'')+'<span>'+esc(w)+'</span>';
-      q('#hqres').innerHTML='<div class="hq-chips">'+chips+'</div><b class="big"><svg class="ic"><use href="#ic-gift"/></svg> Ваш подарунок готовий</b><ul>'+inc.map(function(x){return '<li><svg class="ic"><use href="#ic-check"/></svg> '+x+'</li>'}).join('')+'</ul><p class="hq-note">🎁 Залиште номер або перейдіть у Telegram — і отримаєте подарунок: домен на рік, логотип, тиждень правок + точний розрахунок за 15 хвилин.</p>';
+      q('#hqres').innerHTML='<div class="hq-chips">'+chips+'</div><b class="big"><svg class="ic"><use href="#ic-gift"/></svg> Ваш подарунок</b><div class="hq-gifts"><span><svg class="ic"><use href="#ic-globe"/></svg>Домен<br>на рік</span><span><svg class="ic"><use href="#ic-sparkle"/></svg>Логотип</span><span><svg class="ic"><use href="#ic-calendar"/></svg>Тиждень<br>правок</span></div><p class="hq-note"><svg class="ic"><use href="#ic-clock"/></svg> Точний розрахунок під ваш бізнес — за 15 хвилин</p>';
       q('#hqtg').href=tgLink();window.__q={n:A.n.i===11?A.n.v:'',c:(A.c&&A.c.i===9)?A.c.v:''};
     }
     var hqgo=q('#hqgo');if(hqgo)hqgo.addEventListener('click',function(){if(A.n){return}hq.classList.remove('need-pick');void hq.offsetWidth;hq.classList.add('need-pick');var h=q('#hqhint');h.hidden=false;setTimeout(function(){h.hidden=true},3500);var f=hq.querySelector('.hq-ch[data-k=n] button');if(f)f.focus({preventScroll:true})});
