@@ -52,23 +52,27 @@
 </style>
 <!-- пікселі реклами завантажуються після показу сторінки (перша дія людини або 3 с після завантаження) — події ті самі, сторінка відкривається швидше -->
 <script>window.__late=function(f){var d=0,go=function(){if(d)return;d=1;f()};['scroll','touchstart','pointerdown','keydown'].forEach(function(e){addEventListener(e,go,{once:true,passive:true})});var t=function(){setTimeout(go,8000)};document.readyState==='complete'?t():addEventListener('load',t)}</script>
-<!-- Meta Pixel «PRMAX» (набір даних 567372494317796) -->
+<!-- Meta Pixel «PRMAX» (набір даних 567372494317796) — не вантажиться на 127.0.0.1/localhost (локальні тести) -->
 <script>
+if(!/^(127\.0\.0\.1|localhost|\[::1\])$/.test(location.hostname)){
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];__late(function(){document.head.appendChild(t)})}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
 fbq('init','567372494317796');
 fbq('track','PageView');
 fbq('track','ViewContent',{content_name:'prmax_offer'});
+}
 </script>
 <noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=567372494317796&ev=PageView&noscript=1"></noscript>
 <!-- Meta Pixel End -->
 <!-- TikTok Pixel «PRMAX» (кабінет 7628542326444556304) -->
 <script>
+if(!/^(127\.0\.0\.1|localhost|\[::1\])$/.test(location.hostname)){
 !function (w, d, t) {
   w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script");n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];__late(function(){document.head.appendChild(n)})};
   ttq.load('DBDKFH3C77U4SEFNI86G');
   ttq.page();
   ttq.track('ViewContent',{contents:[{content_id:'prmax_offer',content_type:'product',content_name:'prmax_home'}]});
 }(window, document, 'ttq');
+}
 </script>
 <!-- TikTok Pixel End -->
 <style>
