@@ -1883,10 +1883,11 @@ var CONTACTS={
   $$('[data-c=phone-link]').forEach(function(e){e.href='tel:'+CONTACTS.phoneTel;e.addEventListener('click',function(){conv('call',{place:e.closest('section,header,.mnav,.mbar,footer')?(e.closest('section,header,.mnav,.mbar,footer').id||e.closest('section,header,.mnav,.mbar,footer').className.split(' ')[0]):''})})});
   var SRC='';try{var us=(new URLSearchParams(location.search).get('utm_source')||'').toLowerCase().replace(/[^a-z0-9_-]/g,'').slice(0,30);if(us)sessionStorage.setItem('prmax_src',us);SRC=us||sessionStorage.getItem('prmax_src')||'';}catch(e){}
   var PROMO='';try{if(/[?&]utm_campaign=prmax_ua_retarget(&|$)/.test(location.search)||/[?&]promo=r10(&|$)/.test(location.search))sessionStorage.setItem('prmax_promo','r10');PROMO=sessionStorage.getItem('prmax_promo')||'';}catch(e){}
-  if(PROMO==='r10'){SRC=(SRC||'site')+'_r10';document.documentElement.classList.add('r10')} /* ретаргет: −10% за заявку протягом 7 днів — позначка йде в таблицю, бота і сповіщення */
+  if(PROMO==='r10'){SRC=(SRC||'site')+'_r10';document.documentElement.classList.add('r10')}
+  var IP='';function getIp(){return fetch('https://api.ipify.org?format=json').then(function(r){return r.json()}).then(function(j){IP=String(j.ip||'').slice(0,45);return IP}).catch(function(){return IP})}try{__late(getIp)}catch(e){} /* IP для client_ip_address у серверному Lead (Meta EMQ) */ /* ретаргет: −10% за заявку протягом 7 днів — позначка йде в таблицю, бота і сповіщення */
   /* TikTok: мітку кліку (ttclid) і cookie _ttp зберігаємо на сервері під коротким номером візиту → бот, отримавши телефон, повідомить TikTok про справжню заявку */
   var TTCLID='',SID='';try{var tc=new URLSearchParams(location.search).get('ttclid');if(tc)sessionStorage.setItem('prmax_ttclid',tc.slice(0,500));TTCLID=sessionStorage.getItem('prmax_ttclid')||'';if(TTCLID){SID=sessionStorage.getItem('prmax_sid');if(!SID){SID=Math.random().toString(36).slice(2,10);sessionStorage.setItem('prmax_sid',SID)}}}catch(e){}
-  function ttSave(){if(!SID||!CONTACTS.lead.endpoint)return;try{var m=document.cookie.match(/(?:^|;\s*)_ttp=([^;]+)/);navigator.sendBeacon(CONTACTS.lead.endpoint,JSON.stringify({tt:1,sid:SID,ttclid:TTCLID,src:SRC||'site',fbp:(document.cookie.match(/(?:^|;\s*)_fbp=([^;]+)/)||[])[1]||'',fbc:(document.cookie.match(/(?:^|;\s*)_fbc=([^;]+)/)||[])[1]||'',qn:(window.__q&&window.__q.n)||'',qc:(window.__q&&window.__q.c)||'',ttp:m?decodeURIComponent(m[1]):'',ua:navigator.userAgent,url:location.href.slice(0,300)}))}catch(e){}}
+  function ttSave(){if(!SID||!CONTACTS.lead.endpoint)return;try{var m=document.cookie.match(/(?:^|;\s*)_ttp=([^;]+)/);navigator.sendBeacon(CONTACTS.lead.endpoint,JSON.stringify({tt:1,sid:SID,ttclid:TTCLID,src:SRC||'site',ip:IP,fbp:(document.cookie.match(/(?:^|;\s*)_fbp=([^;]+)/)||[])[1]||'',fbc:(document.cookie.match(/(?:^|;\s*)_fbc=([^;]+)/)||[])[1]||'',qn:(window.__q&&window.__q.n)||'',qc:(window.__q&&window.__q.c)||'',ttp:m?decodeURIComponent(m[1]):'',ua:navigator.userAgent,url:location.href.slice(0,300)}))}catch(e){}}
   var TG_URL='https://t.me/'+CONTACTS.telegram+'?start='+(SRC||'site')+(SID?'-'+SID:'');
   try{if(matchMedia('(min-width:900px)').matches)document.querySelectorAll('details.extras').forEach(function(d){d.open=true})}catch(e){}
   /* 28.10 опитування на першому екрані: ніша → місто → що потрібно → ціна → номер (або Telegram з уже готовими відповідями) */
@@ -2134,10 +2135,12 @@ var CONTACTS={
     d.page=location.href;d.ua=navigator.userAgent.slice(0,120);d.src=SRC||'site';try{var fm=document.cookie.match(/(?:^|;\s*)_fbp=([^;]+)/),fc=document.cookie.match(/(?:^|;\s*)_fbc=([^;]+)/);d.fbp=fm?fm[1]:'';d.fbc=fc?fc[1]:''}catch(e){}
     var tgl='https://t.me/'+CONTACTS.telegram+'?start=l_'+d.lid;$$('#ldone a[data-c=tg-link],#mdone a[data-c=tg-link],#qtg').forEach(function(a){a.href=tgl});
     try{localStorage.setItem('prmax_lead',JSON.stringify(d))}catch(e){}
-    var txt=leadText(d),ps=[];
-    if(LEAD.endpoint)ps.push(fetch(LEAD.endpoint,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},body:JSON.stringify(d)}));
-    if(LEAD.botToken&&LEAD.chatId)ps.push(fetch('https://api.telegram.org/bot'+LEAD.botToken+'/sendMessage',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:LEAD.chatId,text:txt})}));
-    return Promise.all(ps.map(function(p){return p.catch(function(){})}));
+    var go=function(){d.ip=IP;var txt=leadText(d),ps=[];
+      if(LEAD.endpoint)ps.push(fetch(LEAD.endpoint,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},body:JSON.stringify(d)}));
+      if(LEAD.botToken&&LEAD.chatId)ps.push(fetch('https://api.telegram.org/bot'+LEAD.botToken+'/sendMessage',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:LEAD.chatId,text:txt})}));
+      return Promise.all(ps.map(function(p){return p.catch(function(){})}))};
+    if(IP)return go();
+    return new Promise(function(res){var done=false,fin=function(){if(done)return;done=true;res(go())};setTimeout(fin,1200);getIp().then(fin,fin)});
   }
   var lead=$('#lead'),leadf=$('#leadf'),leadLast=null,lneed=$('#lneed'),needV='Сайт + реклама Google';
   lneed.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;needV=b.dataset.v;$$('button',lneed).forEach(function(x){x.setAttribute('aria-pressed',x===b)})});
