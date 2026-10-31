@@ -51,10 +51,11 @@
 .btn-o:hover{background:#E06A10}
 </style>
 <!-- пікселі реклами завантажуються після показу сторінки (перша дія людини або 3 с після завантаження) — події ті самі, сторінка відкривається швидше -->
-<script>window.__late=function(f){var d=0,go=function(){if(d)return;d=1;f()};['scroll','touchstart','pointerdown','keydown'].forEach(function(e){addEventListener(e,go,{once:true,passive:true})});var t=function(){setTimeout(go,8000)};document.readyState==='complete'?t():addEventListener('load',t)}</script>
+<script>window.__TEST=(function(){try{if(/[?&]test=1(&|$)/.test(location.search))sessionStorage.setItem('prmax_test','1');return sessionStorage.getItem('prmax_test')==='1'}catch(e){return /[?&]test=1(&|$)/.test(location.search)}})();/* ?test=1 — перевірочний режим: пікселі Meta/TikTok не вантажаться, заявка йде з позначкою ТЕСТ */
+window.__late=function(f){var d=0,go=function(){if(d)return;d=1;f()};['scroll','touchstart','pointerdown','keydown'].forEach(function(e){addEventListener(e,go,{once:true,passive:true})});var t=function(){setTimeout(go,8000)};document.readyState==='complete'?t():addEventListener('load',t)}</script>
 <!-- Meta Pixel «PRMAX» (набір даних 567372494317796) — не вантажиться на 127.0.0.1/localhost (локальні тести) -->
 <script>
-if(!/^(127\.0\.0\.1|localhost|\[::1\])$/.test(location.hostname)){
+if(!/^(127\.0\.0\.1|localhost|\[::1\])$/.test(location.hostname)&&!window.__TEST){
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];__late(function(){document.head.appendChild(t)})}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
 fbq('init','567372494317796');
 fbq('track','PageView');
@@ -65,7 +66,7 @@ fbq('track','ViewContent',{content_name:'prmax_offer'});
 <!-- Meta Pixel End -->
 <!-- TikTok Pixel «PRMAX» (кабінет 7628542326444556304) -->
 <script>
-if(!/^(127\.0\.0\.1|localhost|\[::1\])$/.test(location.hostname)){
+if(!/^(127\.0\.0\.1|localhost|\[::1\])$/.test(location.hostname)&&!window.__TEST){
 !function (w, d, t) {
   w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script");n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];__late(function(){document.head.appendChild(n)})};
   ttq.load('DBDKFH3C77U4SEFNI86G');
@@ -1875,7 +1876,7 @@ var CONTACTS={
   var FB_EV={call:['Contact',{content_name:'call'}],telegram:['Contact',{content_name:'telegram'}],lead:['Lead',{content_name:'prmax_offer',value:450,currency:'USD'}]};
   /* TikTok Pixel: назви подій і формат з Events Manager (чат TikTok, 24.10.2026) */
   var TTQ_EV={call:[['Contact',{contents:[{content_id:'call',content_type:'product',content_name:'phone_click'}]}]],telegram:[['Contact',{contents:[{content_id:'telegram',content_type:'product',content_name:'telegram_click'}]}],['ClickButton',{contents:[{content_id:'telegram',content_type:'product',content_name:'telegram_click'}]}]],lead:[['Lead',{contents:[{content_id:'prmax_offer',content_type:'product',content_name:'site_300_ads_150'}],value:450,currency:'USD'}]]}; /* TikTok: одна подія на форму — код Lead (у нашому пікселі подія «Отправить форму» прив'язана саме до коду Lead, Events Manager 23.10); Contact — телефон і Telegram; ClickButton — додатково на Telegram */
-  function conv(name,extra){var d={event:'prmax_conv',conv:name};for(var k in (extra||{}))d[k]=extra[k];dataLayer.push(d);try{if(typeof gtag==='function')gtag('event',name,extra||{});if(typeof fbq==='function'){fbq('trackCustom','PRMAX_'+name,extra||{});if(FB_EV[name])fbq('track',FB_EV[name][0],FB_EV[name][1],extra&&extra.eid?{eventID:extra.eid}:undefined);}if(typeof ttq!=='undefined'&&TTQ_EV[name])TTQ_EV[name].forEach(function(ev){ttq.track(ev[0],ev[1])});}catch(e){}}
+  function conv(name,extra){var d={event:'prmax_conv',conv:name};for(var k in (extra||{}))d[k]=extra[k];dataLayer.push(d);try{if(typeof gtag==='function')gtag('event',name,extra||{});if(typeof fbq==='function'&&!window.__TEST){fbq('trackCustom','PRMAX_'+name,extra||{});if(FB_EV[name])fbq('track',FB_EV[name][0],FB_EV[name][1],extra&&extra.eid?{eventID:extra.eid}:undefined);}if(typeof ttq!=='undefined'&&!window.__TEST&&TTQ_EV[name])TTQ_EV[name].forEach(function(ev){ttq.track(ev[0],ev[1])});}catch(e){}}
   window.prmaxConv=conv;
 
   /* Contacts */
@@ -1884,10 +1885,11 @@ var CONTACTS={
   var SRC='';try{var us=(new URLSearchParams(location.search).get('utm_source')||'').toLowerCase().replace(/[^a-z0-9_-]/g,'').slice(0,30);if(us)sessionStorage.setItem('prmax_src',us);SRC=us||sessionStorage.getItem('prmax_src')||'';}catch(e){}
   var PROMO='';try{if(/[?&]utm_campaign=prmax_ua_retarget(&|$)/.test(location.search)||/[?&]promo=r10(&|$)/.test(location.search))sessionStorage.setItem('prmax_promo','r10');PROMO=sessionStorage.getItem('prmax_promo')||'';}catch(e){}
   if(PROMO==='r10'){SRC=(SRC||'site')+'_r10';document.documentElement.classList.add('r10')}
+  if(window.__TEST){SRC=(SRC||'site')+'_test'} /* джерело з позначкою test — бот і таблиця бачать, що це перевірка */
   var IP='';function getIp(){return fetch('https://api.ipify.org?format=json').then(function(r){return r.json()}).then(function(j){IP=String(j.ip||'').slice(0,45);return IP}).catch(function(){return IP})}try{__late(getIp)}catch(e){} /* IP для client_ip_address у серверному Lead (Meta EMQ) */ /* ретаргет: −10% за заявку протягом 7 днів — позначка йде в таблицю, бота і сповіщення */
   /* TikTok: мітку кліку (ttclid) і cookie _ttp зберігаємо на сервері під коротким номером візиту → бот, отримавши телефон, повідомить TikTok про справжню заявку */
   var TTCLID='',SID='';try{var tc=new URLSearchParams(location.search).get('ttclid');if(tc)sessionStorage.setItem('prmax_ttclid',tc.slice(0,500));TTCLID=sessionStorage.getItem('prmax_ttclid')||'';if(TTCLID){SID=sessionStorage.getItem('prmax_sid');if(!SID){SID=Math.random().toString(36).slice(2,10);sessionStorage.setItem('prmax_sid',SID)}}}catch(e){}
-  function ttSave(){if(!SID||!CONTACTS.lead.endpoint)return;try{var m=document.cookie.match(/(?:^|;\s*)_ttp=([^;]+)/);navigator.sendBeacon(CONTACTS.lead.endpoint,JSON.stringify({tt:1,sid:SID,ttclid:TTCLID,src:SRC||'site',ip:IP,fbp:(document.cookie.match(/(?:^|;\s*)_fbp=([^;]+)/)||[])[1]||'',fbc:(document.cookie.match(/(?:^|;\s*)_fbc=([^;]+)/)||[])[1]||'',qn:(window.__q&&window.__q.n)||'',qc:(window.__q&&window.__q.c)||'',ttp:m?decodeURIComponent(m[1]):'',ua:navigator.userAgent,url:location.href.slice(0,300)}))}catch(e){}}
+  function ttSave(){if(!SID||!CONTACTS.lead.endpoint)return;try{var m=document.cookie.match(/(?:^|;\s*)_ttp=([^;]+)/);navigator.sendBeacon(CONTACTS.lead.endpoint,JSON.stringify({tt:1,sid:SID,ttclid:TTCLID,src:SRC||'site',ip:IP,test:window.__TEST?1:0,fbp:(document.cookie.match(/(?:^|;\s*)_fbp=([^;]+)/)||[])[1]||'',fbc:(document.cookie.match(/(?:^|;\s*)_fbc=([^;]+)/)||[])[1]||'',qn:(window.__q&&window.__q.n)||'',qc:(window.__q&&window.__q.c)||'',ttp:m?decodeURIComponent(m[1]):'',ua:navigator.userAgent,url:location.href.slice(0,300)}))}catch(e){}}
   var TG_URL='https://t.me/'+CONTACTS.telegram+'?start='+(SRC||'site')+(SID?'-'+SID:'');
   try{if(matchMedia('(min-width:900px)').matches)document.querySelectorAll('details.extras').forEach(function(d){d.open=true})}catch(e){}
   /* 28.10 опитування на першому екрані: ніша → місто → що потрібно → ціна → номер (або Telegram з уже готовими відповідями) */
@@ -2128,9 +2130,10 @@ var CONTACTS={
      Поки не налаштовано — заявка фіксується як конверсія (dataLayer / gtag / fbq) і зберігається в localStorage. */
   var LEAD=CONTACTS.lead||{};
   function normPhone(v){var d=(v||'').replace(/\D/g,'');if(d.length===10&&d.charAt(0)==='0')d='38'+d;if(d.length===9)d='380'+d;if(d.length<11||d.length>13)return '';return d.length===12&&d.indexOf('380')===0?'+380 '+d.slice(3,5)+' '+d.slice(5,8)+' '+d.slice(8,10)+' '+d.slice(10):'+'+d}
-  function leadText(d){return 'Нова заявка — сайт PRMAX\n'+(d.need?'Потрібно: '+d.need+'\n':'')+(d.name?"Ім'я: "+d.name+'\n':'')+'Телефон: '+d.phone+'\n'+(d.tg?'Telegram: '+d.tg+'\n':'')+(d.niche?'Ніша: '+d.niche+'\n':'')+(d.city?'Місто: '+d.city+'\n':'')+'Форма: '+d.form+'\nСторінка: '+location.href}
+  function leadText(d){return (d.test?'🧪 ТЕСТ — ':'')+'Нова заявка — сайт PRMAX\n'+(d.need?'Потрібно: '+d.need+'\n':'')+(d.name?"Ім'я: "+d.name+'\n':'')+'Телефон: '+d.phone+'\n'+(d.tg?'Telegram: '+d.tg+'\n':'')+(d.niche?'Ніша: '+d.niche+'\n':'')+(d.city?'Місто: '+d.city+'\n':'')+'Форма: '+d.form+'\nСторінка: '+location.href}
   function sendLead(d){
     d.lid=Date.now().toString(36)+Math.random().toString(36).slice(2,6); /* номер заявки: бот у Telegram впізнає клієнта за ним; той самий — eventID для Meta */
+    if(window.__TEST){d.test=1;d.form='test-'+d.form}
     conv('lead',{niche:d.niche||'',city:d.city||'',form:d.form,eid:'site_'+d.lid});
     d.page=location.href;d.ua=navigator.userAgent.slice(0,120);d.src=SRC||'site';try{var fm=document.cookie.match(/(?:^|;\s*)_fbp=([^;]+)/),fc=document.cookie.match(/(?:^|;\s*)_fbc=([^;]+)/);d.fbp=fm?fm[1]:'';d.fbc=fc?fc[1]:''}catch(e){}
     var tgl='https://t.me/'+CONTACTS.telegram+'?start=l_'+d.lid;$$('#ldone a[data-c=tg-link],#mdone a[data-c=tg-link],#qtg').forEach(function(a){a.href=tgl});
