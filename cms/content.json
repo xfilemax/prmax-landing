@@ -1,6 +1,7 @@
 {
  "prices": {
   "site": 300,
+  "shop": 500,
   "google": 150,
   "bot": 150,
   "vedennya": 120,
