@@ -12,12 +12,12 @@
 <meta property="og:url" content="https://prmax.agency/">
 <meta property="og:title" content="{{seo.og_title}}">
 <meta property="og:description" content="{{seo.og_desc}}">
-<meta property="og:image" content="https://prmax.agency/img/og.jpg">
+<meta property="og:image" content="https://prmax.agency/img/og-bot.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="PRMAX Digital Agency — сайт + реклама Google за 3 дні">
+<meta property="og:image:alt" content="PRMAX Digital Agency — сайт + реклама + бот за 3 дні">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://prmax.agency/img/og.jpg">
+<meta name="twitter:image" content="https://prmax.agency/img/og-bot.jpg">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="https://prmax.agency/">
 <link rel="alternate" hreflang="uk" href="https://prmax.agency/">
@@ -175,6 +175,10 @@ details.extras[open] .ex-more{opacity:.6}details.extras .ex-grid{margin-top:14px
 .hq-res b.big{display:block;font-family:var(--d);font-size:20px;margin:2px 0 6px}.hq-res s{color:var(--dim)}.hq-res ul{list-style:none;padding:0;margin:8px 0 0;display:grid;gap:4px}
 #hqf .inp{margin-bottom:10px;font-size:18px;letter-spacing:.02em}.hq-send{width:100%}
 .hq-err{color:#ff8a8a;font-size:13.5px;margin:6px 0 0;min-height:0}
+.hq-two{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:8px}.hq-two .inp{min-width:0}#hqf .hq-two .inp{margin-bottom:8px}#hqnm{font-size:16px!important;letter-spacing:0!important}
+@media(max-width:899px){#h1 .ln:first-child .lni{font-size:6.9vw!important}}@media(min-width:900px){#h1 .ln:first-child .lni{font-size:.74em!important}}
+#hqtg2{height:auto!important;min-height:52px;padding-top:7px!important;padding-bottom:7px!important}#hqtg2>span:first-child{white-space:normal!important;overflow:visible!important;text-overflow:clip!important;line-height:1.2;text-align:left}@media(max-width:420px){#hqtg2{font-size:14px!important;letter-spacing:0!important}}
+.hq-call{display:flex;align-items:center;justify-content:center;gap:6px;margin:0 0 9px;font-size:13.5px;font-weight:700;color:#9ff0b4}.hq-call .ic{width:15px;height:15px;flex:none}#hq.short .hq-call{margin-bottom:6px;font-size:12.5px}
 .hq-tg{display:flex;justify-content:center;align-items:center;text-align:center;gap:6px;margin-top:10px;padding:12px;border-radius:999px;border:1px solid rgba(42,171,238,.5);color:#9bd8ff;font-weight:700;font-size:14.5px;text-decoration:none}
 .hq-fine{text-align:center;font-size:12.5px;color:var(--muted);margin:10px 0 0}
 .hq-done{display:grid;gap:6px;text-align:center;padding:10px 4px}.hq-done b{font-family:var(--d);font-size:19px}.hq-done span{color:var(--muted)}
@@ -1457,14 +1461,16 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
         <button type="button" data-i="1" data-v="Реклама Google"><svg class="ic"><use href="#ic-chart"/></svg> Тільки реклама Google</button>
         <button type="button" data-i="4" data-v="Реклама TikTok / Instagram"><svg class="ic"><use href="#ic-film"/></svg> Тільки реклама TikTok / Instagram</button></div></div>
       <div class="hq-s" data-s="4"><div class="hq-res" id="hqres"></div>
-        <form id="hqf" novalidate><p class="hq-q sm">Куди надіслати розрахунок?</p>
-          <input class="inp" id="hqph" type="tel" inputmode="tel" autocomplete="tel" placeholder="+380 __ ___ __ __" aria-label="Ваш номер телефону">
+        <form id="hqf" novalidate><p class="hq-q sm">Куди передзвонити з розрахунком?</p>
+          <div class="hq-two"><input class="inp" id="hqnm" autocomplete="given-name" placeholder="Ім'я" maxlength="40" aria-label="Ваше ім'я">
+          <input class="inp" id="hqph" type="tel" inputmode="tel" autocomplete="tel" placeholder="+380 __ ___ __ __" aria-label="Ваш номер телефону"></div>
+          <p class="hq-call"><svg class="ic"><use href="#i-phone"/></svg> Менеджер зателефонує протягом 15 хвилин</p>
           <button class="btn btn-o hq-send" type="submit"><span>Отримати розрахунок</span><span class="ar"><svg><use href="#i-phone"/></svg></span></button>
           <p class="hq-err" id="hqerr"></p></form>
         <a class="btn btn-tg" id="hqtg" href="#" target="_blank" rel="noopener"><span>Розрахунок у Telegram</span><span class="ar"><svg class="ic"><use href="#ic-send"/></svg></span></a>
         <p class="hq-fine"><svg class="ic"><use href="#ic-lock"/></svg> Номер нікому не передаємо. Без спаму й розсилок.</p></div>
-      <div class="hq-s" data-s="5"><div class="hq-done"><b><svg class="ic"><use href="#ic-check"/></svg> Дякуємо! Заявку прийнято.</b><span>Максим передзвонить протягом 15 хвилин у робочий час.</span></div>
-        <a class="btn btn-tg" id="hqtg2" href="#" target="_blank" rel="noopener"><span>Питання в Telegram</span><span class="ar"><svg class="ic"><use href="#ic-send"/></svg></span></a></div>
+      <div class="hq-s" data-s="5"><div class="hq-done"><b><svg class="ic"><use href="#ic-check"/></svg> Дякуємо! Заявку прийнято.</b><span>Менеджер зателефонує протягом 15 хвилин у робочий час.</span></div>
+        <a class="btn btn-tg" id="hqtg2" href="#" target="_blank" rel="noopener"><span>🎁 Подарунок і прайс у Telegram</span><span class="ar"><svg class="ic"><use href="#ic-send"/></svg></span></a></div>
       <button type="button" class="hq-back" id="hqback" hidden>← Назад</button>
       <div class="hq-foot" id="hqfoot"><button type="button" class="btn btn-o btn-go hq-go" id="hqgo"><span>Залишити заявку<small>оберіть нішу вище — 3 питання · 30 секунд</small></span><span class="ar"><svg><use href="#i-arr"/></svg></span></button><p class="hq-hint" id="hqhint" hidden>👆 Оберіть один варіант — і йдемо далі</p></div>
     </div>
@@ -1798,7 +1804,7 @@ h1,h2,h3,h4,.sec-head h2,.founder h2,.final h2,.hw .cap h3,.nc .cap h3,.nc.cta h
     <div class="f-grid">
       <div class="f-brand">
         <img src="img/logo.webp" alt="PRMAX Digital Agency" loading="lazy" width="520" height="338">
-        <p>Сайт + реклама Google для локального бізнесу. Запуск за 3 дні — дзвінки та заявки в Telegram.</p>
+        <p>Сайт + реклама + Telegram-бот для локального бізнесу. Запуск за 3 дні — дзвінки та заявки в Telegram.</p>
       </div>
       <nav class="f-nav" aria-label="Нижнє меню"><a href="#stage">Як це працює</a><a href="#roboty">Роботи</a><a href="#tsiny">Ціни</a><a href="#vidguky">Відгуки</a><a href="#etapy">Етапи</a><a href="#faq">Питання</a></nav>
       <div class="f-contact">
@@ -1919,9 +1925,10 @@ var CONTACTS={
     q('#hqback').addEventListener('click',function(){show(Math.max(1,step-1))});
     q('#hqtg').addEventListener('click',function(){ttSave();conv('telegram',{place:'hero_quiz'})});
     q('#hqf').addEventListener('submit',function(e){
-      e.preventDefault();var err=q('#hqerr'),ph=normPhone(q('#hqph').value);err.textContent='';
+      e.preventDefault();var err=q('#hqerr'),nm=q('#hqnm').value.trim(),ph=normPhone(q('#hqph').value);err.textContent='';
+      if(nm.length<2){err.textContent="Вкажіть ваше ім'я — щоб менеджер знав, як звертатися";q('#hqnm').focus();return}
       if(!ph){err.textContent='Вкажіть номер — наприклад, +380 63 207 20 00';q('#hqph').focus();return}
-      var d={form:'hero-quiz',phone:ph,niche:A.n.v,city:A.c?A.c.v:'',need:A.w.v};var bt=q('.hq-send');bt.disabled=true;
+      var d={form:'hero-quiz',name:nm.slice(0,40),phone:ph,niche:A.n.v,city:A.c?A.c.v:'',need:A.w.v};var bt=q('.hq-send');bt.disabled=true;
       sendLead(d).then(function(){bt.disabled=false;q('#hqtg2').href='https://t.me/'+CONTACTS.telegram+'?start=l_'+d.lid;show(5)});
     });
     function goQ(e){if(e&&e.preventDefault)e.preventDefault();if(window.__hqOpen)window.__hqOpen();try{if(document.getElementById('mnav').classList.contains('on'))setMenu(false)}catch(x){}setTimeout(fitQ,80);hq.classList.remove('pulse');void hq.offsetWidth;hq.classList.add('pulse');conv('hero_quiz_tap',{})}
