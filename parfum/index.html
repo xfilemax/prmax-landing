@@ -5,11 +5,137 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
 <meta name="theme-color" content="#0a0a0a">
-<title>ESSENCE — оригінальні парфуми на розлив | Одеса</title>
+<title>ESSENCE — інтернет-магазин парфумів на розлив | PRMAX</title>
 <link rel="icon" href="https://essence-odesa.vercel.app/favicon-64.png">
-<style>html,body{margin:0;height:100%;background:#0a0a0a}iframe{position:fixed;inset:0;width:100%;height:100%;border:0;display:block}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0a0a0a;--paper:#fff;--soft:#f4f4f4;--mut:#6b6b6b;--line:rgba(0,0,0,.12);--head:'Unbounded',sans-serif;--body:'Manrope',sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font:16px/1.55 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}a{color:inherit;text-decoration:none}
+.wrap{width:min(1200px,100% - 32px);margin-inline:auto}
+h1,h2,h3{font-family:var(--head);font-weight:800;line-height:1.05;letter-spacing:-.02em;text-transform:uppercase}
+.top{position:sticky;top:12px;z-index:20;margin:12px auto 0;width:min(1200px,100% - 24px);background:var(--ink);color:#fff;border-radius:40px;display:flex;align-items:center;justify-content:space-between;padding:10px 12px 10px 24px}
+.top b{font-family:var(--head);letter-spacing:.18em;font-size:18px}
+.top small{color:#aaa;font-size:12px;margin-left:12px;letter-spacing:.06em}
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--head);font-weight:600;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;padding:14px 22px;border-radius:40px;border:1.5px solid var(--ink);transition:.18s;white-space:nowrap}
+.btn i{font-style:normal;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-size:13px}
+.btn-w{background:#fff;color:var(--ink);border-color:#fff}.btn-w i{background:var(--ink);color:#fff}
+.btn-b{background:var(--ink);color:#fff}.btn-b i{background:#fff;color:var(--ink)}
+.btn-o{background:transparent}.btn-o:hover{background:var(--ink);color:#fff}
+.btn:hover{transform:translateY(-2px)}
+.hero{margin:14px auto 0;width:min(1200px,100% - 24px);background:var(--ink);color:#fff;border-radius:32px;padding:56px 48px 0;overflow:hidden;position:relative}
+.hero .eb{font-family:var(--head);font-size:11px;letter-spacing:.3em;color:#9a9a9a;margin-bottom:18px}
+.hero h1{font-size:clamp(34px,5.4vw,76px)}
+.hero p{color:#bdbdbd;max-width:640px;margin:18px 0 26px;font-size:17px}
+.hero .cta{display:flex;gap:10px;flex-wrap:wrap}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px}
+.chips span{border:1px solid rgba(255,255,255,.25);border-radius:30px;padding:7px 14px;font-size:13px;color:#ddd}
+.devices{position:relative;margin-top:44px;display:flex;justify-content:center;align-items:flex-end;gap:0;min-height:300px}
+.laptop{width:min(860px,88%);background:#1d1d1d;border-radius:18px 18px 0 0;padding:12px 12px 0;box-shadow:0 -10px 60px rgba(255,255,255,.06)}
+.laptop .bar{display:flex;gap:6px;padding:2px 4px 10px}.laptop .bar i{width:9px;height:9px;border-radius:50%;background:#444}
+.laptop img{border-radius:8px 8px 0 0;width:100%}
+.phone{width:min(230px,30%);background:#1d1d1d;border-radius:36px;padding:9px;position:absolute;right:max(2%,calc(50% - 560px));bottom:-40px;box-shadow:0 30px 60px rgba(0,0,0,.5);border:1px solid #333}
+.phone img{border-radius:28px;width:100%}
+section{padding:84px 0 0}
+.sh{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:30px}
+.sh h2{font-size:clamp(26px,3.6vw,46px)}
+.sh p{color:var(--mut);max-width:440px}
+.num{font-family:var(--head);font-size:12px;letter-spacing:.2em;color:var(--mut);display:block;margin-bottom:10px}
+.row{display:grid;grid-template-columns:1.25fr .75fr;gap:20px;align-items:center}
+.row.rev{grid-template-columns:.75fr 1.25fr}
+.frame{background:var(--soft);border:1px solid var(--line);border-radius:28px;padding:18px;overflow:hidden}
+.frame img{border-radius:14px;border:1px solid var(--line);width:100%}
+.phones{display:flex;gap:16px;justify-content:center}
+.ph{background:#111;border-radius:32px;padding:8px;width:min(240px,48%);box-shadow:0 20px 40px rgba(0,0,0,.18)}
+.ph img{border-radius:25px;width:100%}
+.txt h3{font-size:clamp(20px,2.4vw,30px);margin-bottom:14px}
+.txt p{color:var(--mut);margin-bottom:14px}
+.txt ul{list-style:none;display:grid;gap:9px;font-weight:600}
+.txt li{display:flex;gap:10px;align-items:flex-start}.txt li::before{content:"";flex:0 0 8px;height:8px;margin-top:8px;border-radius:50%;background:var(--ink)}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.card{border:1.5px solid var(--ink);border-radius:22px;padding:22px}
+.card b{display:block;font-family:var(--head);font-size:15px;text-transform:uppercase;margin:10px 0 6px;letter-spacing:.02em}
+.card p{color:var(--mut);font-size:14.5px}
+.card .ic{width:40px;height:40px;border-radius:12px;background:var(--ink);color:#fff;display:grid;place-items:center;font-size:18px}
+.final{margin:90px auto 30px;width:min(1200px,100% - 24px);background:var(--ink);color:#fff;border-radius:32px;padding:56px 40px;text-align:center}
+.final h2{font-size:clamp(26px,4vw,52px);margin-bottom:14px}
+.final p{color:#bdbdbd;margin:0 auto 26px;max-width:620px}
+.final .cta{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+footer{text-align:center;color:var(--mut);font-size:13px;padding:10px 0 40px}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .7s,transform .7s}.rv.in{opacity:1;transform:none}
+@media(max-width:900px){.row,.row.rev{grid-template-columns:1fr}.row.rev .txt{order:-1}.grid4{grid-template-columns:1fr 1fr}.hero{padding:40px 22px 0}.phone{width:34%;right:2%;bottom:-24px}}
+@media(max-width:560px){.top small{display:none}.top .btn{padding:11px 14px;font-size:11px}.hero h1{font-size:32px}.hero p{font-size:15.5px}.hero .cta .btn{flex:1;justify-content:center}.grid4{grid-template-columns:1fr}.devices{margin-top:30px;min-height:0}.laptop{width:100%}.phone{width:38%;bottom:-18px}section{padding-top:60px}.final{padding:40px 20px}.phones{gap:10px}}
+</style>
 </head>
 <body>
-<iframe src="https://essence-odesa.vercel.app/" title="ESSENCE" allow="clipboard-write; fullscreen" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+<div class="top"><span><b>ESSENCE</b><small>демо-магазин від PRMAX</small></span><a class="btn btn-w" href="https://essence-odesa.vercel.app" target="_blank" rel="noopener">Відкрити магазин <i>↗</i></a></div>
+
+<header class="hero">
+  <div class="eb">ІНТЕРНЕТ-МАГАЗИН · ПАРФУМИ НА РОЗЛИВ · ОДЕСА</div>
+  <div class="chips"><span>Компʼютер і телефон</span><span>Кабінет і кешбек</span><span>Своя адмінка</span><span>Запуск за 3 дні</span></div>
+  <h1>Ваш магазин ароматів — уже живий</h1>
+  <p>Ми зібрали робочий інтернет-магазин під ваш формат: оригінали на розлив 5 / 10 / 30 мл, острівок у ТЦ і самовивіз в Одесі, доставка Новою Поштою по Україні. Натисніть і погортайте самі.</p>
+  <div class="cta"><a class="btn btn-w" href="https://essence-odesa.vercel.app" target="_blank" rel="noopener">Відкрити магазин <i>↗</i></a><a class="btn btn-o" style="border-color:#fff;color:#fff" href="#screens">Подивитися екрани</a></div>
+  <div class="devices">
+    <div class="laptop"><div class="bar"><i></i><i></i><i></i></div><img src="img/d-home.jpg" alt="Головна сторінка магазину на компʼютері" width="1440" height="860"></div>
+    <div class="phone"><img src="img/m-home.jpg" alt="Головна сторінка на телефоні" width="780" height="1688"></div>
+  </div>
+</header>
+
+<main class="wrap" id="screens">
+  <section class="rv">
+    <div class="row">
+      <div class="frame"><img src="img/d-product.jpg" alt="Сторінка аромату з анімованим флаконом" loading="lazy"></div>
+      <div class="txt"><span class="num">01 / ТОВАР</span><h3>Живий флакон на кожному аромату</h3><p>Покупець обирає 5, 10 чи 30 мл — флакон наповнюється, ціна змінюється, навколо зʼявляються ноти аромату.</p><ul><li>Своя ціна для кожного обʼєму</li><li>Ноти, сезон, коли носити</li><li>Бонуси за покупку видно одразу</li><li>«Купити в 1 клік»</li></ul></div>
+    </div>
+  </section>
+
+  <section class="rv">
+    <div class="row rev">
+      <div class="txt"><span class="num">02 / ТЕЛЕФОН</span><h3>Зручно з телефона</h3><p>Більшість покупців приходить з TikTok та Instagram, тому все зроблено під палець: меню, кошик, оформлення.</p><ul><li>Меню з розділами й швидким звʼязком</li><li>Кошик з прогресом до безкоштовної доставки</li><li>Кнопка «У кошик» завжди під рукою</li></ul></div>
+      <div class="phones"><div class="ph"><img src="img/m-menu.jpg" alt="Меню на телефоні" loading="lazy"></div><div class="ph"><img src="img/m-cart.jpg" alt="Кошик на телефоні" loading="lazy"></div></div>
+    </div>
+  </section>
+
+  <section class="rv">
+    <div class="row">
+      <div class="frame"><img src="img/d-catalog.jpg" alt="Каталог ароматів з фільтрами" loading="lazy"></div>
+      <div class="txt"><span class="num">03 / КАТАЛОГ</span><h3>Колекція з фільтрами</h3><p>Для нього, для неї, унісекс, сети й подарунки. Фільтри за обʼємом і ціною, мітки «хіт» і «новинка».</p><ul><li>Пошук за назвою і нотою</li><li>Обране й нещодавно переглянуті</li><li>Сет-знайомство 5 × 5 мл</li></ul></div>
+    </div>
+  </section>
+
+  <section class="rv">
+    <div class="phones" style="margin-bottom:26px"><div class="ph"><img src="img/m-product.jpg" alt="Аромат на телефоні" loading="lazy"></div><div class="ph"><img src="img/m-catalog.jpg" alt="Каталог на телефоні" loading="lazy"></div></div>
+  </section>
+
+  <section class="rv">
+    <div class="row rev">
+      <div class="txt"><span class="num">04 / АДМІНКА</span><h3>Керуєте всім самі</h3><p>Зручна панель українською та російською: продажі, замовлення, звідки приходять клієнти.</p><ul><li>Товари, ціни й наявність за хвилину</li><li>Замовлення зі статусами й ТТН</li><li>Промокоди, бонуси, відгуки</li><li>Заявки приходять у Telegram</li></ul></div>
+      <div class="frame"><img src="img/d-admin.jpg" alt="Панель керування магазином" loading="lazy"></div>
+    </div>
+  </section>
+
+  <section class="rv">
+    <div class="sh"><h2>Що вже всередині</h2><p>Усе, що потрібно магазину, щоб продавати з першого дня.</p></div>
+    <div class="grid4">
+      <div class="card"><div class="ic">%</div><b>Кешбек-клуб</b><p>3–7% бонусами з кожної покупки, оплата бонусами до 30%.</p></div>
+      <div class="card"><div class="ic">👤</div><b>Кабінет</b><p>Історія замовлень, бонуси й повтор замовлення в один клік.</p></div>
+      <div class="card"><div class="ic">📦</div><b>Доставка</b><p>Нова Пошта з підказкою відділень, курʼєр і самовивіз в Одесі.</p></div>
+      <div class="card"><div class="ic">📊</div><b>Аналітика</b><p>Звідки приходять покупці: TikTok, Instagram, Google, реклама.</p></div>
+    </div>
+  </section>
+</main>
+
+<div class="final rv">
+  <h2>Запустимо за 3 дні</h2>
+  <p>Підставимо ваші аромати, ціни й фото острівка, підключимо Telegram для замовлень і налаштуємо рекламу.</p>
+  <div class="cta"><a class="btn btn-w" href="https://essence-odesa.vercel.app" target="_blank" rel="noopener">Відкрити магазин <i>↗</i></a><a class="btn btn-o" style="border-color:#fff;color:#fff" href="https://t.me/prmaxagency_bot" target="_blank" rel="noopener">Написати Максиму</a></div>
+</div>
+<footer>Демо-макет від <a href="https://prmax.agency"><b>PRMAX</b></a> · назви, ціни й фото замінимо на ваші</footer>
+<script>
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+</script>
 </body>
 </html>
