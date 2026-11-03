@@ -14,12 +14,30 @@ c.faq = c.faq.map(f => ({ q: f.q, a: fx(f.a) }));
 c.faq = c.faq.filter(f => !/бонус від Google/i.test(f.q)).map(f => /моєму місті/.test(f.q)
   ? { q: 'Ви працюєте з бізнесом у Європі?', a: 'Так. Працюємо дистанційно з українськими підприємцями в Польщі, Німеччині, Чехії, Австрії, Італії, Іспанії та інших країнах. Реклама показується саме у вашому місті — українською, місцевою мовою або обома. Спілкуємось українською в Telegram, Viber чи WhatsApp.' }
   : f);
+
+// v2 (03.11.2026, «зроби вау»): прапор ЄС у плашці і синій бейдж «ЄС» з колом зірок у заголовку
+const star = (cx, cy, r) => { let d = ''; for (let i = 0; i < 10; i++) { const a = -Math.PI / 2 + i * Math.PI / 5, rr = i % 2 ? r * 0.4 : r; d += (i ? 'L' : 'M') + (cx + rr * Math.cos(a)).toFixed(2) + ' ' + (cy + rr * Math.sin(a)).toFixed(2); } return d + 'Z'; };
+const ring = (cx, cy, R, r) => Array.from({ length: 12 }, (_, i) => { const a = i * Math.PI / 6; return star(cx + R * Math.sin(a), cy - R * Math.cos(a), r); }).join('');
+const FLAG = `<svg class="eu-flag" viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" rx="3" fill="#003399"/><path fill="#FFCC00" d="${ring(15, 10, 6.2, 1.25)}"/></svg>`;
+const BADGE = `<span class="eu-b"><svg class="eu-ring" viewBox="0 0 40 40" aria-hidden="true"><path fill="#FFCC00" d="${ring(20, 20, 15, 3)}"/></svg><b>ЄС</b></span>`;
+const EU_CSS = `<style>
+.pill .eu-flag{width:24px;height:16px;flex:0 0 auto;border-radius:3px;box-shadow:0 0 0 1px rgba(255,255,255,.18),0 0 14px rgba(0,51,153,.9);animation:euwave 3s ease-in-out infinite}
+@keyframes euwave{50%{transform:rotate(-4deg) scale(1.08)}}
+.pill{border-color:rgba(70,120,255,.55)!important;box-shadow:0 0 24px rgba(0,51,153,.35)}
+#h1 .eu-b{display:inline-flex;align-items:center;gap:.14em;margin-left:.08em;padding:.02em .26em .06em .16em;border-radius:.2em;background:radial-gradient(120% 140% at 30% 20%,#2f5fe0 0%,#003399 55%,#00226b 100%);box-shadow:0 0 0 2px rgba(255,204,0,.55),0 .12em .6em rgba(0,51,153,.75),inset 0 1px 0 rgba(255,255,255,.25);font-style:normal;-webkit-text-fill-color:#FFCC00;color:#FFCC00;vertical-align:.04em;line-height:1.05}
+#h1 .eu-b b{font-weight:800;font-style:normal;letter-spacing:.01em;text-shadow:0 0 .25em rgba(255,204,0,.45)}
+#h1 .eu-ring{width:.78em;height:.78em;flex:0 0 auto;animation:euspin 24s linear infinite}
+@keyframes euspin{to{transform:rotate(360deg)}}
+@media (min-width:1300px){#h1 .ln:last-child .lni{font-size:50px!important}}
+@media (max-width:400px){.pill .eu-tail{display:none}.pill .eu-flag{width:20px;height:14px}}
+@media (prefers-reduced-motion:reduce){#h1 .eu-ring,.pill .eu-flag{animation:none}}
+</style>`;
 let out = CMS.build(fs.readFileSync(dir + 'template.html', 'utf8'), c);
 const R = [
   ['<meta property="og:url" content="https://prmax.agency/">', '<meta property="og:url" content="https://prmax.agency/eu">'],
   ['<link rel="canonical" href="https://prmax.agency/">', '<link rel="canonical" href="https://prmax.agency/eu">'],
   [/<link rel="alternate" hreflang="[^"]*" href="https:\/\/prmax\.agency\/">\n?/, ''],
-  ['Найнижчі ціни в Україні · <span class="more">запуск </span>за 3 дні', 'Українським підприємцям у Європі · <span class="more">запуск </span>за 3 дні'],
+  ['Найнижчі ціни в Україні · <span class="more">запуск </span>за 3 дні', 'Українським підприємцям у Європі<span class="eu-tail"> · <span class="more">запуск </span>за 3 дні</span>'],
   ['· найнижчі ціни в Україні', '· ціни нижчі, ніж у європейських агенціях'],
   ['Найнижчі ціни <span class="og-text">в Україні</span>', 'Ціни нижчі, <span class="og-text">ніж у Європі</span>'],
   ['data-v="Київ">Київ</button><button type="button" data-i="1" data-v="Львів">Львів</button>', 'data-v="Польща">Польща</button><button type="button" data-i="1" data-v="Німеччина">Німеччина</button>'],
@@ -55,6 +73,10 @@ const R = [
   ["if(PROMO==='r10'){SRC=(SRC||'site')+'_r10'", "SRC=(SRC||'site')+'_eu';if(PROMO==='r10'){SRC=(SRC||'site')+'_r10'"],
   ["slugCity(c)+'.com.ua'", "slugCity(c)+'.com'"],
   [/evakuator-kyiv\.com\.ua/, 'evakuator-warszawa.com'],
+  ['<button type="button" class="pill" data-goq><i class="dot"></i>', '<button type="button" class="pill" data-goq>' + FLAG],
+  ['для бізнесу в\u00a0ЄС</span>', 'для бізнесу в\u00a0' + BADGE + '</span>'],
+  ['</head>', EU_CSS + '</head>'],
+  ["s.style.setProperty('--i',n++);s.textContent=w;", "s.style.setProperty('--i',n++);if(w==='ЄС')s.innerHTML=" + JSON.stringify(BADGE) + ";else s.textContent=w;"],
 ];
 for (const [a, b, n] of R) {
   const cnt = typeof a === 'string' ? out.split(a).length - 1 : (out.match(new RegExp(a.source, 'g')) || []).length;
