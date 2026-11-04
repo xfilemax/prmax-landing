@@ -1385,6 +1385,29 @@ svg.wa{fill:#25D366;stroke:none!important}
 .m-c3 a[data-c=wa-link] svg.wa{fill:#fff!important}.m-c3 a[data-c=wa-link]::after{border-color:rgba(37,211,102,.9)!important}
 .contacts i svg.wa{fill:#fff!important}.f-contact i svg.wa{fill:#25D366!important}.btn-g svg.wa{fill:#fff!important}
 @media(max-width:759px){.m-hide,.pr>span,.pr-deal span,.tr-note,.pk-note,.pay-notes,.botc-p{display:none!important}}
+/* 04.11.2026 ADSO: віджет зв'язку в кутку — гарнітура, пульсує; відкриває Telegram / WhatsApp (/ Viber) */
+.cw{position:fixed;right:22px;bottom:22px;z-index:58;display:flex;flex-direction:column;align-items:flex-end;gap:10px;opacity:0;transform:translateY(16px);transition:opacity .5s var(--e),transform .5s var(--e);pointer-events:none}
+.cw.on{opacity:1;transform:none;pointer-events:auto}
+.cw-main{position:relative;width:62px;height:62px;border-radius:50%;border:0;cursor:pointer;display:grid;place-items:center;color:#fff;background:var(--grad);box-shadow:inset 0 1px 0 rgba(255,255,255,.22),0 14px 36px -10px rgba(255,106,0,.7);transition:transform .25s var(--e)}
+.cw-main:hover{transform:scale(1.06)}
+.cw-main::before,.cw-main::after{content:"";position:absolute;inset:-3px;border-radius:50%;border:2px solid rgba(255,138,40,.85);animation:cwRing 2.6s ease-out infinite;pointer-events:none}
+.cw-main::after{animation-delay:1.3s}
+@keyframes cwRing{0%{transform:scale(1);opacity:.85}100%{transform:scale(1.75);opacity:0}}
+.cw.open .cw-main::before,.cw.open .cw-main::after{display:none}
+.cw-ic{width:30px;height:30px;grid-area:1/1;transition:opacity .2s,transform .3s var(--e)}
+.cw-ic.x{opacity:0;transform:rotate(-90deg) scale(.6)}
+.cw.open .cw-ic.cw-hs{opacity:0;transform:rotate(90deg) scale(.6)}.cw.open .cw-ic.x{opacity:1;transform:none}
+.cw-hint{position:absolute;right:calc(100% + 14px);top:50%;transform:translateY(-50%);background:rgba(19,17,16,.97);border:1px solid var(--line2);color:var(--sand);padding:10px 14px;border-radius:12px;font:600 13px/1.2 var(--b);white-space:nowrap;box-shadow:0 10px 30px rgba(0,0,0,.45);animation:cwIn .25s var(--e) both}
+.cw-hint::after{content:"";position:absolute;left:100%;top:50%;margin-top:-6px;border:6px solid transparent;border-left-color:rgba(19,17,16,.97)}
+.cw-stack{display:flex;flex-direction:column;gap:10px;align-items:flex-end;animation:cwIn .22s var(--e) both}
+@keyframes cwIn{from{opacity:0;transform:translateY(10px) scale(.94)}to{opacity:1;transform:none}}
+.cw-opt{display:flex;align-items:center;gap:10px;min-width:176px;padding:12px 18px 12px 14px;border-radius:999px;color:#fff!important;font:800 15px/1 var(--b);box-shadow:0 12px 30px -10px rgba(0,0,0,.8);transition:transform .25s var(--e)}
+.cw-opt:hover{transform:translateX(-4px)}
+.cw-opt i{width:26px;height:26px;display:grid;place-items:center;font-style:normal}
+.cw-opt i svg{width:22px;height:22px;stroke:#fff;fill:none}.cw-opt i svg.wa{fill:#fff;stroke:none}
+.cw-opt.tg{background:linear-gradient(135deg,#2AABEE,#229ED9)}.cw-opt.vb{background:linear-gradient(135deg,#8E7CFF,#7360F2)}.cw-opt.wa{background:linear-gradient(135deg,#34C76A,#1FA653)}
+@media(max-width:899px){.cw{right:12px;bottom:calc(78px + env(safe-area-inset-bottom,0px))}.cw-main{width:54px;height:54px}.cw-ic{width:26px;height:26px}.cw-hint{font-size:12.5px;padding:9px 12px}}
+@media(prefers-reduced-motion:reduce){.cw-main::before,.cw-main::after{animation:none;display:none}}
 </style>
 <!-- Microsoft Clarity (теплові карти й записи сеансів) -->
 <script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];__late(function(){document.head.appendChild(t)});})(window,document,"clarity","script","z2nkewuu0z");</script>
@@ -1867,7 +1890,18 @@ svg.wa{fill:#25D366;stroke:none!important}
     <div class="done" id="ldone" hidden><div class="ok"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></div><h3>Дякуємо, заявку прийнято!</h3><p>Передзвонимо в робочий час. Хочете швидше — продовжіть у Telegram: бот уже знає вашу заявку й відповість на питання одразу.</p><div class="done-row"><a class="btn btn-o" href="#" data-c="tg-link" target="_blank" rel="noopener"><span>Продовжити в Telegram</span><span class="ar"><svg><use href="#i-tg"/></svg></span></a><a class="btn btn-g" href="#" data-c="wa-link" target="_blank" rel="noopener"><span>WhatsApp</span><span class="ar"><svg class="wa"><use href="#ic-wa"/></svg></span></a></div></div>
   </form>
 </div>
-<div class="fab" id="fab" aria-label="Швидкий зв'язок"><a class="ph wa" href="#" data-c="wa-link" target="_blank" rel="noopener" data-l="Написати у WhatsApp" aria-label="WhatsApp"><svg class="wa"><use href="#ic-wa"/></svg></a><a class="tg" href="#" data-c="tg-link" target="_blank" rel="noopener" data-l="Написати в Telegram" aria-label="Telegram"><svg viewBox="0 0 24 24"><path d="M21.5 3.5L2.8 10.7c-1.3.5-1.2 1.3-.2 1.6l4.8 1.5 1.8 5.6c.2.7.6.8 1.1.3l2.6-2.4 5 3.7c.9.5 1.6.2 1.8-.9l3.2-15c.3-1.3-.5-1.9-1.4-1.6z"/></svg></a></div>
+<div class="cw" id="cw">
+  <div class="cw-stack" id="cwStack" hidden>
+    <a class="cw-opt tg" href="#" data-c="tg-link" target="_blank" rel="noopener"><i><svg><use href="#i-tg"/></svg></i><span>Telegram</span></a>
+    <a class="cw-opt vb" href="#" data-c="vb-link" hidden><i><svg class="ic"><use href="#ic-viber"/></svg></i><span>Viber</span></a>
+    <a class="cw-opt wa" href="#" data-c="wa-link" target="_blank" rel="noopener"><i><svg class="wa"><use href="#ic-wa"/></svg></i><span>WhatsApp</span></a>
+  </div>
+  <button class="cw-main" id="cwMain" type="button" aria-label="Зв'язатися з нами" aria-expanded="false" aria-controls="cwStack">
+    <span class="cw-hint" id="cwHint" hidden>Питання? Ми онлайн 💬</span>
+    <svg class="cw-ic cw-hs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 14v-3a8 8 0 0 1 16 0v3"/><path d="M4 14h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z"/><path d="M20 14h-2a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1z"/><path d="M19 19v1a2 2 0 0 1-2 2h-3"/></svg>
+    <svg class="cw-ic x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+</div>
 <div class="mbar" id="mbar"><a class="icbtn mb-tg" href="#" data-c="tg-link" target="_blank" rel="noopener" aria-label="Написати в Telegram"><svg viewBox="0 0 24 24"><path d="M21.5 3.5L2.8 10.7c-1.3.5-1.2 1.3-.2 1.6l4.8 1.5 1.8 5.6c.2.7.6.8 1.1.3l2.6-2.4 5 3.7c.9.5 1.6.2 1.8-.9l3.2-15c.3-1.3-.5-1.9-1.4-1.6z" fill="currentColor"/></svg></a><a class="btn btn-o btn-go" href="#hq" data-goq><span>Отримати клієнтів</span><span class="ar"><svg><use href="#i-arr"/></svg></span></a></div>
 
 <div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Перегляд"><div class="box" id="mbox"><button class="x" type="button" id="mx" aria-label="Закрити"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button><div id="mc"></div></div></div>
@@ -1875,6 +1909,7 @@ svg.wa{fill:#25D366;stroke:none!important}
 <script>
 /* ===== КОНТАКТИ: замінити тут, коли будуть справжні ===== */
 var CONTACTS={
+  viber:'',                      // номер Viber лише цифрами (напр. 380XXXXXXXXX); поки порожньо — кнопки Viber немає
   whatsapp:'',                   // номер WhatsApp лише цифрами (напр. 48512345678); поки порожньо — кнопка WhatsApp відкриває заявку на сайті
   telegram:'adsoagency_bot',    // Telegram-бот ADSO для клієнтів (t.me/adsoagency_bot): відповідає сам, передає заявки Максиму
   lead:{endpoint:'https://script.google.com/macros/s/AKfycbxn9Js2V9OAez1W_dnCpsALmJq8VQEIMTlX0h49e_ylNyuxowtP4bz_y5A8pGU8HRon/exec',botToken:'',chatId:''} // заявки → Google Apps Script «PRMAX Заявки» (Telegram @prmax_leads_bot + CRM-таблиця); токена бота в коді немає
@@ -1901,6 +1936,7 @@ var CONTACTS={
   window.prmaxConv=conv;
 
   /* Contacts */
+  $$('[data-c=vb-link]').forEach(function(e){if(CONTACTS.viber){e.hidden=false;e.href='viber://chat?number=%2B'+CONTACTS.viber;e.addEventListener('click',function(){conv('viber',{})})}});
   $$('[data-c=wa-link]').forEach(function(e){if(CONTACTS.whatsapp){e.href='https://wa.me/'+CONTACTS.whatsapp}else{e.removeAttribute('target');e.addEventListener('click',function(ev){ev.preventDefault();var g=document.querySelector('[data-goq]');if(g)g.click()})}e.addEventListener('click',function(){conv('whatsapp',{place:(e.closest('section,header,.mnav,.mbar,footer,.fab')||{}).id||''})})});
   var SRC='';try{var us=(new URLSearchParams(location.search).get('utm_source')||'').toLowerCase().replace(/[^a-z0-9_-]/g,'').slice(0,30);if(us)sessionStorage.setItem('prmax_src',us);SRC=us||sessionStorage.getItem('prmax_src')||'';}catch(e){}
   var PROMO='';try{if(/[?&]utm_campaign=prmax_ua_retarget(&|$)/.test(location.search)||/[?&]promo=r10(&|$)/.test(location.search))sessionStorage.setItem('prmax_promo','r10');PROMO=sessionStorage.getItem('prmax_promo')||'';}catch(e){}
@@ -1969,15 +2005,24 @@ var CONTACTS={
 
   /* Header, progress, mobile bar */
   var hdr=$('#hdr'),prog=$('#prog'),mbar=$('#mbar'),hero=$('#hero'),fin=$('#zayavka');
-  var fab=$('#fab');
   function onScroll(){
     var y=scrollY,h=document.documentElement,max=h.scrollHeight-h.clientHeight;
     hdr.classList.toggle('sc',y>20);var ly=onScroll.ly||0,open=document.getElementById('mnav').classList.contains('on');var qa=window.__qActive&&window.__qActive();if(y<=140||open||innerWidth>=900){hdr.classList.remove('hide');onScroll.up=0}else if(qa){hdr.classList.add('hide');onScroll.up=0}else if(y>ly){hdr.classList.add('hide');onScroll.up=0}else{onScroll.up=(onScroll.up||0)+(ly-y);if(onScroll.up>=40)hdr.classList.remove('hide')}onScroll.ly=y;
     prog.style.transform='scaleX('+(max>0?y/max:0)+')';
     mbar.classList.toggle('on',!qa&&y>hero.offsetHeight*.7&&fin.getBoundingClientRect().top>innerHeight*.6);
-    fab.classList.toggle('on',!qa&&y>hero.offsetHeight*.45&&fin.getBoundingClientRect().top>innerHeight*.55);
   }
   addEventListener('scroll',onScroll,{passive:true});onScroll();
+  /* Віджет зв'язку (04.11.2026): кнопка з гарнітурою → Telegram / WhatsApp (/ Viber) */
+  (function(){var w=$('#cw'),m=$('#cwMain'),st=$('#cwStack'),h=$('#cwHint');if(!w)return;
+    function setOpen(o){w.classList.toggle('open',o);st.hidden=!o;m.setAttribute('aria-expanded',o?'true':'false');if(o){h.hidden=true;w.classList.remove('hint')}}
+    m.addEventListener('click',function(){setOpen(!w.classList.contains('open'))});
+    document.addEventListener('click',function(e){if(!w.contains(e.target))setOpen(false)});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')setOpen(false)});
+    st.addEventListener('click',function(e){if(e.target.closest('a'))setTimeout(function(){setOpen(false)},150)});
+    setTimeout(function(){w.classList.add('on')},1200);
+    var seen=false;try{seen=!!sessionStorage.getItem('adso_cw_hint')}catch(e){}
+    if(!seen)setTimeout(function(){if(w.classList.contains('open'))return;h.hidden=false;w.classList.add('hint');try{sessionStorage.setItem('adso_cw_hint','1')}catch(e){}setTimeout(function(){h.hidden=true;w.classList.remove('hint')},6000)},7000);
+  })();
 
   /* Burger */
   var bg=$('#burger'),mn=$('#mnav');
