@@ -1,4 +1,4 @@
-// PRMAX — збірка сторінки з шаблону (template.html) і вмісту (content.json).
+// ADSO — збірка сторінки з шаблону (template.html) і вмісту (content.json).
 // Один і той самий код працює локально (node cms/build.mjs) і в Google Apps Script (кнопка «Опублікувати» в таблиці-адмінці).
 var PRMAX_CMS = (function () {
   function esc(t) { return String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
@@ -28,10 +28,10 @@ var PRMAX_CMS = (function () {
     d.disc = { site: 0, google: 0, bot: 0 };
     var mins = [p.site, p.google, p.bot, p.social, p.seo, p.maps, p.logo, p.lang].filter(function (x) { return x > 0; });
     function offer(name, price, desc) { return { '@type': 'Offer', itemOffered: { '@type': 'Service', name: name, description: desc } }; }
-    var org = { '@context': 'https://schema.org', '@type': 'ProfessionalService', '@id': 'https://prmax.agency/#org', name: 'PRMAX', url: 'https://prmax.agency/', logo: 'https://prmax.agency/img/logo.webp', image: 'https://prmax.agency/img/og.jpg',
+    var org = { '@context': 'https://schema.org', '@type': 'ProfessionalService', '@id': 'https://adso.agency/#org', name: 'ADSO', url: 'https://adso.agency/', logo: 'https://adso.agency/img/logo.webp', image: 'https://adso.agency/img/og.jpg',
       description: 'Створення сайтів під ключ за 3 дні, налаштування реклами Google Ads, TikTok і Meta, Telegram-боти для бізнесу. Працюємо онлайн по всій Україні.',
-      telephone: '+380632072000', priceRange: '$$', areaServed: { '@type': 'Country', name: 'Україна' }, address: { '@type': 'PostalAddress', addressCountry: 'UA' }, sameAs: ['https://t.me/prmaxagency_bot'],
-      hasOfferCatalog: { '@type': 'OfferCatalog', name: 'Послуги PRMAX', itemListElement: [
+      priceRange: '$$', areaServed: { '@type': 'Country', name: 'Україна' }, address: { '@type': 'PostalAddress', addressCountry: 'UA' }, sameAs: ['https://t.me/adsoagency_bot'],
+      hasOfferCatalog: { '@type': 'OfferCatalog', name: 'Послуги ADSO', itemListElement: [
         offer('Сайт під ключ', p.site, 'Односторінковий сайт під вашу послугу за 3 дні'),
         offer('Налаштування реклами Google Ads', p.google, 'Реклама на тих, хто вже шукає вашу послугу у вашому місті'),
         offer('Telegram-бот для бізнесу', p.bot, 'Бот відповідає клієнтам 24/7 і збирає заявки'),

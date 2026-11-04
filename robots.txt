@@ -4,4 +4,4 @@ Disallow: /_
 Disallow: /v.html
 Disallow: /cms/
 Disallow: /admin/
-Sitemap: https://prmax.agency/sitemap.xml
+Sitemap: https://adso.agency/sitemap.xml

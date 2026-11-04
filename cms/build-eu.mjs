@@ -1,13 +1,13 @@
-// Сторінка для українських підприємців у Європі: node cms/build-eu.mjs → eu.html (prmax.agency/eu)
+// Сторінка для українських підприємців у Європі: node cms/build-eu.mjs → eu.html (adso.agency/eu)
 // Береться той самий template.html + content.json, далі — заміни нижче. Кожна заміна мусить спрацювати, інакше збірка зупиняється.
 import fs from 'node:fs'; import { createRequire } from 'node:module'; import { fileURLToPath } from 'node:url';
 const require = createRequire(import.meta.url); const CMS = require('./render.js');
 const dir = fileURLToPath(new URL('./', import.meta.url));
 const c = JSON.parse(fs.readFileSync(dir + 'content.json', 'utf8'));
 c.texts.h1b = 'для бізнесу в ЄС';
-c.seo.title = 'Сайт і реклама для українського бізнесу в Європі — від €300 | PRMAX';
+c.seo.title = 'Сайт і реклама для українського бізнесу в Європі — від €300 | ADSO';
 c.seo.description = 'Для українських підприємців у Польщі, Німеччині, Чехії та всій Європі: сайт під ключ від €300, інтернет-магазин від €500, реклама Google, TikTok, Instagram і Telegram-бот. Запуск за 3 дні.';
-c.seo.og_title = 'Сайт і реклама для українського бізнесу в Європі | PRMAX';
+c.seo.og_title = 'Сайт і реклама для українського бізнесу в Європі | ADSO';
 c.seo.og_desc = 'Сайт від €300, інтернет-магазин від €500, реклама і бот — запуск за 3 дні. Для українських підприємців у Європі.';
 const fx = a => a.replace('Наші ціни — найнижчі в Україні серед студій такої якості', 'Наші ціни нижчі, ніж у європейських агенціях такої якості').replace('від 5 000 ₴ на місяць', 'від 150 € на місяць').replace('від 3 000 ₴ на місяць', 'від 100 € на місяць');
 c.faq = c.faq.map(f => ({ q: f.q, a: fx(f.a) }));
@@ -34,9 +34,9 @@ const EU_CSS = `<style>
 </style>`;
 let out = CMS.build(fs.readFileSync(dir + 'template.html', 'utf8'), c);
 const R = [
-  ['<meta property="og:url" content="https://prmax.agency/">', '<meta property="og:url" content="https://prmax.agency/eu">'],
-  ['<link rel="canonical" href="https://prmax.agency/">', '<link rel="canonical" href="https://prmax.agency/eu">'],
-  [/<link rel="alternate" hreflang="[^"]*" href="https:\/\/prmax\.agency\/">\n?/, ''],
+  ['<meta property="og:url" content="https://adso.agency/">', '<meta property="og:url" content="https://adso.agency/eu">'],
+  ['<link rel="canonical" href="https://adso.agency/">', '<link rel="canonical" href="https://adso.agency/eu">'],
+  [/<link rel="alternate" hreflang="[^"]*" href="https:\/\/adso\.agency\/">\n?/, ''],
   ['Найнижчі ціни в Україні · <span class="more">запуск </span>за 3 дні', 'Українським підприємцям у Європі<span class="eu-tail"> · <span class="more">запуск </span>за 3 дні</span>'],
   ['· найнижчі ціни в Україні', '· ціни нижчі, ніж у європейських агенціях'],
   ['Найнижчі ціни <span class="og-text">в Україні</span>', 'Ціни нижчі, <span class="og-text">ніж у Європі</span>'],
@@ -62,7 +62,7 @@ const R = [
   ['placeholder="+380 __ ___ __ __"', 'placeholder="+48 / +49 / +420 …"', 0],
   ['placeholder="+380"', 'placeholder="+48 / +49 / +420 …"'],
   ['placeholder="Наприклад, Київ"', 'placeholder="Наприклад, Варшава"'], ['value="Київ" placeholder="Наприклад, Луцьк"', 'value="Варшава" placeholder="Наприклад, Берлін"'],
-  ['наприклад, +380 63 207 20 00', 'з кодом країни, наприклад +48 512 345 678', 0],
+  ['наприклад, +380 67 123 45 67', 'з кодом країни, наприклад +48 512 345 678', 0],
   [/<div class="map rv" id="map">[\s\S]*?<\/svg><\/div>/, ''],
   ['<sup>*</sup> Розмір бонусу та умови визначає Google. <sup>1</sup> Statcounter, вересень 2026.', ''],
   ['сайт для бізнесу Київ Львів Одеса Харків Дніпро', 'сайт для бізнесу в Польщі, Німеччині, Чехії, Європі'],

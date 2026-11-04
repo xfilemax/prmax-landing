@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
-<title>PRMAX — админка</title>
+<title>ADSO — админка</title>
 <link rel="icon" href="../img/favicon.svg" type="image/svg+xml">
 <!-- як застосунок на екрані iPhone: «Поділитися» → «На екран Додому» -->
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="icon-180.png?v=2">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="PRMAX">
+<meta name="apple-mobile-web-app-title" content="ADSO">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#0B0A09">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -240,9 +240,9 @@ textarea.in{resize:vertical;min-height:80px}
 <!-- вхід / перший пароль -->
 <section class="login" id="login">
   <form class="lbox" id="loginForm" autocomplete="on">
-    <img src="../img/logo.webp" alt="PRMAX">
+    <img src="../img/logo.webp" alt="ADSO">
     <h1 id="lTitle">Вход в админку</h1>
-    <p id="lText">Сайт prmax.agency: заявки, цены, тексты, работы, SEO.</p>
+    <p id="lText">Сайт adso.agency: заявки, цены, тексты, работы, SEO.</p>
     <label class="f"><span>Логин</span><input class="in" id="lLogin" name="username" autocomplete="username" required></label>
     <label class="f"><span>Пароль</span><input class="in" id="lPass" name="password" type="password" autocomplete="current-password" required minlength="8"></label>
     <label class="f hide" id="lPass2Wrap"><span>Пароль ещё раз</span><input class="in" id="lPass2" type="password" autocomplete="new-password" minlength="8"></label>
@@ -253,7 +253,7 @@ textarea.in{resize:vertical;min-height:80px}
 
 <div class="app hide" id="app">
   <aside class="side" id="side">
-    <img src="../img/logo.webp" alt="PRMAX">
+    <img src="../img/logo.webp" alt="ADSO">
     <nav class="nav" id="nav"></nav>
     <div class="who" id="who"></div>
   </aside>
@@ -420,11 +420,11 @@ function home() {
       ${Object.keys(bySrc).length ? Object.entries(bySrc).sort((a, b) => b[1] - a[1]).map(([s, n]) => `<div class="row" style="justify-content:space-between;padding:6px 0"><span class="tag ${esc(s)}">${esc(s)}</span><b>${n}</b></div>`).join('') : '<div class="hint">Пока нет заявок за неделю</div>'}
       <p class="hint" style="margin:12px 0 0">Последняя публикация сайта: <b>${esc(S.lastPublish || '—')}</b></p></div>
     <div class="card links"><h3 style="font-size:15px;margin-bottom:6px">Аналитика и реклама</h3>
-      <a href="https://search.google.com/search-console?resource_id=https%3A%2F%2Fprmax.agency%2F" target="_blank" rel="noopener">Google Search Console — как вас находят в Google <span>↗</span></a>
+      <a href="https://search.google.com/search-console?resource_id=https%3A%2F%2Fadso.agency%2F" target="_blank" rel="noopener">Google Search Console — как вас находят в Google <span>↗</span></a>
       <a href="https://clarity.microsoft.com/projects/view/z2nkewuu0z/dashboard" target="_blank" rel="noopener">Microsoft Clarity — записи визитов <span>↗</span></a>
       <a href="https://ads.tiktok.com/i18n/dashboard?aadvid=7628542326444556304" target="_blank" rel="noopener">TikTok Ads — кабинет PRMAX <span>↗</span></a>
       <a href="https://adsmanager.facebook.com/" target="_blank" rel="noopener">Meta Ads — Facebook и Instagram <span>↗</span></a>
-      <a href="https://prmax.agency/" target="_blank" rel="noopener">Открыть сайт <span>↗</span></a>
+      <a href="https://adso.agency/" target="_blank" rel="noopener">Открыть сайт <span>↗</span></a>
     </div>
   </div>
   <h3 style="font-size:15px;margin:22px 0 12px">Последние заявки</h3>${L.slice(0, 5).map(leadCard).join('') || '<div class="empty">Заявок пока нет</div>'}
@@ -438,7 +438,7 @@ const STATUS = [['new', 'Новая'], ['work', 'В работе'], ['client', '
 function hello(l) {
   const nm = String(l.name || '').trim().split(/\s+/)[0], where = l.chat ? 'Ви писали нашому Telegram-боту' : 'Ви залишили заявку на сайті';
   const ask = l.niche && !/^(інша|інше)$/i.test(l.niche) ? `Підготував пропозицію для «${l.niche}»${l.city ? ' у місті ' + l.city : ''} — зручно зараз 5 хвилин поговорити?` : 'Підкажіть, будь ласка, чим займається ваш бізнес і в якому місті працюєте? Підготую пропозицію саме під вас 🙂';
-  return `Добрий день${nm ? ', ' + nm : ''}! 👋 Це Максим, PRMAX. ${where} — сайт + реклама Google.\n${ask}`;
+  return `Добрий день${nm ? ', ' + nm : ''}! 👋 Це Максим, ADSO. ${where} — сайт + реклама Google.\n${ask}`;
 }
 // усі способи звʼязку одним рядком: дзвінок, WhatsApp, Viber, Telegram, переписка в боті
 function contactBtns(l) {
@@ -525,7 +525,7 @@ function bot() {
   let L = S.bot.filter((b) => S.showTests || !b.test);
   if (S.bf === 'new') L = L.filter((b) => !b.stop && !b.human && (b.created >= Date.now() - 7 * 864e5)); else if (S.bf === 'nophone') L = L.filter((b) => !b.phone); else if (S.bf === 'phone') L = L.filter((b) => b.phone && b.step !== 'done'); else if (S.bf === 'done') L = L.filter((b) => b.phone && b.step === 'done');
   if (q) L = L.filter((b) => JSON.stringify(b).toLowerCase().includes(q));
-  page(`<p class="hint">Все, кто нажал «Старт» в боте @prmaxagency_bot. Нажмите на человека — откроется вся переписка, и можно ответить ему от имени бота.</p>
+  page(`<p class="hint">Все, кто нажал «Старт» в боте @adsoagency_bot. Нажмите на человека — откроется вся переписка, и можно ответить ему от имени бота.</p>
   <div class="grid g4">
     <div class="card kpi"><b>${all.length}</b><span>подписчиков всего</span></div>
     <div class="card kpi"><b>${all.filter((b) => b.created >= d0).length}</b><span>новых сегодня</span></div>
@@ -567,7 +567,7 @@ function chatView() {
       <span class="stp ${cl}">${st}</span>${c.src ? ` <span class="tag ${esc(c.src)}">${esc(SRC_RU[c.src] || c.src)}</span>` : ''}${info ? `<div class="meta" style="color:var(--mut);font-size:13.5px;margin-top:6px">${info}</div>` : ''}</div>
     <button class="btn s g" id="cr">Обновить</button></div>${c.phone ? `<div style="font-size:20px;font-weight:800;margin:12px 0 10px">${esc(c.phone)}</div>` : ''}<div style="margin-top:10px">${contactBtns(Object.assign({}, c, { chat: '' }))}</div></div>
   <div class="chat" id="chat">${c.msgs.length ? c.msgs.map((m) => `<div class="msg ${m.w === 'клієнт' ? 'cl' : m.w === 'Максим' ? 'mx' : 'bt'}">${esc(m.t)}<small>${m.w === 'клієнт' ? 'клиент' : m.w === 'Максим' ? 'вы' : 'бот'}${m.d ? ' · ' + fmtT(m.d) : ''}</small></div>`).join('') : '<div class="empty">Переписки пока нет</div>'}</div>
-  <div class="reply"><textarea class="in" id="ct" placeholder="Ответ клиенту — придёт ему в Telegram от бота PRMAX"></textarea><button class="btn p" id="cs">Отправить</button></div>
+  <div class="reply"><textarea class="in" id="ct" placeholder="Ответ клиенту — придёт ему в Telegram от бота ADSO"></textarea><button class="btn p" id="cs">Отправить</button></div>
   <p class="hint" style="margin-top:8px">Ответ также появится в вашей группе «PRMAX Заявки». Отправленное сообщение удалить нельзя — проверьте текст.</p>`);
   const ch = $('#chat'); ch.scrollTop = ch.scrollHeight;
   $('#cb').onclick = () => { S.chat = null; history.replaceState(null, '', '#bot'); bot(); loadBot(true); };
@@ -672,7 +672,7 @@ function seo() {
   const F = [['title', 'Заголовок в Google (title)', 'до 60 символов, главные слова в начале', 1], ['description', 'Описание в Google (description)', 'до 155 символов, с ценой и выгодой', 3], ['og_title', 'Заголовок при отправке ссылки (Viber, Telegram, Facebook)', '', 1], ['og_desc', 'Описание при отправке ссылки', '', 2], ['keywords', 'Ключевые слова (через запятую)', 'по каким запросам вас ищут; главное — чтобы эти слова были и в текстах сайта', 3]];
   page(`<p class="hint">Как сайт выглядит в поиске Google и в превью ссылки. {site}, {google}, {bot} — подставятся цены. Ключевые слова, по которым ищут: «сайт під ключ», «створення сайту ціна», «налаштування Google Ads», «телеграм бот ціна», «розробка лендінгу».</p>
   <div class="card" style="margin-bottom:14px"><div class="hint" style="margin:0 0 10px">Так вас увидят в Google:</div>
-    <div class="snippet"><div class="u">prmax.agency</div><div class="t" id="snT"></div><div class="ds" id="snD"></div></div></div>
+    <div class="snippet"><div class="u">adso.agency</div><div class="t" id="snT"></div><div class="ds" id="snD"></div></div></div>
   <div class="card">${F.map(([k, n, h, rows]) => `<label class="fld"><span>${n} <i class="counter" id="c_${k}"></i></span><textarea class="in" rows="${rows}" data-k="seo.${k}" data-after="seoPrev">${esc(get('seo.' + k))}</textarea>${h ? `<small style="color:var(--dim)">${h}</small>` : ''}</label>`).join('')}
     <p class="hint" style="margin:6px 0 0">Сайт подключён к Google Search Console, карта сайта отправлена. Ссылка — в «Обзоре».</p></div>`);
   bind($('#page')); seoPrev();

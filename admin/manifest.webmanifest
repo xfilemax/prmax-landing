@@ -1,6 +1,6 @@
 {
-  "name": "PRMAX — заявки й бот",
-  "short_name": "PRMAX",
+  "name": "ADSO — заявки й бот",
+  "short_name": "ADSO",
   "start_url": "/admin/#leads",
   "scope": "/admin/",
   "display": "standalone",
