@@ -1446,6 +1446,48 @@ body .mbar .btn,body .mbar .btn.btn-go{background:var(--grad)!important;border:1
 .cw-hint{display:none!important}
 .cw-main{width:50px!important;height:50px!important}.cw-ic{width:24px!important;height:24px!important}
 }
+/* 05.11.2026 (2): телефон — більше повітря: рівні відступи першого екрана, широка картка «Ціна за 30 секунд», ширші інтервали в секціях */
+.qc-n{display:none}
+@media(max-width:899px){
+.hero{--hg:clamp(16px,3.1vh,30px);--ht:clamp(12px,2.2vh,22px);padding-top:calc(74px + var(--ht) + env(safe-area-inset-top,0px))!important;padding-bottom:calc(var(--hg) + 8px)!important}
+.hero .h-top>.pill{margin:0 -4px!important;width:calc(100% + 8px)!important;max-width:none!important;justify-content:space-between!important;padding:11px 14px!important;font-size:clamp(9.5px,2.75vw,11.5px)!important;letter-spacing:.07em!important;white-space:nowrap}
+.hero .h-top>.pill>span:not(.pill-go){flex:1 1 auto;text-align:center;min-width:0;overflow:hidden;text-overflow:ellipsis}.hero .pill .more,.hero .pill .eu-tail{display:none!important}.hero .pill .pill-go{flex:0 0 auto;margin-left:6px!important}
+.hero .display{margin-top:var(--hg)!important;line-height:1.16!important}
+.hero .display .ln+.ln{margin-top:.14em}
+.hp{margin:var(--hg) -4px 0!important;width:calc(100% + 8px)!important;max-width:none!important;padding:0!important;gap:clamp(6px,2.2vw,10px)!important}
+.hp-i{padding:15px 4px 14px!important}
+.hp-i b{margin-top:9px!important;font-size:clamp(13px,4.5vw,19px)!important}
+.qcard{width:calc(100% + 8px)!important;margin:var(--hg) -4px 0!important;padding:clamp(16px,4.6vw,20px)!important;grid-template-columns:clamp(48px,14vw,58px) 1fr!important;grid-template-areas:"g t" "b b" "n n"!important;gap:clamp(14px,2.2vh,18px) 14px!important;border-radius:28px!important}
+.qcard{background:radial-gradient(120% 90% at 50% -20%,rgba(255,122,0,.2),rgba(255,122,0,0) 60%),rgba(22,18,15,.94)!important}
+.qc-gift{width:clamp(48px,14vw,58px)!important;height:clamp(48px,14vw,58px)!important}
+.qc-t{min-width:0}
+.qc-t b{font-size:clamp(18px,6.3vw,25px)!important;line-height:1.15!important;white-space:nowrap;letter-spacing:-.02em!important}
+.qc-t small{font-size:clamp(12px,3.9vw,15px)!important;line-height:1.3!important;margin-top:7px!important;white-space:nowrap;color:#D8CFC4!important}
+.qc-t small em{color:#FFB45A!important}
+.qc-btn{height:clamp(58px,7.6vh,64px)!important;font-size:clamp(15.5px,4.9vw,20px)!important}
+.qc-n{grid-area:n;display:flex;justify-content:center;align-items:center;gap:6px 18px;flex-wrap:wrap;font:700 clamp(11.5px,3.4vw,13px)/1 var(--b);color:#B9AFA4;letter-spacing:.01em;margin-top:-2px}
+.qc-n i{font-style:normal;color:#FFB45A;margin-right:5px}
+.hero .hq-trust{margin-top:var(--hg)!important;font-size:clamp(11.5px,3.6vw,14.5px)!important;white-space:nowrap;gap:10px!important}
+.hero .hq{margin-top:var(--hg)!important}
+}
+@media(max-width:345px){.hq-trust .t2{display:none}.hero .h-top>.pill{letter-spacing:.04em!important;padding-inline:10px!important;gap:6px!important}}
+@supports(height:1svh){@media(max-width:899px){.hero{--hg:clamp(16px,3.1svh,30px);--ht:clamp(12px,2.2svh,22px)}}}
+/* 05.11.2026 (2): телефон — більше повітря між блоками та рядками по всій сторінці */
+@media(max-width:899px){
+.sec{padding-block:clamp(60px,17vw,78px)!important}
+#roboty{padding-top:clamp(52px,14vw,64px)!important}
+.trustbar{padding:36px 0 40px!important}.trustbar .marq{margin-top:26px!important}
+.sec-head h2,.founder h2,.final h2,#bot h2{line-height:1.2!important}
+.sec-head h2{margin-top:18px!important}
+.sec-head p,.final .sub,.founder .txt>p{margin-top:18px!important;line-height:1.7!important}
+.hs-wrap{margin-top:34px!important}
+.pr-list{margin-top:30px!important;gap:12px!important}
+.pr-list .pr{padding:15px 16px!important}
+#bot .botc{padding:28px 22px!important;gap:26px!important}
+#bot .botc-l{gap:16px!important;margin-top:24px!important;line-height:1.5}
+.faq-list{margin-top:30px!important}
+.final-grid{gap:32px!important}
+}
 </style>
 <!-- Microsoft Clarity (теплові карти й записи сеансів) -->
 <script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];__late(function(){document.head.appendChild(t)});})(window,document,"clarity","script","z2nkewuu0z");</script>
@@ -1522,9 +1564,10 @@ body .mbar .btn,body .mbar .btn.btn-go{background:var(--grad)!important;border:1
     </div>
     <button type="button" class="qcard" id="hqopen">
       <span class="qc-gift" aria-hidden="true"><svg viewBox="0 0 64 64" class="gift3d"><defs><linearGradient id="gbx" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E8303C"/><stop offset="1" stop-color="#9E0F1E"/></linearGradient><linearGradient id="glid" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FF5A62"/><stop offset="1" stop-color="#C8202C"/></linearGradient></defs><rect x="12" y="28" width="40" height="30" rx="5" fill="url(#gbx)"/><rect x="9" y="20" width="46" height="13" rx="4" fill="url(#glid)"/><rect x="28" y="20" width="8" height="38" fill="#FFF6E8"/><path d="M32 20c-6-2-12-9-8-12s8 4 8 12zm0 0c6-2 12-9 8-12s-8 4-8 12z" fill="#FFF6E8"/><circle cx="32" cy="19" r="3" fill="#FFF6E8"/><rect x="12" y="28" width="40" height="30" rx="5" fill="none" stroke="#6E0A14" stroke-width="1.2" opacity=".5"/></svg><i class="sp s1"></i><i class="sp s2"></i><i class="sp s3"></i></span>
-      <span class="qc-t"><b>Розрахунок + <em>подарунок</em></b><small>3 питання · 30 секунд · безкоштовно</small></span>
+      <span class="qc-t"><b>Ціна за 30 секунд</b><small><em>+ подарунок:</em> домен і логотип</small></span>
       <span class="qc-steps"><i>1</i><i>2</i><i>3</i><em>· легко</em></span>
       <span class="qc-btn"><span>Розрахувати вартість</span><span class="ar"><svg><use href="#i-arr"/></svg></span></span>
+      <span class="qc-n"><span><i>✓</i>3 питання</span><span><i>✓</i>безкоштовно</span></span>
     </button>
 
     <!-- 28.10: опитування прямо на першому екрані (у браузері TikTok посилання на Telegram часто не відкривається) -->
@@ -1565,7 +1608,7 @@ body .mbar .btn,body .mbar .btn.btn-go{background:var(--grad)!important;border:1
       <button type="button" class="hq-back" id="hqback" hidden>← Назад</button>
       <div class="hq-foot" id="hqfoot"><button type="button" class="btn btn-o btn-go hq-go" id="hqgo"><span>Залишити заявку<small>оберіть нішу вище — 3 питання · 30 секунд</small></span><span class="ar"><svg><use href="#i-arr"/></svg></span></button><p class="hq-hint" id="hqhint" hidden>👆 Оберіть один варіант — і йдемо далі</p></div>
     </div>
-    <div class="hq-trust"><img src="img/maxim-96.webp" alt="Максим, засновник ADSO" width="40" height="40" decoding="async"><span><b>250+ бізнесів</b> уже з нами · запуск за 3 дні<br><small>або <a href="#" data-lead>напишіть у Telegram</a> · <a href="#roboty">наші роботи</a></small></span></div>
+    <div class="hq-trust"><img src="img/maxim-96.webp" alt="Максим, засновник ADSO" width="40" height="40" decoding="async"><span><b>250+ бізнесів</b> уже з нами<span class="t2"> · запуск за 3 дні</span><br><small>або <a href="#" data-lead>напишіть у Telegram</a> · <a href="#roboty">наші роботи</a></small></span></div>
     </div>
   </div>
   <div class="wrap">
