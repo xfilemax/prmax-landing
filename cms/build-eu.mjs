@@ -38,8 +38,8 @@ const R = [
   ['<link rel="canonical" href="https://adso.agency/">', '<link rel="canonical" href="https://adso.agency/eu">'],
   [/<link rel="alternate" hreflang="[^"]*" href="https:\/\/adso\.agency\/">\n?/, ''],
   ['Найнижчі ціни в Україні · <span class="more">запуск </span>за 3 дні', 'Українським підприємцям у Європі<span class="eu-tail"> · <span class="more">запуск </span>за 3 дні</span>'],
-  ['· найнижчі ціни в Україні', '· ціни нижчі, ніж у європейських агенціях'],
-  ['Найнижчі ціни <span class="og-text">в Україні</span>', 'Ціни нижчі, <span class="og-text">ніж у Європі</span>'],
+  ['· найнижчі ціни в Україні', '· найнижчі ціни в Європі'],
+  ['Найнижчі ціни <span class="og-text">в Україні</span>', 'Найнижчі ціни <span class="og-text">в Європі</span>'],
   ['data-v="Київ">Київ</button><button type="button" data-i="1" data-v="Львів">Львів</button>', 'data-v="Польща">Польща</button><button type="button" data-i="1" data-v="Німеччина">Німеччина</button>'],
   ['data-v="Одеса">Одеса</button><button type="button" data-i="3" data-v="Дніпро">Дніпро</button>', 'data-v="Чехія">Чехія</button><button type="button" data-i="3" data-v="Австрія">Австрія</button>'],
   ['data-v="Харків">Харків</button><button type="button" data-i="5" data-v="Вся Україна">Вся Україна</button>', 'data-v="Італія / Іспанія">Італія / Іспанія</button><button type="button" data-i="5" data-v="Інша країна ЄС">Інша країна ЄС</button>'],
@@ -79,7 +79,7 @@ const R = [
   ["s.style.setProperty('--i',n++);s.textContent=w;", "s.style.setProperty('--i',n++);if(w==='ЄС')s.innerHTML=" + JSON.stringify(BADGE) + ";else s.textContent=w;"],
   ['орієнтовно $4–5/міс', 'орієнтовно €4–5/міс'],
   ["currency:'USD'", "currency:'EUR'", 2],
-  ['<i>✓</i>найнижчі ціни в Україні', '<i>✓</i>ціни нижчі, ніж у Європі'], // 05.11 (3): без цін на сторінці — лише обіцянка
+  ['<i>✓</i>найнижчі ціни в Україні', '<i>✓</i>найнижчі ціни в Європі'], // 05.11 (3): без цін на сторінці — лише обіцянка
   ['<b>2</b>Місто</span>', '<b>2</b>Країна</span>'],
 ];
 for (const [a, b, n] of R) {
