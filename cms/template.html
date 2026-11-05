@@ -1960,15 +1960,15 @@ var CONTACTS={
      Щоб підключити: вставити тег GA4/Google Ads або GTM у <head> — події call / telegram / lead з'являться самі. */
   window.dataLayer=window.dataLayer||[];
   /* Meta Pixel: стандартні події (чат Instagram/Facebook, 24.10.2026) */
-  var FB_EV={call:['Contact',{content_name:'call'}],telegram:['Contact',{content_name:'telegram'}],lead:['Lead',{content_name:'prmax_offer',value:450,currency:'USD'}]};
+  var FB_EV={call:['Contact',{content_name:'call'}],telegram:['Contact',{content_name:'telegram'}],whatsapp:['Contact',{content_name:'whatsapp'}],lead:['Lead',{content_name:'prmax_offer',value:450,currency:'USD'}]};
   /* TikTok Pixel: назви подій і формат з Events Manager (чат TikTok, 24.10.2026) */
-  var TTQ_EV={call:[['Contact',{contents:[{content_id:'call',content_type:'product',content_name:'phone_click'}]}]],telegram:[['Contact',{contents:[{content_id:'telegram',content_type:'product',content_name:'telegram_click'}]}],['ClickButton',{contents:[{content_id:'telegram',content_type:'product',content_name:'telegram_click'}]}]],lead:[['Lead',{contents:[{content_id:'prmax_offer',content_type:'product',content_name:'site_300_ads_150'}],value:450,currency:'USD'}]]}; /* TikTok: одна подія на форму — код Lead (у нашому пікселі подія «Отправить форму» прив'язана саме до коду Lead, Events Manager 23.10); Contact — телефон і Telegram; ClickButton — додатково на Telegram */
-  function conv(name,extra){var d={event:'prmax_conv',conv:name};for(var k in (extra||{}))d[k]=extra[k];dataLayer.push(d);try{if(typeof gtag==='function')gtag('event',name,extra||{});if(typeof fbq==='function'&&!window.__TEST){fbq('trackCustom','PRMAX_'+name,extra||{});if(FB_EV[name])fbq('track',FB_EV[name][0],FB_EV[name][1],extra&&extra.eid?{eventID:extra.eid}:undefined);}if(typeof ttq!=='undefined'&&!window.__TEST&&TTQ_EV[name])TTQ_EV[name].forEach(function(ev){ttq.track(ev[0],ev[1])});}catch(e){}}
+  var TTQ_EV={call:[['Contact',{contents:[{content_id:'call',content_type:'product',content_name:'phone_click'}]}]],telegram:[['Contact',{contents:[{content_id:'telegram',content_type:'product',content_name:'telegram_click'}]}],['ClickButton',{contents:[{content_id:'telegram',content_type:'product',content_name:'telegram_click'}]}]],whatsapp:[['Contact',{contents:[{content_id:'whatsapp',content_type:'product',content_name:'whatsapp_click'}]}]],lead:[['Lead',{contents:[{content_id:'prmax_offer',content_type:'product',content_name:'site_300_ads_150'}],value:450,currency:'USD'}],['Contact',{contents:[{content_id:'lead_form',content_type:'product',content_name:'lead_form'}]}]]}; /* 05.11.2026: єдина подія Contact (у TikTok — CONSULT) = клік Telegram, клік WhatsApp або надіслана заявка; Lead при заявці лишається */ /* TikTok: одна подія на форму — код Lead (у нашому пікселі подія «Отправить форму» прив'язана саме до коду Lead, Events Manager 23.10); Contact — телефон і Telegram; ClickButton — додатково на Telegram */
+  function conv(name,extra){var d={event:'prmax_conv',conv:name};for(var k in (extra||{}))d[k]=extra[k];dataLayer.push(d);try{if(typeof gtag==='function')gtag('event',name,extra||{});if(typeof fbq==='function'&&!window.__TEST){fbq('trackCustom','PRMAX_'+name,extra||{});if(FB_EV[name])fbq('track',FB_EV[name][0],FB_EV[name][1],extra&&extra.eid?{eventID:extra.eid}:undefined);}if(typeof ttq!=='undefined'&&!window.__TEST&&TTQ_EV[name])TTQ_EV[name].forEach(function(ev){if(ev[0]==='Contact'&&extra&&extra.ceid)ttq.track(ev[0],ev[1],{event_id:extra.ceid});else ttq.track(ev[0],ev[1])});}catch(e){}}
   window.prmaxConv=conv;
 
   /* Contacts */
   $$('[data-c=vb-link]').forEach(function(e){if(CONTACTS.viber){e.hidden=false;e.href='viber://chat?number=%2B'+CONTACTS.viber;e.addEventListener('click',function(){conv('viber',{})})}});
-  $$('[data-c=wa-link]').forEach(function(e){if(CONTACTS.whatsapp){e.href='https://wa.me/'+CONTACTS.whatsapp}else{e.removeAttribute('target');e.addEventListener('click',function(ev){ev.preventDefault();var g=document.querySelector('[data-goq]');if(g)g.click()})}e.addEventListener('click',function(){conv('whatsapp',{place:(e.closest('section,header,.mnav,.mbar,footer,.fab')||{}).id||''})})});
+  $$('[data-c=wa-link]').forEach(function(e){if(CONTACTS.whatsapp){e.href='https://wa.me/'+CONTACTS.whatsapp}else{e.removeAttribute('target');e.addEventListener('click',function(ev){ev.preventDefault();var g=document.querySelector('[data-goq]');if(g)g.click()})}e.addEventListener('click',function(){var ce=ceid('wa');ttSave('whatsapp',ce);conv('whatsapp',{ceid:ce,place:(e.closest('section,header,.mnav,.mbar,footer,.fab')||{}).id||''})})});
   var SRC='';try{var us=(new URLSearchParams(location.search).get('utm_source')||'').toLowerCase().replace(/[^a-z0-9_-]/g,'').slice(0,30);if(us)sessionStorage.setItem('prmax_src',us);SRC=us||sessionStorage.getItem('prmax_src')||'';}catch(e){}
   var PROMO='';try{if(/[?&]utm_campaign=prmax_ua_retarget(&|$)/.test(location.search)||/[?&]promo=r10(&|$)/.test(location.search))sessionStorage.setItem('prmax_promo','r10');PROMO=sessionStorage.getItem('prmax_promo')||'';}catch(e){}
   if(PROMO==='r10'){SRC=(SRC||'site')+'_r10';document.documentElement.classList.add('r10')}
@@ -1976,7 +1976,8 @@ var CONTACTS={
   var IP='';function getIp(){return fetch('https://api.ipify.org?format=json').then(function(r){return r.json()}).then(function(j){IP=String(j.ip||'').slice(0,45);return IP}).catch(function(){return IP})}try{__late(getIp)}catch(e){} /* IP для client_ip_address у серверному Lead (Meta EMQ) */ /* ретаргет: −10% за заявку протягом 7 днів — позначка йде в таблицю, бота і сповіщення */
   /* TikTok: мітку кліку (ttclid) і cookie _ttp зберігаємо на сервері під коротким номером візиту → бот, отримавши телефон, повідомить TikTok про справжню заявку */
   var TTCLID='',SID='';try{var tc=new URLSearchParams(location.search).get('ttclid');if(tc)sessionStorage.setItem('prmax_ttclid',tc.slice(0,500));TTCLID=sessionStorage.getItem('prmax_ttclid')||'';if(TTCLID){SID=sessionStorage.getItem('prmax_sid');if(!SID){SID=Math.random().toString(36).slice(2,10);sessionStorage.setItem('prmax_sid',SID)}}}catch(e){}
-  function ttSave(){if(!SID||!CONTACTS.lead.endpoint)return;try{var m=document.cookie.match(/(?:^|;\s*)_ttp=([^;]+)/);navigator.sendBeacon(CONTACTS.lead.endpoint,JSON.stringify({tt:1,sid:SID,ttclid:TTCLID,src:SRC||'site',ip:IP,test:window.__TEST?1:0,fbp:(document.cookie.match(/(?:^|;\s*)_fbp=([^;]+)/)||[])[1]||'',fbc:(document.cookie.match(/(?:^|;\s*)_fbc=([^;]+)/)||[])[1]||'',qn:(window.__q&&window.__q.n)||'',qc:(window.__q&&window.__q.c)||'',ttp:m?decodeURIComponent(m[1]):'',ua:navigator.userAgent,url:location.href.slice(0,300)}))}catch(e){}}
+  function ceid(k){return 'c_'+(SID||'v')+'_'+k+'_'+Date.now().toString(36)}
+  function ttSave(kind,eid){if(!SID||!CONTACTS.lead.endpoint)return;try{var m=document.cookie.match(/(?:^|;\s*)_ttp=([^;]+)/);navigator.sendBeacon(CONTACTS.lead.endpoint,JSON.stringify({tt:1,ev:kind?'contact':'',kind:kind||'',eid:eid||'',sid:SID,ttclid:TTCLID,src:SRC||'site',ip:IP,test:window.__TEST?1:0,fbp:(document.cookie.match(/(?:^|;\s*)_fbp=([^;]+)/)||[])[1]||'',fbc:(document.cookie.match(/(?:^|;\s*)_fbc=([^;]+)/)||[])[1]||'',qn:(window.__q&&window.__q.n)||'',qc:(window.__q&&window.__q.c)||'',ttp:m?decodeURIComponent(m[1]):'',ua:navigator.userAgent,url:location.href.slice(0,300)}))}catch(e){}}
   var TG_URL='https://t.me/'+CONTACTS.telegram+'?start='+(SRC||'site')+(SID?'-'+SID:'');
   try{if(matchMedia('(min-width:900px)').matches)document.querySelectorAll('details.extras').forEach(function(d){d.open=true})}catch(e){}
   /* 28.10 опитування на першому екрані: ніша → місто → що потрібно → ціна → номер (або Telegram з уже готовими відповідями) */
@@ -2016,7 +2017,7 @@ var CONTACTS={
     q('#hqcityok').addEventListener('click',function(){var v=q('#hqcity').value.trim();if(!v){q('#hqcity').focus();return}A.c={i:9,v:v.slice(0,40)};try{conv('hero_quiz_q2',{v:'custom'})}catch(e){}show(3)});
     q('#hqcity').addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();q('#hqcityok').click()}});
     q('#hqback').addEventListener('click',function(){show(Math.max(1,step-1))});
-    q('#hqtg').addEventListener('click',function(){ttSave();conv('telegram',{place:'hero_quiz'})});
+    q('#hqtg').addEventListener('click',function(){var ce=ceid('tg');ttSave('telegram',ce);conv('telegram',{ceid:ce,place:'hero_quiz'})});
     q('#hqf').addEventListener('submit',function(e){
       e.preventDefault();var err=q('#hqerr'),nm=q('#hqnm').value.trim(),ph=normPhone(q('#hqph').value);err.textContent='';
       if(nm.length<2){err.textContent="Вкажіть ваше ім'я — щоб менеджер знав, як звертатися";q('#hqnm').focus();return}
@@ -2027,7 +2028,7 @@ var CONTACTS={
     function goQ(e){if(e&&e.preventDefault)e.preventDefault();if(window.__hqOpen)window.__hqOpen();try{if(document.getElementById('mnav').classList.contains('on'))setMenu(false)}catch(x){}setTimeout(fitQ,80);hq.classList.remove('pulse');void hq.offsetWidth;hq.classList.add('pulse');conv('hero_quiz_tap',{})}
     [].forEach.call(document.querySelectorAll('[data-goq]'),function(el){el.addEventListener('click',goQ);el.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();goQ()}})});
   })();
-  $$('[data-c=tg-link]').forEach(function(e){e.href=TG_URL;e.addEventListener('click',function(){ttSave();conv('telegram',{place:e.closest('section,header,.mnav,.mbar,footer')?(e.closest('section,header,.mnav,.mbar,footer').id||e.closest('section,header,.mnav,.mbar,footer').className.split(' ')[0]):''})})});
+  $$('[data-c=tg-link]').forEach(function(e){e.href=TG_URL;e.addEventListener('click',function(){var ce=ceid('tg');ttSave('telegram',ce);conv('telegram',{ceid:ce,place:e.closest('section,header,.mnav,.mbar,footer')?(e.closest('section,header,.mnav,.mbar,footer').id||e.closest('section,header,.mnav,.mbar,footer').className.split(' ')[0]):''})})});
 
   /* Preloader */
   var pre=$('#pre');
@@ -2234,7 +2235,8 @@ var CONTACTS={
   function sendLead(d){
     d.lid=Date.now().toString(36)+Math.random().toString(36).slice(2,6); /* номер заявки: бот у Telegram впізнає клієнта за ним; той самий — eventID для Meta */
     if(window.__TEST){d.test=1;d.form='test-'+d.form}
-    conv('lead',{niche:d.niche||'',city:d.city||'',form:d.form,eid:'site_'+d.lid});
+    d.ceid='c_lead_'+d.lid;d.sid=SID||'';
+    conv('lead',{niche:d.niche||'',city:d.city||'',form:d.form,eid:'site_'+d.lid,ceid:d.ceid});
     d.page=location.href;d.ua=navigator.userAgent.slice(0,120);d.src=SRC||'site';try{var fm=document.cookie.match(/(?:^|;\s*)_fbp=([^;]+)/),fc=document.cookie.match(/(?:^|;\s*)_fbc=([^;]+)/);d.fbp=fm?fm[1]:'';d.fbc=fc?fc[1]:''}catch(e){}
     var tgl='https://t.me/'+CONTACTS.telegram+'?start=l_'+d.lid;$$('#ldone a[data-c=tg-link],#mdone a[data-c=tg-link],#qtg').forEach(function(a){a.href=tgl});
     try{localStorage.setItem('prmax_lead',JSON.stringify(d))}catch(e){}
@@ -2250,7 +2252,7 @@ var CONTACTS={
   function openLead(src){leadLast=document.activeElement;lead.classList.add('on');lead.setAttribute('aria-hidden','false');lead.inert=false;document.body.classList.add('lock');conv('lead_open',{place:src||''});if(fine)setTimeout(function(){$('#lph').focus({preventScroll:true})},500)}
   function closeLead(){lead.classList.remove('on');lead.setAttribute('aria-hidden','true');lead.inert=true;if(!$('#mnav').classList.contains('on'))document.body.classList.remove('lock');if(leadLast&&leadLast.focus)leadLast.focus({preventScroll:true})}
   /* Максим 26.10: усі кнопки заявки ведуть у Telegram-бота (клік = Contact у пікселях); форма лишається для тих, у кого немає Telegram */
-  $$('[data-lead]').forEach(function(a){var sc=a.closest('section,header,.mnav,.mbar,footer'),pl=sc?(sc.id||sc.className.split(' ')[0]):'';a.href=TG_URL;a.target='_blank';a.rel='noopener';a.addEventListener('click',function(){ttSave();conv('telegram',{place:pl})})});
+  $$('[data-lead]').forEach(function(a){var sc=a.closest('section,header,.mnav,.mbar,footer'),pl=sc?(sc.id||sc.className.split(' ')[0]):'';a.href=TG_URL;a.target='_blank';a.rel='noopener';a.addEventListener('click',function(){var ce=ceid('tg');ttSave('telegram',ce);conv('telegram',{ceid:ce,place:pl})})});
   $$('[data-form]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();openLead('no_telegram')})});
   $('#leadx').addEventListener('click',closeLead);$('#leadbg').addEventListener('click',closeLead);
   addEventListener('keydown',function(e){if(e.key==='Escape'&&lead.classList.contains('on'))closeLead()});
