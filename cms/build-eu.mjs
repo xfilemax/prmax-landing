@@ -79,6 +79,7 @@ const R = [
   ["s.style.setProperty('--i',n++);s.textContent=w;", "s.style.setProperty('--i',n++);if(w==='ЄС')s.innerHTML=" + JSON.stringify(BADGE) + ";else s.textContent=w;"],
   ['орієнтовно $4–5/міс', 'орієнтовно €4–5/міс'],
   ["currency:'USD'", "currency:'EUR'", 2],
+  ['<span class="cu">$</span>', '<span class="cu">€</span>'], // 05.11: ціни на першому екрані й у списку послуг — у євро
 ];
 for (const [a, b, n] of R) {
   const cnt = typeof a === 'string' ? out.split(a).length - 1 : (out.match(new RegExp(a.source, 'g')) || []).length;
