@@ -1415,7 +1415,6 @@ svg.wa{fill:#25D366;stroke:none!important}
 .pr-list .pr b em{font-size:17px!important;letter-spacing:-.01em}
 @media(max-width:899px){
 .hdr a.icbtn.call{display:none!important}
-.h-top .usp{display:none!important}
 .hp{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(5px,2vw,8px);margin:20px 0 0;padding:0 clamp(10px,4vw,16px);width:100%;max-width:100%}
 .hp-i{padding:13px 4px 12px;border-radius:18px;text-align:center;background:linear-gradient(160deg,rgba(255,255,255,.1),rgba(255,255,255,.03));border:1px solid rgba(255,170,90,.3);box-shadow:inset 0 1px 0 rgba(255,255,255,.14),0 10px 26px -16px rgba(255,120,20,.7)}
 .hp-i small{display:block;font:700 11px/1 var(--b);letter-spacing:.09em;text-transform:uppercase;color:#C9BFB4}
@@ -1490,6 +1489,33 @@ body .mbar .btn,body .mbar .btn.btn-go{background:var(--grad)!important;border:1
 .faq-list{margin-top:30px!important}
 .final-grid{gap:32px!important}
 }
+/* 05.11.2026 (3): без цін на сайті — інтрига «дізнайтесь свою ціну»; три плитки послуг; нижньої кнопки немає — усе в одному кружку */
+.qc-q{display:none}
+body .mbar{display:none!important}
+.cw-opt{min-width:204px}.cw-opt.ld{background:var(--grad)}.cw-opt.ld i svg{stroke:#fff;fill:none}
+.cw-main{animation:cwBeat 2.6s ease-in-out infinite}.cw.open .cw-main{animation:none}
+.cw-main::before,.cw-main::after{border-width:2.5px}
+@keyframes cwBeat{0%,100%{transform:scale(1)}12%{transform:scale(1.09)}24%{transform:scale(1)}36%{transform:scale(1.06)}48%{transform:scale(1)}}
+@keyframes cwRing{0%{transform:scale(1);opacity:.9}100%{transform:scale(1.6);opacity:0}}
+@media(prefers-reduced-motion:reduce){.cw-main{animation:none}}
+@media(max-width:899px){
+.cw{right:14px!important;bottom:calc(16px + env(safe-area-inset-bottom,0px))!important}
+.cw-main{width:56px!important;height:56px!important}.cw-ic{width:27px!important;height:27px!important}
+.cw-opt{min-width:204px;padding:13px 18px 13px 14px;font-size:15.5px}
+.h-top .usp{margin:var(--hg) -4px 0!important;width:calc(100% + 8px)!important;max-width:none!important;gap:clamp(6px,2.2vw,10px)!important}
+.h-top .usp .u{padding:11px 4px 10px!important;gap:3px!important;min-width:0;border-radius:16px!important;align-content:start}
+.h-top .usp .u i{display:grid!important;width:clamp(28px,8.6vw,34px)!important;height:clamp(28px,8.6vw,34px)!important;border-radius:10px!important;margin-bottom:3px}
+.h-top .usp .u i .ic,.h-top .usp .u i svg{width:16px!important;height:16px!important}
+.h-top .usp .u b{font-size:clamp(11.5px,3.55vw,14.5px)!important;line-height:1.15!important;white-space:nowrap;letter-spacing:-.01em}
+.h-top .usp .u span{display:block!important;font-size:clamp(8.5px,2.65vw,11px)!important;line-height:1.2!important;white-space:nowrap}
+.qcard{grid-template-areas:"g t" "q q" "b b" "n n"!important}
+.qc-t b{font-size:clamp(16.5px,5.6vw,23px)!important}
+.qc-q{grid-area:q;display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(6px,2vw,8px)}
+.qc-q>span{display:flex;align-items:center;justify-content:center;gap:6px;min-width:0;padding:9px 4px;border-radius:12px;background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.13);font:700 clamp(11.5px,3.5vw,13.5px)/1 var(--b);color:#EDE6DC;white-space:nowrap}
+.qc-q b{flex:0 0 auto;width:19px;height:19px;border-radius:50%;display:grid;place-items:center;background:var(--grad);color:#fff;font:800 11px/1 var(--b)}
+}
+@media(max-width:899px) and (max-height:600px){.qc-q{display:none}.h-top .usp .u i{display:none!important}}
+@media(max-width:345px){.qc-n span:first-child{display:none}}
 </style>
 <!-- Microsoft Clarity (теплові карти й записи сеансів) -->
 <script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];__late(function(){document.head.appendChild(t)});})(window,document,"clarity","script","z2nkewuu0z");</script>
@@ -1547,7 +1573,6 @@ body .mbar .btn,body .mbar .btn.btn-go{background:var(--grad)!important;border:1
   <div class="wrap h-top">
     <button type="button" class="pill" data-goq><i class="dot"></i><span>Найнижчі ціни в Україні · <span class="more">запуск </span>за 3 дні</span><span class="pill-go">→</span></button>
     <h1 class="display" id="h1"><span class="ln"><span class="lni">{{t.h1a}}</span></span><span class="ln"><span class="lni og-text live">{{t.h1b}}</span></span></h1>
-    <div class="hp" aria-label="Ціни"><div class="hp-i"><small>Сайт</small><b>від <span class="cu">$</span>{{p.site}}</b></div><div class="hp-i"><small>Магазин</small><b>від <span class="cu">$</span>{{p.shop}}</b></div><div class="hp-i"><small>Реклама</small><b>від <span class="cu">$</span>{{p.google}}</b></div></div>
     <div class="usp" aria-label="Що ви отримуєте">
       <div class="u"><i><svg class="ic"><use href="#ic-search"/></svg></i><b>Google</b><span>хто вже шукає</span></div>
       <div class="u"><i><svg class="ic"><use href="#ic-mobile"/></svg></i><b>Соцмережі</b><span>TikTok · Instagram</span></div>
@@ -1555,10 +1580,10 @@ body .mbar .btn,body .mbar .btn.btn-go{background:var(--grad)!important;border:1
     </div>
     <button type="button" class="qcard" id="hqopen">
       <span class="qc-gift" aria-hidden="true"><svg viewBox="0 0 64 64" class="gift3d"><defs><linearGradient id="gbx" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E8303C"/><stop offset="1" stop-color="#9E0F1E"/></linearGradient><linearGradient id="glid" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FF5A62"/><stop offset="1" stop-color="#C8202C"/></linearGradient></defs><rect x="12" y="28" width="40" height="30" rx="5" fill="url(#gbx)"/><rect x="9" y="20" width="46" height="13" rx="4" fill="url(#glid)"/><rect x="28" y="20" width="8" height="38" fill="#FFF6E8"/><path d="M32 20c-6-2-12-9-8-12s8 4 8 12zm0 0c6-2 12-9 8-12s-8 4-8 12z" fill="#FFF6E8"/><circle cx="32" cy="19" r="3" fill="#FFF6E8"/><rect x="12" y="28" width="40" height="30" rx="5" fill="none" stroke="#6E0A14" stroke-width="1.2" opacity=".5"/></svg><i class="sp s1"></i><i class="sp s2"></i><i class="sp s3"></i></span>
-      <span class="qc-t"><b>Ціна за 30 секунд</b><small><em>+ подарунок:</em> домен і логотип</small></span>
-      <span class="qc-steps"><i>1</i><i>2</i><i>3</i><em>· легко</em></span>
-      <span class="qc-btn"><span>Розрахувати вартість</span><span class="ar"><svg><use href="#i-arr"/></svg></span></span>
-      <span class="qc-n"><span><i>✓</i>3 питання</span><span><i>✓</i>безкоштовно</span></span>
+      <span class="qc-t"><b>Дізнайтесь свою ціну</b><small><em>+ подарунок:</em> домен і логотип</small></span>
+      <span class="qc-q"><span><b>1</b>Ніша</span><span><b>2</b>Місто</span><span><b>3</b>Послуга</span></span>
+      <span class="qc-btn"><span>Пройти за 30 секунд</span><span class="ar"><svg><use href="#i-arr"/></svg></span></span>
+      <span class="qc-n"><span><i>✓</i>безкоштовно</span><span><i>✓</i>найнижчі ціни в Україні</span></span>
     </button>
 
     <!-- 28.10: опитування прямо на першому екрані (у браузері TikTok посилання на Telegram часто не відкривається) -->
@@ -1684,12 +1709,12 @@ body .mbar .btn,body .mbar .btn.btn-go{background:var(--grad)!important;border:1
       <p class="m-hide">Усе, що роблять великі агенції, — за ціною нижчою, ніж у будь-кого. Разова оплата, без абонплати. Точну суму під ваш бізнес надішлемо за 15 хвилин.</p>
     </div>
     <div class="pl-grid pr-list">
-      <div class="pr rv"><i><svg class="ic"><use href="#ic-globe"/></svg></i><b>Сайт під ключ<em>від <span class="cu">$</span>{{p.site}}</em></b><span>Дизайн і тексти під нішу, кнопки дзвінка, Telegram, Viber, форма заявки. За 3 дні.</span></div>
-      <div class="pr rv" style="--d:.05s"><i><svg class="ic"><use href="#ic-chart"/></svg></i><b>Реклама Google<em>від <span class="cu">$</span>{{p.google}}</em></b><span>Показ тим, хто вже шукає вашу послугу у вашому місті.</span></div>
-      <div class="pr rv" style="--d:.1s"><i><svg class="ic"><use href="#ic-mobile"/></svg></i><b>Facebook + Instagram<em>від <span class="cu">$</span>{{p.meta}}</em></b><span>З вашими відео або з нашими креативами — ціна та сама.</span></div>
-      <div class="pr rv" style="--d:.15s"><i><svg class="ic"><use href="#ic-film"/></svg></i><b>TikTok<em>від <span class="cu">$</span>{{p.tiktok}}</em></b><span>Так само знайшли нас і ви. З вашими відео або з нашими.</span></div>
-      <div class="pr rv" style="--d:.2s"><i><svg class="ic"><use href="#ic-bot"/></svg></i><b>Telegram-бот<em>від <span class="cu">$</span>{{p.bot}}</em></b><span>Відповідає клієнтам 24/7, бере номер, нагадує — як наш.</span></div>
-      <div class="pr rv" style="--d:.25s"><i><svg class="ic"><use href="#ic-pin"/></svg></i><b>Google Карти<em>від <span class="cu">$</span>{{p.maps}}</em></b><span>Профіль компанії: адреса, фото, години, кнопка «Подзвонити».</span></div>
+      <div class="pr rv"><i><svg class="ic"><use href="#ic-globe"/></svg></i><b>Сайт під ключ<em>✓</em></b><span>Дизайн і тексти під нішу, кнопки дзвінка, Telegram, Viber, форма заявки. За 3 дні.</span></div>
+      <div class="pr rv" style="--d:.05s"><i><svg class="ic"><use href="#ic-chart"/></svg></i><b>Реклама Google<em>✓</em></b><span>Показ тим, хто вже шукає вашу послугу у вашому місті.</span></div>
+      <div class="pr rv" style="--d:.1s"><i><svg class="ic"><use href="#ic-mobile"/></svg></i><b>Facebook + Instagram<em>✓</em></b><span>З вашими відео або з нашими креативами — ціна та сама.</span></div>
+      <div class="pr rv" style="--d:.15s"><i><svg class="ic"><use href="#ic-film"/></svg></i><b>TikTok<em>✓</em></b><span>Так само знайшли нас і ви. З вашими відео або з нашими.</span></div>
+      <div class="pr rv" style="--d:.2s"><i><svg class="ic"><use href="#ic-bot"/></svg></i><b>Telegram-бот<em>✓</em></b><span>Відповідає клієнтам 24/7, бере номер, нагадує — як наш.</span></div>
+      <div class="pr rv" style="--d:.25s"><i><svg class="ic"><use href="#ic-pin"/></svg></i><b>Google Карти<em>✓</em></b><span>Профіль компанії: адреса, фото, години, кнопка «Подзвонити».</span></div>
     </div>
     <div class="pr-deal rv">
       <div><b>3 послуги разом — знижка</b><span>чим більше берете, тим вигідніше кожна</span></div>
@@ -1969,6 +1994,7 @@ body .mbar .btn,body .mbar .btn.btn-go{background:var(--grad)!important;border:1
     <a class="cw-opt tg" href="#" data-c="tg-link" target="_blank" rel="noopener"><i><svg><use href="#i-tg"/></svg></i><span>Telegram</span></a>
     <a class="cw-opt vb" href="#" data-c="vb-link" hidden><i><svg class="ic"><use href="#ic-viber"/></svg></i><span>Viber</span></a>
     <a class="cw-opt wa" href="#" data-c="wa-link" target="_blank" rel="noopener"><i><svg class="wa"><use href="#ic-wa"/></svg></i><span>WhatsApp</span></a>
+    <a class="cw-opt ld" href="#hq" data-goq><i><svg><use href="#i-phone"/></svg></i><span>Залишити заявку</span></a>
   </div>
   <button class="cw-main" id="cwMain" type="button" aria-label="Зв'язатися з нами" aria-expanded="false" aria-controls="cwStack">
     <span class="cw-hint" id="cwHint" hidden>Питання? Ми онлайн 💬</span>
@@ -2085,7 +2111,7 @@ var CONTACTS={
     hdr.classList.toggle('sc',y>20);var ly=onScroll.ly||0,open=document.getElementById('mnav').classList.contains('on');var qa=window.__qActive&&window.__qActive();if(y<=140||open||innerWidth>=900){hdr.classList.remove('hide');onScroll.up=0}else if(qa){hdr.classList.add('hide');onScroll.up=0}else if(y>ly){hdr.classList.add('hide');onScroll.up=0}else{onScroll.up=(onScroll.up||0)+(ly-y);if(onScroll.up>=40)hdr.classList.remove('hide')}onScroll.ly=y;
     prog.style.transform='scaleX('+(max>0?y/max:0)+')';
     mbar.classList.toggle('on',!qa&&y>hero.offsetHeight*.7&&fin.getBoundingClientRect().top>innerHeight*.6);
-    var cwEl=document.getElementById('cw');if(cwEl)cwEl.classList.toggle('mhide',innerWidth<900&&(qa||y<hero.offsetHeight*.55));
+    var cwEl=document.getElementById('cw');if(cwEl)cwEl.classList.toggle('mhide',innerWidth<900&&(qa||(function(){var c=document.getElementById('hqopen');var r=c&&c.offsetParent?c.getBoundingClientRect():{bottom:-1,top:-1};if(r.bottom>innerHeight-84&&r.top<innerHeight)return true;var z=document.getElementById('hq');if(z&&z.offsetParent){var zr=z.getBoundingClientRect();if(zr.bottom>innerHeight-84&&zr.top<innerHeight)return true}var t=document.querySelector('#hero .hq-trust');if(!t)return false;var q=t.getBoundingClientRect();return q.bottom>innerHeight-84&&q.top<innerHeight&&q.right>innerWidth-84})()));
   }
   addEventListener('scroll',onScroll,{passive:true});onScroll();
   /* Віджет зв'язку (04.11.2026): кнопка з гарнітурою → Telegram / WhatsApp (/ Viber) */

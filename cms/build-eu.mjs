@@ -5,10 +5,10 @@ const require = createRequire(import.meta.url); const CMS = require('./render.js
 const dir = fileURLToPath(new URL('./', import.meta.url));
 const c = JSON.parse(fs.readFileSync(dir + 'content.json', 'utf8'));
 c.texts.h1b = 'для бізнесу в ЄС';
-c.seo.title = 'Сайт і реклама для українського бізнесу в Європі — від €300 | ADSO';
-c.seo.description = 'Для українських підприємців у Польщі, Німеччині, Чехії та всій Європі: сайт під ключ від €300, інтернет-магазин від €500, реклама Google, TikTok, Instagram і Telegram-бот. Запуск за 3 дні.';
+c.seo.title = 'Сайт і реклама для українського бізнесу в Європі | ADSO';
+c.seo.description = 'Для українських підприємців у Польщі, Німеччині, Чехії та всій Європі: сайт під ключ, інтернет-магазин, реклама Google, TikTok, Instagram і Telegram-бот. Запуск за 3 дні. Розрахунок під ваш бізнес — за 30 секунд.';
 c.seo.og_title = 'Сайт і реклама для українського бізнесу в Європі | ADSO';
-c.seo.og_desc = 'Сайт від €300, інтернет-магазин від €500, реклама і бот — запуск за 3 дні. Для українських підприємців у Європі.';
+c.seo.og_desc = 'Сайт, реклама і Telegram-бот — запуск за 3 дні. Дізнайтесь ціну під ваш бізнес за 30 секунд. Для українських підприємців у Європі.';
 const fx = a => a.replace('Наші ціни — найнижчі в Україні серед студій такої якості', 'Наші ціни нижчі, ніж у європейських агенціях такої якості').replace('від 5 000 ₴ на місяць', 'від 150 € на місяць').replace('від 3 000 ₴ на місяць', 'від 100 € на місяць');
 c.faq = c.faq.map(f => ({ q: f.q, a: fx(f.a) }));
 c.faq = c.faq.filter(f => !/бонус від Google/i.test(f.q)).map(f => /моєму місті/.test(f.q)
@@ -45,7 +45,7 @@ const R = [
   ['data-v="Харків">Харків</button><button type="button" data-i="5" data-v="Вся Україна">Вся Україна</button>', 'data-v="Італія / Іспанія">Італія / Іспанія</button><button type="button" data-i="5" data-v="Інша країна ЄС">Інша країна ЄС</button>'],
   ['<svg class="ic"><use href="#ic-pin"/></svg> Інше місто</button>', '<svg class="ic"><use href="#ic-pin"/></svg> Вкажу місто</button>'],
   ['У якому місті працюєте?</p>', 'У якій країні працюєте?</p>'],
-  ['<div class="stat"><b>до 90 000 ₴</b><span>бонус від Google<sup>*</sup></span></div>', '<div class="stat"><b>від €300</b><span>сайт під ключ · магазин від €500</span></div>'],
+  ['<div class="stat"><b>до 90 000 ₴</b><span>бонус від Google<sup>*</sup></span></div>', '<div class="stat"><b>24/7</b><span>Telegram-бот відповідає клієнтам</span></div>'],
   [/<div class="bonus-big rv">[\s\S]*?<div class="pay-notes">/, '<div class="pay-notes">'],
   ['90,67% пошуку в Україні — Google<sup>1</sup>', 'Google — пошук №1 у Європі'],
   ['евакуатор київ', 'евакуатор варшава', 0],
@@ -79,7 +79,8 @@ const R = [
   ["s.style.setProperty('--i',n++);s.textContent=w;", "s.style.setProperty('--i',n++);if(w==='ЄС')s.innerHTML=" + JSON.stringify(BADGE) + ";else s.textContent=w;"],
   ['орієнтовно $4–5/міс', 'орієнтовно €4–5/міс'],
   ["currency:'USD'", "currency:'EUR'", 2],
-  ['<span class="cu">$</span>', '<span class="cu">€</span>'], // 05.11: ціни на першому екрані й у списку послуг — у євро
+  ['<i>✓</i>найнижчі ціни в Україні', '<i>✓</i>ціни нижчі, ніж у Європі'], // 05.11 (3): без цін на сторінці — лише обіцянка
+  ['<b>2</b>Місто</span>', '<b>2</b>Країна</span>'],
 ];
 for (const [a, b, n] of R) {
   const cnt = typeof a === 'string' ? out.split(a).length - 1 : (out.match(new RegExp(a.source, 'g')) || []).length;
